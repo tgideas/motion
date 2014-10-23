@@ -190,6 +190,7 @@
     .nav-link{
         width:38px;
         height:38px;
+        line-height:38px;
     }
 	.ac-wrapper h2 { 
 		left: 308px; 
