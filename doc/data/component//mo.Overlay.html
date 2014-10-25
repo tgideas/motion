@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-    <title>Class: Dialog-移动端组件库-TGideas</title>
+    <title>Class: Overlay-移动端组件库-TGideas</title>
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
@@ -34,7 +34,7 @@
 
         
         
-            <h1 class="page-title">Class: Dialog</h1>
+            <h1 class="page-title">Class: Overlay</h1>
         
         
         <script src="http://ossweb-img.qq.com/images/js/jquery/jquery-1.8.0.min.js"></script>
@@ -93,7 +93,7 @@ function SetWinHeight(obj) {
     <h2>
         <span class="ancestors"><a href="mo_.html">mo</a>.</span>
     
-    Dialog
+    Overlay
     </h2>
     
 </header>  
@@ -105,7 +105,7 @@ function SetWinHeight(obj) {
     
         
 <dt>
-    <h4 class="name" id="Dialog"><span class="type-signature"></span>new Dialog<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Overlay"><span class="type-signature"></span>new Overlay<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -113,7 +113,7 @@ function SetWinHeight(obj) {
     
     
     <div class="description">
-        <p>对话框</p>
+        <p>基础浮层</p>
     </div>
     
 
@@ -154,7 +154,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/dialog/dialog.js">dialog.js</a>, line 1</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/../src/main/overlay/overlay.js">overlay.js</a>, line 1</li></ul>
 
 
 
@@ -169,11 +169,11 @@ function SetWinHeight(obj) {
 	<dt class="tag-see">See:</dt>
 	<dd class="tag-see">
         <ul>
-            <li>dialog/demo1.html 普通弹窗</li>
+            <li>overlay/demo1.html 普通浮层</li>
         
-            <li>dialog/demo2.html 自定义类型弹窗-警告</li>
+            <li>overlay/demo2.html 自定义效果</li>
         
-            <li>dialog/demo3.html 自定义类型弹窗-失败</li>
+            <li>overlay/demo3.html 自定义位置</li>
         </ul>
 	</dd>
 	 -->
@@ -191,7 +191,7 @@ function SetWinHeight(obj) {
     
         <h5>Example</h5>
         
-    <pre class="prettyprint"><code>		var dialog1 = new mo.Dialog('数据提交成功！');</code></pre>
+    <pre class="prettyprint"><code>		var overlay1 = new mo.Overlay('数据提交成功！');</code></pre>
 
     
 </dd>
@@ -203,7 +203,7 @@ function SetWinHeight(obj) {
         <h3 class="subsection-title">继承：</h3>
         
         <ul>
-            <li><a href="mo.Overlay.html">mo.Overlay</a></li>
+            <li><a href="mo.Base.html">mo.Base</a></li>
         </ul>
     
     
@@ -383,7 +383,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>设置dialog打开位置</p></td>
+            <td class="description last"><p>设置overlay打开位置</p></td>
         </tr>
 	
 	
@@ -605,7 +605,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>dialog内容</p></td>
+            <td class="description last"><p>overlay内容</p></td>
         </tr>
 	
 	
@@ -645,7 +645,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>dialog宽度</p></td>
+            <td class="description last"><p>overlay宽度</p></td>
         </tr>
 	
 	
@@ -692,43 +692,6 @@ function SetWinHeight(obj) {
 	
         <tr>
             
-                <td class="name"><code>config.type</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    'alert'
-                
-                </td>
-            
-            
-            <td class="description last"><p>dialog类型，[alert, success, error, none可选]</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
                 <td class="name"><code>config.tpl</code></td>
             
             
@@ -754,7 +717,7 @@ function SetWinHeight(obj) {
             
                 <td class="default">
                 
-                    ''
+                    '$_private.tpl.base'
                 
                 </td>
             
@@ -790,11 +753,6 @@ function SetWinHeight(obj) {
 	
 
 	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#dom
-	</li></dd>
-	
 	
 	
 	
@@ -808,7 +766,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 190</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/../src/main/overlay/overlay.js">overlay.js</a>, line 190</li></ul>
 
 
 
@@ -860,11 +818,6 @@ function SetWinHeight(obj) {
 	
 
 	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#close
-	</li></dd>
-	
 	
 	
 	
@@ -878,7 +831,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 448</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/../src/main/overlay/overlay.js">overlay.js</a>, line 448</li></ul>
 
 
 
@@ -935,7 +888,7 @@ function SetWinHeight(obj) {
 	
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#constructor
+		mo.Base#constructor
 	</li></dd>
 	
 	
@@ -951,7 +904,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 42</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/../src/main/base/base.js">base.js</a>, line 42</li></ul>
 
 
 
@@ -1008,7 +961,7 @@ function SetWinHeight(obj) {
 	
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#on
+		mo.Base#on
 	</li></dd>
 	
 	
@@ -1024,7 +977,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 52</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/../src/main/base/base.js">base.js</a>, line 52</li></ul>
 
 
 
@@ -1079,11 +1032,6 @@ function SetWinHeight(obj) {
 	
 
 	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#open
-	</li></dd>
-	
 	
 	
 	
@@ -1097,7 +1045,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 409</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/../src/main/overlay/overlay.js">overlay.js</a>, line 409</li></ul>
 
 
 
@@ -1154,7 +1102,7 @@ function SetWinHeight(obj) {
 	
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#trigger
+		mo.Base#trigger
 	</li></dd>
 	
 	
@@ -1170,7 +1118,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 61</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/../src/main/base/base.js">base.js</a>, line 61</li></ul>
 
 
 
@@ -1274,11 +1222,6 @@ function SetWinHeight(obj) {
 	
 
 	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#beforeclose:初始化完成
-	</li></dd>
-	
 	
 	
 	
@@ -1292,7 +1235,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 452</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/../src/main/overlay/overlay.js">overlay.js</a>, line 452</li></ul>
 
 
 
@@ -1393,11 +1336,6 @@ function SetWinHeight(obj) {
 	
 
 	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#beforeopen:初始化完成
-	</li></dd>
-	
 	
 	
 	
@@ -1411,7 +1349,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 417</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/../src/main/overlay/overlay.js">overlay.js</a>, line 417</li></ul>
 
 
 
@@ -1512,11 +1450,6 @@ function SetWinHeight(obj) {
 	
 
 	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#close:关闭窗口时
-	</li></dd>
-	
 	
 	
 	
@@ -1530,7 +1463,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 465</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/../src/main/overlay/overlay.js">overlay.js</a>, line 465</li></ul>
 
 
 
@@ -1631,11 +1564,6 @@ function SetWinHeight(obj) {
 	
 
 	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#event:init
-	</li></dd>
-	
 	
 	
 	
@@ -1649,7 +1577,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 158</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/../src/main/overlay/overlay.js">overlay.js</a>, line 158</li></ul>
 
 
 
@@ -1750,11 +1678,6 @@ function SetWinHeight(obj) {
 	
 
 	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#open:关闭窗口时
-	</li></dd>
-	
 	
 	
 	
@@ -1768,7 +1691,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 428</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/../src/main/overlay/overlay.js">overlay.js</a>, line 428</li></ul>
 
 
 
@@ -1802,25 +1725,25 @@ function SetWinHeight(obj) {
     
         
             
-        <h3 class="subsection-title">普通弹窗（<a target="_blank" href="../../../component/demo/dialog/demo1.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <h3 class="subsection-title">普通浮层（<a target="_blank" href="../../../component/demo/overlay/demo1.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
-            <iframe src="../../../component/demo/dialog/demo1.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <iframe src="../../../component/demo/overlay/demo1.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
             <div class="code prettyprint"><code></code></div>
         </div>
             
         
             
-        <h3 class="subsection-title">自定义类型弹窗-警告（<a target="_blank" href="../../../component/demo/dialog/demo2.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <h3 class="subsection-title">自定义效果（<a target="_blank" href="../../../component/demo/overlay/demo2.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
-            <iframe src="../../../component/demo/dialog/demo2.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <iframe src="../../../component/demo/overlay/demo2.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
             <div class="code prettyprint"><code></code></div>
         </div>
             
         
             
-        <h3 class="subsection-title">自定义类型弹窗-失败（<a target="_blank" href="../../../component/demo/dialog/demo3.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <h3 class="subsection-title">自定义位置（<a target="_blank" href="../../../component/demo/overlay/demo3.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
-            <iframe src="../../../component/demo/dialog/demo3.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <iframe src="../../../component/demo/overlay/demo3.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
             <div class="code prettyprint"><code></code></div>
         </div>
             
