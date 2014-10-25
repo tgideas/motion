@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<title>Action 普通ActionSheet</title>
+<title>Dialog-自定义类型弹窗-警告</title>
 
 <style>
 /* reset */
@@ -21,7 +21,7 @@ button{margin-left: 30px;background-color: #666;color: #fff;border-radius: 5px;p
 
 <body>
 	<script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
-	<script src="http://digg.tgideas.qq.com/combine.php?u=action"></script>
+	<script src="http://digg.tgideas.qq.com/combine.php?u=dialog"></script>
 	<div class="content">
 		<p>内容 <button>打开浮层</button></p>
 		<p>内容</p>
@@ -36,7 +36,10 @@ button{margin-left: 30px;background-color: #666;color: #fff;border-radius: 5px;p
 		
 		$(function(){
 			$('button').on('touchend', function(){
-				window.dia1 = new mo.Action('你确定要这样做吗？');	
+				window.dia1 = new mo.Dialog({
+					content: '你确定要这样做吗？',
+					type: 'alert'
+				});	
 			})
 
 		});
