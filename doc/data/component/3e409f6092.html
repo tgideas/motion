@@ -1,0 +1,1196 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Class: /**-移动端组件库-TGideas</title>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../../css/global.css"/>
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+    <section class="sidebar">
+        <h1 class="logo">移动端组件库</h1>
+        <nav>
+            <ul>
+                <li ><a href="#">模板</a></li>
+                <li><a href="#">模块</a></li>
+                <li class="current"><a href="#">组件</a></li>
+            </ul>
+        </nav>
+    </section>
+    <div id="main" class="main">
+        
+        <h1 class="page-title">Class: /**</h1>
+        
+        
+
+
+
+<section>
+    
+<header>
+    <h2>
+    /**
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <h4 class="name" id="/**"><span class="type-signature"></span>new /**<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        切换类
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.target</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">目标选项卡片，即供切换的 Elements list (Elements.length >= 2)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.controller</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    'ul>li*'
+                
+                </td>
+            
+            
+            <td class="description last">触发器</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.width</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    '目标宽度'
+                
+                </td>
+            
+            
+            <td class="description last">目标未被渲染时手动设定，限定目标宽度(默认读取目标宽度)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.height</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    '目标高度'
+                
+                </td>
+            
+            
+            <td class="description last">目标未被渲染时手动设定，限定目标高度(默认读取目标高度)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.effect</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    'base'
+                
+                </td>
+            
+            
+            <td class="description last">'base': 简单切换， 'fade': 透明度切换， 'slide': 滑动切换</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.direction</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    'x'
+                
+                </td>
+            
+            
+            <td class="description last">指定方向，仅效果为'slide'时有效</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.autoPlay</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">是否自动播放</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.playTo</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">默认播放第几个（索引值计数，即0开始的计数方式）</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.merge</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">是否首尾相连，即播放到临界值时的行为方式</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.type</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    'mouseover'
+                
+                </td>
+            
+            
+            <td class="description last">事件触发类型</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.currentClass</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    'current'
+                
+                </td>
+            
+            
+            <td class="description last">当前样式名称, 多tab嵌套时有指定需求</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.link</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">tab controller中的链接是否可被点击</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.stay</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    2000
+                
+                </td>
+            
+            
+            <td class="description last">自动播放时停留时间</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.delay</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    150
+                
+                </td>
+            
+            
+            <td class="description last">mouseover触发延迟时间</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.prevBtn</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">播放前一张，调用prev()</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.nextBtn</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">插放后一张，调用next()</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.easing</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    'swing'
+                
+                </td>
+            
+            
+            <td class="description last">动画方式：默认可选(可加载Zepto.easying.js扩充)：'swing', 'linear'</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object{string:function}</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">初始化绑定的事件</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.title</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object{'dataSrc':Element, 'dataProp':String, 'dataWrap':Element, 'delay': Number}</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">初始化绑定的事件</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.lazy</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">是否启用按需加载</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.progressBar</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">是否显示当前进度</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	<dt class="tag-version">Version:</dt>
+	<dd class="tag-version"><ul class="dummy"><li>1.0</li></ul></dd>
+	
+	
+	
+
+	
+	
+	
+	
+	
+	<dt class="tag-author">Author:</dt>
+	<dd class="tag-author">
+        <ul>
+            <li>Brucewan</li>
+        </ul>
+	</dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>tab.js, line 1</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>		var tab1 = new tg.Tab({<br>			target: $('#slide01 li')<br>		});</code></pre>
+
+    
+</dd>
+
+    
+    </div>
+    
+    
+        <h3 class="subsection-title">继承：</h3>
+        
+        <ul>
+            <li><a href="tg.Base.html">tg.Base</a></li>
+        </ul>
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">依赖：</h3>
+        
+        <ul>
+            <li>module:lib/zepto.js</li>
+        
+            <li>module:src/base.js</li>
+        </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">方法：</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="constructor"><span class="type-signature"></span>constructor<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        构造函数
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">Inherited From:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		<a href="tg.Base_.html#constructor">tg.Base#constructor</a>
+	</li></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>base.js, line 39</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="on"><span class="type-signature"></span>on<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        绑定事件
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">Inherited From:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		<a href="tg.Base__.html#on">tg.Base#on</a>
+	</li></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>base.js, line 49</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="trigger"><span class="type-signature"></span>trigger<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        触发事件
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">Inherited From:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		<a href="tg.Base___.html#trigger">tg.Base#trigger</a>
+	</li></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>base.js, line 58</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+    </div>
+
+    <nav class="sub-nav">
+        <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="3e409f6092.html">/**</a></li><li><a href="tg.Base.html">Base</a></li></ul><h3>Namespaces</h3><ul><li><a href="tg_.html">tg</a></li></ul>
+    </nav>
+
+    <br clear="both">
+
+
+
+    <script> prettyPrint(); </script>
+
+</body>
+</html>

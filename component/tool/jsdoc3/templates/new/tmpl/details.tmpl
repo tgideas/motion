@@ -1,0 +1,108 @@
+<?js
+var data = obj;
+var self = this;
+var defaultObjectClass = '';
+
+// Check if the default value is an object, if so, apply code highlighting
+if (data.defaultvalue && data.defaultvaluetype === 'object') {
+    data.defaultvalue = "<pre class=\"prettyprint\"><code>" + data.defaultvalue + "</code></pre>";
+    defaultObjectClass = ' class="object-value"';
+}
+?>
+<div class="details">
+    <?js
+        var properties = data.properties;
+        if (properties && properties.length && properties.forEach) {
+    ?>
+
+	<h5>Properties:</h5>
+	<?js= this.partial('properties.tmpl', properties) ?>
+
+    <?js } ?>
+
+    <?js if (data.version) {?>
+    <h5 class="tag-version">Version:</h5>
+    <div class="tag-version">
+		<ul class="common"><li><?js= version ?></li></ul>
+	</div>
+    <?js } ?>
+
+    <?js if (data.since) {?>
+    <h5 class="tag-since">Since:</h5>
+    <div class="tag-since"><ul class="common"><li><?js= since ?></li></ul></div>
+    <?js } ?>
+
+    <?js if (data.inherited && data.inherits) { ?>
+    <h5 class="inherited-from">Inherited From:</h5>
+    <div class="inherited-from"><ul class="common"><li>
+        <?js= this.linkto(data.inherits, this.htmlsafe(data.inherits)) ?>
+    </li></div>
+    <?js } ?>
+
+    <?js if (data.deprecated) { ?>
+        <h5 class="important tag-deprecated">Deprecated:</h5><?js
+            if (data.deprecated === true) { ?><div class="yes-def tag-deprecated"><ul class="common"><li>Yes</li></ul></dd><?js }
+            else { ?><dd><ul class="common"><li><?js= data.deprecated ?></li><ul></div><?js }
+        ?>
+    <?js } ?>
+
+    <?js if (data.author && author.length) {?>
+    <h5 class="tag-author">Author:</h5>
+    <div class="tag-author">
+        <ul class="common"><?js author.forEach(function(a) { ?>
+            <li><?js= self.resolveAuthorLinks(a) ?></li>
+        <?js }); ?></ul>
+    </div>
+    <?js } ?>
+
+    <?js if (data.copyright) {?>
+    <h5 class="tag-copyright">Copyright:</h5>
+    <div class="tag-copyright"><ul class="common"><li><?js= copyright ?></li></ul></div>
+    <?js } ?>
+
+    <?js if (data.license) {?>
+    <h5 class="tag-license">License:</h5>
+    <div class="tag-license"><ul class="common"><li><?js= license ?></li></ul></div>
+    <?js } ?>
+
+    <?js if (data.defaultvalue) {?>
+    <h5 class="tag-default">Default Value:</h5>
+    <div class="tag-default"><ul class="common">
+            <li<?js= defaultObjectClass ?>><?js= data.defaultvalue ?></li>
+        </ul></div>
+    <?js } ?>
+
+    <?js if (data.meta && self.outputSourceFiles) {?>
+    <h5 class="tag-source">Source:</h5>
+    <div class="tag-source"><ul class="common"><li>
+        <?js= self.linkto(meta.shortpath) ?>, <?js= self.linkto(meta.shortpath, 'line ' + meta.lineno, null, 'line' + meta.lineno) ?>
+    </li></ul></div>
+    <?js } ?>
+
+    <?js if (data.tutorials && tutorials.length) {?>
+    <h5 class="tag-tutorial">Tutorials:</h5>
+    <div class="tag-tutorial">
+        <ul class="common"><?js tutorials.forEach(function(t) { ?>
+            <li><?js= self.tutoriallink(t) ?></li>
+        <?js }); ?></ul>
+    </div>
+    <?js } ?>
+
+    <?js if (data.see && see.length) {?>
+    <h5 class="tag-see">See:</h5>
+    <div class="tag-see">
+        <ul class="common"><?js see.forEach(function(s) { ?>
+            <li><?js= self.linkto(s) ?></li>
+        <?js }); ?></ul>
+    </div>
+    <?js } ?>
+
+    <?js if (data.todo && todo.length) {?>
+    <h5 class="tag-todo">To Do:</h5>
+    <div class="tag-todo">
+        <ul class="common"><?js todo.forEach(function(t) { ?>
+            <li><?js= t ?></li>
+        <?js }); ?></ul>
+    </div>
+    <?js } ?>
+</div>

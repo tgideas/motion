@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title><?js= title ?>-移动端组件库-TGideas</title>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../../css/global.css"/>
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+    <script>
+    if(!/webkit/i.test(navigator.userAgent)){
+       alert('请使用webkit内核浏览器打开体验，谢谢！');
+    }
+    </script>
+    <section class="sidebar">
+        <h1 class="logo">移动端组件库</h1>
+        <nav>
+            <ul>
+                <li ><a href="javascript:alert('暂未上线');void(0)">模板</a></li>
+                <li><a href="javascript:alert('暂未上线');void(0)">模块</a></li>
+                <li class="current"><a href="#">组件</a></li>
+            </ul>
+        </nav>
+    </section>
+    <div id="main" class="main">
+        <div class="tips" style="border:1px solid #ddd;background:#ffd;padding:10px;"><span style="color:red">Tips:</span> 请启用Emulation &gt; Sensors &gt; Emulate touch screen 体验demo</div>
+        
+
+        
+        <?js if (title && title.toLowerCase() != 'index') { ?>
+            <h1 class="page-title"><?js= title ?></h1>
+        <?js }  ?>
+        
+        <?js= content ?>
+    </div>
+
+    <nav class="sub-nav">
+        <?js= this.nav ?>
+    </nav>
+
+    <br clear="both">
+
+
+
+    <script> prettyPrint(); </script>
+
+</body>
+</html>

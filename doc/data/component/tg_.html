@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Namespace: tg-移动端组件库-TGideas</title>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../../css/global.css"/>
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+    <section class="sidebar">
+        <h1 class="logo">移动端组件库</h1>
+        <nav>
+            <ul>
+                <li ><a href="#">模板</a></li>
+                <li><a href="#">模块</a></li>
+                <li class="current"><a href="#">组件</a></li>
+            </ul>
+        </nav>
+    </section>
+    <div id="main" class="main">
+        
+        <h1 class="page-title">Namespace: tg</h1>
+        
+        
+
+
+
+<section>
+    
+<header>
+    <h2>
+    tg
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+            <div class="description">tg</div>
+        
+        
+        
+<dl class="details">
+    
+        
+	
+	<dt class="tag-version">Version:</dt>
+	<dd class="tag-version"><ul class="dummy"><li>1.0</li></ul></dd>
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/base/base.js">base.js</a>, line 1</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+        
+        
+    
+    </div>
+
+     
+    
+    
+    
+       
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+    
+
+    <ul class="tab-trigger" >
+        
+    
+        <li><h3 class="subsection-title">属性</h3></li>
+    
+    
+    
+    </ul>
+
+    <u class="tab-target">
+        
+      
+        <li><dl>
+            
+<dt>
+    <h4 class="name" id="version"><span class="type-signature">&lt;static> </span>version<span class="type-signature"> :string</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        tg版本号
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/core/tg.js">tg.js</a>, line 15</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        </dl></li>
+     
+    
+    
+    </u>
+
+    
+    
+    
+
+
+<div id="output"></div>
+<script src="http://ossweb-img.qq.com/images/js/jquery/jquery-1.8.0.min.js"></script>
+<script src="http://ossweb-img.qq.com/images/js/jquery/jquery.qrcode.min.js"></script>
+<script>
+function SetWinHeight(obj) { 
+    var win=obj; 
+    var body;
+    if (document.getElementById)  { 
+        if (win && !window.opera)  { 
+            if (win.contentDocument && win.contentDocument.body.offsetHeight) {
+                win.height = win.contentDocument.body.offsetHeight; 
+                body = win.contentDocument.body;
+            } else if(win.Document && win.Document.body.scrollHeight) {
+                win.height = win.Document.body.scrollHeight; 
+                body = win.Document.body;
+            }
+        } 
+    } 
+    $(obj).next().height(win.height).find('code').text(body.innerHTML);
+} 
+
+</script>
+
+</article>
+
+</section>  
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+    tg
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+            <div class="description">tg核心功能</div>
+        
+        
+        
+<dl class="details">
+    
+        
+	
+	<dt class="tag-version">Version:</dt>
+	<dd class="tag-version"><ul class="dummy"><li>1.0</li></ul></dd>
+	
+	
+	
+
+	
+	
+	
+	
+	
+	<dt class="tag-author">Author:</dt>
+	<dd class="tag-author">
+        <ul>
+            <li>Brucewan</li>
+        </ul>
+	</dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/core/tg.js">tg.js</a>, line 2</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+        
+        
+    
+    </div>
+
+     
+    
+    
+    
+       
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+    
+
+    <ul class="tab-trigger" >
+        
+    
+        <li><h3 class="subsection-title">属性</h3></li>
+    
+    
+    
+    </ul>
+
+    <u class="tab-target">
+        
+      
+        <li><dl>
+            
+<dt>
+    <h4 class="name" id="version"><span class="type-signature">&lt;static> </span>version<span class="type-signature"> :string</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        tg版本号
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/core/tg.js">tg.js</a>, line 15</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        </dl></li>
+     
+    
+    
+    </u>
+
+    
+    
+    
+
+
+<div id="output"></div>
+<script src="http://ossweb-img.qq.com/images/js/jquery/jquery-1.8.0.min.js"></script>
+<script src="http://ossweb-img.qq.com/images/js/jquery/jquery.qrcode.min.js"></script>
+<script>
+function SetWinHeight(obj) { 
+    var win=obj; 
+    var body;
+    if (document.getElementById)  { 
+        if (win && !window.opera)  { 
+            if (win.contentDocument && win.contentDocument.body.offsetHeight) {
+                win.height = win.contentDocument.body.offsetHeight; 
+                body = win.contentDocument.body;
+            } else if(win.Document && win.Document.body.scrollHeight) {
+                win.height = win.Document.body.scrollHeight; 
+                body = win.Document.body;
+            }
+        } 
+    } 
+    $(obj).next().height(win.height).find('code').text(body.innerHTML);
+} 
+
+</script>
+
+</article>
+
+</section>  
+
+
+
+
+<script>
+(function(){
+    var Tab = function(target, trigger){
+        var self = this;
+        this.target = target;
+        this.trigger = trigger;
+        this.playTo(0);
+        for(var i = 0; i < trigger.length; i ++) {
+            (function(i){
+                trigger[i].onclick = function(){
+                    self.playTo(i);
+                }
+            })(i);
+        }
+    };
+
+    Tab.prototype.playTo = function(n){
+        for(var i = 0; i < this.target.length; i++) {
+            this.target[i].style.display = 'none';
+            this.trigger[i].className = '';
+        }
+        this.target[n].style.display = 'block';
+        this.trigger[n].className = 'current';
+    }
+    new Tab(
+        document.querySelectorAll('.tab-target > li'), 
+        document.querySelectorAll('.tab-trigger > li')
+    );
+
+    $('#output').on('click', function(){
+        $(this).empty().hide();
+    });
+
+    $('')
+
+})()
+
+</script>
+
+
+    </div>
+
+    <nav class="sub-nav">
+        <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="tg.Base.html">Base</a></li><li><a href="tg.Slide.html">Slide</a></li><li><a href="tg.Tab.html">Tab</a></li></ul><h3>Namespaces</h3><ul><li><a href="tg_.html">tg</a></li></ul>
+    </nav>
+
+    <br clear="both">
+
+
+
+    <script> prettyPrint(); </script>
+
+</body>
+</html>

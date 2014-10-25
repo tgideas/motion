@@ -1,0 +1,479 @@
+/**
+ * @author Brucewan
+ * @version 1.0
+ * @date 2014-06-18
+ * @description 切换类中
+ * @extends mo.Base
+ * @name mo.Tab
+ * @requires lib/zepto.js
+ * @requires src/base.js
+ * @param {object|string} config.target 目标选项卡片，即供切换的 Elements list (Elements.length >= 2)
+ * @param {object|string} [config.controller='ul>li*'] 触发器
+ * @param {string} [config.direction='x'] 指定方向，仅效果为'slide'时有效
+ * @param {boolean}  [config.autoPlay=false] 是否自动播放 
+ * @param {number}  [config.playTo=0] 默认播放第几个（索引值计数，即0开始的计数方式） 
+ * @param {string}  [config.type='touchend'] 事件触发类型
+ * @param {string}  [config.currentClass='current'] 当前样式名称, 多tab嵌套时有指定需求
+ * @param {boolean}  [config.link=false] tab controller中的链接是否可被点击
+ * @param {number}  [config.stay=2000] 自动播放时停留时间
+ * @param {object|string}  [config.prevBtn] 播放前一张，调用prev()
+ * @param {object|string}  [config.nextBtn] 插放后一张，调用next()
+ * @param {string}  [config.easing='swing'] 动画方式：默认可选(可加载Zepto.easying.js扩充)：'swing', 'linear'
+ * @param {object{string:function}}  [config.event] 初始化绑定的事件
+ * @param {object{'dataSrc':Element, 'dataProp':String, 'dataWrap':Element, 'delay': Number}}  [config.title] 初始化绑定的事件
+ * @param {boolean}  [config.lazy=false] 是否启用按需加载
+ * @example
+		var tab1 = new mo.Tab({
+			target: $('#slide01 li')
+		});
+ * @see tab/demo1.html 普通切换
+ * @see tab/demo2.html 按需加载
+ * @see tab/demo3.html 自定义事件
+ * @class
+*/
+define(function(require, exports, module) {
+	require('../motion/motion.js');
+	require('../base/base.js');
+	Motion.add('mo.Tab:mo.Base', function() {
+		/**
+		 * public 作用域
+		 * @alias mo.Tab#
+		 * @ignore
+		 */
+		var _public = this;
+
+		var _private = {};
+
+		/**
+		 * public static作用域
+		 * @alias mo.Tab.
+		 * @ignore
+		 */
+		var _static = this.constructor;
+
+
+		// 插件默认配置
+		_static.config = {
+			//target // 目标 tab items
+			//controller // tab header(toc?)
+			//width // 限定目标宽度
+			//height // 限定目标高度
+			effect: 'base',
+			direction: 'x',
+			autoPlay: false,
+			playTo: 0, // 播放到第几个 tab
+			type: 'touchend',
+			currentClass: 'current',
+			link: false,
+			stay: 2000,
+			delay: 200,
+			lazy: window.undefined,
+			merge: false,
+			degradation: 'base',
+			animateTime: 300,
+			easing: 'swing',
+			title: {
+				delay: 0
+			},
+			controlDisabed: false,
+			radius: 20,
+			progressBar: false
+		};
+
+		_private.effect = {};
+
+		/***
+		 * 初始化
+		 * @description 参数处理
+		 */
+		_public.init = function(config) {
+			this.config = Zepto.extend(true, {}, _static.config, config); // 参数接收
+
+			var self = this;
+			var config = self.config;
+
+
+			// 必选参数处理
+			var target = Zepto(config.target);
+			if (target <= 1) {
+				return;
+			}
+
+			// 参数处理
+			Zepto.extend(self, /** @lends mo.Tab.prototype*/ {
+				/**
+				 * 目标选项卡片
+				 * @type object
+				 */
+				target: target,
+
+				/**
+				 * 目标选项卡片控制器
+				 * @type object
+				 */
+				controller: null,
+
+				/**
+				 * 上一个选项卡的索引值
+				 * @type number|undefined
+				 */
+				prevPage: window.undefined,
+
+				/**
+				 * 当前播放第几个的索引值
+				 * @type number|undefined
+				 */
+				curPage: window.undefined,
+
+				/**
+				 * 目标选项卡片容器
+				 * @type object
+				 */
+				container: target.parent(), // 包裹容器
+
+				//length: target.length, // 元素数目
+				prevBtn: Zepto(config.prevBtn),
+				nextBtn: Zepto(config.nextBtn),
+
+				/**
+				 * 播放状态
+				 * @type boolean
+				 */
+				isPlaying: config.autoPlay
+			});
+
+
+
+			// 自定义事件绑定
+			self.effect && self.on(self.effect);
+			config.event && self.on(config.event);
+
+
+			/**
+			 * @event mo.Tab#beforeinit
+			 * @property {object} event 开始初始化前
+			 */
+			if (self.trigger('beforeinit') === false) {
+				return;
+			}
+
+			// DOM初始化
+			_private.initDOM.call(self);
+
+			// DOM绑定事件
+			_private.attach.call(self);
+
+			// 延时0s，待init对DOM修改渲染完成后执行
+			window.setTimeout(function() {
+				/**
+				 * @event mo.Tab#init
+				 * @property {object} event 初始化完成
+				 */
+				if (self.trigger('init') === false) {
+					return;
+				}
+
+				// 确保init完毕后执行切换
+				window.setTimeout(function() {
+					// 播放到默认Tab
+					self.playTo(config.playTo);
+					// 自动播放
+					if (config.autoPlay) self.play();
+				}, 0);
+
+			}, 0);
+		};
+
+		// 绑定事件
+		_private.initDOM = function() {
+			var self = this;
+			var config = self.config;
+
+			// 保证 目标层、包裹层、容器层 三层方便控制
+			if (/(:?ul|ol|dl)/i.test(self.container[0].tagName)) {
+				self.wrap = self.container;
+				self.container = self.wrap.parent();
+			} else {
+				config.target.wrapAll('<div class="tab_wrap">'); // 可能带来风险，尽量用用规则保障，不执行到这一步
+				self.wrap = self.target.parent();
+			}
+
+			// 如果有控制controller
+			if (config.controller !== false) {
+				config.control = config.controller || self.wrap.find('.controller');
+				config.controller = Zepto(config.controller);
+				if (config.controller.length < 1 && self.target.length > 1) {
+					var ul = Zepto('<ul class="controller">'),
+						str = '';
+					for (var i = 0; i < self.target.length; i++) {
+						str += '<li><a href="#">' + (i + 1) + '</a></li>';
+					}
+					ul.html(str);
+					self.container.append(ul);
+					config.controller = ul.children();
+				}
+				self.controller = config.controller;
+			}
+
+			// 移除不需要且只含有document.write的script标签，以防后续操作出错
+			var scripts = self.target.find('script');
+			scripts.each(function(i, elem) {
+				elem = Zepto(elem);
+				// 如果script中只执行了document.write，则移出该script标签
+				if (/^\s*document\.write\([^\)]+\)[\s;]*$/.test(elem.html())) {
+					elem.remove();
+				}
+			});
+
+			// 获取标题
+			var titleSrc = config.title.dataSrc || self.target;
+			var titleProp = config.title.dataProp || 'title';
+			var titleWrap = Zepto(config.title.dataWrap);
+			titleSrc = Zepto(titleSrc);
+
+			// 如果标题容器存在 并且 有标题数据
+			if (titleWrap.length > 0 && titleSrc.attr(titleProp)) {
+				self.titleWrap = titleWrap;
+				self.titleData = [];
+				titleSrc.each(function(i, obj) {
+					self.titleData.push(Zepto(obj).attr(titleProp));
+				});
+			}
+
+
+			if (config.progressBar === true) {
+				var progressBar = document.createElement('ul');
+				progressBar.classList.add('progress-bar');
+				for (var i = 0; i < self.length; i++) {
+					var child = document.createElement('li');
+					progressBar.appendChild(child);
+				}
+				self.progressBar = self.wrap.parentNode.appendChild(progressBar).childNodes;
+			}
+
+		};
+
+		// 绑定事件
+		_private.attach = function() {
+			var self = this;
+			var config = self.config;
+
+			if (self.controller) {
+				Zepto.each(self.controller, function(i, elem) {
+					var elem = Zepto(elem);
+					var delayTimer;
+					elem.on(config.type, function() {
+						self.playTo(i);
+					});
+					if (!config.link) {
+						Zepto(elem).on('click', function(e) {
+							e.preventDefault();
+						});
+					}
+
+				})
+			}
+
+			if (self.nextBtn) {
+				Zepto(self.nextBtn).on('click', function(e) {
+					self.next();
+					e.preventDefault();
+				});
+			}
+
+			if (self.prevBtn) {
+				Zepto(self.prevBtn).on('click', function(e) {
+					self.prev();
+					e.preventDefault();
+				});
+			}
+
+			self.wrap.on('touchstart', function() {
+				// 如果没在自动播放
+				if (self.isPlaying) {
+					_private.clearTimer.call(self);
+				}
+			});
+			Zepto('body').on('touchend', function() {
+				// 如果没在自动播放
+				if (self.isPlaying) {
+					_private.setTimer.call(self);
+				}
+
+			})
+
+		};
+
+		/**
+		 * 播放到第几个选项卡
+		 * @param {number} page 第几页（索引值）
+		 */
+		_public.playTo = function(page) {
+			var self = this;
+			var config = self.config;
+			var hasCur = self.curPage !== window.undefined;
+			var prevPage;
+
+
+			self.prevPage = self.curPage;
+
+			prevPage = self.curPage;
+			page = self.curPage = outBound(page);
+
+
+			if (self.controller && page !== prevPage) {
+				var curCtrl = self.controller[page],
+					prevCtrl = self.controller[prevPage];
+				if (curCtrl) {
+					//curCtrl.setAttribute('a', page);
+					Zepto(curCtrl).addClass(self.config.currentClass);
+				}
+				if (prevCtrl) Zepto(prevCtrl).removeClass(self.config.currentClass); //如果正常获取
+			}
+
+			// 填充标题
+			if (self.titleWrap) {
+				window.setTimeout(function() {
+					self.titleWrap.html(self.titleData[self.curPage] || '');
+				}, config.title.delay);
+			}
+
+			// 按需加载
+			var curTarget = Zepto(self.target[self.curPage]);
+			if (config.lazy === window.undefined) {
+				var curChildren = curTarget.children();
+				if (curChildren.length === 1 && curChildren[0].tagName.toLowerCase() == 'textarea') {
+					config.lazy = true;
+				}
+			}
+			if (config.lazy === true) {
+				if (curTarget.length > 0 && !curTarget.data('parsed')) _private.lazyload(curTarget);
+			}
+
+			//self.config.onchange.call(self, page);
+			/**
+			 * @event mo.Tab#beforechange
+			 * @property {object} event 开始切换
+			 */
+			self.trigger('beforechange');
+
+			//if(self.effect) self.effect.onchange.call(self);
+
+			// 临界计算
+			function outBound(i) {
+				if (i >= self.target.length) i %= self.target.length;
+				if (i < 0) {
+					var m = i % self.target.length;
+					i = m === 0 ? 0 : (m + self.target.length);
+				}
+				return i;
+			}
+
+		};
+
+		/**
+		 * 播放后一个
+		 */
+		_public.next = function() {
+			this.playTo(this.curPage + 1);
+		};
+
+		/**
+		 * 播放前一个
+		 */
+		_public.prev = function() {
+			this.playTo(this.curPage - 1);
+		};
+
+		/**
+		 * 开始自动播放
+		 */
+		_private.setTimer = function() {
+			var self = this;
+			var config = self.config;
+			if (self.timer) {
+				_private.clearTimer.call(self);
+			}
+
+			self.timer = window.setInterval(function() {
+				var to = self.curPage + 1;
+				self.playTo(to);
+
+			}, config.stay);
+
+		};
+
+		/**
+		 * 停止自动播放
+		 */
+		_private.clearTimer = function() {
+			window.clearInterval(this.timer);
+		};
+
+		/**
+		 * 开始自动播放
+		 */
+		_public.play = function() {
+			var self = this;
+			_private.setTimer.call(self);
+			self.isPlaying = true;
+			self.trigger('play');
+		};
+
+		/**
+		 * 停止自动播放
+		 */
+		_public.stop = function() {
+			var self = this;
+			_private.clearTimer.call(self);
+			self.isPlaying = false;
+			self.trigger('stop');
+		};
+
+		_static.extend = function(name, events) {
+			var obj = {};
+			if (Zepto.isPlainObject(name)) {
+				obj = name;
+			} else {
+				obj[name] = events;
+			}
+			Zepto.extend(_private.effect, obj);
+		};
+
+		_private.lazyload = function(curTarget) {
+			var textareas = curTarget.children('textarea');
+
+			// curTarget子元素有且只有一个textarea元素时
+			if (textareas.length === 1) {
+				curTarget.html(textareas.eq(0).val())
+				curTarget.data('parsed', true);
+			}
+		}
+
+		_public.effect = {
+			init: function() {
+				var self = this;
+				config = self.config;
+				Zepto.each(self.target, function(i, elem) {
+					if (self.target[config.playTo][0] != elem) Zepto(elem).hide();
+				});
+
+			},
+			beforechange: function() {
+				var self = this,
+					prevElem = self.prevPage === window.undefined ? null : self.target[self.prevPage],
+					curElem = self.target[self.curPage];
+				if (prevElem) Zepto(prevElem).hide();
+				Zepto(curElem).show();
+				/**
+				 * @event mo.Tab#change
+				 * @property {object} event 切换完成
+				 */
+				self.trigger('change');
+
+			}
+		}
+
+
+	});
+});
