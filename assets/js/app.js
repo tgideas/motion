@@ -1,5 +1,15 @@
 var App = (function() {
 	
+    $.fn.removeClassPrefix = function(prefix) {
+        this.each(function(i, el) {
+            var classes = el.className.split(" ").filter(function(c) {
+                return c.lastIndexOf(prefix, 0) !== 0;
+            });
+            el.className = $.trim(classes.join(" "));
+        });
+        return this;
+    };
+
 	var 
         $el = $( '#ac-wrapper' ),
 		// device element
@@ -9,7 +19,7 @@ var App = (function() {
 		// the screens
 		$screens = $el.find( '.ac-grid > a' ),
 		// the device screen image
-		$screenImg = $device.find( 'img' ).css( 'transition', 'all 0.5s ease' ),
+		$screenImg = $device.find( '.ac-frame' ).css( 'transition', 'all 0.5s ease' ),
 		// the device screen title
 		$screenTitle = $device.find( '.ac-title' ),
 		// navigation arrows
@@ -88,7 +98,7 @@ var App = (function() {
 			// update current
 			current = $screen.index();
 			// update image and title on the device
-			$screenImg.attr( 'src', $screen.find( 'img' ).attr( 'src' ) );
+			$screenImg.html($screen.find('.ac-frame-wrap').html()).removeClassPrefix('ac-frame-bg').addClass('ac-frame-bg'+(current+1));
 			$screenTitle.text( $screen.find( 'span' ).text() );
 		}
 	}
@@ -114,11 +124,13 @@ var App = (function() {
 		if( support ) {
 
 			// append new image to the device
-			var $nextScreenImg = $( '<img src="' + $nextScreen.find( 'img' ).attr( 'src' ) + '"></img>' ).css( {
+			var $nextScreenImg = $( '<div class="ac-frame"></div>' ).html($nextScreen.find('.ac-frame-wrap').html()).css( {
 				transition : 'all 0.5s ease',
 				opacity : 0,
 				transform : direction === 'next' ? 'scale(0.9)' : 'translateY(100px)'
 			} ).insertBefore( $screenImg );
+
+            $nextScreenImg.addClass('ac-frame-bg'+(current+1));
 
 			// update title
 			$screenTitle.text( $nextScreen.find( 'span' ).text() );
@@ -144,10 +156,11 @@ var App = (function() {
 		}
 		else {
 			// update image and title on the device
-			$screenImg.attr( 'src', $nextScreen.find( 'img' ).attr( 'src' ) );
+			$screenImg.html( $nextScreen.find('.ac-frame-wrap').html() ).removeClassPrefix('ac-frame-bg').addClass('ac-frame-bg'+(current+1));
 			$screenTitle.text( $nextScreen.find( 'span' ).text() );
 			animating = false;
 		}
+
 
 	}
 

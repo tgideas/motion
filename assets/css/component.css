@@ -41,14 +41,39 @@
 }
 
 .ac-trigger  {
-	height: 440px;
+	height: 512px;
 	width: 249px;
 	display: inline-block;
 	position: relative;
 	overflow: hidden;
 	margin: 85px 0 0 20px;
 }
-
+.ac-frame{
+    position:absolute;
+    top:0;
+    left:0;
+    width:249px;
+    height:440px;
+}
+h4{
+    padding:0;
+    margin:0;
+    font-weight:400;
+    font-size:2.5em;
+    color:#fff;
+}
+.ac-frame-bd{
+    text-align:center;
+    position:relative;
+    top:50%;
+    -webkit-transform:translateY(-50%);
+    -moz-transform:translateY(-50%);
+    -ms-transform:translateY(-50%);
+    transform:translateY(-50%);
+}
+.ac-frame-bd h4{
+    font-size:1.8em;
+}
 .ac-trigger img {
 	display: block;
 	position: absolute;
@@ -92,6 +117,12 @@
     background-color:#000;
     color:#fff;
 }
+.ac-frame-bg1{background:#01a89e;}
+.ac-frame-bg2{background:#a76e67;}
+.ac-frame-bg3{background:#9799cc;}
+.ac-frame-bg4{background:#ccc496;}
+.ac-frame-bg5{background:#c69cc4;}
+
 .ac-grid {
 	position: absolute;
 	width: 620px;
@@ -115,16 +146,20 @@
 
 .ac-grid a {
 	width: 145px;
-	display: block;
+	height:50%;
+    display: block;
 	position: relative;
 	float: left;
 	margin: 10px 5px;
 	cursor: pointer;
 }
 
-.ac-grid a img {
+.ac-grid a img,.ac-grid .ac-frame-wrap {
 	display: block;
 	width: 100%;
+}
+.ac-grid .ac-frame-wrap{
+    height:100%;
 }
 
 .ac-grid a span {
