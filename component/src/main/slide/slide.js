@@ -80,11 +80,7 @@ define(function(require, exports, module) {
 					'overflow': 'hidden'
 				});
 				self.container.css('-webkit-backface-visibility', 'hidden');
-				self.wrap.css({
-					'position': 'absolute',
-					'left': 0,
-					'top': 0
-				});
+
 
 				// 设置不同方向不同的操作属性
 				if (config.direction == 'x') {
@@ -100,7 +96,7 @@ define(function(require, exports, module) {
 						wrapWidth = document.documentElement.offsetWidth * self.target.length;
 					}
 
-					self.wrap.css('width', (config.wrapWidth || wrapWidth) + 'px');
+					self.wrap.css('width', config.wrapWidth || wrapWidth + 'px');
 
 					/**
 					 * @event mo.Slide#touchstart

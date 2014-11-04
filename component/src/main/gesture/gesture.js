@@ -1,9 +1,18 @@
 /**
- * 手势插件
- * @author aidenxiong
- * @modify 
- * 	2014年 5月19日   内置新增tap事件
- */
+ * @author Aidenxiong
+ * @version 1.0
+ * @date 2014-08-20
+ * @description 手势插件
+ * @extends mo.Base
+ * @name mo.Gesture
+ * @param {HTMLElement} node 绑定手势的节点
+ * @param {object} [config] 基本配置参数
+ * @param {number} [config.preventDefault=false] 是否阻止默认时间
+ * @example
+		var film = new mo.Gesture(document.getElementById('test')).addGesture('swiperight', handler);
+ * @see gesture/gesture.htm
+ * @class
+*/
 
 define(function(require, exports, module){
 	require('../motion/motion.js');

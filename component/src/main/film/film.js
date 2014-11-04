@@ -182,7 +182,7 @@ define(function(require, exports, module){
 			var _self = this;
 
 			//属性处理
-			Zepto.extend(_self, /** @lends mo.Tab.prototype*/ {
+			Zepto.extend(_self, /** @lends mo.Film.prototype*/ {
 				/**
 				 * 需要加载的资源
 				 * @type {Array}

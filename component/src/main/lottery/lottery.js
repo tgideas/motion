@@ -1,3 +1,39 @@
+/**
+ * @author AidenXiong
+ * @version 1.0
+ * @date 2014-09-16
+ * @description 抽奖组件
+ * @extends mo.Base
+ * @name mo.Lottery
+ * @requires lib/zepto.js
+ * @param {object} [opts] 配置参数
+ * @param {string} [opts.lighturl=''] 外部光圈png  不填写就用默认的效果
+ * @param {string} [opts.starturl=''] 外部按钮png  不填写就用默认的按钮效果
+ * @param {string} [opts.width=800] 宽度
+ * @param {string} [opts.height=660] 高度
+ * @param {string} [opts.total=18] 抽奖产品的总数
+ * @param {string} [opts.sbtnx=239] 开始抽奖按钮的位置x坐标
+ * @param {string} [opts.sbtny=130] 开始抽奖按钮的位置y坐标
+ * @param {string} [opts.sbtnw=320] 开始抽奖按钮的宽度
+ * @param {string} [opts.sbtnh=100] 开始抽奖按钮的高度
+ * @param {string} [opts.boxw=100] 奖品光效的宽度
+ * @param {string} [opts.boxh=100] 奖品光效的高度
+ * @param {string} [opts.position="19_20,128_20,238_20,348_19,459_19,568_19,679_19,19_129,128.8_129,568_129,678_129,19_240,128_240,238_240,349_240,459_239,569_239,679_239"] 奖品光效的位置，对应奖品图片的布局，填入每个奖品的位置以及角度用逗号分割  x_y_rotation（角度为0的可以不填写） 例如19_20或者19_20_0 表示第一个奖品的位置 x坐标为19px y坐标为20px 角度为0。）
+ * @param {string} [opts.contentId=swfcontent] 嵌入swf 的div层的 id 
+ * @param {string} [opts.onClickRollEvent]
+ * @param {string} [opts.onCompleteRollEvent] 奖品光效的高度
+ * @param {string} [opts.r=null] 奖品总数
+ * @param {string} [opts.b=null] 圆盘的图片
+ * @param {string} [opts.s=null] 开始抽奖按钮图片
+ * @param {string} [opts.bx=null] 圆盘的图片位置x坐标 （转盘的中心点坐标为（0,0））
+ * @param {string} [opts.by=null] 圆盘的图片位置y坐标
+ * @param {string} [opts.sx=null] 开始抽奖按钮x坐标
+ * @param {string} [opts.sy=null] 开始抽奖按钮y坐标
+ * @example
+		var film = new mo.Lottery({});
+ * @see lottery/lottery.html
+ * @class
+*/
 define(function(require, exports, module){
 	require('../motion/motion.js');
 	require('../base/base.js');

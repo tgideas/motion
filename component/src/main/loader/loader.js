@@ -1,29 +1,21 @@
 /**
  * @author AidenXiong
  * @version 1.0
- * @date 2014-09-09
- * @description 资源加载类,支持定义资源列表及在节点中指定属性data-preload两种方式，data-preload可以有效避免资源重复加载的问题
+ * @date 2014-09-16
+ * @description 图片懒加载
  * @extends mo.Base
- * @name mo.Loader
+ * @name mo.LazyLoad
  * @requires lib/zepto.js
- * @param {array|string} resource 需要加载的资源，目前支持音频(mp3、ogg、wav)、javascript(js)、css(css)、图片(jpg、png、gif)
- * @param {object|function} [opts] 配置参数  如果传的值为一个函数  那么在所有的资源加载完成后直接触发
- * @param {function} [opts.onLoading] 每完成一个资源的加载触发一次，需要进度条的情况下可通过该功能实现
- * @param {function} [opts.onComplete] 所有资源加载完成后的回调
+ * @param {HTMLElement} container=window 懒加载的容器 默认
+ * @param {object} [opts] 配置参数
+ * @param {number} [opts.threshold=0] 距离viewport的值
+ * @param {dataAttr} [opts.dataAttr=original] 所有资源加载完成后的回调
  * @example
-		var film = new mo.Loader(['http://pingjs.qq.com/ping_tcss_ied.js',
-			'http://mat1.gtimg.com/www/mb/css/n/style.2013_140723.css',
-			'http://ossweb-img.qq.com/images/cf/web201105/bc-pic.jpg',
-			'http://mobilegame.tencent.com/act/a20140723invite/crack.mp3'
-		], {
-			onLoading : function(){
-				console.log(arguments);
-			},
-			onComplete : function(){
-				console.log(arguments);
-			}
+		var film = new mo.LazyLoad(window, {
+			'threshold' : 100,
+			'dataAttr'  : 'original'
 		});
- * @see loader/loader.html
+ * @see lazyLoad/lazyLoad.html
  * @class
 */
 define(function(require, exports, module){
