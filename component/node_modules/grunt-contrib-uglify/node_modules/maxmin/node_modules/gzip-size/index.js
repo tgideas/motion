@@ -1,6 +1,6 @@
 'use strict';
 var gzip = require('zlib').gzip;
-var gzipSync = require('zlib-browserify').gzipSync;
+var gzipSync = require('browserify-zlib').gzipSync;
 
 module.exports = function (str, cb) {
 	if (!str) {

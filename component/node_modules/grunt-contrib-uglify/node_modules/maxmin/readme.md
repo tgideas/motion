@@ -1,4 +1,4 @@
-# maxmin [![Build Status](https://travis-ci.org/sindresorhus/maxmin.png?branch=master)](https://travis-ci.org/sindresorhus/maxmin)
+# maxmin [![Build Status](https://travis-ci.org/sindresorhus/maxmin.svg?branch=master)](https://travis-ci.org/sindresorhus/maxmin)
 
 > Get a pretty output of the original, minified, gzipped size of a string or buffer
 
@@ -14,11 +14,13 @@ $ npm install --save maxmin
 ```
 
 
-## Example
+## Usage
 
 ```js
 var maxmin = require('maxmin');
+
 var max = 'function smoothRangeRandom(min,max){var num=Math.floor(Math.random()*(max-min+1)+min);return this.prev=num===this.prev?++num:num};';
+
 var min = '(function(b,c){var a=Math.floor(Math.random()*(c-b+1)+b);return this.a=a===this.a?++a:a})()';
 
 console.log(maxmin(max, min, true));

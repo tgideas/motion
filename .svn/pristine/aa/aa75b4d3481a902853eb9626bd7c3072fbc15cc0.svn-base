@@ -1,0 +1,19 @@
+{
+  "name": "tg",
+  "version": "0.0.0",
+  "description": "simple way to work",
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "grunt": "0.4.1",
+    "grunt-cmd-transport": "0.2.1",
+    "grunt-cmd-concat": "0.2.1",
+    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-contrib-copy": "0.4.1",
+    "grunt-contrib-cssmin": "0.6.0",
+    "grunt-contrib-clean": "0.4.1"
+  },
+  "author": "aidenxiong brucewan",
+  "dependencies": {
+    "request": "^2.37.0"
+  }
+}

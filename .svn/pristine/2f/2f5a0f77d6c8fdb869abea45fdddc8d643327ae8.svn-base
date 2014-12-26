@@ -1,0 +1,3 @@
+define("dist/main/action/action-debug.css", [], function() {
+    seajs.importStyle(".mo-pop-action{padding:20px;background-color:rgba(255,255,255,.9)}[class*=mo-btn-]{margin:15px 0;padding:8px 15px;font-weight:700;border-radius:5px}.mo-pop-action .mo-pop-foot>div:last-child{margin-bottom:0}.mo-btn-strong{background:#d00;color:#fff}.mo-btn-normal{background:#ddd;color:#333}.mo-btn-weak{background:#888;color:#fff}.mo-pop-action{border-radius:0}");
+});

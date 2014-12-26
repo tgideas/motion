@@ -1,0 +1,3 @@
+define("dist/main/overlay/overlay.css", [], function() {
+    seajs.importStyle(".mo-pop{border-radius:3px;-webkit-box-sizing:border-box;box-sizing:border-box;padding:10px;background-color:#fff;text-align:center;font-size:14px}");
+});

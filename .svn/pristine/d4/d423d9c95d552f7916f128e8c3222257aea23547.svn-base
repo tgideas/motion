@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}
+html,body{height:100%}
+body,input,button,textarea,select{font:12px/1.5 "microsoft yahei",Tahoma,Helvetica,Arial;color:#333}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+li,dd{list-style:none}
+a{color:#d30000;text-decoration:none}
+a:hover,a:active{text-decoration:underline}
+section,article,aside,header,footer,nav,dialog,figure,hgroup{display:block}
+
+
+.sidebar{position: fixed;left: 0;top: 0;width: 300px;height: 100%;margin-right: 20px;background-color: #343434;color: #fff;}
+.sidebar .logo{margin: 20px;padding-top: 70px;background: url(../img/logo.png) no-repeat 50% 0;text-align: center;font-weight: normal;}
+.sidebar nav{margin-top: 50px;text-align: center;}
+.sidebar li{height: 50px;background-color: #474747;line-height: 50px;transition:background-color .3s ease-in;box-shadow:0 5px 10px 0 rgba(0,0,0,.05) inset;}
+.sidebar li.current{background-color: #2b9100}
+.sidebar li:not(.current){border-bottom: 1px solid #4f4f4f;}
+.sidebar li:not(.current):hover{background-color: #404040;}
+.sidebar a{display: block;width: 100%;height: 100%;color: #fff}
+.sidebar a:hover{text-decoration: none;}
+
+#main{}

@@ -1,0 +1,1462 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Class: Lottery-移动端组件库-TGideas</title>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../../css/global.css"/>
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+    <script>
+    if(!/webkit/i.test(navigator.userAgent)){
+       alert('请使用webkit内核浏览器打开体验，谢谢！');
+    }
+    </script>
+    <header>
+        <nav>
+            <h1 class="logo">移动端组件库</h1>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li class="current"><a href="#">API</a></li>
+                <li><a href="#">下载</a></li>
+                <li><a href="#">Github</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main">
+        <section class="sidebar">
+            <nav>
+                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad_.html">LazyLoad</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay_.html">Overlay</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
+            </nav>
+            <script>
+            (function(){
+                var elems = document.querySelectorAll('.sidebar li');
+                for(var i = 0; i < elems.length; i++) {
+
+                }
+            })()
+            </script>
+        </section>
+        <div id="main" class="content">
+
+            
+
+            
+            
+                <h1 class="page-title">Class: Lottery</h1>
+            
+            
+            <script src="http://ossweb-img.qq.com/images/js/jquery/jquery-1.8.0.min.js"></script>
+<script src="http://ossweb-img.qq.com/images/js/jquery/jquery.qrcode.min.js"></script>
+<script>
+function SetWinHeight(obj) { 
+    var win=obj; 
+    var body;
+    if (document.getElementById)  { 
+        if (win && !window.opera)  { 
+            if (win.contentDocument && win.contentDocument.body.offsetHeight) {
+                var height = win.contentDocument.body.offsetHeight; 
+                win.height = height > 400 ? height : 400;
+                body = win.contentDocument.body;
+            } else if(win.Document && win.Document.body.scrollHeight) {
+                var height = win.Document.body.scrollHeight
+                win.height = height > 400 ? height : 400;
+                body = win.Document.body;
+            }
+        } 
+    } 
+    var scripts = body.getElementsByTagName('script');
+    var html = '';
+    for(var i = 0; i < scripts.length; i++) {
+        if(!scripts[i].src) {
+            html = scripts[i].innerHTML;
+            break;
+        }
+    }
+    html = html.replace(/(\t|^)\s*\n/g, '');
+    var tabNum = /^(\t*)\S/.exec(html)[1];
+    if(tabNum) {
+        var repStr = '(\\n|^)';
+        for(var i = 0; i < tabNum.length; i++) {
+            repStr += '\\t';
+        }
+        var rep = new RegExp(repStr , 'g');
+        html = html.replace(rep, function(a,b){return b});
+
+    }
+    // html = html.replace(/\n/g, '<br/>');
+    // html = html.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+
+    $(obj).next().height(win.height).find('code').html(html);
+
+    if(Prism) Prism.highlightAll();
+} 
+
+</script>
+
+
+
+
+
+
+
+<section>
+    
+<!-- <header>
+    <h2>
+        <span class="ancestors"><a href="mo_.html">mo</a>.</span>
+    
+    Lottery
+    </h2>
+    
+</header>   -->
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+<!-- <dt>
+    <h4 class="name" id="Lottery"><span class="type-signature"></span>new Lottery<span class="signature">(<span class="optional">opts</span>)</span><span class="type-signature"></span></h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+    <div class="description">
+        抽奖组件
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	<dt class="tag-version">Version:</dt>
+	<dd class="tag-version"><ul class="dummy"><li>1.0</li></ul></dd>
+	
+	
+	
+
+	
+	
+	
+	
+	
+	<dt class="tag-author">Author:</dt>
+	<dd class="tag-author">
+        <ul>
+            <li>AidenXiong</li>
+        </ul>
+	</dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/lottery/lottery.js">lottery.js</a>, line 1</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+        <ul>
+            <li>lottery/lottery.html</li>
+        </ul>
+	</dd>
+	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+        <h5>Example</h5>
+        
+    <pre class="language-javascript"><code>		var film = new mo.Lottery({});</code></pre>
+
+    
+</dd>
+
+    
+    </div>
+
+     
+        <h3 class="subsection-title">继承：</h3>
+        
+        <ul>
+            <li><a href="mo.Base.html">mo.Base</a></li>
+        </ul>
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">依赖：</h3>
+        
+        <ul>
+            <li>module:lib/zepto.js</li>
+        </ul>
+       
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+    
+
+    <ul class="tab-trigger" >
+      
+      <li><h3 class="subsection-title">参数</h3></li>
+      
+    
+    
+        <li><h3 class="subsection-title">方法</h3></li>
+    
+    
+    </ul>
+
+    <u class="tab-target">
+      
+        <li>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>名称</th>
+		
+		
+		<th>类型</th>
+		
+		
+		<th>参数</th>
+		
+		
+		
+		
+		<th class="last">描述</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">配置参数
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>名称</th>
+		
+		
+		<th>类型</th>
+		
+		
+		<th>参数</th>
+		
+		
+		
+		<th>默认值</th>
+		
+		
+		<th class="last">描述</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>lighturl</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    ''
+                
+                </td>
+            
+            
+            <td class="description last">外部光圈png  不填写就用默认的效果</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>starturl</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    ''
+                
+                </td>
+            
+            
+            <td class="description last">外部按钮png  不填写就用默认的按钮效果</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    800
+                
+                </td>
+            
+            
+            <td class="description last">宽度</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    660
+                
+                </td>
+            
+            
+            <td class="description last">高度</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>total</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    18
+                
+                </td>
+            
+            
+            <td class="description last">抽奖产品的总数</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>sbtnx</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    239
+                
+                </td>
+            
+            
+            <td class="description last">开始抽奖按钮的位置x坐标</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>sbtny</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    130
+                
+                </td>
+            
+            
+            <td class="description last">开始抽奖按钮的位置y坐标</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>sbtnw</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    320
+                
+                </td>
+            
+            
+            <td class="description last">开始抽奖按钮的宽度</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>sbtnh</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    100
+                
+                </td>
+            
+            
+            <td class="description last">开始抽奖按钮的高度</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>boxw</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    100
+                
+                </td>
+            
+            
+            <td class="description last">奖品光效的宽度</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>boxh</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    100
+                
+                </td>
+            
+            
+            <td class="description last">奖品光效的高度</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>position</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    "19_20,128_20,238_20,348_19,459_19,568_19,679_19,19_129,128.8_129,568_129,678_129,19_240,128_240,238_240,349_240,459_239,569_239,679_239"
+                
+                </td>
+            
+            
+            <td class="description last">奖品光效的位置，对应奖品图片的布局，填入每个奖品的位置以及角度用逗号分割  x_y_rotation（角度为0的可以不填写） 例如19_20或者19_20_0 表示第一个奖品的位置 x坐标为19px y坐标为20px 角度为0。）</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>contentId</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    swfcontent
+                
+                </td>
+            
+            
+            <td class="description last">嵌入swf 的div层的 id</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onClickRollEvent</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onCompleteRollEvent</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">奖品光效的高度</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>r</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">奖品总数</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">圆盘的图片</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">开始抽奖按钮图片</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bx</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">圆盘的图片位置x坐标 （转盘的中心点坐标为（0,0））</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>by</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">圆盘的图片位置y坐标</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>sx</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">开始抽奖按钮x坐标</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>sy</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">开始抽奖按钮y坐标</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	</tbody>
+</table></li>
+      
+     
+    
+        <li><dl>
+            
+<!-- <dt>
+    <h4 class="name" id="constructor"><span class="type-signature"></span>constructor<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+    <div class="description">
+        构造函数
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Base#constructor
+	</li></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/base/base.js">base.js</a>, line 42</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<!-- <dt>
+    <h4 class="name" id="on"><span class="type-signature"></span>on<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+    <div class="description">
+        绑定事件
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Base#on
+	</li></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/base/base.js">base.js</a>, line 52</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<!-- <dt>
+    <h4 class="name" id="trigger"><span class="type-signature"></span>trigger<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+    <div class="description">
+        触发事件
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Base#trigger
+	</li></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/base/base.js">base.js</a>, line 61</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl></li>
+    
+    
+    </u>
+
+    
+    
+        
+            
+        <h3 class="subsection-title">（<a target="_blank" href="../../../component/demo/lottery/lottery.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <div class="demo-content">
+            <iframe src="../../../component/demo/lottery/lottery.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <pre class="code language-javascript"><code></code></pre>
+            <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
+        </div>
+            
+        
+    
+    
+
+
+<div id="output"></div>
+
+
+</article>
+
+</section>  
+
+
+
+
+
+
+<script>
+(function(){
+    var Tab = function(target, trigger){
+        var self = this;
+        this.target = target;
+        this.trigger = trigger;
+        this.playTo(0);
+        for(var i = 0; i < trigger.length; i ++) {
+            (function(i){
+                trigger[i].onclick = function(){
+                    self.playTo(i);
+                }
+            })(i);
+        }
+    };
+
+    Tab.prototype.playTo = function(n){
+        for(var i = 0; i < this.target.length; i++) {
+            this.target[i].style.display = 'none';
+            this.trigger[i].className = '';
+        }
+        this.target[n].style.display = 'block';
+        this.trigger[n].className = 'current';
+    }
+    new Tab(
+        document.querySelectorAll('.tab-target > li'), 
+        document.querySelectorAll('.tab-trigger > li')
+    );
+
+    $('#output').on('click', function(){
+        $(this).empty().hide();
+    });
+
+    $('')
+
+})()
+
+</script>
+
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="http://ossweb-img.qq.com/images/js/prism/prism.js"></script>
+    <script>
+$('.sidebar li').each(function(i,elem){if(new RegExp($(elem).text()).test(location.href))$(elem).addClass('current')})
+    </script>
+
+</body>
+</html>

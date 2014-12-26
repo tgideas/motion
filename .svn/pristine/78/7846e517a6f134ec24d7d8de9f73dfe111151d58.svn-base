@@ -1,0 +1,1 @@
+sh jsdoc3/jsdoc -c jsdoc3/conf.json

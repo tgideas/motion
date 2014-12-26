@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Tencent-TGideas">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>普通Tab</title>
+<script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
+<script src="http://127.0.0.1:1024?u=tab"></script>
+<style>
+/* reset */
+*{margin:0; padding:0;border:0;}
+img{border:0;vertical-align:middle;}
+ul,ol,dl{list-style:none;}
+body {height: 300px;font-size:12px; font-family:arial, "Microsoft YaHei", simsun; line-height:20px}
+</style>
+</head>
+
+<body>
+
+	<div id="tab01" class="tab">
+		<ul class="controller">
+			<li>菜单一</li>
+			<li>菜单二</li>
+			<li>菜单三</li>
+		</ul>
+		<ul class="content">
+			<li class="tab1">选项卡一内容11</li>
+			<li class="tab2">选项卡一内容2222</li>
+			<li class="tab3">选项卡三内容3333</li>
+		</ul>
+	</div>
+
+	<style>
+		#tab01 .controller {display:-webkit-box;display: box;}
+		#tab01 .controller li{-webkit-box-flex:1;box-flex:1;text-align: center;line-height: 50px;color: #fff;}
+		#tab01 .controller li.current{font-weight: bold;}
+		#tab01 .controller li:nth-child(1){background-color: #e6981e;}
+		#tab01 .controller li:nth-child(2){background-color: #85009d;}
+		#tab01 .controller li:nth-child(3){background-color: #591dd4;}
+		#tab01 .content li{display: none;padding: 10px;background-color: #eee;text-align: center;}
+	</style>
+	
+	<script>
+		
+		$(function(){
+			window.tab1 = new mo.Tab({
+				target: $('#tab01 .content li'),
+				controller: $('#tab01 .controller li'),
+				lazy: true
+			});
+		});
+
+	</script>
+</body>
+</html>

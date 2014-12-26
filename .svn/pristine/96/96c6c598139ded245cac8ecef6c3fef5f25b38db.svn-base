@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Tencent-TGideas">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>带标题滑动</title>
+<script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
+<script src="http://127.0.0.1:1024/combine.php?u=slide"></script>
+<style>
+/* reset */
+*{margin:0; padding:0;border:0;}
+img{border:0;vertical-align:middle;}
+ul,ol,dl{list-style:none;}
+body {font-size:12px; font-family:arial, "Microsoft YaHei", simsun; line-height:20px}
+</style>
+</head>
+
+<body>
+
+	<div id="slide01" class="tab">					 
+		<ul class="content">
+			<li style="display:block" title="这是有标题的新闻"></li>
+			<li title="标题二标题二标题二"></li>
+			<li title="标题三啊"></li>
+			<li title="我是四儿"></li>
+			<li title="标题五五一一"></li>
+		 </ul>
+		 <div class="title_wrap"><div class="title_content">这是我的标题哦</div><div class="bg"></div></div>
+
+	</div>
+
+	<style>
+		#slide01 {position:relative; width:100%; height:200px;margin: 0 auto;}
+		#slide01 .controller{position:absolute;top:15px;z-index:2;width: 100%;height:24px;text-align: center;}
+		#slide01 .controller li{display: inline-block;width: 10px;height: 10px;margin: 5px;border-radius: 10px;background-color: #fff;line-height: 100px;overflow: hidden;}
+		#slide01 .controller li.current{background-color: #f00;}
+		#slide01 .content li{float: left;width: 20%;height: 200px;}
+		#slide01 .title_wrap{position:absolute;left:0px;bottom:0px;z-index:8;width:100%;height:50px;line-height: 50px;}
+		#slide01 .title_content{position:absolute;top:0;left:0;padding:0 5px;z-index:2;} 
+		#slide01 .title_wrap .bg{position:absolute;top:0;left:0;width:100%;height:100%;background:#fff;z-index:1;} 
+
+
+
+		#slide01 .content li:nth-child(1){background-color: #e6981e;}
+		#slide01 .content li:nth-child(2){background-color: #85009d;}
+		#slide01 .content li:nth-child(3){background-color: #591dd4;}
+		#slide01 .content li:nth-child(4){background-color: #ffee33;}
+		#slide01 .content li:nth-child(5){background-color: #33dd3b;}
+
+	</style>
+	
+	<script>
+		
+		$(function(){
+			window.tab1 = new mo.Slide({
+				target: $('#slide01 .content li'),
+				wrapWidth: 5000,
+				autoPlay: true,
+				stay: 3000,
+				animateTime: 500,
+				title: { dataWrap: $('#slide01 .title_content'), delay: 300},
+				event: {
+					'init': function(){
+						this.prevBtn.add(this.nextBtn).css('opacity', '0.8');
+						$('#slide01 .title_wrap .bg').css('opacity', '0.5');
+					},
+					'beforechange': function(){
+						$('#slide01 .title_wrap').animate({
+						  opacity: 0.25, 
+						 translateY: '50px'
+						}, 300, 'ease-out');
+						window.setTimeout(function(){
+							$('#slide01 .title_wrap').animate({
+							  opacity: 1,
+							  translateY: '0'
+							}, 300, 'ease-out')
+						}, 500)
+					}
+				}
+
+
+			});
+		});
+
+
+
+
+	</script>
+
+</body>
+</html>

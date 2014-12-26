@@ -1,0 +1,146 @@
+/**
+ * @author Brucewan
+ * @version 1.0
+ * @date 2014-10-02
+ * @description 基础浮层
+ * @extends mo.Base
+ * @name mo.Overlay
+ * @requires lib/zepto.js
+ * @requires src/base.js
+ * @param {boolean} [config.mask=true] 是否有蒙板
+ * @param {boolean} [config.autoOpen=true] 是否自动打开对话框
+ * @param {array} [ config.pos=&#91;'middle'&#93; ] 设置overlay打开位置
+ * @param {string} [config.className='pop***'] 自定义class方便控制样式
+ * @param {boolean} [config.buttons=['normal']] 操作按钮，如自定义文本{'text': '放弃'}
+ * @param {object} [config.start= {'opacity': 0,'-webkit-transform': 'rotateX(-90deg)','-webkit-transform-origin': '50% 0'}] 打开弹窗时起始状态
+ * @param {object} [config.end={'opacity': 1,'-webkit-transform': 'rotateX(0)','-webkit-transform-origin': '50% 0'}] 打开弹窗时结束状态
+ * @param {number} [config.duration=150] 动画时间，可设为0关闭动画
+ * @param {string} [config.content=''] overlay内容
+ * @param {string|number} [config.width='300'] overlay宽度
+ * @param {string|number} [config.height='auto'] overlay高度
+ * @param {string} [config.tpl='$_private.tpl.base'] 弹窗模板
+ * @example
+		var overlay1 = new mo.Overlay('数据提交成功！');
+ * @see overlay/demo1.html 普通浮层
+ * @see overlay/demo2.html 自定义效果
+ * @see overlay/demo3.html 自定义位置
+ * @class
+*/
+define("dist/main/animation/animation副本-debug", [ "../base/base-debug.js", "../motion/motion-debug.js" ], function(require, exports, module) {
+    require("../base/base-debug");
+    Motion.add("mo.Animation:mo.Base", function() {
+        /**
+		 * public 作用域
+		 * @alias mo.Overlay#
+		 * @ignore
+		 */
+        var _public = this;
+        var _private = {};
+        /**
+		 * public static作用域
+		 * @alias mo.Overlay.
+		 * @ignore
+		 */
+        // var _static = arguments.callee;
+        var _static = this.constructor;
+        // 插件默认配置
+        _static.config = {
+            duration: 800,
+            easing: "swing",
+            autoPlay: true,
+            delay: 0,
+            iteration: 1,
+            direction: "normal"
+        };
+        /***
+		 * 初始化
+		 * @description 参数处理
+		 */
+        _public.init = function(config) {
+            this.config = Zepto.extend({}, _static.config, config);
+            // 参数接收
+            var self = this;
+            var config = self.config;
+            var keyframes = config.keyframes;
+            self.target = Zepto(config.target);
+            self.targetFrame = 0;
+            self.keyFrames = [];
+            _private.index = {};
+            // create keyframes
+            var duration = 0;
+            for (var key in action) {
+                var obj = action[key];
+                var frameObj = {
+                    props: {},
+                    easing: "liear",
+                    delay: config.delay,
+                    duration: key - duration
+                };
+                duration = key;
+                for (var i in obj) {
+                    if (i == "callback") {
+                        frameObj.callback = obj[i];
+                    } else if (i == "easing") {
+                        frameObj.easing = obj[i];
+                    } else if (i == "delay") {
+                        frameObj.delay = obj[i];
+                    } else {
+                        frameObj.props[i] = obj[i];
+                    }
+                }
+                frameObj.frame = key;
+                _private.index[key] = self.keyFrames.length;
+                self.keyFrames.push(frameObj);
+            }
+            if (config.autoPlay) {
+                self.play();
+            }
+        };
+        _public.play = function() {
+            var self = this;
+            this.playing = true;
+            _private.move.call(this);
+        };
+        _public.rePlay = function() {
+            this.targetFrame = 0;
+            this.play();
+        };
+        _public.stop = function() {
+            this.playing = false;
+        };
+        _public.gotoAndPlay = function(frame) {
+            var self = this;
+            _private.hasBreaked = true;
+            self.targetFrame = _private.index[frame];
+            self.play();
+        };
+        _public.gotoAndStop = function(frame) {
+            var self = this;
+            _private.hasBreaked = true;
+            self.targetFrame = _private.index[frame];
+        };
+        _private.move = function() {
+            var self = this;
+            var config = self.config;
+            var frame = self.keyFrames[self.targetFrame];
+            self.target.animate(frame.props, frame.duration, frame.easing, function() {
+                frame.callback && frame.callback.call(self, frame);
+                if (++self.targetFrame >= self.keyFrames.length) {
+                    self.targetFrame = 0;
+                    if (!config.loop) {
+                        return;
+                    }
+                }
+                if (_private.hasBreaked) {
+                    _private.hasBreaked = false;
+                    return;
+                }
+                if (self.playing) {
+                    window.setTimeout(function() {
+                        _private.move.call(self);
+                    }, 0);
+                }
+            }, frame.delay);
+        };
+    });
+});
