@@ -12,7 +12,10 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+<<<<<<< HEAD
     pkg: grunt.file.readJSON( "package.json" ),
+=======
+>>>>>>> d89f86d15cacf5b49ef41ae207e9e2a57deed66f
     jshint: {
       all: [
         'Gruntfile.js',
@@ -42,10 +45,14 @@ module.exports = function(grunt) {
     },
     uglify: {
       dev : {
+<<<<<<< HEAD
         options:{
           banner: "/*! motion v<%= pkg.version %> | " +
             "(c) 2014, <%= grunt.template.today('yyyy/mm/dd') %> motion Foundation, Inc. */\r\n"
         },
+=======
+        options:{},
+>>>>>>> d89f86d15cacf5b49ef41ae207e9e2a57deed66f
         files: { 'build/motion.min.js': ['build/motion.js'] }
       }
     }
@@ -77,8 +84,11 @@ module.exports = function(grunt) {
       uglifyOpt['build/'+fileName+'.min.js'] = ['build/'+fileName+'.js'];
       grunt.config.set('motion_build.dev.files.0.src', filesSrc);
       grunt.config.set('uglify.dev.files', uglifyOpt);
+<<<<<<< HEAD
       grunt.config.set('uglify.dev.options.banner', "/*! motion v<%= pkg.version %> | " +
             "(c) 2014, <%= grunt.template.today('yyyy/mm/dd') %> | "+file.replace(/\|/g,' ')+" | motion Foundation, Inc. */\r\n");
+=======
+>>>>>>> d89f86d15cacf5b49ef41ae207e9e2a57deed66f
   })
 
   grunt.registerTask('motionCust','custom build motion', function(file){

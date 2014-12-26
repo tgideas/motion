@@ -2,6 +2,7 @@
 .DS_Store
 .dynamicBuild
 dynamicBuild
-
+build
+node_modules
 # branch gh-pages
 site

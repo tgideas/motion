@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "motion",
   "version": "0.0.0",
@@ -10,3 +11,17 @@
   },
   "author": "aidenxiong brucewan"
 }
+=======
+{
+  "name": "motion",
+  "version": "0.0.0",
+  "description": "simple way to work",
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-motion-build": "*"
+  },
+  "author": "aidenxiong brucewan"
+}
+>>>>>>> d89f86d15cacf5b49ef41ae207e9e2a57deed66f
