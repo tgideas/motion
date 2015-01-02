@@ -2,3 +2,4 @@
 .DS_Store
 .dynamicBuild
 dynamicBuild
+node_modules

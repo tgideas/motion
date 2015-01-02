@@ -1,0 +1,38 @@
+{
+  "name": "Motion.JS",
+  "version": "1.0.0",
+  "title":"Motion.JS - TGIdeas",
+  "keywords": "Motion,Motion.JS,JS, JavaScript, Framework",
+  "description": "Motion.JS is a javascript framework for mobile web development",
+  "repository": "git://github.com/tgideas/motion.git",
+  "homepage": "http://tgideas.github.io/motion",
+  "author": {
+    "name": "TGIdeas",
+    "site": "http://tgideas.qq.com"
+  },
+  "license": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-concat-css": "*",
+    "grunt-css": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-imagemin": "*",
+    "grunt-concurrent": "*",
+    "grunt-contrib-copy": "*",
+    "load-grunt-config": "*",
+    "grunt-newer": "*",
+    "grunt-contrib-less": "~0.11.0",
+    "grunt-replace":"*",
+    "connect":"*",
+    "serve-static":"*"
+  },
+  "dependencies": {
+    "time-grunt": "*"
+  }
+}

@@ -8,81 +8,182 @@
         <meta name="description" content="Motion.js,a slim javascript ui kit for mobile" />
         <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library" />
         <meta name="author" content="TGIdeas" />
-        <link rel="shortcut icon" href="favicon.ico"/> 
-        <link rel="stylesheet" type="text/css" href="assets/css/default.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/component.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/fontello.css"/>
+        <link rel="shortcut icon" href="favicon.ico"/>
+
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/css/docs.css"/>
         <script src="assets/js/modernizr.custom.47593.js"></script>
     </head>
     <body>
-        <div class="container">
-            <div class="overlay"></div> 
-            <div class="main">
-                <div id="ac-wrapper" class="ac-wrapper v-center">
-                    <h2>Motion.JS <span>Slim, Powerful &amp; Mobi only</span></h2>
-                    <div class="ac-device">
-                        <a href="#" class="ac-trigger">
-                            <div class="ac-frame ac-frame-bg1">
-                                <div class="ac-frame-bd"><h4>Film</h4></div>
-                            </div>
-                        </a>
-                        <h3 class="ac-title">Film - 图片帧动画组件</h3>
-                        <nav class="ac-nav clearfix">
-                            <span class="nav-link nav-first"><i class="icon-left"></i></span>
-                            <span class="nav-link nav-last"><i class="icon-right"></i></span>
-                            <a href="doc/index.html" target="_blank" class="nav-link nav-download"><i class="icon-book"></i></a>
-                            <a href="http://github.com/tgideas/motion" target="_blank" class="nav-link nav-github"><i class="icon-github"></i></a>
-                        </nav>
-                    </div>
-                    <div class="ac-grid">
-                        <a href="#">
-                            <div class="ac-frame-wrap ac-frame-bg1">
-                                <div class="ac-frame-bd">
-                                    <h4>Film</h4>
-                                </div>
-                            </div>
-                            <span>Film - 图片帧动画组件</span>
-                        </a>
-                        <a href="#">
-                            <div class="ac-frame-wrap ac-frame-bg2">
-                                <div class="ac-frame-bd">
-                                    <h4>Action</h4>
-                                </div>
-                            </div>
-                            <span>Action - 按钮栏(ActionSheet)组件</span>
-                        </a>
-                        <a href="#">
-                            <div class="ac-frame-wrap ac-frame-bg3">
-                                <div class="ac-frame-bd">
-                                    <h4>Dialog</h4>
-                                </div>
-                            </div>
-                            <span>Dialog - 浮层组件</span>
-                        </a>
-                        <a href="#">
-                            <div class="ac-frame-wrap ac-frame-bg4">
-                                <div class="ac-frame-bd">
-                                    <h4>ImageEditor</h4>
-                                </div>
-                            </div>
-                            <span>ImageEditor - 图片编辑组件</span>
-                        </a>
-                        <a href="#">
-                            <div class="ac-frame-wrap ac-frame-bg5">
-                                <div class="ac-frame-bd">
-                                    <h4>LaunchApp</h4>
-                                </div>
-                            </div>
-                            <span>LaunchApp - 启动App组件</span>
-                        </a>
-
-                    </div>
-                </div>  
+        
+        <!-- Docs master nav -->
+        <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+          <div class="container">
+            <div class="navbar-header">
+              <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand">Motion</a>
             </div>
-        </div><!-- /container -->
+            <nav class="collapse navbar-collapse bs-navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active">
+                  <a href="/">首页</a>
+                </li>
+                <li>
+                  <a href="/doc/">API</a>
+                </li>
+                <li>
+                  <a href="https://github.com/tgideas/motion">下载</a>
+                </li>
+                <li>
+                  <a href="https://github.com/tgideas/motion" target="_blank">Github源码</a>
+                </li>
+                <li>
+                  <a href="/faq/">FAQ</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+
+        <div class="bs-docs-masthead" id="content">
+          <div class="container">
+            <h1>Motion,为移动设备而生。</h1>
+            <p class="lead">Motion 是一款基于ZeptoJS，为移动终端量身定制的组件库，重点开发
+结合HTML5新特征的创新实用组件。Motion是一款基于ZeptoJS，为移
+动终端量身定制的组件库，重点开发结合HTML5新特征的创新实用组件。</p>
+            <a class="btn btn-primary btn-download" href="https://github.com/tgideas/motion" title="下载">立即下载</a>
+          </div>
+        </div>
+
+        <div class="bs-docs-featurette">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="mt-feature mt-feature1">
+                  <div class="mt-feature-img"><img class="img-reponsive" src="assets/img/features1.png" alt="feature1"/></div>
+                  <div class="mt-feature-bd">
+                    <h3>为移动终端量身定制</h3>
+                    <p>完全针对触屏设备开发，将触屏设备上的体验做到极致。</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="mt-feature mt-feature2">
+                  <div class="mt-feature-img"><img class="img-reponsive" src="assets/img/features2.png" alt="feature1"/></div>
+                  <div class="mt-feature-bd">
+                    <h3>保持灵活性</h3>
+                    <p>提供大量的自定义事件接口，避免样式污染。</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="mt-feature mt-feature3">
+                  <div class="mt-feature-img"><img class="img-reponsive" src="assets/img/features3.png" alt="feature1"/></div>
+                  <div class="mt-feature-bd">
+                    <h3>实用创新组件</h3>
+                    <p>除了常用组件，Motion将重心放在触屏设备的创新组件开发。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>       
+
+        <div class="bs-docs-featurette bs-docs-featurette1">
+          <div class="container">
+            <h2 class="bs-docs-featurette-title">Motion推荐组件</h2>
+            <p class="lead">这是Motion为大家推荐的有趣的、实用的组件。</p>
+
+            <div class="row bs-docs-featured-sites">
+            
+              <div class="col-xs-6 col-sm-3">
+                <div class="mt-mod">
+                  <div class="mt-mod-r1">
+                    <h3>Page Slide</h3>
+                    <h3>单屏滑动</h3>
+                  </div>
+                  <div class="mt-mod-r2">
+                     组件的描述文字组件的描述文字组件的描述文字，组件的描述，组件的描述组件的描述！
+                  </div>
+                </div>
+              </div>
+            
+              <div class="col-xs-6 col-sm-3">
+                <div class="mt-mod">
+                  <div class="mt-mod-r1">
+                    <h3>Animation</h3>
+                    <h3>动画生成器</h3>
+                  </div>
+                  <div class="mt-mod-r2">
+                     组件的描述文字组件的描述文字组件的描述文字，组件的描述，组件的描述组件的描述！
+                  </div>
+                </div>
+
+              </div>
+            
+              <div class="col-xs-6 col-sm-3">
+                <div class="mt-mod">
+                  <div class="mt-mod-r1">
+                    <h3>Image Editor</h3>
+                    <h3>拍照组件</h3>
+                  </div>
+                  <div class="mt-mod-r2">
+                     组件的描述文字组件的描述文字组件的描述文字，组件的描述，组件的描述组件的描述！
+                  </div>
+                </div>
+
+              </div>
+            
+              <div class="col-xs-6 col-sm-3">
+                <div class="mt-mod">
+                  <div class="mt-mod-r1">
+                    <h3>Dialog</h3>
+                    <h3>浮层组件</h3>
+                  </div>
+                  <div class="mt-mod-r2">
+                     组件的描述文字组件的描述文字组件的描述文字，组件的描述，组件的描述组件的描述！
+                  </div>
+                </div>
+
+              </div>
+            
+            </div>
+
+            <hr class="half-rule">
+
+          </div>
+        </div>  
+
+        <div class="bs-docs-contributors">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <h3>贡献</h3>
+                <p>开发者：@波波、@aiden</p>
+                <p>设计者：@佩佩</p>
+                <p>贡献者：@DG、@LV</p>
+              </div>
+              <div class="col-md-6">
+                <h3>技术支持</h3>
+                <p>如果你在使用的过程中遇到了问题，你可以在这里创建反馈：</p>
+                <p><a href="https://github.com/tgideas/motion/issues" target="_blank" title="Github issue tracker">Github issue tracker</a></p>
+              </div>
+            </div>
+          </div>
+        </div>       
+
+        <div class="bs-docs-footer">
+         <p class="copyright">Copyright&nbsp;&copy;&nbsp;<a href="http://tgideas.qq.com" target="_blank">TGIdeas</a></p>
+        </div>
+
         <script src="assets/js/zepto.min.js"></script>
         <script src="assets/js/rAF.js"></script>
-        <script src="assets/js/app.js"></script>
         <script type="text/javascript" src="http://tajs.qq.com/stats?sId=38002296" charset="UTF-8"></script>
     </body>
 </html>

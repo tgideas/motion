@@ -1,0 +1,9 @@
+default:
+    - 'concurrent:first'
+    - 'concurrent:second'
+    - 'concurrent:three'
+    - 'concurrent:four'
+build:
+    - 'concurrent:first'
+    - 'concurrent:second'
+    - 'concurrent:three'
