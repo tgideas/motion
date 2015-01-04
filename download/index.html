@@ -8,11 +8,11 @@
         <meta name="description" content="Motion.js,a slim javascript ui kit for mobile" />
         <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library" />
         <meta name="author" content="TGIdeas" />
-        <link rel="shortcut icon" href="favicon.ico"/>
+        <link rel="shortcut icon" href="/favicon.ico"/>
 
-        <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="/assets/css/docs.css"/>
-        <script src="/assets/js/modernizr.custom.47593.js"></script>
+        <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../assets/css/docs.css"/>
+        <script src="../assets/js/modernizr.custom.47593.js"></script>
     </head>
     <body>
         
@@ -31,13 +31,13 @@
             <nav class="collapse navbar-collapse bs-navbar-collapse">
               <ul class="nav navbar-nav">
                 <li>
-                  <a href="/">首页</a>
+                  <a href="../">首页</a>
                 </li>
                 <li>
-                  <a href="/doc/">API</a>
+                  <a href="../doc/">API</a>
                 </li>
                 <li class="active">
-                  <a href="/download/">下载</a>
+                  <a href="index.html">下载</a>
                 </li>
                 <li>
                   <a href="https://github.com/tgideas/motion" target="_blank">Github源码</a>
@@ -47,7 +47,7 @@
                 </li>
               </ul>
               <ul class="nav navbar-nav navbar-right bs-docs-lang">
-                  <li><a href="/lang/en/index.html">English</a></li>
+                  <li><a href="../i18n/en/index.html">English</a></li>
                   <li class="active"><a href="/index.html">简体中文</a></li>
               </ul>
             </nav>
@@ -166,8 +166,17 @@
          <p class="copyright">Copyright&nbsp;&copy;&nbsp;<a href="http://tgideas.qq.com" target="_blank">TGIdeas</a></p>
         </div>
 
-        <script src="/assets/js/jquery.min.js"></script>
-        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+        <script>
+        $(function($){
+            var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
+                $menus = $('.bs-docs-lang li');
+            if(lang=='en'){
+                $menus.removeClass('active').eq(0).addClass('active');
+            }
+        });
+        </script>
 
         <script type="text/javascript" src="http://tajs.qq.com/stats?sId=38002296" charset="UTF-8"></script>
     </body>
