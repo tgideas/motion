@@ -1,0 +1,43 @@
+{
+    "menu":{
+        "home":"Home",
+        "api":"API",
+        "download":"Download",
+        "github":"Github",
+        "faq":"FAQ"
+    },
+    "btn":{
+        "downloadNow":"Download Now"
+    },
+    "motion":{
+        "slogan":"Motion.JS, For mobile web applications.",
+        "desc":"Motion.JS is a swift javascript framework,which includes a bundle of useful components leveraging the cool new features from Html5. Like the name 'Motion', most Motion.JS components are behavior focused, it's a piece of cake for you to custom their UI styles. In addition, Motion.JS is zepto based, so you don't need to warry about manipulating dom elements at any time when using it.",
+        "feature1":"Specially For Mobile",
+        "feature1desc":"Born for building mobile web application.",
+        "feature2":"Simple And Swift",
+        "feature2desc":"Independent of UI, Behavior focused, Tons of API with configurable options.",
+        "feature3":"Creative Components",
+        "feature3desc":"Includes many useful and creative components, Support on-demand component packaging."
+    },
+    "mods":{
+        "recommendationTitle":"Recommended components",
+        "recommendationDesc":"Some useful and cool components recommended by Motion.JS.",
+        "recModDesc1":"Page Slide component for building applications with swipable pages.",
+        "recModDesc2":"Creating sequential animations is far  more easier than before.",
+        "redModDesc3":"Capture photos via your mobile device's camera, do some magics and share them to your friends.",
+        "redModDesc4":"A daily used dialog component.",
+        "mod1":"Page Slide",
+        "mod2":"Image Editor",
+        "mod3":"Dialog"
+    },
+    "contributors":{
+        "title":"Contributors",
+        "dev":"@波波,<a href='#'>@熊熊</a>",
+        "design":"@佩佩",
+        "others":"@DG,@LV"
+    },
+    "supports":{
+        "title":"Supports",
+        "desc":"Send your advice and problems to Motion Team via the link below:"
+    }
+}

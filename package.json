@@ -30,7 +30,8 @@
     "grunt-contrib-less": "~0.11.0",
     "grunt-replace":"*",
     "connect":"*",
-    "serve-static":"*"
+    "serve-static":"*",
+    "grunt-i18n-static":"*"
   },
   "dependencies": {
     "time-grunt": "*"

@@ -18,6 +18,7 @@
  * Update the basics of our documents to prep for docs content.
  */
 
+html,body{display:block;height:100%;}
 body {
   position: relative; /* For scrollspy */
   font-family:"Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
@@ -29,6 +30,10 @@ body {
   font-weight: normal;
 }
 a {color:#009cff;}
+
+a.btn {transition:box-shadow .2s ease-out;}
+a.btn:hover{box-shadow:0 0 5px rgba(0,0,0,.26);}
+
 .btn-primary{
   border-color:transparent;
   background: #00ea8f; /* Old browsers */
@@ -136,6 +141,7 @@ a {color:#009cff;}
   background-color: #00d07f;
   border-bottom: 0;
 }
+.bs-docs-nav1 {background-color:#292929;}
 .bs-home-nav .bs-nav-b {
   display: none;
 }
@@ -148,6 +154,8 @@ a {color:#009cff;}
     padding-bottom:0; 
     background:url(../img/logo.png) center 17px no-repeat;
 }
+.bs-docs-nav1 .navbar-brand{background-image:url(../img/logo1.png);}
+
 .bs-docs-nav .navbar-brand,
 .bs-docs-nav .navbar-nav > li > a {
   font-weight: 500;
@@ -155,7 +163,14 @@ a {color:#009cff;}
   color: #464c49;
 }
 
+.bs-docs-nav1 .navbar-brand,
+.bs-docs-nav1 .navbar-nav > li > a{
+  color:#929292;
+}
+
 .bs-docs-nav .navbar-nav > li > a:hover,
+.bs-docs-nav .navbar-nav > li > a:focus,
+.bs-docs-nav .navbar-nav > li > a:active,
 .bs-docs-nav .navbar-nav > .active > a,
 .bs-docs-nav .navbar-nav > .active > a:hover {
   color: #fff;
@@ -177,7 +192,6 @@ a {color:#009cff;}
 .bs-docs-nav .navbar-header .navbar-toggle:focus .icon-bar{
   background-color: #00d07f;
 }
-
 
 /*
  * Footer
@@ -304,7 +318,12 @@ a {color:#009cff;}
     width:530px;
   }
 }
-
+@media (max-width: 479px) {
+  .bs-docs-masthead ,.bs-docs-header{
+    background-image:none;
+    height:auto;
+  }
+}
 
 /*
  * Page headers
@@ -448,6 +467,9 @@ a {color:#009cff;}
   text-align:center;
   padding-bottom:0!important;
 }
+.bs-docs-featurette2 {
+  background-color:#fff;
+}
 .bs-docs-featurette + .bs-docs-footer {
   margin-top: 0;
   border-top: 0;
@@ -525,6 +547,9 @@ a {color:#009cff;}
   .bs-docs-featurette h3{
     font-size:18px;
   }
+  .half-rule { 
+    margin:50px auto 30px;
+  }
 }
 
 @media (min-width: 480px) {
@@ -536,6 +561,10 @@ a {color:#009cff;}
   .bs-docs-featurette {
     padding-top: 90px;
     padding-bottom: 90px;
+  }
+  .bs-docs-featurette2 {
+    padding-top:65px;
+    padding-bottom:65px;
   }
   .bs-docs-featurette-title {
     font-size: 48px;
@@ -566,11 +595,11 @@ a {color:#009cff;}
  */
 
 .bs-docs-featured-sites {
-  margin-right: -1px;
-  margin-left: -1px;
+  margin-right: -4px;
+  margin-left: -4px;
 }
 .bs-docs-featured-sites .col-xs-6 {
-  padding: 1px;
+  padding: 4px;
 }
 .bs-docs-featured-sites .img-responsive {
   margin-top: 0;
@@ -579,11 +608,19 @@ a {color:#009cff;}
 .mt-mod { 
   border:1px solid #c7c7c7;
   padding:5px;
-  margin-right:8px;
+  display:block;
+  transition:all .2s ease-out;
+}
+.mt-mod:hover,.mt-mod:focus{
+  text-decoration:none;
+  box-shadow:0 0 5px rgba(0,0,0,.26);
 }
 .mt-mod h3 {
   font-size:30px;
   color:#fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .mt-mod-r1{
   background-color:#00d07f;
@@ -595,6 +632,8 @@ a {color:#009cff;}
   font-size:12px;
   color:#444;
   padding:15px 10px;
+  max-height:120px;
+  overflow:hidden;
 }
 
 @media (min-width: 768px) {
@@ -607,13 +646,20 @@ a {color:#009cff;}
     border-bottom-right-radius: 4px;
   }
 }
-
+@media (max-width: 479px) {
+  .mt-mod h3{
+    font-size:18px;
+  }
+}
 /*
  * contributors
  */
 
 .bs-docs-contributors{
   padding-bottom:40px;
+}
+.bs-docs-contributors p { 
+  margin-bottom:5px;
 }
 
 @media (min-width: 768px) {
@@ -1674,6 +1720,31 @@ h1[id] {
     padding-top:32px;
     padding-bottom:32px;
   }
+    .bs-docs-lang {
+      background-color: #00ab68;
+      border-radius:20px;
+      padding:3px;
+      margin-top:26px;
+      margin-right:0;
+    }
+
+    .bs-docs-lang > li > a{
+      font-size:14px !important;
+    }
+    .bs-docs-lang > li.active{
+      background-color:#00df88;
+      border-radius:20px;
+    }
+    .bs-docs-lang > li.active > a{
+      color:#fff !important;
+    }
+
+  .bs-docs-lang > li > a {
+    padding-top:4px;
+    padding-bottom:2px;
+  }
+  .bs-docs-nav1 .bs-docs-lang{background-color:#000;}
+  .bs-docs-nav1 .bs-docs-lang > li.active {background-color:#3b3b3b;}
 }
 
 
@@ -1692,3 +1763,54 @@ h1[id] {
   -webkit-box-shadow: 0 0 8px rgba(82,168,236,.6);
           box-shadow: 0 0 8px rgba(82,168,236,.6);
 }
+
+
+/**
+ *  Download Page
+ *
+ * */
+
+.mt-mod-desc { overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;color:#919191; }
+.mt-mod-icon { background:url(../img/sprite_01.png) 0 0 no-repeat;}
+.mt-mod-icon1 { background-position:0 0;height:41px;width:41px;}
+.mt-mod-icon2 { background-position:0 -100px;width:40px;height:36px; }
+.bs-docs-mods .col-xs-6 {padding-top:15px;padding-bottom:15px;}
+.mt-mod1 .mt-mod-r1,.mt-mod1 .mt-mod-r2 {
+  height:80px;
+  position:relative;
+}
+
+.mt-mod1 .mt-mod-r1 {
+  text-align:left;
+  padding-left:82px;
+  padding-top:20px;
+  padding-bottom:20px;
+  background-color:#e8e8e8;
+}
+.mt-mod1 .mt-mod-icon { position:absolute; }
+.mt-mod1 .mt-mod-icon1 {left:0;top:0;display:none;}
+.mt-mod1 .mt-mod-icon2 {left:28px;top:26px;}
+
+.mt-mod1 .mt-mod-r2 {background-color:#373737;color:#00e28a;font-size:18px;text-align:center;line-height:50px;}
+.mt-mod1 h3{font-size:24px;color:#414242;margin-bottom:2px;}
+
+.mt-mod1:hover,.mt-mod1:focus,.mt-mod1.active{ border-color:#00e28a;}
+.mt-mod1:hover .mt-mod-r2,.mt-mod1:focus .mt-mod-r2,.mt-mod1.active .mt-mod-r2{ color:#fff; }
+.mt-mod1:hover .mt-mod-r1,.mt-mod1:focus .mt-mod-r1,.mt-mod1.active .mt-mod-r1{ background-color:#00e28a; }
+.mt-mod1:hover .mt-mod-icon2,.mt-mod1:focus .mt-mod-icon2,.mt-mod1.active .mt-mod-icon2{background-position:0 -50px;}
+.mt-mod1:hover .mt-mod-icon1,.mt-mod1:focus .mt-mod-icon1,.mt-mod1.active .mt-mod-icon1{display:block;}
+.mt-mod1:hover .mt-mod-desc,.mt-mod1:focus .mt-mod-desc,.mt-mod1.active .mt-mod-desc,
+.mt-mod1:hover h3,.mt-mod1:focus h3,.mt-mod1.active h3{color:#fff;}
+
+.mt-downacts {text-align:center;}
+.mt-downacts .btn {padding: 22px 76px;font-size: 38px;}
+@media (max-width:479px) {
+  .bs-docs-mods{margin-right:-5px;margin-left:-5px;}
+  .bs-docs-mods .col-xs-6{padding:5px;}
+  .mt-downacts .btn {padding:17px 57px;font-size:30px;margin:0 15px;display:block;}
+}
+@media (min-width:768px) {
+  .bs-docs-section{
+    margin-bottom:290px;
+  }
+} 

@@ -1,0 +1,43 @@
+{
+    "menu":{
+        "home":"首页",
+        "api":"API",
+        "download":"下载",
+        "github":"Github源码",
+        "faq":"FAQ"
+    },
+    "btn":{
+        "downloadNow":"立刻下载"
+    },
+    "motion":{
+        "slogan":"Motion.JS，为移动设备而生。",
+        "desc":"Motion 是一款基于ZeptoJS，为移动终端量身定制的组件库，重点开发 结合HTML5新特征的创新实用组件。Motion是一款基于ZeptoJS，为移 动终端量身定制的组件库，重点开发结合HTML5新特征的创新实用组件。",
+        "feature1":"为移动终端量身定制",
+        "feature1desc":"完全针对触屏设备开发，将触屏设备上的体验做到极致。",
+        "feature2":"保持灵活性",
+        "feature2desc":"提供大量的自定义事件接口，避免样式污染。",
+        "feature3":"实用创新组件",
+        "feature3desc":"除了常用组件，Motion将重心放在触屏设备的创新组件开发。"
+    },
+    "mods":{
+        "recommendationTitle":"Motion推荐组件",
+        "recommendationDesc":"这是Motion为大家推荐的有趣的、实用的组件。",
+        "recModDesc1":"组件的描述文字组件的描述文字组件的描述文字，组件的描述，组件的描述组件的描述！",
+        "recModDesc2":"组件的描述文字组件的描述文字组件的描述文字，组件的描述，组件的描述组件的描述！",
+        "redModDesc3":"组件的描述文字组件的描述文字组件的描述文字，组件的描述，组件的描述组件的描述！",
+        "redModDesc4":"组件的描述文字组件的描述文字组件的描述文字，组件的描述，组件的描述组件的描述！",
+        "mod1":"Page Slide",
+        "mod2":"Image Editor",
+        "mod3":"Dialog"
+    },
+    "contributors":{
+        "title":"贡献",
+        "dev":"@波波,<a href='#'>@熊熊</a>",
+        "design":"@佩佩",
+        "others":"@DG,@LV"
+    },
+    "supports":{
+        "title":"技术支持",
+        "desc":"如果你在使用的过程中遇到了问题，你可以在这里创建反馈:"
+    }
+}
