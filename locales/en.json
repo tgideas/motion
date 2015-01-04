@@ -3,6 +3,7 @@
         "home":"Home",
         "api":"API",
         "download":"Download",
+        "downloadLnk":"/motion/i18n/en/download/",
         "github":"Github",
         "faq":"FAQ"
     },
