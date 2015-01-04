@@ -5,6 +5,7 @@ module.exports = {
         }
       },
       options: {
+        fixPaths:true,
         allowHtml:true,
         fileFormat: 'json',
         exclude: ['i18n/','doc/',"assets/","component/","node_modules/"],
