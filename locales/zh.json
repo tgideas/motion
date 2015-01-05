@@ -24,17 +24,17 @@
         "recommendationDesc":"这是Motion为大家推荐的有趣的、实用的组件。",
         "recModDesc1":"组件的描述文字组件的描述文字组件的描述文字，组件的描述，组件的描述组件的描述！",
         "recModDesc2":"组件的描述文字组件的描述文字组件的描述文字，组件的描述，组件的描述组件的描述！",
-        "redModDesc3":"组件的描述文字组件的描述文字组件的描述文字，组件的描述，组件的描述组件的描述！",
-        "redModDesc4":"组件的描述文字组件的描述文字组件的描述文字，组件的描述，组件的描述组件的描述！",
+        "recModDesc3":"组件的描述文字组件的描述文字组件的描述文字，组件的描述，组件的描述组件的描述！",
+        "recModDesc4":"组件的描述文字组件的描述文字组件的描述文字，组件的描述，组件的描述组件的描述！",
         "mod1":"Page Slide",
         "mod2":"Image Editor",
         "mod3":"Dialog"
     },
     "contributors":{
         "title":"贡献",
-        "dev":"@波波,<a href='#'>@熊熊</a>",
-        "design":"@佩佩",
-        "others":"@DG,@LV"
+        "dev":"开发: <a href='https://github.com/cnwander' target='_blank'>万技师</a>, <a href='https://github.com/githubFree'>熊老师</a>",
+        "design":"设计: 佩佩",
+        "others":"其它: DG, <a href='https://github.com/mamboer' target='_blank'>LV主唱大人</a>"
     },
     "supports":{
         "title":"技术支持",
