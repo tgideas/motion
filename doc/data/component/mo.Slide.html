@@ -2,14 +2,12 @@
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>Class: Slide-移动端组件库-TGideas</title>
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link rel="stylesheet" href="../../css/global.css"/>
-    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
 <body>
@@ -18,26 +16,42 @@
        alert('请使用webkit内核浏览器打开体验，谢谢！');
     }
     </script>
-    <section class="sidebar">
-        <h1 class="logo">移动端组件库</h1>
+    <header>
         <nav>
+            <h1 class="logo">移动端组件库</h1>
             <ul>
-                <li ><a href="javascript:alert('暂未上线');void(0)">模板</a></li>
-                <li><a href="javascript:alert('暂未上线');void(0)">模块</a></li>
-                <li class="current"><a href="#">组件</a></li>
+                <li><a href="#">首页</a></li>
+                <li class="current"><a href="#">API</a></li>
+                <li><a href="#">下载</a></li>
+                <li><a href="#">Github</a></li>
+                <li><a href="#">FAQ</a></li>
             </ul>
         </nav>
-    </section>
-    <div id="main" class="main">
-        <div class="tips" style="border:1px solid #ddd;background:#ffd;padding:10px;"><span style="color:red">Tips:</span> 请启用Emulation &gt; Sensors &gt; Emulate touch screen 体验demo</div>
-        
+    </header>
+    <div class="main">
+        <section class="sidebar">
+            <nav>
+                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad_.html">LazyLoad</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay_.html">Overlay</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
+            </nav>
+            <script>
+            (function(){
+                var elems = document.querySelectorAll('.sidebar li');
+                for(var i = 0; i < elems.length; i++) {
 
-        
-        
-            <h1 class="page-title">Class: Slide</h1>
-        
-        
-        <script src="http://ossweb-img.qq.com/images/js/jquery/jquery-1.8.0.min.js"></script>
+                }
+            })()
+            </script>
+        </section>
+        <div id="main" class="content">
+
+            
+
+            
+            
+                <h1 class="page-title">Class: Slide</h1>
+            
+            
+            <script src="http://ossweb-img.qq.com/images/js/jquery/jquery-1.8.0.min.js"></script>
 <script src="http://ossweb-img.qq.com/images/js/jquery/jquery.qrcode.min.js"></script>
 <script>
 function SetWinHeight(obj) { 
@@ -46,10 +60,12 @@ function SetWinHeight(obj) {
     if (document.getElementById)  { 
         if (win && !window.opera)  { 
             if (win.contentDocument && win.contentDocument.body.offsetHeight) {
-                win.height = win.contentDocument.body.offsetHeight; 
+                var height = win.contentDocument.body.offsetHeight; 
+                win.height = height > 400 ? height : 400;
                 body = win.contentDocument.body;
             } else if(win.Document && win.Document.body.scrollHeight) {
-                win.height = win.Document.body.scrollHeight; 
+                var height = win.Document.body.scrollHeight
+                win.height = height > 400 ? height : 400;
                 body = win.Document.body;
             }
         } 
@@ -73,10 +89,12 @@ function SetWinHeight(obj) {
         html = html.replace(rep, function(a,b){return b});
 
     }
-    html = html.replace(/\n/g, '<br/>');
-    html = html.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+    // html = html.replace(/\n/g, '<br/>');
+    // html = html.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
 
     $(obj).next().height(win.height).find('code').html(html);
+
+    if(Prism) Prism.highlightAll();
 } 
 
 </script>
@@ -89,14 +107,14 @@ function SetWinHeight(obj) {
 
 <section>
     
-<header>
+<!-- <header>
     <h2>
         <span class="ancestors"><a href="mo_.html">mo</a>.</span>
     
     Slide
     </h2>
     
-</header>  
+</header>   -->
 
 <article>
     <div class="container-overview">
@@ -104,16 +122,16 @@ function SetWinHeight(obj) {
     
     
         
-<dt>
+<!-- <dt>
     <h4 class="name" id="Slide"><span class="type-signature"></span>new Slide<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-</dt>
+</dt> -->
 <dd>
     
     
     <div class="description">
-        <p>切换类</p>
+        切换类
     </div>
     
 
@@ -154,7 +172,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/slide/slide.js">slide.js</a>, line 1</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/slide/slide.js">slide.js</a>, line 1</li></ul>
 
 
 
@@ -193,7 +211,7 @@ function SetWinHeight(obj) {
     
         <h5>Example</h5>
         
-    <pre class="prettyprint"><code>		var tab1 = new mo.Slide({
+    <pre class="language-javascript"><code>		var tab1 = new mo.Slide({
 			target: $('#slide01 li')
 		});</code></pre>
 
@@ -315,7 +333,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>是否允许手指滑动</p></td>
+            <td class="description last">是否允许手指滑动</td>
         </tr>
 	
 	
@@ -351,7 +369,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>目标选项卡片，即供切换的 Elements list (Elements.length >= 2)</p></td>
+            <td class="description last">目标选项卡片，即供切换的 Elements list (Elements.length >= 2)</td>
         </tr>
 	
 	
@@ -391,7 +409,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>触发器</p></td>
+            <td class="description last">触发器</td>
         </tr>
 	
 	
@@ -428,7 +446,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>指定方向，仅效果为'slide'时有效</p></td>
+            <td class="description last">指定方向，仅效果为'slide'时有效</td>
         </tr>
 	
 	
@@ -465,7 +483,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>是否自动播放</p></td>
+            <td class="description last">是否自动播放</td>
         </tr>
 	
 	
@@ -502,7 +520,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>默认播放第几个（索引值计数，即0开始的计数方式）</p></td>
+            <td class="description last">默认播放第几个（索引值计数，即0开始的计数方式）</td>
         </tr>
 	
 	
@@ -539,7 +557,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>事件触发类型</p></td>
+            <td class="description last">事件触发类型</td>
         </tr>
 	
 	
@@ -576,7 +594,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>当前样式名称, 多tab嵌套时有指定需求</p></td>
+            <td class="description last">当前样式名称, 多tab嵌套时有指定需求</td>
         </tr>
 	
 	
@@ -613,7 +631,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>tab controller中的链接是否可被点击</p></td>
+            <td class="description last">tab controller中的链接是否可被点击</td>
         </tr>
 	
 	
@@ -650,7 +668,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>自动播放时停留时间</p></td>
+            <td class="description last">自动播放时停留时间</td>
         </tr>
 	
 	
@@ -687,7 +705,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>mouseover触发延迟时间</p></td>
+            <td class="description last">mouseover触发延迟时间</td>
         </tr>
 	
 	
@@ -725,7 +743,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>播放前一张，调用prev()</p></td>
+            <td class="description last">播放前一张，调用prev()</td>
         </tr>
 	
 	
@@ -763,7 +781,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>插放后一张，调用next()</p></td>
+            <td class="description last">插放后一张，调用next()</td>
         </tr>
 	
 	
@@ -800,7 +818,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>动画方式：默认可选(可加载Zepto.easying.js扩充)：'swing', 'linear'</p></td>
+            <td class="description last">动画方式：默认可选(可加载Zepto.easying.js扩充)：'swing', 'linear'</td>
         </tr>
 	
 	
@@ -835,7 +853,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>初始化绑定的事件</p></td>
+            <td class="description last">初始化绑定的事件</td>
         </tr>
 	
 	
@@ -870,7 +888,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>初始化绑定的事件</p></td>
+            <td class="description last">初始化绑定的事件</td>
         </tr>
 	
 	
@@ -907,7 +925,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last"><p>是否启用按需加载</p></td>
+            <td class="description last">是否启用按需加载</td>
         </tr>
 	
 	
@@ -918,67 +936,6 @@ function SetWinHeight(obj) {
         <li><dl>
             
 <dt>
-    <h4 class="name" id="animationId"><span class="type-signature"></span>animationId<span class="type-signature"> :[type]</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>播放动画ID</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Tab#animationId
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 225</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
     <h4 class="name" id="container"><span class="type-signature"></span>container<span class="type-signature"> :object</span></h4>
     
     
@@ -986,7 +943,7 @@ function SetWinHeight(obj) {
 <dd>
     
     <div class="description">
-        <p>目标选项卡片容器</p>
+        目标选项卡片容器
     </div>
     
     
@@ -1017,7 +974,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 132</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 132</li></ul>
 
 
 
@@ -1047,7 +1004,7 @@ function SetWinHeight(obj) {
 <dd>
     
     <div class="description">
-        <p>目标选项卡片控制器</p>
+        目标选项卡片控制器
     </div>
     
     
@@ -1078,68 +1035,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 114</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="curIndex"><span class="type-signature"></span>curIndex<span class="type-signature"> :Number</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>当前停留在的帧序号</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Tab#curIndex
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 195</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 114</li></ul>
 
 
 
@@ -1169,7 +1065,7 @@ function SetWinHeight(obj) {
 <dd>
     
     <div class="description">
-        <p>当前播放第几个的索引值</p>
+        当前播放第几个的索引值
     </div>
     
     
@@ -1200,251 +1096,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 126</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="filmNode"><span class="type-signature"></span>filmNode<span class="type-signature"> :[type]</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>真正执行帧动画的节点</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Tab#filmNode
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 215</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="filmSize"><span class="type-signature"></span>filmSize<span class="type-signature"> :Object</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>帧动画的尺寸(宽高)</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Tab#filmSize
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 210</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="frameStyles"><span class="type-signature"></span>frameStyles<span class="type-signature"> :Array</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>每帧对应的样式/src</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Tab#frameStyles
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 220</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="isLoading"><span class="type-signature"></span>isLoading<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>是否正在加载</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Tab#isLoading
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 200</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 126</li></ul>
 
 
 
@@ -1474,7 +1126,7 @@ function SetWinHeight(obj) {
 <dd>
     
     <div class="description">
-        <p>播放状态</p>
+        播放状态
     </div>
     
     
@@ -1505,7 +1157,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 142</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 142</li></ul>
 
 
 
@@ -1535,7 +1187,7 @@ function SetWinHeight(obj) {
 <dd>
     
     <div class="description">
-        <p>上一个选项卡的索引值</p>
+        上一个选项卡的索引值
     </div>
     
     
@@ -1566,68 +1218,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 120</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="resource"><span class="type-signature"></span>resource<span class="type-signature"> :Array</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>需要加载的资源</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Tab#resource
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 190</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 120</li></ul>
 
 
 
@@ -1657,7 +1248,7 @@ function SetWinHeight(obj) {
 <dd>
     
     <div class="description">
-        <p>目标选项卡片</p>
+        目标选项卡片
     </div>
     
     
@@ -1688,68 +1279,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 108</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="totalFrame"><span class="type-signature"></span>totalFrame<span class="type-signature"> :Number</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>帧数</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Tab#totalFrame
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 205</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 108</li></ul>
 
 
 
@@ -1774,16 +1304,16 @@ function SetWinHeight(obj) {
     
         <li><dl>
             
-<dt>
+<!-- <dt>
     <h4 class="name" id="constructor"><span class="type-signature"></span>constructor<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-</dt>
+</dt> -->
 <dd>
     
     
     <div class="description">
-        <p>构造函数</p>
+        构造函数
     </div>
     
 
@@ -1819,7 +1349,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 42</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/base/base.js">base.js</a>, line 42</li></ul>
 
 
 
@@ -1847,16 +1377,16 @@ function SetWinHeight(obj) {
 
         
             
-<dt>
+<!-- <dt>
     <h4 class="name" id="next"><span class="type-signature"></span>next<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-</dt>
+</dt> -->
 <dd>
     
     
     <div class="description">
-        <p>播放后一个</p>
+        播放后一个
     </div>
     
 
@@ -1892,7 +1422,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 377</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 377</li></ul>
 
 
 
@@ -1920,16 +1450,16 @@ function SetWinHeight(obj) {
 
         
             
-<dt>
+<!-- <dt>
     <h4 class="name" id="on"><span class="type-signature"></span>on<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-</dt>
+</dt> -->
 <dd>
     
     
     <div class="description">
-        <p>绑定事件</p>
+        绑定事件
     </div>
     
 
@@ -1965,7 +1495,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 52</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/base/base.js">base.js</a>, line 52</li></ul>
 
 
 
@@ -1993,16 +1523,16 @@ function SetWinHeight(obj) {
 
         
             
-<dt>
+<!-- <dt>
     <h4 class="name" id="play"><span class="type-signature"></span>play<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-</dt>
+</dt> -->
 <dd>
     
     
     <div class="description">
-        <p>开始自动播放</p>
+        开始自动播放
     </div>
     
 
@@ -2038,7 +1568,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 416</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 416</li></ul>
 
 
 
@@ -2066,16 +1596,16 @@ function SetWinHeight(obj) {
 
         
             
-<dt>
+<!-- <dt>
     <h4 class="name" id="playTo"><span class="type-signature"></span>playTo<span class="signature">(page)</span><span class="type-signature"></span></h4>
 
     
-</dt>
+</dt> -->
 <dd>
     
     
     <div class="description">
-        <p>播放到第几个选项卡</p>
+        播放到第几个选项卡
     </div>
     
 
@@ -2111,7 +1641,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 311</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 311</li></ul>
 
 
 
@@ -2139,16 +1669,16 @@ function SetWinHeight(obj) {
 
         
             
-<dt>
+<!-- <dt>
     <h4 class="name" id="prev"><span class="type-signature"></span>prev<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-</dt>
+</dt> -->
 <dd>
     
     
     <div class="description">
-        <p>播放前一个</p>
+        播放前一个
     </div>
     
 
@@ -2184,7 +1714,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 384</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 384</li></ul>
 
 
 
@@ -2212,16 +1742,16 @@ function SetWinHeight(obj) {
 
         
             
-<dt>
+<!-- <dt>
     <h4 class="name" id="stop"><span class="type-signature"></span>stop<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-</dt>
+</dt> -->
 <dd>
     
     
     <div class="description">
-        <p>停止自动播放</p>
+        停止自动播放
     </div>
     
 
@@ -2257,7 +1787,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 426</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 426</li></ul>
 
 
 
@@ -2285,16 +1815,16 @@ function SetWinHeight(obj) {
 
         
             
-<dt>
+<!-- <dt>
     <h4 class="name" id="trigger"><span class="type-signature"></span>trigger<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-</dt>
+</dt> -->
 <dd>
     
     
     <div class="description">
-        <p>触发事件</p>
+        触发事件
     </div>
     
 
@@ -2330,7 +1860,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 61</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/base/base.js">base.js</a>, line 61</li></ul>
 
 
 
@@ -2361,11 +1891,11 @@ function SetWinHeight(obj) {
     
         <li><dl>
             
-<dt>
+<!-- <dt>
     <h4 class="name" id="event:beforechange">beforechange</h4>
 
     
-</dt>
+</dt> -->
 <dd>
     
     
@@ -2420,7 +1950,7 @@ function SetWinHeight(obj) {
             
             
             
-            <td class="description last"><p>开始切换</p></td>
+            <td class="description last">开始切换</td>
         </tr>
 	
 	
@@ -2452,7 +1982,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 354</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 354</li></ul>
 
 
 
@@ -2480,11 +2010,11 @@ function SetWinHeight(obj) {
 
         
             
-<dt>
+<!-- <dt>
     <h4 class="name" id="event:beforeinit">beforeinit</h4>
 
     
-</dt>
+</dt> -->
 <dd>
     
     
@@ -2539,7 +2069,7 @@ function SetWinHeight(obj) {
             
             
             
-            <td class="description last"><p>开始初始化前</p></td>
+            <td class="description last">开始初始化前</td>
         </tr>
 	
 	
@@ -2571,7 +2101,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 152</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 152</li></ul>
 
 
 
@@ -2599,11 +2129,11 @@ function SetWinHeight(obj) {
 
         
             
-<dt>
+<!-- <dt>
     <h4 class="name" id="event:change">change</h4>
 
     
-</dt>
+</dt> -->
 <dd>
     
     
@@ -2658,7 +2188,7 @@ function SetWinHeight(obj) {
             
             
             
-            <td class="description last"><p>切换完成</p></td>
+            <td class="description last">切换完成</td>
         </tr>
 	
 	
@@ -2690,7 +2220,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 468</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 468</li></ul>
 
 
 
@@ -2718,11 +2248,11 @@ function SetWinHeight(obj) {
 
         
             
-<dt>
+<!-- <dt>
     <h4 class="name" id="event:init">init</h4>
 
     
-</dt>
+</dt> -->
 <dd>
     
     
@@ -2777,7 +2307,7 @@ function SetWinHeight(obj) {
             
             
             
-            <td class="description last"><p>初始化完成</p></td>
+            <td class="description last">初始化完成</td>
         </tr>
 	
 	
@@ -2809,7 +2339,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 168</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/tab/tab.js">tab.js</a>, line 168</li></ul>
 
 
 
@@ -2837,11 +2367,11 @@ function SetWinHeight(obj) {
 
         
             
-<dt>
+<!-- <dt>
     <h4 class="name" id="event:touchstart">touchstart</h4>
 
     
-</dt>
+</dt> -->
 <dd>
     
     
@@ -2896,7 +2426,7 @@ function SetWinHeight(obj) {
             
             
             
-            <td class="description last"><p>开始滑时动</p></td>
+            <td class="description last">开始滑时动</td>
         </tr>
 	
 	
@@ -2923,7 +2453,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/slide/slide.js">slide.js</a>, line 105</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/slide/slide.js">slide.js</a>, line 101</li></ul>
 
 
 
@@ -2960,7 +2490,8 @@ function SetWinHeight(obj) {
         <h3 class="subsection-title">普通滑动（<a target="_blank" href="../../../component/demo/slide/demo1.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
             <iframe src="../../../component/demo/slide/demo1.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
-            <div class="code prettyprint"><code></code></div>
+            <pre class="code language-javascript"><code></code></pre>
+            <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
         </div>
             
         
@@ -2968,7 +2499,8 @@ function SetWinHeight(obj) {
         <h3 class="subsection-title">横向单屏滑动-扫二维码看效果（<a target="_blank" href="../../../component/demo/slide/demo2.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
             <iframe src="../../../component/demo/slide/demo2.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
-            <div class="code prettyprint"><code></code></div>
+            <pre class="code language-javascript"><code></code></pre>
+            <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
         </div>
             
         
@@ -2976,7 +2508,8 @@ function SetWinHeight(obj) {
         <h3 class="subsection-title">带标题的滑动（<a target="_blank" href="../../../component/demo/slide/demo3.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
             <iframe src="../../../component/demo/slide/demo3.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
-            <div class="code prettyprint"><code></code></div>
+            <pre class="code language-javascript"><code></code></pre>
+            <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
         </div>
             
         
@@ -2984,7 +2517,8 @@ function SetWinHeight(obj) {
         <h3 class="subsection-title">未命名滑动（<a target="_blank" href="../../../component/demo/slide/demo4.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
             <iframe src="../../../component/demo/slide/demo4.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
-            <div class="code prettyprint"><code></code></div>
+            <pre class="code language-javascript"><code></code></pre>
+            <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
         </div>
             
         
@@ -3043,17 +2577,15 @@ function SetWinHeight(obj) {
 
 </script>
 
+        </div>
+
     </div>
 
-    <nav class="sub-nav">
-        <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul><h3>Namespaces</h3><ul><li><a href="mo_.html">mo</a></li></ul>
-    </nav>
 
-    <br clear="both">
-
-
-
-    <script> prettyPrint(); </script>
+    <script type="text/javascript" src="http://ossweb-img.qq.com/images/js/prism/prism.js"></script>
+    <script>
+$('.sidebar li').each(function(i,elem){if(new RegExp($(elem).text()).test(location.href))$(elem).addClass('current')})
+    </script>
 
 </body>
 </html>

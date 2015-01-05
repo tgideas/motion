@@ -1,0 +1,1989 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <title>Class: Animation - Motion.js - A slim javascript ui kit for mobile</title>
+    <meta name="description" content="Motion.js,a slim javascript ui kit for mobile" />
+    <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library" />
+    <meta name="author" content="TGIdeas" />
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css"/>
+
+    <link rel="stylesheet" href="../../css/api.css"/>
+    <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
+     <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Docs master nav -->
+    <header class="navbar navbar-static-top bs-docs-nav bs-docs-nav1" id="top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">Motion</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="http://tgideas.github.io/motion/" data-t="menu.home">首页</a>
+            </li>
+            <li class="active">
+              <a href="http://tgideas.github.io/motion/doc/">API</a>
+            </li>
+            <li>
+              <a href="http://tgideas.github.io/motion/download/" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
+            </li>
+            <li>
+              <a href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
+            </li>
+            <li>
+              <a href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right bs-docs-lang">
+              <li><a href="http://tgideas.github.io/motion/i18n/en/download/index.html">English</a></li>
+              <li class="active"><a href="http://tgideas.github.io/motion/download/index.html">简体中文</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="main container-fluid">
+        <section class="sidebar col-sm-3">
+            <nav>
+                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad_.html">LazyLoad</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.Slide_.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
+            </nav>
+            <script>
+            (function(){
+                var elems = document.querySelectorAll('.sidebar li');
+                for(var i = 0; i < elems.length; i++) {
+
+                }
+            })()
+            </script>
+        </section>
+        <div id="main" class="content col-sm-9">
+
+            
+
+            
+            
+                <h1 class="page-title">Class: Animation</h1>
+            
+            
+            
+<script>
+function SetWinHeight(obj) { 
+    var win=obj; 
+    var body;
+    if (document.getElementById)  { 
+        if (win && !window.opera)  { 
+            if (win.contentDocument && win.contentDocument.body.offsetHeight) {
+                var height = win.contentDocument.body.offsetHeight; 
+                win.height = height > 400 ? height : 400;
+                body = win.contentDocument.body;
+            } else if(win.Document && win.Document.body.scrollHeight) {
+                var height = win.Document.body.scrollHeight
+                win.height = height > 400 ? height : 400;
+                body = win.Document.body;
+            }
+        } 
+    } 
+    var scripts = body.getElementsByTagName('script');
+    var html = '';
+    for(var i = 0; i < scripts.length; i++) {
+        if(!scripts[i].src) {
+            html = scripts[i].innerHTML;
+            break;
+        }
+    }
+    html = html.replace(/(\t|^)\s*\n/g, '');
+    var tabNum = /^(\t*)\S/.exec(html)[1];
+    if(tabNum) {
+        var repStr = '(\\n|^)';
+        for(var i = 0; i < tabNum.length; i++) {
+            repStr += '\\t';
+        }
+        var rep = new RegExp(repStr , 'g');
+        html = html.replace(rep, function(a,b){return b});
+
+    }
+    // html = html.replace(/\n/g, '<br/>');
+    // html = html.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+
+    $(obj).next().height(win.height).find('code').html(html);
+
+    if(Prism) Prism.highlightAll();
+} 
+
+</script>
+
+
+
+
+
+
+
+<section>
+    
+<!-- <header>
+    <h2>
+        <span class="ancestors"><a href="mo_.html">mo</a>.</span>
+    
+    Animation
+    </h2>
+    
+</header>   -->
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+<!-- <dt>
+    <h4 class="name" id="Animation"><span class="type-signature"></span>new Animation<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+    <div class="description">
+        CSS3动画生成器 <br/> 一、提供javascript方法控制动画；二、提供事件接口监听动画；三、自动完成各平台兼容；四、提供大量内置动画，未使用时不插入。
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	<dt class="tag-version">Version:</dt>
+	<dd class="tag-version"><ul class="dummy"><li>1.0</li></ul></dd>
+	
+	
+	
+
+	
+	
+	
+	
+	
+	<dt class="tag-author">Author:</dt>
+	<dd class="tag-author">
+        <ul>
+            <li>Brucewan</li>
+        </ul>
+	</dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/animation/animation.js">animation.js</a>, line 1</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+        <ul>
+            <li>animation/demo1.html 内置效果</li>
+        
+            <li>animation/demo2.html 加载效果</li>
+        
+            <li>animation/demo3.html 方法与事件</li>
+        </ul>
+	</dd>
+	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+        <h5>Example</h5>
+        
+    <pre class="language-javascript"><code>new mo.Animation({
+	target: $(elem),
+	effect: 'shake'
+});	</code></pre>
+
+    
+</dd>
+
+    
+    </div>
+
+     
+        <h3 class="subsection-title">继承：</h3>
+        
+        <ul>
+            <li><a href="mo.Base.html">mo.Base</a></li>
+        </ul>
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">依赖：</h3>
+        
+        <ul>
+            <li>module:lib/zepto.js</li>
+        </ul>
+       
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+    
+
+    <ul class="tab-trigger" >
+      
+      <li><h3 class="subsection-title">参数</h3></li>
+      
+    
+        <li><h3 class="subsection-title">属性</h3></li>
+    
+    
+        <li><h3 class="subsection-title">方法</h3></li>
+    
+    
+        <li><h3 class="subsection-title">事件</h3></li>
+    
+    </ul>
+
+    <u class="tab-target">
+      
+        <li>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>名称</th>
+		
+		
+		<th>类型</th>
+		
+		
+		<th>参数</th>
+		
+		
+		
+		<th>默认值</th>
+		
+		
+		<th class="last">描述</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.target</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">目标元素</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.keyframes</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">动画关键帧设置，如果参数effect为空，该参数为必选</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.effect</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    ''
+                
+                </td>
+            
+            
+            <td class="description last">选择内置效果，也可以继续设置keyframes与内置效果叠加 <br/> 内置效果：flash, shake, swing, wobble, bounceIn, bounceInLeft, bounceInRight, bounceOut, bounceOutLeft, bounceOutRight, fadeIn, fadeOut, flip, flipInX, flipInY, flipOutX, flipOutY, rollIn, rollOut, zoomIn, zoomOut</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.duration</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    2000
+                
+                </td>
+            
+            
+            <td class="description last">动画时间，单位ms</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.easing</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    'swing'
+                
+                </td>
+            
+            
+            <td class="description last">动画缓冲类型</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.autoPlay</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">是否自动播放</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.fillMode</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    'none'
+                
+                </td>
+            
+            
+            <td class="description last">none：默认值。不设置对象动画之外的状态<br/> forwards：设置对象状态为动画结束时的状态<br/> backwards：设置对象状态为动画开始时的状态<br/> both：设置对象状态为动画结束或开始的状态</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.delay</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">设置对象动画延迟的时间，单位ms</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.iteration</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+            
+            <td class="description last">设置对象动画的循环次数。infinite为无限循环。</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.direction</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    'normal'
+                
+                </td>
+            
+            
+            <td class="description last">设置对象动画在循环中是否反向运动。<br/>normal：正常方向<br/> alternate正常与反向交替</td>
+        </tr>
+	
+	
+	</tbody>
+</table></li>
+      
+      
+        <li><dl>
+            
+<dt>
+    <h4 class="name" id="keyframes"><span class="type-signature"></span>keyframes<span class="type-signature"> :Object</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        关键帧
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/animation/animation.js">animation.js</a>, line 218</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="playing"><span class="type-signature"></span>playing<span class="type-signature"> :boolean</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        动画是否正在播放
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/animation/animation.js">animation.js</a>, line 395</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="target"><span class="type-signature"></span>target<span class="type-signature"> :Object</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        目标动画元素
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/animation/animation.js">animation.js</a>, line 212</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        </dl></li>
+     
+    
+        <li><dl>
+            
+<!-- <dt>
+    <h4 class="name" id="init"><span class="type-signature">&lt;static> </span>init<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+    <div class="description">
+        通过class自动触发动画
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/animation/animation.js">animation.js</a>, line 402</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<!-- <dt>
+    <h4 class="name" id="constructor"><span class="type-signature"></span>constructor<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+    <div class="description">
+        构造函数
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Base#constructor
+	</li></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 42</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<!-- <dt>
+    <h4 class="name" id="off"><span class="type-signature"></span>off<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+    <div class="description">
+        绑定事件
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Base#off
+	</li></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 61</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<!-- <dt>
+    <h4 class="name" id="on"><span class="type-signature"></span>on<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+    <div class="description">
+        绑定事件
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Base#on
+	</li></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 52</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<!-- <dt>
+    <h4 class="name" id="play"><span class="type-signature"></span>play<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+    <div class="description">
+        播放动画
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/animation/animation.js">animation.js</a>, line 368</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<!-- <dt>
+    <h4 class="name" id="rePlay"><span class="type-signature"></span>rePlay<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+    <div class="description">
+        重新播放动画
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/animation/animation.js">animation.js</a>, line 383</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<!-- <dt>
+    <h4 class="name" id="stop"><span class="type-signature"></span>stop<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+    <div class="description">
+        暂停动画播放
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/animation/animation.js">animation.js</a>, line 390</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<!-- <dt>
+    <h4 class="name" id="trigger"><span class="type-signature"></span>trigger<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+    <div class="description">
+        触发事件
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Base#trigger
+	</li></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 69</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl></li>
+    
+    
+        <li><dl>
+            
+<!-- <dt>
+    <h4 class="name" id="event:running: 动画播放时">running: 动画播放时</h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>名称</th>
+		
+		
+		<th>类型</th>
+		
+		
+		
+		
+		
+		<th class="last">描述</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">事件对象</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/animation/animation.js">animation.js</a>, line 329</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<!-- <dt>
+    <h4 class="name" id="event:start: 动画开始时">start: 动画开始时</h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>名称</th>
+		
+		
+		<th>类型</th>
+		
+		
+		
+		
+		
+		<th class="last">描述</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">事件对象</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/animation/animation.js">animation.js</a>, line 338</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<!-- <dt>
+    <h4 class="name" id="event:start: 动画结束时">start: 动画结束时</h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>名称</th>
+		
+		
+		<th>类型</th>
+		
+		
+		
+		
+		
+		<th class="last">描述</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">事件对象</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/animation/animation.js">animation.js</a>, line 355</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<!-- <dt>
+    <h4 class="name" id="event:start: 动画重复时">start: 动画重复时</h4>
+
+    
+</dt> -->
+<dd>
+    
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>名称</th>
+		
+		
+		<th>类型</th>
+		
+		
+		
+		
+		
+		<th class="last">描述</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">事件对象</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/animation/animation.js">animation.js</a>, line 345</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl></li>
+    
+    </u>
+
+    
+    
+        
+            
+        <h3 class="subsection-title">内置效果（<a target="_blank" href="../../../component/demo/animation/demo1.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <div class="demo-content">
+            <iframe src="../../../component/demo/animation/demo1.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <pre class="code language-javascript"><code></code></pre>
+            <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
+        </div>
+            
+        
+            
+        <h3 class="subsection-title">加载效果（<a target="_blank" href="../../../component/demo/animation/demo2.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <div class="demo-content">
+            <iframe src="../../../component/demo/animation/demo2.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <pre class="code language-javascript"><code></code></pre>
+            <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
+        </div>
+            
+        
+            
+        <h3 class="subsection-title">方法与事件（<a target="_blank" href="../../../component/demo/animation/demo3.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <div class="demo-content">
+            <iframe src="../../../component/demo/animation/demo3.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <pre class="code language-javascript"><code></code></pre>
+            <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
+        </div>
+            
+        
+    
+    
+
+
+<div id="output"></div>
+
+
+</article>
+
+</section>  
+
+
+
+
+
+
+<script>
+(function(){
+    var Tab = function(target, trigger){
+        var self = this;
+        this.target = target;
+        this.trigger = trigger;
+        this.playTo(0);
+        for(var i = 0; i < trigger.length; i ++) {
+            (function(i){
+                trigger[i].onclick = function(){
+                    self.playTo(i);
+                }
+            })(i);
+        }
+    };
+
+    Tab.prototype.playTo = function(n){
+        for(var i = 0; i < this.target.length; i++) {
+            this.target[i].style.display = 'none';
+            this.trigger[i].className = '';
+        }
+        this.target[n].style.display = 'block';
+        this.trigger[n].className = 'current';
+    }
+    new Tab(
+        document.querySelectorAll('.tab-target > li'), 
+        document.querySelectorAll('.tab-trigger > li')
+    );
+
+    $('#output').on('click', function(){
+        $(this).empty().hide();
+    });
+
+    $('')
+
+})()
+
+</script>
+
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="http://ossweb-img.qq.com/images/js/prism/prism.js"></script>
+    <script>
+$('.sidebar li').each(function(i,elem){if(new RegExp($(elem).text()).test(location.href))$(elem).addClass('current')})
+    </script>
+   
+    <script src="http://tgideas.github.io/motion/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://ossweb-img.qq.com/images/js/jquery/jquery.qrcode.min.js"></script>
+</body>
+</html>

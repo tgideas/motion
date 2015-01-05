@@ -33,9 +33,9 @@ body {font-size:12px; font-family:arial, "Microsoft YaHei", simsun; line-height:
 	<style>
 		#slide01 {position:relative; width:100%; height:200px;margin: 0 auto;}
 		#slide01 .controller{position:absolute;bottom:5px;z-index:2;width: 100%;height:24px;text-align: center;}
-		#slide01 .controller li{display: inline-block;width: 10px;height: 10px;margin: 5px;border-radius: 10px;background-color: #fff;line-height: 100px;overflow: hidden;}
+		#slide01 .controller li{position: relative;display: inline-block;width: 10px;height: 10px;margin: 5px;border-radius: 10px;background-color: #fff;line-height: 100px;overflow: hidden;}
 		#slide01 .controller li.current{background-color: #f00;}
-		#slide01 .content{margin-left: 10%}
+		#slide01 .content{position: absolute;left: 10%;overflow: hidden;}
 		#slide01 .content li{float: left;width: 16%;height: 200px;}
 
 
@@ -52,8 +52,9 @@ body {font-size:12px; font-family:arial, "Microsoft YaHei", simsun; line-height:
 		$(function(){
 			window.tab1 = new mo.Slide({
 				target: $('#slide01 .content li'),
+				wrapWidth: '500%',
 				playTo: 1,
-				autoPlay: 1
+				autoPlay: 0
 			});
 		});
 
