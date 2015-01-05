@@ -562,14 +562,6 @@ a.btn:hover{box-shadow:0 0 5px rgba(0,0,0,.26);}
     padding-top: 90px;
     padding-bottom: 90px;
   }
-  .bs-docs-featurette0 .row {
-    margin-left:-40px;
-    margin-right:-40px;
-  }
-  .bs-docs-featurette0 .col-sm-4 {
-    padding-left:40px;
-    padding-right:40px;
-  }
   .bs-docs-featurette2 {
     padding-top:65px;
     padding-bottom:65px;
@@ -594,7 +586,17 @@ a.btn:hover{box-shadow:0 0 5px rgba(0,0,0,.26);}
     left:72px;
   }
 }
+@media (min-width:1199px){
+  .bs-docs-featurette0 .row {
+    margin-left:-40px;
+    margin-right:-40px;
+  }
+  .bs-docs-featurette0 .col-sm-4 {
+    padding-left:40px;
+    padding-right:40px;
+  }
 
+}
 
 /*
  * Featured sites
