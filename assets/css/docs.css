@@ -1834,13 +1834,13 @@ h1[id] {
 .mt-mod1 .mt-mod-r2 {background-color:#373737;color:#00e28a;font-size:18px;text-align:center;line-height:50px;}
 .mt-mod1 h3{font-size:24px;color:#414242;margin-bottom:2px;}
 
-.mt-mod1:hover,.mt-mod1:focus,.mt-mod1.active{ border-color:#00e28a;}
-.mt-mod1:hover .mt-mod-r2,.mt-mod1:focus .mt-mod-r2,.mt-mod1.active .mt-mod-r2{ color:#fff; }
-.mt-mod1:hover .mt-mod-r1,.mt-mod1:focus .mt-mod-r1,.mt-mod1.active .mt-mod-r1{ background-color:#00e28a; }
-.mt-mod1:hover .mt-mod-icon2,.mt-mod1:focus .mt-mod-icon2,.mt-mod1.active .mt-mod-icon2{background-position:0 -50px;}
-.mt-mod1:hover .mt-mod-icon1,.mt-mod1:focus .mt-mod-icon1,.mt-mod1.active .mt-mod-icon1{display:block;}
-.mt-mod1:hover .mt-mod-desc,.mt-mod1:focus .mt-mod-desc,.mt-mod1.active .mt-mod-desc,
-.mt-mod1:hover h3,.mt-mod1:focus h3,.mt-mod1.active h3{color:#fff;}
+.mt-mod1:hover,.mt-mod1.active{ border-color:#00e28a;}
+.mt-mod1:hover .mt-mod-r2,.mt-mod1.active .mt-mod-r2{ color:#fff; }
+.mt-mod1:hover .mt-mod-r1,.mt-mod1.active .mt-mod-r1{ background-color:#00e28a; }
+.mt-mod1:hover .mt-mod-icon2,.mt-mod1.active .mt-mod-icon2{background-position:0 -50px;}
+.mt-mod1:hover .mt-mod-icon1,.mt-mod1.active .mt-mod-icon1{display:block;}
+.mt-mod1:hover .mt-mod-desc,.mt-mod1.active .mt-mod-desc,
+.mt-mod1:hover h3,.mt-mod1.active h3{color:#fff;}
 
 .mt-downacts {text-align:center;}
 .mt-downacts .btn {padding: 22px 76px;font-size: 38px;}
