@@ -1815,6 +1815,7 @@ h1[id] {
 .mt-mod-icon1 { background-position:0 0;height:41px;width:41px;}
 .mt-mod-icon2 { background-position:0 -100px;width:40px;height:36px; }
 .bs-docs-mods .col-xs-6 {padding-top:15px;padding-bottom:15px;}
+.mt-mod1 {cursor:pointer;}
 .mt-mod1 .mt-mod-r1,.mt-mod1 .mt-mod-r2 {
   height:80px;
   position:relative;
@@ -1867,7 +1868,7 @@ h1[id] {
 .api-docs .bs-docs-nav .container-fluid {padding-left:25px;padding-right:25px;}
 .api-docs .content {background-color:#fff;}
 .api-docs .main {background-color:#e8e8e8;}
-.api-docs .sidebar a {font-size:24px;}
+.api-docs .sidebar a {font-size:16px;}
 .api-docs h1{margin-top:0;margin-bottom:20px;}
 .api-docs .subsection-title {margin-bottom:10px;}
 .api-docs h5 {margin-top:15px;margin-bottom:10px;}
@@ -1875,4 +1876,5 @@ h1[id] {
 #output canvas {border-radius:0!important;}
 @media (min-width:768px){
   .api-docs .content{min-height:910px;}
+  .api-docs .sidebar a {font-size:20px;}
 }
