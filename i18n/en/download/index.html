@@ -279,7 +279,7 @@
                 var $this = $(a);
                 var compName = $this.attr('u');
                 if(!$this.hasClass('active')){
-                  $this.find('.mt-mod-r2').html(selectTxt);
+                  $this.find('.mt-mod-r2').html(unselectTxt);
                   checkedComp.push(compName);
                   $this.addClass('active');
                   $('.btn-package-num').html(checkedComp.length);
@@ -291,7 +291,7 @@
                 var $this = $(a);
                 var compName = $this.attr('u');
                 if($this.hasClass('active')){ //取消选择
-                  $this.find('.mt-mod-r2').html(unselectTxt);
+                  $this.find('.mt-mod-r2').html(selectTxt);
                   //从选择的列表中移除
                   var temp = [];
                   for (var i = 0; i < checkedComp.length; i++) {
