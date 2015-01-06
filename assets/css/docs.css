@@ -1872,6 +1872,7 @@ h1[id] {
 .api-docs .subsection-title {margin-bottom:10px;}
 .api-docs h5 {margin-top:15px;margin-bottom:10px;}
 .api-docs .demo-content { border:1px solid #ddd;padding-right:.5em; }
+#output canvas {border-radius:0!important;}
 @media (min-width:768px){
   .api-docs .content{min-height:910px;}
 }
