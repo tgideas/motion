@@ -1814,7 +1814,7 @@ h1[id] {
 .mt-mod-icon { background:url(../img/sprite_01.png) 0 0 no-repeat;}
 .mt-mod-icon1 { background-position:0 0;height:41px;width:41px;}
 .mt-mod-icon2 { background-position:0 -100px;width:40px;height:36px; }
-.btn-api{position:absolute;top:5px;right:2px;display:none;font-size:22px;}
+.btn-api{position:absolute;top:5px;right:5px;display:none;font-size:18px;}
 .bs-docs-mods .col-xs-6 {padding-top:15px;padding-bottom:15px;}
 .mt-mod1 {cursor:pointer;}
 .mt-mod1 .mt-mod-r1,.mt-mod1 .mt-mod-r2 {
