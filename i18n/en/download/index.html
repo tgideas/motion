@@ -259,6 +259,8 @@
         <script>
         $(function($){
             var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
+                selectTxt = lang=='en'?"Select":"点击选择",
+                unselectTxt = lang=='en'?"Unselect":"取消选择",
                 $menus = $('.bs-docs-lang li');
             if(lang=='en'){
                 $menus.removeClass('active').eq(0).addClass('active');
@@ -277,10 +279,10 @@
                 var $this = $(a);
                 var compName = $this.attr('u');
                 if(!$this.hasClass('active')){
-                  $this.find('.mt-mod-r2').html('取消选择');
+                  $this.find('.mt-mod-r2').html(selectTxt);
                   checkedComp.push(compName);
                   $this.addClass('active');
-                  $('.btn-package span').html(checkedComp.length);
+                  $('.btn-package-num').html(checkedComp.length);
                 }
                 return comp;
               },
@@ -289,7 +291,7 @@
                 var $this = $(a);
                 var compName = $this.attr('u');
                 if($this.hasClass('active')){ //取消选择
-                  $this.find('.mt-mod-r2').html('点击选择');
+                  $this.find('.mt-mod-r2').html(unselectTxt);
                   //从选择的列表中移除
                   var temp = [];
                   for (var i = 0; i < checkedComp.length; i++) {
@@ -299,7 +301,7 @@
                   };
                   checkedComp = temp;
                   $this.removeClass('active');
-                  $('.btn-package span').html(checkedComp.length);
+                  $('.btn-package-num').html(checkedComp.length);
                 }
                 return comp;
               },
