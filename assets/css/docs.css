@@ -1844,6 +1844,11 @@ h1[id] {
 
 .mt-downacts {text-align:center;}
 .mt-downacts .btn {padding: 22px 76px;font-size: 38px;}
+.options{line-height: 32px;}
+.download-tip{color: #919191}
+.options label{float: left; margin-right: 50px;}
+
+
 @media (max-width:479px) {
   .bs-docs-mods{margin-right:-5px;margin-left:-5px;}
   .bs-docs-mods .col-xs-6{padding:5px;}
@@ -1853,4 +1858,12 @@ h1[id] {
   .bs-docs-section{
     margin-bottom:290px;
   }
-} 
+}
+
+/**
+ * API Page
+ *
+ */
+
+.api-docs .bs-docs-nav .container-fluid {padding-left:25px;padding-right:25px;}
+.api-docs .sidebar a {font-size:30px;}
