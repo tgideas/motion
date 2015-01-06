@@ -1814,6 +1814,7 @@ h1[id] {
 .mt-mod-icon { background:url(../img/sprite_01.png) 0 0 no-repeat;}
 .mt-mod-icon1 { background-position:0 0;height:41px;width:41px;}
 .mt-mod-icon2 { background-position:0 -100px;width:40px;height:36px; }
+.btn-api{position:absolute;top:5px;right:2px;display:none;font-size:22px;}
 .bs-docs-mods .col-xs-6 {padding-top:15px;padding-bottom:15px;}
 .mt-mod1 {cursor:pointer;}
 .mt-mod1 .mt-mod-r1,.mt-mod1 .mt-mod-r2 {
@@ -1842,6 +1843,7 @@ h1[id] {
 .mt-mod1.active .mt-mod-icon1{display:block;}
 .mt-mod1:hover .mt-mod-desc,.mt-mod1.active .mt-mod-desc,
 .mt-mod1:hover h3,.mt-mod1.active h3{color:#fff;}
+.mt-mod1:hover .btn-api{display:block;}
 
 .mt-downacts {text-align:center;}
 .mt-downacts .btn {padding: 22px 76px;font-size: 38px;}

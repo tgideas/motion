@@ -64,7 +64,8 @@
         "encoding":"Encoding: ",
         "clickToChoose":"Select",
         "unchoose":"Unselect",
-        "selectedNum":"Selected components: "
+        "selectedNum":"Selected components: ",
+        "seeApi":"View API Doc"
     },
     "contributors":{
         "title":"Contributors",
