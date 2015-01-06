@@ -61,8 +61,11 @@
             <div class="download-tip">Note: Packager will package all components if none of them was selected.</div>
 
             <div class="options clearfix">
-              <label>Compressed: </label>
-              <label>Encoding: </label></div>
+              <label><span>Compressed: </span><input id="uglify" type="checkbox" checked></label>
+              <label><span>Encoding: </span><select name="" id="charset">
+                <option checked value="utf-8">utf-8</option>
+                <option value="gbk">gbk/gb2312</option>
+              </select></label></div>
 
             <div class="row bs-docs-mods">
             
@@ -74,7 +77,7 @@
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
-                  <div class="mt-mod-r2">Choose It</div>
+                  <div class="mt-mod-r2">Select</div>
                 </a>
               </div>
             
@@ -86,7 +89,7 @@
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
-                  <div class="mt-mod-r2">Choose It</div>
+                  <div class="mt-mod-r2">Select</div>
                 </a>
 
               </div>
@@ -99,7 +102,7 @@
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
-                  <div class="mt-mod-r2">Choose It</div>
+                  <div class="mt-mod-r2">Select</div>
                 </a>
 
               </div>
@@ -112,7 +115,7 @@
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
-                  <div class="mt-mod-r2">Choose It</div>
+                  <div class="mt-mod-r2">Select</div>
                 </a>
 
               </div>
@@ -124,7 +127,7 @@
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
-                  <div class="mt-mod-r2">Choose It</div>
+                  <div class="mt-mod-r2">Select</div>
                 </a>
 
               </div>
@@ -136,7 +139,7 @@
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
-                  <div class="mt-mod-r2">Choose It</div>
+                  <div class="mt-mod-r2">Select</div>
                 </a>
 
               </div>
@@ -149,7 +152,7 @@
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
-                  <div class="mt-mod-r2">Choose It</div>
+                  <div class="mt-mod-r2">Select</div>
                 </a>
 
               </div>
@@ -162,7 +165,7 @@
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
-                  <div class="mt-mod-r2">Choose It</div>
+                  <div class="mt-mod-r2">Select</div>
                 </a>
 
               </div>
@@ -175,7 +178,7 @@
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
-                  <div class="mt-mod-r2">Choose It</div>
+                  <div class="mt-mod-r2">Select</div>
                 </a>
 
               </div>
@@ -188,7 +191,7 @@
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
-                  <div class="mt-mod-r2">Choose It</div>
+                  <div class="mt-mod-r2">Select</div>
                 </a>
 
               </div>
@@ -201,7 +204,7 @@
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
-                  <div class="mt-mod-r2">Choose It</div>
+                  <div class="mt-mod-r2">Select</div>
                 </a>
 
               </div>
@@ -214,7 +217,7 @@
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
-                  <div class="mt-mod-r2">Choose It</div>
+                  <div class="mt-mod-r2">Select</div>
                 </a>
 
               </div>
@@ -227,7 +230,7 @@
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
-                  <div class="mt-mod-r2">Choose It</div>
+                  <div class="mt-mod-r2">Select</div>
                 </a>
 
               </div>
@@ -241,7 +244,7 @@
           <div class="container">
             <div class="row">
               <div class="mt-downacts">
-                <a href="javascript:;" class="btn btn-primary btn-package">Download Now</a>                
+                <a href="javascript:;" class="btn btn-primary btn-package"><span class="btn-package-txt">Download Now</span>(<span class="btn-package-num">0</span>)</a>                
               </div>
             </div>
           </div>

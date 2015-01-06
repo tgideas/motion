@@ -62,7 +62,7 @@
         "tip":"Note: Packager will package all components if none of them was selected.",
         "compressed":"Compressed: ",
         "encoding":"Encoding: ",
-        "clickToChoose":"Choose It",
+        "clickToChoose":"Select",
         "unchoose":"Unselect"
     },
     "contributors":{
