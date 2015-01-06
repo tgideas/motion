@@ -13,6 +13,11 @@
         <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css"/>
         <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
+        <style>
+        .options{line-height: 32px;}
+        .download-tip{color: #919191}
+        .options label{float: left; margin-right: 50px;}
+        </style>
     </head>
     <body>
         
@@ -56,15 +61,24 @@
 
 
         <div class="bs-docs-featurette bs-docs-featurette2">
-          <div class="container">
+          <div class="container" id="comp_list">
+            
+            <div class="download-tip">注：不选择组件情况默认为打包所有组件</div>
+
+            <div class="options clearfix">
+              <label>压缩版：<input id="uglify" type="checkbox" checked></label>
+              <label>编码格式：<select name="" id="charset">
+                <option checked value="utf-8">utf-8</option>
+                <option value="gbk">gbk/b2312</option>
+              </select></label></div>
 
             <div class="row bs-docs-mods">
             
               <div class="col-xs-6 col-sm-3">
-                <a href="javascript:alert('coming soon...')" class="mt-mod mt-mod1 active">
+                <a href="javascript:;" class="mt-mod mt-mod1" u="action">
                   <div class="mt-mod-r1">
-                    <h3>单屏滑动</h3>
-                    <p class="mt-mod-desc">组件描述组件描述组件描述</p>
+                    <h3>Action</h3>
+                    <p class="mt-mod-desc">对话框组件</p>
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
@@ -75,25 +89,10 @@
               </div>
             
               <div class="col-xs-6 col-sm-3">
-                <a href="javascript:alert('coming soon...')" class="mt-mod mt-mod1">
+                <a href="javascript:;" class="mt-mod mt-mod1" u="animation">
                   <div class="mt-mod-r1">
-                    <h3>单屏滑动</h3>
-                    <p class="mt-mod-desc">组件描述组件描述组件描述</p>
-                    <div class="mt-mod-icon mt-mod-icon2"></div>
-                    <div class="mt-mod-icon mt-mod-icon1"></div>
-                  </div>
-                  <div class="mt-mod-r2">
-                    点击选择  
-                  </div>
-                </a>
-
-              </div>
-            
-              <div class="col-xs-6 col-sm-3">
-                <a href="javascript:alert('coming soon...')" class="mt-mod mt-mod1">
-                  <div class="mt-mod-r1">
-                    <h3>单屏滑动</h3>
-                    <p class="mt-mod-desc">组件描述组件描述组件描述</p>
+                    <h3>Animation</h3>
+                    <p class="mt-mod-desc">动画组件</p>
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
@@ -105,10 +104,25 @@
               </div>
             
               <div class="col-xs-6 col-sm-3">
-                <a href="javascript:alert('coming soon...')" class="mt-mod mt-mod1">
+                <a href="javascript:;" class="mt-mod mt-mod1" u="dialog">
                   <div class="mt-mod-r1">
-                    <h3>单屏滑动</h3>
-                    <p class="mt-mod-desc">组件描述组件描述组件描述</p>
+                    <h3>Dialog</h3>
+                    <p class="mt-mod-desc">对话框组件</p>
+                    <div class="mt-mod-icon mt-mod-icon2"></div>
+                    <div class="mt-mod-icon mt-mod-icon1"></div>
+                  </div>
+                  <div class="mt-mod-r2">
+                    点击选择  
+                  </div>
+                </a>
+
+              </div>
+            
+              <div class="col-xs-6 col-sm-3">
+                <a href="javascript:;" class="mt-mod mt-mod1" u="film">
+                  <div class="mt-mod-r1">
+                    <h3>Film</h3>
+                    <p class="mt-mod-desc">逐帧动画组件</p>
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
@@ -119,10 +133,10 @@
 
               </div>
               <div class="col-xs-6 col-sm-3">
-                <a href="javascript:alert('coming soon...')" class="mt-mod mt-mod1">
+                <a href="javascript:;" class="mt-mod mt-mod1" u="gesture">
                   <div class="mt-mod-r1">
-                    <h3>单屏滑动</h3>
-                    <p class="mt-mod-desc">组件描述组件描述组件描述</p>
+                    <h3>Gesture</h3>
+                    <p class="mt-mod-desc">手势操作组件</p>
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
@@ -133,10 +147,115 @@
 
               </div>
               <div class="col-xs-6 col-sm-3">
-                <a href="javascript:alert('coming soon...')" class="mt-mod mt-mod1">
+                <a href="javascript:;" class="mt-mod mt-mod1" u="image-editor">
                   <div class="mt-mod-r1">
-                    <h3>单屏滑动</h3>
-                    <p class="mt-mod-desc">组件描述组件描述组件描述</p>
+                    <h3>ImageEditor</h3>
+                    <p class="mt-mod-desc">图片编辑组件</p>
+                    <div class="mt-mod-icon mt-mod-icon2"></div>
+                    <div class="mt-mod-icon mt-mod-icon1"></div>
+                  </div>
+                  <div class="mt-mod-r2">
+                    点击选择  
+                  </div>
+                </a>
+
+              </div>
+
+              <div class="col-xs-6 col-sm-3">
+                <a href="javascript:;" class="mt-mod mt-mod1" u="lanuch-app">
+                  <div class="mt-mod-r1">
+                    <h3>LanuchApp</h3>
+                    <p class="mt-mod-desc">启动手机App组件</p>
+                    <div class="mt-mod-icon mt-mod-icon2"></div>
+                    <div class="mt-mod-icon mt-mod-icon1"></div>
+                  </div>
+                  <div class="mt-mod-r2">
+                    点击选择  
+                  </div>
+                </a>
+
+              </div>
+
+              <div class="col-xs-6 col-sm-3">
+                <a href="javascript:;" class="mt-mod mt-mod1" u="lazyLoad">
+                  <div class="mt-mod-r1">
+                    <h3>LazyLoad</h3>
+                    <p class="mt-mod-desc">懒加载组件</p>
+                    <div class="mt-mod-icon mt-mod-icon2"></div>
+                    <div class="mt-mod-icon mt-mod-icon1"></div>
+                  </div>
+                  <div class="mt-mod-r2">
+                    点击选择  
+                  </div>
+                </a>
+
+              </div>
+
+              <div class="col-xs-6 col-sm-3">
+                <a href="javascript:;" class="mt-mod mt-mod1" u="loader">
+                  <div class="mt-mod-r1">
+                    <h3>Loader</h3>
+                    <p class="mt-mod-desc">预加载组件</p>
+                    <div class="mt-mod-icon mt-mod-icon2"></div>
+                    <div class="mt-mod-icon mt-mod-icon1"></div>
+                  </div>
+                  <div class="mt-mod-r2">
+                    点击选择  
+                  </div>
+                </a>
+
+              </div>
+
+              <div class="col-xs-6 col-sm-3">
+                <a href="javascript:;" class="mt-mod mt-mod1" u="lottery">
+                  <div class="mt-mod-r1">
+                    <h3>Lottery</h3>
+                    <p class="mt-mod-desc">抽奖组件</p>
+                    <div class="mt-mod-icon mt-mod-icon2"></div>
+                    <div class="mt-mod-icon mt-mod-icon1"></div>
+                  </div>
+                  <div class="mt-mod-r2">
+                    点击选择  
+                  </div>
+                </a>
+
+              </div>
+
+              <div class="col-xs-6 col-sm-3">
+                <a href="javascript:;" class="mt-mod mt-mod1" u="overlay">
+                  <div class="mt-mod-r1">
+                    <h3>OverLay</h3>
+                    <p class="mt-mod-desc">浮层组件</p>
+                    <div class="mt-mod-icon mt-mod-icon2"></div>
+                    <div class="mt-mod-icon mt-mod-icon1"></div>
+                  </div>
+                  <div class="mt-mod-r2">
+                    点击选择  
+                  </div>
+                </a>
+
+              </div>
+
+              <div class="col-xs-6 col-sm-3">
+                <a href="javascript:;" class="mt-mod mt-mod1" u="page-slide">
+                  <div class="mt-mod-r1">
+                    <h3>PageSilde</h3>
+                    <p class="mt-mod-desc">单屏滚动组件</p>
+                    <div class="mt-mod-icon mt-mod-icon2"></div>
+                    <div class="mt-mod-icon mt-mod-icon1"></div>
+                  </div>
+                  <div class="mt-mod-r2">
+                    点击选择  
+                  </div>
+                </a>
+
+              </div>
+
+              <div class="col-xs-6 col-sm-3">
+                <a href="javascript:;" class="mt-mod mt-mod1" u="slide">
+                  <div class="mt-mod-r1">
+                    <h3>Slide</h3>
+                    <p class="mt-mod-desc">滚动组件</p>
                     <div class="mt-mod-icon mt-mod-icon2"></div>
                     <div class="mt-mod-icon mt-mod-icon1"></div>
                   </div>
@@ -156,7 +275,7 @@
           <div class="container">
             <div class="row">
               <div class="mt-downacts">
-                <a href="javascript:;" class="btn btn-primary btn-package" data-t="btn.downloadNow">立即下载</a>                
+                <a href="javascript:;" class="btn btn-primary btn-package" data-t="btn.downloadNow">立即下载(<span>0</span>)</a>                
               </div>
             </div>
           </div>
@@ -175,6 +294,75 @@
             if(lang=='en'){
                 $menus.removeClass('active').eq(0).addClass('active');
             }
+
+            var getDownLoadUrl = function(comps){
+              return 'http://digg.tgideas.qq.com/combine.php?u='+comps.join('|')+'&r=1&download=1&charset='+$('#charset').val()+ ($('#uglify')[0].checked ? '' : '&debug=1');
+            }
+
+            var checkedComp = [];
+            var compsEl = $('#comp_list a');
+
+            var comp = {
+              //选择一个
+              check : function(a){
+                var $this = $(a);
+                var compName = $this.attr('u');
+                if(!$this.hasClass('active')){
+                  $this.find('.mt-mod-r2').html('取消选择');
+                  checkedComp.push(compName);
+                  $this.addClass('active');
+                  $('.btn-package span').html(checkedComp.length);
+                }
+                return comp;
+              },
+              //取消选择一个
+              unCheck : function(a){
+                var $this = $(a);
+                var compName = $this.attr('u');
+                if($this.hasClass('active')){ //取消选择
+                  $this.find('.mt-mod-r2').html('点击选择');
+                  //从选择的列表中移除
+                  var temp = [];
+                  for (var i = 0; i < checkedComp.length; i++) {
+                    if(checkedComp[i] != compName){
+                      temp.push(checkedComp[i]);
+                    }
+                  };
+                  checkedComp = temp;
+                  $this.removeClass('active');
+                  $('.btn-package span').html(checkedComp.length);
+                }
+                return comp;
+              },
+              //全选
+              checkAll : function(){
+                compsEl.each(function(){
+                  comp.check(this);
+                })
+                return comp;
+              },
+              //全部取消
+              cancel : function(){
+                compsEl.each(function(){
+                  comp.unCheck(this);
+                })
+                return comp;
+              },
+              //反选
+              invert : function(){
+                compsEl.each(function(){
+                  $(this).hasClass('active') ? comp.unCheck(this) : comp.check(this);
+                })
+                return comp;
+              }
+            }
+
+            $('#comp_list').delegate('a', 'click', function(){
+              $(this).hasClass('active') ? comp.unCheck(this) : comp.check(this);
+            });
+            $('.btn-package').click(function(){
+              location.href=getDownLoadUrl(checkedComp.sort());
+            })
         });
         </script>
 
