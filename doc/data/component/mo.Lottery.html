@@ -16,10 +16,10 @@
     <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
      <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
 </head>
-<body>
+<body class="api-docs">
     <!-- Docs master nav -->
     <header class="navbar navbar-static-top bs-docs-nav bs-docs-nav1" id="top" role="banner">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -1554,7 +1554,8 @@ function SetWinHeight(obj) {
 
     <script type="text/javascript" src="http://ossweb-img.qq.com/images/js/prism/prism.js"></script>
     <script>
-$('.sidebar li').each(function(i,elem){if(new RegExp($(elem).text()).test(location.href))$(elem).addClass('current')})
+      $('.sidebar li').each(function(i,elem){if(new RegExp($(elem).text()).test(location.href))$(elem).addClass('current')});
+      $('.sidebar').height($('.main').height());
     </script>
    
     <script src="http://tgideas.github.io/motion/assets/bootstrap/js/bootstrap.min.js"></script>
