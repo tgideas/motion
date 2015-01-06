@@ -58,14 +58,16 @@
         <div class="bs-docs-featurette bs-docs-featurette2">
           <div class="container" id="comp_list">
             
-            <div class="download-tip">Note: Packager will package all components if none of them was selected.</div>
+            <p class="download-tip">Note: Packager will package all components if none of them was selected.</p>
 
             <div class="options clearfix">
               <label><span>Compressed: </span><input id="uglify" type="checkbox" checked></label>
               <label><span>Encoding: </span><select name="" id="charset">
                 <option checked value="utf-8">utf-8</option>
                 <option value="gbk">gbk/gb2312</option>
-              </select></label></div>
+              </select></label>
+              <label><span>Selected components: </span><span class="label label-default btn-package-num">0</span></label>
+            </div>
 
             <div class="row bs-docs-mods">
             
@@ -244,7 +246,7 @@
           <div class="container">
             <div class="row">
               <div class="mt-downacts">
-                <a href="javascript:;" class="btn btn-primary btn-package"><span class="btn-package-txt">Download Now</span>(<span class="btn-package-num">0</span>)</a>                
+                <a href="javascript:;" class="btn btn-primary btn-package"><span class="btn-package-txt">Download Now</span></a>                
               </div>
             </div>
           </div>

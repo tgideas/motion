@@ -3,3 +3,5 @@
 .dynamicBuild
 dynamicBuild
 node_modules
+rules
+tmp

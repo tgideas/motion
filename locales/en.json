@@ -63,7 +63,8 @@
         "compressed":"Compressed: ",
         "encoding":"Encoding: ",
         "clickToChoose":"Select",
-        "unchoose":"Unselect"
+        "unchoose":"Unselect",
+        "selectedNum":"Selected components: "
     },
     "contributors":{
         "title":"Contributors",

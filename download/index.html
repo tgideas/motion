@@ -58,14 +58,16 @@
         <div class="bs-docs-featurette bs-docs-featurette2">
           <div class="container" id="comp_list">
             
-            <div class="download-tip" data-t="download.tip">注：不选择组件情况默认为打包所有组件</div>
+            <p class="download-tip" data-t="download.tip">注：不选择组件情况默认为打包所有组件</p>
 
             <div class="options clearfix">
               <label><span data-t="download.compressed">压缩版：</span><input id="uglify" type="checkbox" checked/></label>
               <label><span data-t="download.encoding">编码格式：</span><select name="" id="charset"/>
                 <option checked value="utf-8">utf-8</option>
                 <option value="gbk">gbk/gb2312</option>
-              </select></label></div>
+              </select></label>
+              <label><span data-t="download.selectedNum">已选中组件数：</span><span class="label label-default btn-package-num">0</span></label>
+            </div>
 
             <div class="row bs-docs-mods">
             
@@ -270,7 +272,7 @@
           <div class="container">
             <div class="row">
               <div class="mt-downacts">
-                <a href="javascript:;" class="btn btn-primary btn-package"><span class="btn-package-txt" data-t="btn.downloadNow">立即下载</span>(<span class="btn-package-num">0</span>)</a>                
+                <a href="javascript:;" class="btn btn-primary btn-package"><span class="btn-package-txt" data-t="btn.downloadNow">立即下载</span></a>                
               </div>
             </div>
           </div>

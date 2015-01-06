@@ -1838,16 +1838,16 @@ h1[id] {
 .mt-mod1:hover .mt-mod-r2,.mt-mod1.active .mt-mod-r2{ color:#fff; }
 .mt-mod1:hover .mt-mod-r1,.mt-mod1.active .mt-mod-r1{ background-color:#00e28a; }
 .mt-mod1:hover .mt-mod-icon2,.mt-mod1.active .mt-mod-icon2{background-position:0 -50px;}
-.mt-mod1:hover .mt-mod-icon1,.mt-mod1.active .mt-mod-icon1{display:block;}
+.mt-mod1.active .mt-mod-icon1{display:block;}
 .mt-mod1:hover .mt-mod-desc,.mt-mod1.active .mt-mod-desc,
 .mt-mod1:hover h3,.mt-mod1.active h3{color:#fff;}
 
 .mt-downacts {text-align:center;}
 .mt-downacts .btn {padding: 22px 76px;font-size: 38px;}
-.options{line-height: 32px;}
-.download-tip{color: #919191}
-.options label{float: left; margin-right: 50px;}
-
+.options{line-height: 32px;background:#eee;padding:5px;}
+.download-tip{color: #919191;padding-left:5px;}
+.options label{float: left; margin-right: 30px;margin-bottom:0;}
+.options .label {vertical-align:2px;color:#ff7e28;}
 
 @media (max-width:479px) {
   .bs-docs-mods{margin-right:-5px;margin-left:-5px;}
@@ -1864,6 +1864,14 @@ h1[id] {
  * API Page
  *
  */
-
 .api-docs .bs-docs-nav .container-fluid {padding-left:25px;padding-right:25px;}
+.api-docs .content {background-color:#fff;}
+.api-docs .main {background-color:#e8e8e8;}
 .api-docs .sidebar a {font-size:24px;}
+.api-docs h1{margin-top:0;margin-bottom:20px;}
+.api-docs .subsection-title {margin-bottom:10px;}
+.api-docs h5 {margin-top:15px;margin-bottom:10px;}
+.api-docs .demo-content { border:1px solid #ddd;padding-right:.5em; }
+@media (min-width:768px){
+  .api-docs .content{min-height:910px;}
+}
