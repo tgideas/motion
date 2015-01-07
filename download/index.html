@@ -375,9 +375,6 @@
               $(packagedComp).each(function(){
                 comp.check($('[u='+this+']')[0]);
               })
-            }else{
-              //默认选择全部
-              comp.checkAll();
             }
             $('#comp_list').delegate('[u]', 'click', function(){
               $(this).hasClass('active') ? comp.unCheck(this) : comp.check(this);
