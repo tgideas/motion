@@ -9,7 +9,7 @@
  * @param {object} [config] 基本配置参数
  * @param {number} [config.preventDefault=false] 是否阻止默认时间
  * @example
-		var film = new mo.Gesture(document.getElementById('test')).addGesture('swiperight', handler);
+		var gest = new mo.Gesture(document.getElementById('test')).addGesture('swiperight', handler);
  * @see gesture/gesture.html
  * @class
 */
@@ -396,7 +396,7 @@ define(function(require, exports, module){
 			handler : function(args){
 				if(args.action != 'end'){
 					var actType = args.name;
-					if(args.distance.x > args.option.offset || args.distance.y > args.option.offset){
+					if(Math.abs(args.distance.x) > args.option.offset || Math.abs(args.distance.y) > args.option.offset){
 						args.extra.timer && clearTimeout(args.extra.timer);
 						args.extra.timer = null;
 					}else{
@@ -429,7 +429,7 @@ define(function(require, exports, module){
 					}, args.option.tapTime);
 				}else if(args.action == "end"){
 					var actType = args.name;
-					if(args.extra.timer && args.distance.x <= args.option.offset && args.distance.y <= args.option.offset){
+					if(args.extra.timer && Math.abs(args.distance.x) <= args.option.offset && Math.abs(args.distance.y) <= args.option.offset){
 						args.runEvents(actType, args);
 					}
 					args.extra.timer && clearTimeout(args.extra.timer);
