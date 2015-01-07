@@ -11,7 +11,7 @@
  * @param {number} [opts.threshold=0] 距离viewport的值
  * @param {dataAttr} [opts.dataAttr=original] 所有资源加载完成后的回调
  * @example
-		var film = new mo.LazyLoad(window, {
+		var lazyload = new mo.LazyLoad(window, {
 			'threshold' : 100,
 			'dataAttr'  : 'original'
 		});

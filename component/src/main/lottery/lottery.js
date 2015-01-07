@@ -30,7 +30,22 @@
  * @param {string} [opts.sx=null] 开始抽奖按钮x坐标
  * @param {string} [opts.sy=null] 开始抽奖按钮y坐标
  * @example
-		var film = new mo.Lottery({});
+		var lottery = new mo.Lottery({
+			'flashUrl' : 'http://ossweb-img.qq.com/images/flash/lottery/circle/lotteyround_2013_v1.swf',
+			'r':8,//奖品总数
+			'width':488,//flash宽度
+			'height':488,//flash高度
+			'flashFirst':false,
+			'b':'http://ossweb-img.qq.com/images/flash/lottery/circle/g.png',//圆盘的图片 文件格式可以是swf、png、jpg（建议swf 可以压缩）
+			's':'http://ossweb-img.qq.com/images/flash/lottery/circle/z.png',//开始抽奖按钮图片
+			'bx':0,//圆盘的图片位置x坐标 （转盘的中心点坐标为（0,0））
+			'by':0,//圆盘的图片位置y坐标
+			'sx':0,//开始抽奖按钮x坐标
+			'sy':0,//开始抽奖按钮y坐标
+			'contentId' : 'swfcontent',//嵌入swf 的div层的 id 
+			'onClickRollEvent' : callJsToStart,//对应上面接口
+			'onCompleteRollEvent':callJsToComplete //对应上面接口
+		});
  * @see lottery/lottery.html
  * @class
 */

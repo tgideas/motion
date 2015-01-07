@@ -9,7 +9,7 @@
  * @param {object} [config] 基本配置参数
  * @param {number} [config.preventDefault=false] 是否阻止默认时间
  * @example
-		var film = new mo.Gesture(document.getElementById('test')).addGesture('swiperight', handler);
+		var gest = new mo.Gesture(document.getElementById('test')).addGesture('swiperight', handler);
  * @see gesture/gesture.html
  * @class
 */
