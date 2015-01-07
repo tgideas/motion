@@ -396,7 +396,7 @@ define(function(require, exports, module){
 			handler : function(args){
 				if(args.action != 'end'){
 					var actType = args.name;
-					if(args.distance.x > args.option.offset || args.distance.y > args.option.offset){
+					if(Math.abs(args.distance.x) > args.option.offset || Math.abs(args.distance.y) > args.option.offset){
 						args.extra.timer && clearTimeout(args.extra.timer);
 						args.extra.timer = null;
 					}else{
@@ -429,7 +429,7 @@ define(function(require, exports, module){
 					}, args.option.tapTime);
 				}else if(args.action == "end"){
 					var actType = args.name;
-					if(args.extra.timer && args.distance.x <= args.option.offset && args.distance.y <= args.option.offset){
+					if(args.extra.timer && Math.abs(args.distance.x) <= args.option.offset && Math.abs(args.distance.y) <= args.option.offset){
 						args.runEvents(actType, args);
 					}
 					args.extra.timer && clearTimeout(args.extra.timer);
