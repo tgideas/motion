@@ -379,12 +379,16 @@
               //默认选择全部
               comp.checkAll();
             }
-            $('#comp_list').delegate('a', 'click', function(){
+            $('#comp_list').delegate('[u]', 'click', function(){
               $(this).hasClass('active') ? comp.unCheck(this) : comp.check(this);
             });
             $('.btn-package').click(function(){
               localStorage.setItem('comps', checkedComp.sort().join('|'))
               location.href=getDownLoadUrl(checkedComp);
+            })
+
+            $('.glyphicon-new-window').click(function(event){
+              event.stopPropagation();
             })
         });
         </script>
