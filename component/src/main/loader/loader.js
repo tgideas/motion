@@ -4,17 +4,21 @@
  * @date 2014-09-16
  * @description 图片懒加载
  * @extends mo.Base
- * @name mo.LazyLoad
+ * @name mo.Loader
  * @requires lib/zepto.js
  * @param {HTMLElement} container=window 懒加载的容器 默认
  * @param {object} [opts] 配置参数
  * @param {number} [opts.threshold=0] 距离viewport的值
  * @param {dataAttr} [opts.dataAttr=original] 所有资源加载完成后的回调
  * @example
-		var film = new mo.LazyLoad(window, {
-			'threshold' : 100,
-			'dataAttr'  : 'original'
-		});
+		new mo.Loader(getSource(),{
+			onLoading : function(count,total){
+				console.log('onloading:single loaded:',arguments)
+			},
+			onComplete : function(time){
+				console.log('oncomplete:all source loaded:',arguments)
+			}
+		})
  * @see lazyLoad/lazyLoad.html
  * @class
 */

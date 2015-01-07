@@ -10,6 +10,7 @@
 <script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
 <script src="http://digg.tgideas.qq.com/combine.php?u=lazyload"></script>
 <style>
+html,body{height: 480px; overflow-y: auto;padding: 0;margin: 0}
 div{width:100%; height: 300px;}
 p{min-height: 200px;}
 img{width:100%; display: inline-block;}
@@ -33,7 +34,7 @@ img{width:100%; display: inline-block;}
 <div data-original="data.html" data-type="ajax"></div>
 </body>
 <script>
-var lazyLoad = new mo.LazyLoad(document, {threshold:20});
+var lazyLoad = new mo.LazyLoad(document.body, {threshold:20});
 lazyLoad.on('load', function(){
 	console.log(arguments);
 })

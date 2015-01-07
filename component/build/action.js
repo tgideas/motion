@@ -210,6 +210,7 @@ importStyle('.mo-pop-action{padding: 20px;background-color: rgba(255,255,255,0.9
 			var box = Zepto(this);
 			return box.triggerHandler.apply(box, arguments);
 		};
+
 		
 
 	});
@@ -457,6 +458,19 @@ importStyle('.mo-pop-wrap{z-index: 1000;}\
 			self.dom.body = self.dom.box.find('.' + _private.BODY);
 			self.dom.foot = self.dom.box.find('.' + _private.FOOT);
 
+			// 检测前缀
+			self.cssPrefix = '';
+			self.propPrefix = '';
+			var vendors = {'webkit': 'webkit', 'Moz': 'moz', 'ms': 'ms'};
+			var testElem = document.createElement('div');
+			for(var key in vendors) {
+				if (testElem.style[key + 'Transform'] !== undefined) {
+					self.cssPrefix = '-' + vendors[key] + '-';
+					self.propPrefix = key;
+					break;
+				}
+			}
+
 		};
 
 		// 填充overlay内容
@@ -616,7 +630,10 @@ importStyle('.mo-pop-wrap{z-index: 1000;}\
 
 			if(config.effect) {
 				self._startProp = Zepto.extend({}, startPos, config.start);
-				self._endProp = Zepto.extend({}, endPos, config.end);		
+				self._endProp = Zepto.extend({}, endPos, config.end);
+				// console.dir(config.end);
+				// self._startProp[self.cssPrefix + 'transform'] = 
+
 			}
 
 			

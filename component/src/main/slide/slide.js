@@ -106,25 +106,24 @@ define(function(require, exports, module) {
 				}
 			},
 
-			touchstart: function(){
+			touchstart: function(){	
+
 				if(this.moving == true) {
 					return false;
 				}
 			},
 
-			touchmove: function(e, dis, oriEvent){
+			touchmove: function(e, dis){
 				var self = this;
 				var o = {};
 				o[self.cssPrefix + 'transform'] = self.animProp + '(' + (dis - self.target[self.curPage][self.offsetProp]) + 'px)';
 
 				self.wrap.css(o, 0);
-				oriEvent.preventDefault();
-				oriEvent.stopPropagation();
 
 
 			},
 
-			beforechange: function() {
+			beforechange: function() {				
 				var self = this;
 				var config = self.config;
 				var from = self.prevPage === window.undefined ? 0 : self.prevPage;

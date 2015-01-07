@@ -4,13 +4,14 @@
  * @date 2014-06-18
  * @description 切换类
  * @extends mo.Tab
- * @name mo.Slide
+ * @name mo.PageSlide
  * @requires lib/zepto.js
  * @requires src/base.js
  * @requires src/tab.js
  * @param {boolean}  [config.touchMove=true] 是否允许手指滑动
   * @param {object|string} config.target 目标选项卡片，即供切换的 Elements list (Elements.length >= 2)
  * @param {object|string} [config.controller='ul>li*'] 触发器
+ * @param {string} [config.effect='slide'] 指定效果，可选值：'slide', 'roll', 'scale'
  * @param {string} [config.direction='x'] 指定方向，仅效果为'slide'时有效
  * @param {boolean}  [config.autoPlay=false] 是否自动播放 
  * @param {number}  [config.playTo=0] 默认播放第几个（索引值计数，即0开始的计数方式） 
@@ -26,13 +27,11 @@
  * @param {object{'dataSrc':Element, 'dataProp':String, 'dataWrap':Element, 'delay': Number}}  [config.title] 初始化绑定的事件
  * @param {boolean}  [config.lazy=false] 是否启用按需加载
  * @example
-		var tab1 = new mo.Slide({
+		var tab1 = new mo.PageSlide({
 			target: $('#slide01 li')
 		});
- * @see slide/demo1.html 普通滑动
- * @see slide/demo2.html 横向单屏滑动-扫二维码看效果
- * @see slide/demo3.html 带标题的滑动
- * @see slide/demo4.html 未命名滑动
+ * @see page-slide/demo2.html 垂直单屏滑动
+ * @see page-slide/demo3.html 垂直缩放滑动
  * @class
 */
 define(function(require, exports, module) {
@@ -40,7 +39,7 @@ define(function(require, exports, module) {
 	Motion.add('mo.PageSlide:mo.Tab', function() {
 		/**
 		 * public 作用域
-		 * @alias mo.Slide#
+		 * @alias mo.PageSlide#
 		 * @ignore
 		 */
 		var _public = this;
@@ -49,7 +48,7 @@ define(function(require, exports, module) {
 
 		/**
 		 * public static作用域
-		 * @alias mo.Slide.
+		 * @alias mo.PageSlide.
 		 * @ignore
 		 */
 		var _static = this.constructor;

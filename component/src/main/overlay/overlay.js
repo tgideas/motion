@@ -2,23 +2,24 @@
  * @author Brucewan
  * @version 1.0
  * @date 2014-10-02
- * @description 基础浮层
+ * @description 基础浮层类，没有关闭按钮，没有操作按钮，可应用于操作提示，loading等场景。
  * @extends mo.Base
  * @name mo.Overlay
  * @requires lib/zepto.js
  * @requires src/base.js
  * @param {boolean} [config.mask=true] 是否有蒙板
  * @param {boolean} [config.autoOpen=true] 是否自动打开对话框
- * @param {array} [ config.pos=&#91;'middle'&#93; ] 设置overlay打开位置
+ * @param {array} [ config.pos='middle'] 设置overlay打开位置，可选值：'middle', 'top', 'bottom'
  * @param {string} [config.className='pop***'] 自定义class方便控制样式
- * @param {boolean} [config.buttons=['normal']] 操作按钮，如自定义文本{'text': '放弃'}
- * @param {object} [config.start= {'opacity': 0,'-webkit-transform': 'rotateX(-90deg)','-webkit-transform-origin': '50% 0'}] 打开弹窗时起始状态
- * @param {object} [config.end={'opacity': 1,'-webkit-transform': 'rotateX(0)','-webkit-transform-origin': '50% 0'}] 打开弹窗时结束状态
+ * @param {boolean} [config.effect=true] 是否启用过渡效果
+ * @param {boolean} [config.hasFoot=false] 是否有底部
+ * @param {object} [config.start= {'opacity': 0,'transform': 'rotateX(-90deg)','transform-origin': '50% 0'}] 打开弹窗时起始状态
+ * @param {object} [config.end={'opacity': 1,'transform': 'rotateX(0)','transform-origin': '50% 0'}] 打开弹窗时结束状态
  * @param {number} [config.duration=150] 动画时间，可设为0关闭动画
- * @param {string} [config.content=''] overlay内容
+ * @param {string|element|URLString} [config.content=''] overlay内容
  * @param {string|number} [config.width='300'] overlay宽度
  * @param {string|number} [config.height='auto'] overlay高度
- * @param {string} [config.tpl='$_private.tpl.base'] 弹窗模板
+ * @param {string} [config.tpl='$_private.tpl'] 弹窗模板
  * @example
 		var overlay1 = new mo.Overlay('数据提交成功！');
  * @see overlay/demo1.html 普通浮层
@@ -74,7 +75,7 @@ define(function(require, exports, module) {
 			mask: true, // 是否有蒙板
 			autoOpen: true, // 是否自动打开overlay
 			hasClose: false, // 是否有关闭按钮
-			hasFoot: true, // 是否有底部
+			hasFoot: false, // 是否有底部
 			effect: true, // 是否启用过渡效果
 			offset:[0, 0], // 设置位置偏移
 			valign: 'middle', // 设置overlay坐标
@@ -185,7 +186,7 @@ define(function(require, exports, module) {
 
 			// 创建overlay
 			/**
-			 * 存储弹窗dom引用(dom.box, dom.head, dom.body, dom.foot. dom.close)
+			 * 存储弹窗dom引用(dom.box, dom.head, dom.body, dom.foot. dom.close, dom.mask)
 			 * @type {Object}
 			 */
 			self.dom = {} // 存储弹窗dom引用
@@ -235,6 +236,19 @@ define(function(require, exports, module) {
 			self.dom.close = self.dom.box.find('.' + _private.CLOSE);
 			self.dom.body = self.dom.box.find('.' + _private.BODY);
 			self.dom.foot = self.dom.box.find('.' + _private.FOOT);
+
+			// 检测前缀
+			self.cssPrefix = '';
+			self.propPrefix = '';
+			var vendors = {'webkit': 'webkit', 'Moz': 'moz', 'ms': 'ms'};
+			var testElem = document.createElement('div');
+			for(var key in vendors) {
+				if (testElem.style[key + 'Transform'] !== undefined) {
+					self.cssPrefix = '-' + vendors[key] + '-';
+					self.propPrefix = key;
+					break;
+				}
+			}
 
 		};
 
@@ -395,7 +409,10 @@ define(function(require, exports, module) {
 
 			if(config.effect) {
 				self._startProp = Zepto.extend({}, startPos, config.start);
-				self._endProp = Zepto.extend({}, endPos, config.end);		
+				self._endProp = Zepto.extend({}, endPos, config.end);
+				// console.dir(config.end);
+				// self._startProp[self.cssPrefix + 'transform'] = 
+
 			}
 
 			

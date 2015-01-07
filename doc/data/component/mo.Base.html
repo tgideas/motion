@@ -1,37 +1,64 @@
 <!doctype html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>Class: Base-移动端组件库-TGideas</title>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link rel="stylesheet" href="../../css/global.css"/>
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <title>Class: Base - Motion.js - A slim javascript ui kit for mobile</title>
+    <meta name="description" content="Motion.js,a slim javascript ui kit for mobile" />
+    <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library" />
+    <meta name="author" content="TGIdeas" />
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css"/>
+
+    <link rel="stylesheet" href="../../css/api.css"/>
+    <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
+     <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
 </head>
-<body>
-    <script>
-    if(!/webkit/i.test(navigator.userAgent)){
-       alert('请使用webkit内核浏览器打开体验，谢谢！');
-    }
-    </script>
-    <header>
-        <nav>
-            <h1 class="logo">移动端组件库</h1>
-            <ul>
-                <li><a href="#">首页</a></li>
-                <li class="current"><a href="#">API</a></li>
-                <li><a href="#">下载</a></li>
-                <li><a href="#">Github</a></li>
-                <li><a href="#">FAQ</a></li>
-            </ul>
+<body class="api-docs">
+    <!-- Docs master nav -->
+    <header class="navbar navbar-static-top bs-docs-nav bs-docs-nav1" id="top" role="banner">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">Motion</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="http://tgideas.github.io/motion/" data-t="menu.home">首页</a>
+            </li>
+            <li class="active">
+              <a href="http://tgideas.github.io/motion/doc/">API</a>
+            </li>
+            <li>
+              <a href="http://tgideas.github.io/motion/download/" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
+            </li>
+            <li>
+              <a href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
+            </li>
+            <li>
+              <a href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right bs-docs-lang">
+              <li><a href="http://tgideas.github.io/motion/i18n/en/download/index.html">English</a></li>
+              <li class="active"><a href="http://tgideas.github.io/motion/download/index.html">简体中文</a></li>
+          </ul>
         </nav>
+      </div>
     </header>
-    <div class="main">
-        <section class="sidebar">
+
+    <div class="main container-fluid">
+        <section class="sidebar col-sm-3">
             <nav>
-                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad_.html">LazyLoad</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay_.html">Overlay</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
+                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.PageSlide.html">PageSlide</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
             </nav>
             <script>
             (function(){
@@ -42,7 +69,7 @@
             })()
             </script>
         </section>
-        <div id="main" class="content">
+        <div id="main" class="content col-sm-9">
 
             
 
@@ -51,8 +78,7 @@
                 <h1 class="page-title">Class: Base</h1>
             
             
-            <script src="http://ossweb-img.qq.com/images/js/jquery/jquery-1.8.0.min.js"></script>
-<script src="http://ossweb-img.qq.com/images/js/jquery/jquery.qrcode.min.js"></script>
+            
 <script>
 function SetWinHeight(obj) { 
     var win=obj; 
@@ -122,11 +148,11 @@ function SetWinHeight(obj) {
     
     
         
-<!-- <dt>
+<dt>
     <h4 class="name" id="Base"><span class="type-signature"></span>new Base<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-</dt> -->
+</dt>
 <dd>
     
     
@@ -172,7 +198,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/base/base.js">base.js</a>, line 3</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 3</li></ul>
 
 
 
@@ -237,11 +263,11 @@ function SetWinHeight(obj) {
     
         <li><dl>
             
-<!-- <dt>
+<dt>
     <h4 class="name" id="constructor"><span class="type-signature"></span>constructor<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-</dt> -->
+</dt>
 <dd>
     
     
@@ -277,7 +303,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/base/base.js">base.js</a>, line 42</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 42</li></ul>
 
 
 
@@ -305,11 +331,11 @@ function SetWinHeight(obj) {
 
         
             
-<!-- <dt>
-    <h4 class="name" id="on"><span class="type-signature"></span>on<span class="signature">()</span><span class="type-signature"></span></h4>
+<dt>
+    <h4 class="name" id="off"><span class="type-signature"></span>off<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-</dt> -->
+</dt>
 <dd>
     
     
@@ -345,7 +371,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/base/base.js">base.js</a>, line 52</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 61</li></ul>
 
 
 
@@ -373,11 +399,79 @@ function SetWinHeight(obj) {
 
         
             
-<!-- <dt>
+<dt>
+    <h4 class="name" id="on"><span class="type-signature"></span>on<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        绑定事件
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 52</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="trigger"><span class="type-signature"></span>trigger<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-</dt> -->
+</dt>
 <dd>
     
     
@@ -413,7 +507,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/../src/main/base/base.js">base.js</a>, line 61</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 69</li></ul>
 
 
 
@@ -507,8 +601,10 @@ function SetWinHeight(obj) {
 
     <script type="text/javascript" src="http://ossweb-img.qq.com/images/js/prism/prism.js"></script>
     <script>
-$('.sidebar li').each(function(i,elem){if(new RegExp($(elem).text()).test(location.href))$(elem).addClass('current')})
+      $('.sidebar li').each(function(i,elem){if(new RegExp('mo\\.'+$(elem).text()).test(location.href))$(elem).addClass('current')});
     </script>
-
+   
+    <script src="http://tgideas.github.io/motion/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://ossweb-img.qq.com/images/js/jquery/jquery.qrcode.min.js"></script>
 </body>
 </html>

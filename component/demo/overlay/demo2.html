@@ -38,6 +38,7 @@ button{margin-left: 30px;background-color: #666;color: #fff;border-radius: 5px;p
 			$('button').on('touchend', function(){
 				window.overlay1 = new mo.Overlay({
 					content: '照片上传中，请稍候！',
+					hasFoot: true,
 					start: {
 						'-webkit-transform': 'rotateX(-90deg) rotateZ(-90deg)',
 						'-webkit-transform-origin': '50% 0'
@@ -51,7 +52,7 @@ button{margin-left: 30px;background-color: #666;color: #fff;border-radius: 5px;p
 					var self = this;
 					window.setTimeout(function(){
 						self.close();
-					}, 2000);
+					}, 20000);
 				})
 			})
 

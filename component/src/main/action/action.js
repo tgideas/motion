@@ -2,7 +2,7 @@
  * @author Brucewan
  * @version 1.0
  * @date 2014-10-04
- * @description 对话框
+ * @description 从页面底部弹出的对话框，类似ios系统控件ActionSheet，和微信的操作提示框。
  * @extends mo.Overlay
  * @name mo.Action
  * @requires lib/zepto.js
