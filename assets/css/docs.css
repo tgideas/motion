@@ -21,7 +21,7 @@
 html,body{display:block;height:100%;}
 body {
   position: relative; /* For scrollspy */
-  font-family:"Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+  font-family:"Hiragino Sans GB", "Droid Sans Fallback",corbel,"sans-serif", "Microsoft YaHei";
 }
 
 /* Keep code small in tables on account of limited space */
