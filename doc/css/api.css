@@ -14,7 +14,7 @@ section,article,aside,header,footer,nav,dialog,figure,hgroup{display:block}
 body{border-top: 2px solid #343434;}
 
 .main{padding-left: 0;padding-right: 0;}
-.content{padding: 25px;}
+.content{padding: 25px;border-left: 1px solid #c3c3c3;}
 
 .sidebar{padding-left: 0;padding-right: 0;background-color: #e8e8e8;color: #343434;}
 .sidebar nav{text-align: center;overflow: hidden;}
@@ -240,7 +240,7 @@ h6
 	border-spacing: 0;
 	border: 0;
 	border-collapse: collapse;
-	/*width:100%;*/
+	width:100%;
 }
 
 .params .name, .props .name, .name code {
@@ -287,6 +287,7 @@ h6
 .tab-trigger .subsection-title{margin: 0;padding: 0;}
 .tab-trigger > li{float: left;width: 25%;text-align: center;}
 .tab-trigger > li h3{border-right:1px solid #ddd;}
+.tab-trigger li:last-child h3{border-right: 0 none;}
 .tab-trigger .current h3{background-color: #00d884;color: #fff;}
 h3.subsection-title{line-height: 50px;}
 
