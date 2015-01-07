@@ -58,7 +58,7 @@
         <div class="bs-docs-featurette bs-docs-featurette2">
           <div class="container" id="comp_list">
             
-            <p class="download-tip" data-t="download.tip">注：不选择组件情况默认为打包所有组件</p>
+            <p class="download-tip" data-t="download.tip">注：未选择组件情况下打包所有组件（默认选择的组件为上次打包过的组件）</p>
 
             <div class="options clearfix">
               <label><span data-t="download.compressed">压缩版：</span><input id="uglify" type="checkbox" checked/></label>
@@ -299,6 +299,8 @@
         <script src="http://tgideas.github.io/motion/assets/bootstrap/js/bootstrap.min.js"></script>
         <script>
         $(function($){
+            var packagedComp = localStorage.getItem('comps');
+            packagedComp = (!packagedComp || packagedComp == 'null') ? [] : packagedComp.split('|');
             var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
                 selectTxt = lang=='en'?"Select":"点击选择",
                 unselectTxt = lang=='en'?"Unselect":"取消选择",
@@ -368,12 +370,21 @@
                 return comp;
               }
             }
-
+            var pLen = packagedComp.length;
+            if(pLen){
+              $(packagedComp).each(function(){
+                comp.check($('[u='+this+']')[0]);
+              })
+            }else{
+              //默认选择全部
+              comp.checkAll();
+            }
             $('#comp_list').delegate('a', 'click', function(){
               $(this).hasClass('active') ? comp.unCheck(this) : comp.check(this);
             });
             $('.btn-package').click(function(){
-              location.href=getDownLoadUrl(checkedComp.sort());
+              localStorage.setItem('comps', checkedComp.sort().join('|'))
+              location.href=getDownLoadUrl(checkedComp);
             })
         });
         </script>
