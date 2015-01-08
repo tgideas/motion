@@ -171,7 +171,7 @@ function SetWinHeight(obj) {
     
         
 	
-	<dt class="tag-version">Version:</dt>
+	<dt class="tag-version">版本:</dt>
 	<dd class="tag-version"><ul class="dummy"><li>1.0</li></ul></dd>
 	
 	
@@ -182,7 +182,7 @@ function SetWinHeight(obj) {
 	
 	
 	
-	<dt class="tag-author">Author:</dt>
+	<dt class="tag-author">作者:</dt>
 	<dd class="tag-author">
         <ul>
             <li>AidenXiong</li>
@@ -195,6 +195,26 @@ function SetWinHeight(obj) {
 	
 	
 	
+
+     
+    <dt class="tag-inherit">继承:</dt>
+	<dd class="tag-inherit">
+        <ul>
+            <li><a href="mo.Base.html">mo.Base</a></li>
+        </ul>
+	</dd>
+    
+
+    
+    <dt class="tag-depend">依赖:</dt>
+	<dd class="tag-depend">
+        <ul>
+            <li>module:lib/zepto.js</li>
+        </ul>
+    </dd>
+       
+
+
 	
 	
 	<dt class="tag-source">源码:</dt>
@@ -231,7 +251,22 @@ function SetWinHeight(obj) {
     
         <h5>Example</h5>
         
-    <pre class="language-javascript"><code>		var film = new mo.Lottery({});</code></pre>
+    <pre class="language-javascript"><code>		var lottery = new mo.Lottery({
+			'flashUrl' : 'http://ossweb-img.qq.com/images/flash/lottery/circle/lotteyround_2013_v1.swf',
+			'r':8,//奖品总数
+			'width':488,//flash宽度
+			'height':488,//flash高度
+			'flashFirst':false,
+			'b':'http://ossweb-img.qq.com/images/flash/lottery/circle/g.png',//圆盘的图片 文件格式可以是swf、png、jpg（建议swf 可以压缩）
+			's':'http://ossweb-img.qq.com/images/flash/lottery/circle/z.png',//开始抽奖按钮图片
+			'bx':0,//圆盘的图片位置x坐标 （转盘的中心点坐标为（0,0））
+			'by':0,//圆盘的图片位置y坐标
+			'sx':0,//开始抽奖按钮x坐标
+			'sy':0,//开始抽奖按钮y坐标
+			'contentId' : 'swfcontent',//嵌入swf 的div层的 id 
+			'onClickRollEvent' : callJsToStart,//对应上面接口
+			'onCompleteRollEvent':callJsToComplete //对应上面接口
+		});</code></pre>
 
     
 </dd>
@@ -239,23 +274,9 @@ function SetWinHeight(obj) {
     
     </div>
 
-     
-        <h3 class="subsection-title">继承：</h3>
-        
-        <ul>
-            <li><a href="mo.Base.html">mo.Base</a></li>
-        </ul>
     
     
     
-    
-    
-        <h3 class="subsection-title">依赖：</h3>
-        
-        <ul>
-            <li>module:lib/zepto.js</li>
-        </ul>
-       
 
 
 
@@ -1227,6 +1248,12 @@ function SetWinHeight(obj) {
 	
 	
 	
+
+     
+
+       
+
+
 	
 	
 	<dt class="tag-source">源码:</dt>
@@ -1300,6 +1327,12 @@ function SetWinHeight(obj) {
 	
 	
 	
+
+     
+
+       
+
+
 	
 	
 	<dt class="tag-source">源码:</dt>
@@ -1373,6 +1406,12 @@ function SetWinHeight(obj) {
 	
 	
 	
+
+     
+
+       
+
+
 	
 	
 	<dt class="tag-source">源码:</dt>
@@ -1446,6 +1485,12 @@ function SetWinHeight(obj) {
 	
 	
 	
+
+     
+
+       
+
+
 	
 	
 	<dt class="tag-source">源码:</dt>
