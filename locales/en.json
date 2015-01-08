@@ -4,6 +4,7 @@
         "api":"API",
         "download":"Download",
         "downloadLnk":"/motion/i18n/en/download/",
+        "homeLnk":"/motion/i18n/en/",
         "github":"Github",
         "faq":"FAQ"
     },
@@ -25,8 +26,8 @@
         "recommendationDesc":"Some useful and cool components recommended by Motion.JS.",
         "recModDesc1":"Page Slide component for building applications with swipable pages.",
         "recModDesc2":"Creating sequential animations is far  more easier than before.",
-        "recModDesc3":"Capture photos via your mobile device's camera, do some magics and share them to your friends.",
-        "recModDesc4":"A daily used dialog component.",
+        "recModDesc3":"Support capturing photos via your mobile device's camera and editting them via Canvas",
+        "recModDesc4":"Launch your local installed applications on web pages.",
         "mod1":"Action",
         "modDesc1":"IOS Style Action Sheet",
         "mod2":"Animation",
@@ -62,10 +63,12 @@
         "tip":"Note: Packager will package all components if none of them was selected.",
         "compressed":"Compressed: ",
         "encoding":"Encoding: ",
+        "includeZepto":"Include Zepto: ",
         "clickToChoose":"Select",
         "unchoose":"Unselect",
         "selectedNum":"Selected components: ",
-        "seeApi":"View API Doc"
+        "seeApi":"View API Doc",
+        "zeptoNotIncludedTip":"Your custom build of Motion.JS didn't include Zepto.JS, don't forget to reference Zepto.JS in your HTML pages when using it. "
     },
     "contributors":{
         "title":"Contributors",
