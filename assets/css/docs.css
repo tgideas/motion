@@ -1876,7 +1876,7 @@ h1[id] {
  * API Page
  *
  */
-.params td, .params th, .props td, .props th {word-break: break-all;word-wrap: break-word;}
+.params td.description, .props td.description{word-break: break-all;word-wrap: break-word;}
 .api-docs .bs-docs-nav .container-fluid {padding-left:25px;padding-right:25px;}
 .api-docs .content {background-color:#fff;}
 .api-docs .main {background-color:#e8e8e8;}
@@ -1885,6 +1885,7 @@ h1[id] {
 .api-docs .subsection-title {margin-bottom:10px;}
 .api-docs h5 {margin-top:15px;margin-bottom:10px;}
 .api-docs .demo-content { border:1px solid #ddd;padding-right:.5em; }
+.demo-content iframe {padding:0.5em 1em !important;}
 #output canvas {border-radius:0!important;}
 @media (min-width:768px){
   .api-docs .content{min-height:910px;}
