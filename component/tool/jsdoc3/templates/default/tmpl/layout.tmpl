@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-    <title><?js= title ?> - Motion.js - A slim javascript ui kit for mobile</title>
+    <title><?js= title ?> - Motion.js - A swift javascript ui kit for mobile</title>
     <meta name="description" content="Motion.js,a slim javascript ui kit for mobile" />
     <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library" />
     <meta name="author" content="TGIdeas" />
@@ -12,11 +12,16 @@
     <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css"/>
 
-    <link rel="stylesheet" href="../../css/api.css"/>
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/doc/css/api.css"/>
     <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
      <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
 </head>
 <body class="api-docs">
+    <?js
+        var doc = docs[0];
+        var docName = doc.name?'mo.'+doc.name:'index';
+        var docName0 = doc.name?doc.name:'index';      
+    ?>
     <!-- Docs master nav -->
     <header class="navbar navbar-static-top bs-docs-nav bs-docs-nav1" id="top" role="banner">
       <div class="container-fluid">
@@ -32,10 +37,10 @@
         <nav class="collapse navbar-collapse bs-navbar-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <a href="http://tgideas.github.io/motion/" data-t="menu.home">首页</a>
+              <a href="http://tgideas.github.io/motion/" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
             </li>
             <li class="active">
-              <a href="http://tgideas.github.io/motion/doc/">API</a>
+              <a href="http://tgideas.github.io/motion/doc/" data-attr-t href-t="menu.apiLnk">API</a>
             </li>
             <li>
               <a href="http://tgideas.github.io/motion/download/" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
@@ -48,8 +53,15 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right bs-docs-lang">
-              <li><a href="http://tgideas.github.io/motion/i18n/en/download/index.html">English</a></li>
-              <li class="active"><a href="http://tgideas.github.io/motion/download/index.html">简体中文</a></li>
+              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/<?js= docName ?>.html" data-attr-t href-t="mods.modUrl<?js= docName0  ?>">English</a></li>
+              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/<?js= docName ?>.html">简体中文</a></li>
+              <script>
+                var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
+                    $menus = jQuery('.bs-docs-lang li');
+                if(lang=='en'){
+                    $menus.removeClass('active').eq(0).addClass('active');
+                }
+              </script>
           </ul>
         </nav>
       </div>

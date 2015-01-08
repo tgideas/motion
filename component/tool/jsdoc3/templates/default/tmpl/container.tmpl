@@ -196,9 +196,9 @@ function SetWinHeight(obj) {
     <?js if (doc.see && doc.see.length) {?>
         <?js doc.see.forEach(function(s){  s = s.split(' '); ?>
             <?js if(/html|htm$/i.test(s[0])){ ?>
-        <h3 class="subsection-title"><?js= s[1] ?>（<a target="_blank" href="../../../component/demo/<?js= s[0] ?>">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <h3 class="subsection-title"><?js= s[1] ?>（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/<?js= s[0] ?>">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
-            <iframe src="../../../component/demo/<?js= s[0] ?>" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <iframe src="http://tgideas.github.io/motion/component/demo/<?js= s[0] ?>" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
             <pre class="code language-javascript"><code></code></pre>
             <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
         </div>
