@@ -97,48 +97,43 @@
             
             
 <script>
-function SetWinHeight(obj) { 
-    var win=obj; 
+function renderDemo(url,fileName) { 
     var body;
-    if (document.getElementById)  { 
-        if (win && !window.opera)  { 
-            if (win.contentDocument && win.contentDocument.body.offsetHeight) {
-                var height = win.contentDocument.body.offsetHeight; 
-                win.height = height > 400 ? height : 400;
-                body = win.contentDocument.body;
-            } else if(win.Document && win.Document.body.scrollHeight) {
-                var height = win.Document.body.scrollHeight
-                win.height = height > 400 ? height : 400;
-                body = win.Document.body;
+    
+    jQuery.ajax({
+        url:url    
+    }).done(function(data){
+        body = jQuery('<div>'+data+'</div>');
+        var scripts = body[0].getElementsByTagName('script');
+        var html = '';
+        for(var i = 0; i < scripts.length; i++) {
+            if(!scripts[i].src) {
+                html = scripts[i].innerHTML;
+                break;
             }
-        } 
-    } 
-    var scripts = body.getElementsByTagName('script');
-    var html = '';
-    for(var i = 0; i < scripts.length; i++) {
-        if(!scripts[i].src) {
-            html = scripts[i].innerHTML;
-            break;
         }
-    }
-    html = html.replace(/(\t|^)\s*\n/g, '');
-    var tabNum = /^(\t*)\S/.exec(html)[1];
-    if(tabNum) {
-        var repStr = '(\\n|^)';
-        for(var i = 0; i < tabNum.length; i++) {
-            repStr += '\\t';
+        html = html.replace(/(\t|^)\s*\n/g, '');
+        var tabNum = /^(\t*)\S/.exec(html)[1];
+        if(tabNum) {
+            var repStr = '(\\n|^)';
+            for(var i = 0; i < tabNum.length; i++) {
+                repStr += '\\t';
+            }
+            var rep = new RegExp(repStr , 'g');
+            html = html.replace(rep, function(a,b){return b});
+
         }
-        var rep = new RegExp(repStr , 'g');
-        html = html.replace(rep, function(a,b){return b});
+        // html = html.replace(/\n/g, '<br/>');
+        // html = html.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+        jQuery('[data-file="'+fileName+'"]').find('code').html(html);
 
-    }
-    // html = html.replace(/\n/g, '<br/>');
-    // html = html.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+        if(Prism) Prism.highlightAll();
 
-    $(obj).next().height(win.height).find('code').html(html);
+    }).error(function(jqXHR,textStatus,err){    
+        jQuery('[data-file="'+fileName+'"]').find('code').html('//Error:'+textStatus);
+    });
 
-    if(Prism) Prism.highlightAll();
-} 
+}; 
 
 </script>
 
@@ -1217,8 +1212,13 @@ function SetWinHeight(obj) {
         
             
         <h3 class="subsection-title"><span class="demo-acts"><a target="_blank" href="http://tgideas.github.io/motion/component/demo/lazyLoad/lazyLoad.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
-        <div class="demo-content">
-            <pre class="code language-javascript"><code></code></pre>
+        <div class="demo-content" data-file="lazyLoad/lazyLoad.html">
+            <pre class="code language-javascript"><code>Loading...</code></pre>
+            <script>
+            jQuery(function(){
+                renderDemo("http://tgideas.github.io/motion/component/demo/lazyLoad/lazyLoad.html","lazyLoad/lazyLoad.html");    
+            });
+            </script>
         </div>
             
         
@@ -1270,8 +1270,6 @@ function SetWinHeight(obj) {
     $('#output').on('click', function(){
         $(this).empty().hide();
     });
-
-    $('')
 
 })()
 
