@@ -1895,15 +1895,22 @@ h1[id] {
 .api-docs .main {background-color:#e8e8e8;}
 .api-docs .sidebar a {font-size:16px;}
 .api-docs h1{margin-top:0;margin-bottom:20px;}
-.api-docs .subsection-title {margin-bottom:10px;}
+.api-docs .subsection-title {margin-bottom:10px;font-weight:600;padding:0 .65em;}
 .api-docs h5 {margin-top:15px;margin-bottom:10px;}
-.api-docs .demo-content { border:1px solid #ddd;padding-right:.5em; }
-.demo-content iframe {padding:0.5em 1em !important;}
+.api-docs .demo-content { border:1px solid #ddd;padding-right:.5em;padding-left:.5em; }
+.demo-content iframe {padding:0.5em 1em !important;display:none;}
 #output canvas {border-radius:0!important;}
+.demo-content .code {height:auto!important;width:100%!important;}
+.demo-acts {float:right;}
+.demo-acts .btn{margin-left:8px;}
+.demo-acts .glyphicon{margin-right:4px;}
+.mobi .demo-act-qrcode {display:none;}
 @media (min-width:768px){
   .api-docs .content{min-height:910px;}
   .api-docs .sidebar a {font-size:20px;}
 }
 @media (max-width:479px) {
   .params td, .params th, .props td, .props th {word-break:break-all;word-wrap:break-word;}
+  .mobi .tab-trigger,.mobi .tab-target {display:none;}
+  .sidebar li {height:48px!important;line-height:48px!important;}
 }

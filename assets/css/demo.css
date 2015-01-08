@@ -1,0 +1,9 @@
+*{margin:0; padding:0;border:0;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+img{border:0;vertical-align:middle;}
+ul,ol,dl{list-style:none;}
+body{display:block;height: 100%;font-size:14px; font-family:arial, "Microsoft YaHei", simsun; line-height:20px}
+.content{padding: 10px;}
+p{margin-bottom:15px;}
+h3 {margin-bottom:15px;font-size:14px;}
+button,.btn{background-color: #666;color: #fff;font-size:14px;border-radius: 3px;padding: 5px;width:100%;padding:7px 0;}
+
