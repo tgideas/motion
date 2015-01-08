@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-    <title>Class: Dialog - Motion.js - A swift javascript ui kit for mobile</title>
-    <meta name="description" content="Motion.js,a slim javascript ui kit for mobile" />
-    <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library" />
-    <meta name="author" content="TGIdeas" />
-    <link rel="shortcut icon" href="/favicon.ico"/>
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Class: Overlay - Motion.js - A swift javascript ui kit for mobile</title>
+    <meta name="description" content="Motion.js,a slim javascript ui kit for mobile">
+    <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library">
+    <meta name="author" content="TGIdeas">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css">
 
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/doc/css/api.css"/>
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/doc/css/api.css">
     <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
      <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
 </head>
@@ -33,24 +33,24 @@
         <nav class="collapse navbar-collapse bs-navbar-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <a href="http://tgideas.github.io/motion/" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
+              <a href="/motion/i18n/en/">Home</a>
             </li>
             <li class="active">
-              <a href="http://tgideas.github.io/motion/doc/" data-attr-t href-t="menu.apiLnk">API</a>
+              <a href="/motion/i18n/en/doc/">API</a>
             </li>
             <li>
-              <a href="http://tgideas.github.io/motion/download/" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
+              <a href="/motion/i18n/en/download/">Download</a>
             </li>
             <li>
-              <a href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
+              <a href="https://github.com/tgideas/motion" target="_blank">Github</a>
             </li>
             <li>
               <a href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right bs-docs-lang">
-              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/mo.Dialog.html" data-attr-t href-t="mods.modUrlDialog">English</a></li>
-              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.Dialog.html">简体中文</a></li>
+              <li><a href="/motion/i18n/en/doc/data/component/mo.Overlay.html">English</a></li>
+              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.Overlay.html">简体中文</a></li>
               <script>
                 var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
                     $menus = jQuery('.bs-docs-lang li');
@@ -83,7 +83,7 @@
 
             
             
-                <h1 class="page-title">Class: Dialog</h1>
+                <h1 class="page-title">Class: Overlay</h1>
             
             
             
@@ -145,7 +145,7 @@ function SetWinHeight(obj) {
     <h2>
         <span class="ancestors"><a href="mo_.html">mo</a>.</span>
     
-    Dialog
+    Overlay
     </h2>
     
 </header>   -->
@@ -157,7 +157,7 @@ function SetWinHeight(obj) {
     
         
 <dt>
-    <h4 class="name" id="Dialog"><span class="type-signature"></span>new Dialog<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Overlay"><span class="type-signature"></span>new Overlay<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -165,7 +165,7 @@ function SetWinHeight(obj) {
     
     
     <div class="description">
-        对话框
+        基础浮层类，没有关闭按钮，没有操作按钮，可应用于操作提示，loading等场景。
     </div>
     
 
@@ -206,7 +206,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/dialog/dialog.js">dialog.js</a>, line 1</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 1</li></ul>
 
 
 
@@ -221,11 +221,11 @@ function SetWinHeight(obj) {
 	<dt class="tag-see">See:</dt>
 	<dd class="tag-see">
         <ul>
-            <li>dialog/demo1.html 普通弹窗</li>
+            <li>overlay/demo1.html 普通浮层</li>
         
-            <li>dialog/demo2.html 自定义类型弹窗-警告</li>
+            <li>overlay/demo2.html 自定义效果</li>
         
-            <li>dialog/demo3.html 自定义类型弹窗-失败</li>
+            <li>overlay/demo3.html 自定义位置</li>
         </ul>
 	</dd>
 	 -->
@@ -243,7 +243,7 @@ function SetWinHeight(obj) {
     
         <h5>Example</h5>
         
-    <pre class="language-javascript"><code>		var dialog1 = new mo.Dialog('数据提交成功！');</code></pre>
+    <pre class="language-javascript"><code>		var overlay1 = new mo.Overlay('数据提交成功！');</code></pre>
 
     
 </dd>
@@ -255,7 +255,7 @@ function SetWinHeight(obj) {
         <h3 class="subsection-title">继承：</h3>
         
         <ul>
-            <li><a href="mo.Overlay.html">mo.Overlay</a></li>
+            <li><a href="mo.Base.html">mo.Base</a></li>
         </ul>
     
     
@@ -286,7 +286,7 @@ function SetWinHeight(obj) {
     
     
 
-    <ul class="tab-trigger" >
+    <ul class="tab-trigger">
       
       <li><h3 class="subsection-title">参数</h3></li>
       
@@ -430,12 +430,12 @@ function SetWinHeight(obj) {
             
                 <td class="default">
                 
-                    &#91;'middle'&#93;
+                    'middle'
                 
                 </td>
             
             
-            <td class="description last">设置dialog打开位置</td>
+            <td class="description last">设置overlay打开位置，可选值：'middle', 'top', 'bottom'</td>
         </tr>
 	
 	
@@ -479,7 +479,7 @@ function SetWinHeight(obj) {
 	
         <tr>
             
-                <td class="name"><code>config.buttons</code></td>
+                <td class="name"><code>config.effect</code></td>
             
             
             <td class="type">
@@ -504,12 +504,49 @@ function SetWinHeight(obj) {
             
                 <td class="default">
                 
-                    ['normal']
+                    true
                 
                 </td>
             
             
-            <td class="description last">操作按钮，如自定义文本{'text': '放弃'}</td>
+            <td class="description last">是否启用过渡效果</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.hasFoot</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">是否有底部</td>
         </tr>
 	
 	
@@ -541,7 +578,7 @@ function SetWinHeight(obj) {
             
                 <td class="default">
                 
-                    {'opacity': 0,'-webkit-transform': 'rotateX(-90deg)','-webkit-transform-origin': '50% 0'}
+                    {'opacity': 0,'transform': 'rotateX(-90deg)','transform-origin': '50% 0'}
                 
                 </td>
             
@@ -578,7 +615,7 @@ function SetWinHeight(obj) {
             
                 <td class="default">
                 
-                    {'opacity': 1,'-webkit-transform': 'rotateX(0)','-webkit-transform-origin': '50% 0'}
+                    {'opacity': 1,'transform': 'rotateX(0)','transform-origin': '50% 0'}
                 
                 </td>
             
@@ -615,7 +652,7 @@ function SetWinHeight(obj) {
             
                 <td class="default">
                 
-                    150
+                    800
                 
                 </td>
             
@@ -634,6 +671,12 @@ function SetWinHeight(obj) {
             
                 
 <span class="param-type">string</span>
+|
+
+<span class="param-type">element</span>
+|
+
+<span class="param-type">URLString</span>
 
 
             
@@ -657,7 +700,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last">dialog内容</td>
+            <td class="description last">overlay内容</td>
         </tr>
 	
 	
@@ -697,7 +740,7 @@ function SetWinHeight(obj) {
                 </td>
             
             
-            <td class="description last">dialog宽度</td>
+            <td class="description last">overlay宽度</td>
         </tr>
 	
 	
@@ -744,43 +787,6 @@ function SetWinHeight(obj) {
 	
         <tr>
             
-                <td class="name"><code>config.type</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    'alert'
-                
-                </td>
-            
-            
-            <td class="description last">dialog类型，[alert, success, error, none可选]</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
                 <td class="name"><code>config.tpl</code></td>
             
             
@@ -806,7 +812,7 @@ function SetWinHeight(obj) {
             
                 <td class="default">
                 
-                    ''
+                    '$_private.tpl'
                 
                 </td>
             
@@ -841,11 +847,6 @@ function SetWinHeight(obj) {
 	
 	
 
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#dom
-	</li></dd>
 	
 	
 	
@@ -911,11 +912,6 @@ function SetWinHeight(obj) {
 	
 	
 
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#close
-	</li></dd>
 	
 	
 	
@@ -987,8 +983,8 @@ function SetWinHeight(obj) {
 	
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#constructor
-	</li></dd>
+		mo.Base#constructor
+	</li></ul></dd>
 	
 	
 	
@@ -1060,8 +1056,8 @@ function SetWinHeight(obj) {
 	
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#off
-	</li></dd>
+		mo.Base#off
+	</li></ul></dd>
 	
 	
 	
@@ -1133,8 +1129,8 @@ function SetWinHeight(obj) {
 	
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#on
-	</li></dd>
+		mo.Base#on
+	</li></ul></dd>
 	
 	
 	
@@ -1203,11 +1199,6 @@ function SetWinHeight(obj) {
 	
 	
 
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#open
-	</li></dd>
 	
 	
 	
@@ -1279,8 +1270,8 @@ function SetWinHeight(obj) {
 	
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#trigger
-	</li></dd>
+		mo.Base#trigger
+	</li></ul></dd>
 	
 	
 	
@@ -1399,11 +1390,6 @@ function SetWinHeight(obj) {
 	
 
 	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#beforeclose:初始化完成
-	</li></dd>
-	
 	
 	
 	
@@ -1517,11 +1503,6 @@ function SetWinHeight(obj) {
 	
 	
 
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#beforeopen:初始化完成
-	</li></dd>
 	
 	
 	
@@ -1637,11 +1618,6 @@ function SetWinHeight(obj) {
 	
 
 	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#close:关闭窗口时
-	</li></dd>
-	
 	
 	
 	
@@ -1755,11 +1731,6 @@ function SetWinHeight(obj) {
 	
 	
 
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#event:init
-	</li></dd>
 	
 	
 	
@@ -1875,11 +1846,6 @@ function SetWinHeight(obj) {
 	
 
 	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#open:关闭窗口时
-	</li></dd>
-	
 	
 	
 	
@@ -1927,27 +1893,27 @@ function SetWinHeight(obj) {
     
         
             
-        <h3 class="subsection-title">普通弹窗（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/dialog/demo1.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <h3 class="subsection-title">普通浮层（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/overlay/demo1.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
-            <iframe src="http://tgideas.github.io/motion/component/demo/dialog/demo1.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <iframe src="http://tgideas.github.io/motion/component/demo/overlay/demo1.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
             <pre class="code language-javascript"><code></code></pre>
             <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
         </div>
             
         
             
-        <h3 class="subsection-title">自定义类型弹窗-警告（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/dialog/demo2.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <h3 class="subsection-title">自定义效果（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/overlay/demo2.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
-            <iframe src="http://tgideas.github.io/motion/component/demo/dialog/demo2.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <iframe src="http://tgideas.github.io/motion/component/demo/overlay/demo2.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
             <pre class="code language-javascript"><code></code></pre>
             <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
         </div>
             
         
             
-        <h3 class="subsection-title">自定义类型弹窗-失败（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/dialog/demo3.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <h3 class="subsection-title">自定义位置（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/overlay/demo3.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
-            <iframe src="http://tgideas.github.io/motion/component/demo/dialog/demo3.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <iframe src="http://tgideas.github.io/motion/component/demo/overlay/demo3.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
             <pre class="code language-javascript"><code></code></pre>
             <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
         </div>

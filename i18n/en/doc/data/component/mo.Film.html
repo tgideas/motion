@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-    <title>Class: Dialog - Motion.js - A swift javascript ui kit for mobile</title>
-    <meta name="description" content="Motion.js,a slim javascript ui kit for mobile" />
-    <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library" />
-    <meta name="author" content="TGIdeas" />
-    <link rel="shortcut icon" href="/favicon.ico"/>
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Class: Film - Motion.js - A swift javascript ui kit for mobile</title>
+    <meta name="description" content="Motion.js,a slim javascript ui kit for mobile">
+    <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library">
+    <meta name="author" content="TGIdeas">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css">
 
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/doc/css/api.css"/>
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/doc/css/api.css">
     <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
      <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
 </head>
@@ -33,24 +33,24 @@
         <nav class="collapse navbar-collapse bs-navbar-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <a href="http://tgideas.github.io/motion/" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
+              <a href="/motion/i18n/en/">Home</a>
             </li>
             <li class="active">
-              <a href="http://tgideas.github.io/motion/doc/" data-attr-t href-t="menu.apiLnk">API</a>
+              <a href="/motion/i18n/en/doc/">API</a>
             </li>
             <li>
-              <a href="http://tgideas.github.io/motion/download/" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
+              <a href="/motion/i18n/en/download/">Download</a>
             </li>
             <li>
-              <a href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
+              <a href="https://github.com/tgideas/motion" target="_blank">Github</a>
             </li>
             <li>
               <a href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right bs-docs-lang">
-              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/mo.Dialog.html" data-attr-t href-t="mods.modUrlDialog">English</a></li>
-              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.Dialog.html">简体中文</a></li>
+              <li><a href="/motion/i18n/en/doc/data/component/mo.Film.html">English</a></li>
+              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.Film.html">简体中文</a></li>
               <script>
                 var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
                     $menus = jQuery('.bs-docs-lang li');
@@ -83,7 +83,7 @@
 
             
             
-                <h1 class="page-title">Class: Dialog</h1>
+                <h1 class="page-title">Class: Film</h1>
             
             
             
@@ -145,7 +145,7 @@ function SetWinHeight(obj) {
     <h2>
         <span class="ancestors"><a href="mo_.html">mo</a>.</span>
     
-    Dialog
+    Film
     </h2>
     
 </header>   -->
@@ -157,7 +157,7 @@ function SetWinHeight(obj) {
     
         
 <dt>
-    <h4 class="name" id="Dialog"><span class="type-signature"></span>new Dialog<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Film"><span class="type-signature"></span>new Film<span class="signature">(node, <span class="optional">config</span>)</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -165,7 +165,7 @@ function SetWinHeight(obj) {
     
     
     <div class="description">
-        对话框
+        图片帧（逐帧）动画控制，支持sprite图及序列图片两种方式
     </div>
     
 
@@ -193,7 +193,7 @@ function SetWinHeight(obj) {
 	<dt class="tag-author">Author:</dt>
 	<dd class="tag-author">
         <ul>
-            <li>Brucewan</li>
+            <li>Aidenxiong</li>
         </ul>
 	</dd>
 	
@@ -206,7 +206,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/dialog/dialog.js">dialog.js</a>, line 1</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 1</li></ul>
 
 
 
@@ -221,11 +221,9 @@ function SetWinHeight(obj) {
 	<dt class="tag-see">See:</dt>
 	<dd class="tag-see">
         <ul>
-            <li>dialog/demo1.html 普通弹窗</li>
+            <li>film/multiple.htm</li>
         
-            <li>dialog/demo2.html 自定义类型弹窗-警告</li>
-        
-            <li>dialog/demo3.html 自定义类型弹窗-失败</li>
+            <li>film/sprite.htm</li>
         </ul>
 	</dd>
 	 -->
@@ -243,7 +241,9 @@ function SetWinHeight(obj) {
     
         <h5>Example</h5>
         
-    <pre class="language-javascript"><code>		var dialog1 = new mo.Dialog('数据提交成功！');</code></pre>
+    <pre class="language-javascript"><code>		var film = new mo.Film(document.getElementById('test'), {
+			resource: []
+		});</code></pre>
 
     
 </dd>
@@ -255,7 +255,7 @@ function SetWinHeight(obj) {
         <h3 class="subsection-title">继承：</h3>
         
         <ul>
-            <li><a href="mo.Overlay.html">mo.Overlay</a></li>
+            <li><a href="mo.Base.html">mo.Base</a></li>
         </ul>
     
     
@@ -265,9 +265,7 @@ function SetWinHeight(obj) {
         <h3 class="subsection-title">依赖：</h3>
         
         <ul>
-            <li>module:lib/zepto.js</li>
-        
-            <li>module:src/base.js</li>
+            <li>module:../../resource/zepto/zepto.js</li>
         </ul>
        
 
@@ -286,7 +284,7 @@ function SetWinHeight(obj) {
     
     
 
-    <ul class="tab-trigger" >
+    <ul class="tab-trigger">
       
       <li><h3 class="subsection-title">参数</h3></li>
       
@@ -297,13 +295,92 @@ function SetWinHeight(obj) {
         <li><h3 class="subsection-title">方法</h3></li>
     
     
-        <li><h3 class="subsection-title">事件</h3></li>
-    
     </ul>
 
     <u class="tab-target">
       
         <li>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>名称</th>
+		
+		
+		<th>类型</th>
+		
+		
+		<th>参数</th>
+		
+		
+		
+		
+		<th class="last">描述</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>node</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">帧动画播放的节点</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">帧动画配置参数
+                <h6>Properties</h6>
+                
 
 <table class="params">
     <thead>
@@ -331,348 +408,48 @@ function SetWinHeight(obj) {
 	
         <tr>
             
-                <td class="name"><code>config.mask</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    true
-                
-                </td>
-            
-            
-            <td class="description last">是否有蒙板</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>config.autoOpen</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    true
-                
-                </td>
-            
-            
-            <td class="description last">是否自动打开对话框</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>config.pos</code></td>
+                <td class="name"><code>resource</code></td>
             
             
             <td class="type">
             
                 
 <span class="param-type">array</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    &#91;'middle'&#93;
-                
-                </td>
-            
-            
-            <td class="description last">设置dialog打开位置</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>config.className</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    'pop***'
-                
-                </td>
-            
-            
-            <td class="description last">自定义class方便控制样式</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>config.buttons</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    ['normal']
-                
-                </td>
-            
-            
-            <td class="description last">操作按钮，如自定义文本{'text': '放弃'}</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>config.start</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    {'opacity': 0,'-webkit-transform': 'rotateX(-90deg)','-webkit-transform-origin': '50% 0'}
-                
-                </td>
-            
-            
-            <td class="description last">打开弹窗时起始状态</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>config.end</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    {'opacity': 1,'-webkit-transform': 'rotateX(0)','-webkit-transform-origin': '50% 0'}
-                
-                </td>
-            
-            
-            <td class="description last">打开弹窗时结束状态</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>config.duration</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    150
-                
-                </td>
-            
-            
-            <td class="description last">动画时间，可设为0关闭动画</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>config.content</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    ''
-                
-                </td>
-            
-            
-            <td class="description last">dialog内容</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>config.width</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
 |
 
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">帧资源图片，可以是数组也可以是单张图片，单张图片会被认为是sprite图</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>totalFrame</code></td>
+            
+            
+            <td class="type">
+            
+                
 <span class="param-type">number</span>
 
 
@@ -692,27 +469,24 @@ function SetWinHeight(obj) {
             
                 <td class="default">
                 
-                    '300'
+                    10
                 
                 </td>
             
             
-            <td class="description last">dialog宽度</td>
+            <td class="description last">总帧数</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>config.height</code></td>
+                <td class="name"><code>spriteDirect</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">string</span>
-|
-
 <span class="param-type">number</span>
 
 
@@ -732,19 +506,93 @@ function SetWinHeight(obj) {
             
                 <td class="default">
                 
-                    'auto'
+                    0
                 
                 </td>
             
             
-            <td class="description last">overlay高度</td>
+            <td class="description last">使用sprite图片的时候，可以指明sprite平铺方向  1为横向  2为纵向    如果值为0   那么根据长宽比进行判断</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>config.type</code></td>
+                <td class="name"><code>index</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">默认显示第几帧</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>playTime</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    1000
+                
+                </td>
+            
+            
+            <td class="description last">滚动执行时间</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>aniType</code></td>
             
             
             <td class="type">
@@ -769,25 +617,25 @@ function SetWinHeight(obj) {
             
                 <td class="default">
                 
-                    'alert'
+                    linear
                 
                 </td>
             
             
-            <td class="description last">dialog类型，[alert, success, error, none可选]</td>
+            <td class="description last">运算轨迹</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>config.tpl</code></td>
+                <td class="name"><code>onLoading</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
@@ -806,12 +654,121 @@ function SetWinHeight(obj) {
             
                 <td class="default">
                 
-                    ''
+                </td>
+            
+            
+            <td class="description last">资源加载时的回调</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onComplete</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
                 
                 </td>
             
             
-            <td class="description last">弹窗模板</td>
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">资源加载完成后的回调</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onPlaying</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">每次完成一张图片切换时的回调</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>aniComplete</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">每次自动完成一次动画播放后的回调</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
         </tr>
 	
 	
@@ -822,14 +779,14 @@ function SetWinHeight(obj) {
         <li><dl>
             
 <dt>
-    <h4 class="name" id="dom"><span class="type-signature"></span>dom<span class="type-signature"> :Object</span></h4>
+    <h4 class="name" id="animationId"><span class="type-signature"></span>animationId<span class="type-signature"> :[type]</span></h4>
     
     
 </dt>
 <dd>
     
     <div class="description">
-        存储弹窗dom引用(dom.box, dom.head, dom.body, dom.foot. dom.close, dom.mask)
+        播放动画ID
     </div>
     
     
@@ -841,11 +798,6 @@ function SetWinHeight(obj) {
 	
 	
 
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#dom
-	</li></dd>
 	
 	
 	
@@ -860,7 +812,399 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 192</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 225</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="curIndex"><span class="type-signature"></span>curIndex<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        当前停留在的帧序号
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 195</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="filmNode"><span class="type-signature"></span>filmNode<span class="type-signature"> :[type]</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        真正执行帧动画的节点
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 215</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="filmSize"><span class="type-signature"></span>filmSize<span class="type-signature"> :Object</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        帧动画的尺寸(宽高)
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 210</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="frameStyles"><span class="type-signature"></span>frameStyles<span class="type-signature"> :Array</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        每帧对应的样式/src
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 220</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="isLoading"><span class="type-signature"></span>isLoading<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        是否正在加载
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 200</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="resource"><span class="type-signature"></span>resource<span class="type-signature"> :Array</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        需要加载的资源
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 190</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="totalFrame"><span class="type-signature"></span>totalFrame<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        帧数
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 205</li></ul>
 
 
 
@@ -884,79 +1228,6 @@ function SetWinHeight(obj) {
      
     
         <li><dl>
-            
-<dt>
-    <h4 class="name" id="close"><span class="type-signature"></span>close<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        关闭弹窗
-    </div>
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#close
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 467</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
             
 <dt>
     <h4 class="name" id="constructor"><span class="type-signature"></span>constructor<span class="signature">()</span><span class="type-signature"></span></h4>
@@ -987,8 +1258,8 @@ function SetWinHeight(obj) {
 	
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#constructor
-	</li></dd>
+		mo.Base#constructor
+	</li></ul></dd>
 	
 	
 	
@@ -1032,6 +1303,96 @@ function SetWinHeight(obj) {
         
             
 <dt>
+    <h4 class="name" id="next"><span class="type-signature"></span>next<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        跳转到下一帧
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 321</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    film对象
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="off"><span class="type-signature"></span>off<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
@@ -1060,8 +1421,8 @@ function SetWinHeight(obj) {
 	
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#off
-	</li></dd>
+		mo.Base#off
+	</li></ul></dd>
 	
 	
 	
@@ -1133,8 +1494,8 @@ function SetWinHeight(obj) {
 	
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#on
-	</li></dd>
+		mo.Base#on
+	</li></ul></dd>
 	
 	
 	
@@ -1178,7 +1539,7 @@ function SetWinHeight(obj) {
         
             
 <dt>
-    <h4 class="name" id="open"><span class="type-signature"></span>open<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="pause"><span class="type-signature"></span>pause<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
 
     
 </dt>
@@ -1186,7 +1547,7 @@ function SetWinHeight(obj) {
     
     
     <div class="description">
-        打开浮层
+        暂停播放
     </div>
     
 
@@ -1204,11 +1565,6 @@ function SetWinHeight(obj) {
 	
 
 	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#open
-	</li></dd>
-	
 	
 	
 	
@@ -1222,7 +1578,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 428</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 406</li></ul>
 
 
 
@@ -1244,6 +1600,388 @@ function SetWinHeight(obj) {
     
     
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    film对象
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="play"><span class="type-signature"></span>play<span class="signature">(t, dir)</span><span class="type-signature"> &rarr; {object}</span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        播放帧动画
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 389</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    film对象
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="playByIndex"><span class="type-signature"></span>playByIndex<span class="signature">(index, opt)</span><span class="type-signature"> &rarr; {object}</span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        通过告诉停留在第几个位置上来定位滑动位置
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 341</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    film对象
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="playByNum"><span class="type-signature"></span>playByNum<span class="signature">(num, opt)</span><span class="type-signature"> &rarr; {object}</span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        通过规定播放的帧数来滑动
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 360</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    film对象
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="prev"><span class="type-signature"></span>prev<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        跳转到上一帧
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/film/film.js">film.js</a>, line 330</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    film对象
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">object</span>
+
+
+	</dd>
+</dl>
+
+        
     
     
 </dd>
@@ -1279,8 +2017,8 @@ function SetWinHeight(obj) {
 	
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#trigger
-	</li></dd>
+		mo.Base#trigger
+	</li></ul></dd>
 	
 	
 	
@@ -1324,630 +2062,24 @@ function SetWinHeight(obj) {
         </dl></li>
     
     
-        <li><dl>
-            
-<dt>
-    <h4 class="name" id="event:beforeclose:初始化完成">beforeclose:初始化完成</h4>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>名称</th>
-		
-		
-		<th>类型</th>
-		
-		
-		
-		
-		
-		<th class="last">描述</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">事件对象</td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#beforeclose:初始化完成
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 471</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="event:beforeopen:初始化完成">beforeopen:初始化完成</h4>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>名称</th>
-		
-		
-		<th>类型</th>
-		
-		
-		
-		
-		
-		<th class="last">描述</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">事件对象</td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#beforeopen:初始化完成
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 436</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="event:close:关闭窗口时">close:关闭窗口时</h4>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>名称</th>
-		
-		
-		<th>类型</th>
-		
-		
-		
-		
-		
-		<th class="last">描述</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">事件对象</td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#close:关闭窗口时
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 484</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="event:init">init</h4>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>名称</th>
-		
-		
-		<th>类型</th>
-		
-		
-		
-		
-		
-		<th class="last">描述</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">开始初始化</td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#event:init
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 159</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="event:open:关闭窗口时">open:关闭窗口时</h4>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>名称</th>
-		
-		
-		<th>类型</th>
-		
-		
-		
-		
-		
-		<th class="last">描述</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">事件对象</td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Overlay#open:关闭窗口时
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 447</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        </dl></li>
-    
     </u>
 
     
     
         
             
-        <h3 class="subsection-title">普通弹窗（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/dialog/demo1.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <h3 class="subsection-title">（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/film/multiple.htm">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
-            <iframe src="http://tgideas.github.io/motion/component/demo/dialog/demo1.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <iframe src="http://tgideas.github.io/motion/component/demo/film/multiple.htm" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
             <pre class="code language-javascript"><code></code></pre>
             <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
         </div>
             
         
             
-        <h3 class="subsection-title">自定义类型弹窗-警告（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/dialog/demo2.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <h3 class="subsection-title">（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/film/sprite.htm">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
-            <iframe src="http://tgideas.github.io/motion/component/demo/dialog/demo2.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
-            <pre class="code language-javascript"><code></code></pre>
-            <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
-        </div>
-            
-        
-            
-        <h3 class="subsection-title">自定义类型弹窗-失败（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/dialog/demo3.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
-        <div class="demo-content">
-            <iframe src="http://tgideas.github.io/motion/component/demo/dialog/demo3.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <iframe src="http://tgideas.github.io/motion/component/demo/film/sprite.htm" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
             <pre class="code language-javascript"><code></code></pre>
             <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
         </div>

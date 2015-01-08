@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-    <title>Class: PageSlide - Motion.js - A swift javascript ui kit for mobile</title>
-    <meta name="description" content="Motion.js,a slim javascript ui kit for mobile" />
-    <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library" />
-    <meta name="author" content="TGIdeas" />
-    <link rel="shortcut icon" href="/favicon.ico"/>
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Class: Slide - Motion.js - A swift javascript ui kit for mobile</title>
+    <meta name="description" content="Motion.js,a slim javascript ui kit for mobile">
+    <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library">
+    <meta name="author" content="TGIdeas">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css">
 
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/doc/css/api.css"/>
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/doc/css/api.css">
     <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
      <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
 </head>
@@ -33,24 +33,24 @@
         <nav class="collapse navbar-collapse bs-navbar-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <a href="http://tgideas.github.io/motion/" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
+              <a href="/motion/i18n/en/">Home</a>
             </li>
             <li class="active">
-              <a href="http://tgideas.github.io/motion/doc/" data-attr-t href-t="menu.apiLnk">API</a>
+              <a href="/motion/i18n/en/doc/">API</a>
             </li>
             <li>
-              <a href="http://tgideas.github.io/motion/download/" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
+              <a href="/motion/i18n/en/download/">Download</a>
             </li>
             <li>
-              <a href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
+              <a href="https://github.com/tgideas/motion" target="_blank">Github</a>
             </li>
             <li>
               <a href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right bs-docs-lang">
-              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/mo.PageSlide.html" data-attr-t href-t="mods.modUrlPageSlide">English</a></li>
-              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.PageSlide.html">简体中文</a></li>
+              <li><a href="mods.modUrlSlide">English</a></li>
+              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.Slide.html">简体中文</a></li>
               <script>
                 var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
                     $menus = jQuery('.bs-docs-lang li');
@@ -83,7 +83,7 @@
 
             
             
-                <h1 class="page-title">Class: PageSlide</h1>
+                <h1 class="page-title">Class: Slide</h1>
             
             
             
@@ -145,7 +145,7 @@ function SetWinHeight(obj) {
     <h2>
         <span class="ancestors"><a href="mo_.html">mo</a>.</span>
     
-    PageSlide
+    Slide
     </h2>
     
 </header>   -->
@@ -157,7 +157,7 @@ function SetWinHeight(obj) {
     
         
 <dt>
-    <h4 class="name" id="PageSlide"><span class="type-signature"></span>new PageSlide<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Slide"><span class="type-signature"></span>new Slide<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -206,7 +206,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/page-slide/page-slide.js">page-slide.js</a>, line 1</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/slide/slide.js">slide.js</a>, line 1</li></ul>
 
 
 
@@ -221,9 +221,13 @@ function SetWinHeight(obj) {
 	<dt class="tag-see">See:</dt>
 	<dd class="tag-see">
         <ul>
-            <li>page-slide/demo2.html 垂直单屏滑动</li>
+            <li>slide/demo1.html 普通滑动</li>
         
-            <li>page-slide/demo3.html 垂直缩放滑动</li>
+            <li>slide/demo2.html 横向单屏滑动-扫二维码看效果</li>
+        
+            <li>slide/demo3.html 带标题的滑动</li>
+        
+            <li>slide/demo4.html 未命名滑动</li>
         </ul>
 	</dd>
 	 -->
@@ -241,7 +245,7 @@ function SetWinHeight(obj) {
     
         <h5>Example</h5>
         
-    <pre class="language-javascript"><code>		var tab1 = new mo.PageSlide({
+    <pre class="language-javascript"><code>		var tab1 = new mo.Slide({
 			target: $('#slide01 li')
 		});</code></pre>
 
@@ -288,7 +292,7 @@ function SetWinHeight(obj) {
     
     
 
-    <ul class="tab-trigger" >
+    <ul class="tab-trigger">
       
       <li><h3 class="subsection-title">参数</h3></li>
       
@@ -440,43 +444,6 @@ function SetWinHeight(obj) {
             
             
             <td class="description last">触发器</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>config.effect</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    'slide'
-                
-                </td>
-            
-            
-            <td class="description last">指定效果，可选值：'slide', 'roll', 'scale'</td>
         </tr>
 	
 	
@@ -1026,7 +993,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#container
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -1087,7 +1054,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#controller
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -1148,7 +1115,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#curPage
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -1209,7 +1176,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#isPlaying
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -1270,7 +1237,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#prevPage
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -1331,7 +1298,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#target
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -1401,7 +1368,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#constructor
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -1474,7 +1441,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#next
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -1547,7 +1514,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#off
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -1620,7 +1587,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#on
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -1693,7 +1660,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#play
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -1766,7 +1733,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#playTo
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -1839,7 +1806,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#prev
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -1912,7 +1879,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#stop
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -1985,7 +1952,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#trigger
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -2107,7 +2074,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#event:beforechange
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -2226,7 +2193,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#event:beforeinit
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -2345,7 +2312,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#event:change
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -2464,7 +2431,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#event:init
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -2583,7 +2550,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#event:touchend
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -2702,7 +2669,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#event:touchmove
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -2821,7 +2788,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Tab#event:touchstart
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -2870,18 +2837,36 @@ function SetWinHeight(obj) {
     
         
             
-        <h3 class="subsection-title">垂直单屏滑动（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/page-slide/demo2.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <h3 class="subsection-title">普通滑动（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/slide/demo1.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
-            <iframe src="http://tgideas.github.io/motion/component/demo/page-slide/demo2.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <iframe src="http://tgideas.github.io/motion/component/demo/slide/demo1.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
             <pre class="code language-javascript"><code></code></pre>
             <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
         </div>
             
         
             
-        <h3 class="subsection-title">垂直缩放滑动（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/page-slide/demo3.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <h3 class="subsection-title">横向单屏滑动-扫二维码看效果（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/slide/demo2.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
-            <iframe src="http://tgideas.github.io/motion/component/demo/page-slide/demo3.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <iframe src="http://tgideas.github.io/motion/component/demo/slide/demo2.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <pre class="code language-javascript"><code></code></pre>
+            <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
+        </div>
+            
+        
+            
+        <h3 class="subsection-title">带标题的滑动（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/slide/demo3.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <div class="demo-content">
+            <iframe src="http://tgideas.github.io/motion/component/demo/slide/demo3.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <pre class="code language-javascript"><code></code></pre>
+            <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
+        </div>
+            
+        
+            
+        <h3 class="subsection-title">未命名滑动（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/slide/demo4.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <div class="demo-content">
+            <iframe src="http://tgideas.github.io/motion/component/demo/slide/demo4.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
             <pre class="code language-javascript"><code></code></pre>
             <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
         </div>

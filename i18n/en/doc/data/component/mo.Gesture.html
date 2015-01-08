@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-    <title>Class: Loader - Motion.js - A swift javascript ui kit for mobile</title>
-    <meta name="description" content="Motion.js,a slim javascript ui kit for mobile" />
-    <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library" />
-    <meta name="author" content="TGIdeas" />
-    <link rel="shortcut icon" href="/favicon.ico"/>
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Class: Gesture - Motion.js - A swift javascript ui kit for mobile</title>
+    <meta name="description" content="Motion.js,a slim javascript ui kit for mobile">
+    <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library">
+    <meta name="author" content="TGIdeas">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css">
 
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/doc/css/api.css"/>
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/doc/css/api.css">
     <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
      <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
 </head>
@@ -33,24 +33,24 @@
         <nav class="collapse navbar-collapse bs-navbar-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <a href="http://tgideas.github.io/motion/" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
+              <a href="/motion/i18n/en/">Home</a>
             </li>
             <li class="active">
-              <a href="http://tgideas.github.io/motion/doc/" data-attr-t href-t="menu.apiLnk">API</a>
+              <a href="/motion/i18n/en/doc/">API</a>
             </li>
             <li>
-              <a href="http://tgideas.github.io/motion/download/" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
+              <a href="/motion/i18n/en/download/">Download</a>
             </li>
             <li>
-              <a href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
+              <a href="https://github.com/tgideas/motion" target="_blank">Github</a>
             </li>
             <li>
               <a href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right bs-docs-lang">
-              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/mo.Loader.html" data-attr-t href-t="mods.modUrlLoader">English</a></li>
-              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.Loader.html">简体中文</a></li>
+              <li><a href="/motion/i18n/en/doc/data/component/mo.Gesture.html">English</a></li>
+              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.Gesture.html">简体中文</a></li>
               <script>
                 var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
                     $menus = jQuery('.bs-docs-lang li');
@@ -83,7 +83,7 @@
 
             
             
-                <h1 class="page-title">Class: Loader</h1>
+                <h1 class="page-title">Class: Gesture</h1>
             
             
             
@@ -145,7 +145,7 @@ function SetWinHeight(obj) {
     <h2>
         <span class="ancestors"><a href="mo_.html">mo</a>.</span>
     
-    Loader
+    Gesture
     </h2>
     
 </header>   -->
@@ -157,7 +157,7 @@ function SetWinHeight(obj) {
     
         
 <dt>
-    <h4 class="name" id="Loader"><span class="type-signature"></span>new Loader<span class="signature">(container=window, <span class="optional">opts</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Gesture"><span class="type-signature"></span>new Gesture<span class="signature">(node, <span class="optional">config</span>)</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -165,7 +165,7 @@ function SetWinHeight(obj) {
     
     
     <div class="description">
-        图片懒加载
+        手势插件
     </div>
     
 
@@ -193,7 +193,7 @@ function SetWinHeight(obj) {
 	<dt class="tag-author">Author:</dt>
 	<dd class="tag-author">
         <ul>
-            <li>AidenXiong</li>
+            <li>Aidenxiong</li>
         </ul>
 	</dd>
 	
@@ -206,7 +206,7 @@ function SetWinHeight(obj) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/loader/loader.js">loader.js</a>, line 1</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/gesture/gesture.js">gesture.js</a>, line 1</li></ul>
 
 
 
@@ -221,7 +221,7 @@ function SetWinHeight(obj) {
 	<dt class="tag-see">See:</dt>
 	<dd class="tag-see">
         <ul>
-            <li>lazyLoad/lazyLoad.html</li>
+            <li>gesture/gesture.html</li>
         </ul>
 	</dd>
 	 -->
@@ -239,14 +239,7 @@ function SetWinHeight(obj) {
     
         <h5>Example</h5>
         
-    <pre class="language-javascript"><code>		new mo.Loader(getSource(),{
-			onLoading : function(count,total){
-				console.log('onloading:single loaded:',arguments)
-			},
-			onComplete : function(time){
-				console.log('oncomplete:all source loaded:',arguments)
-			}
-		})</code></pre>
+    <pre class="language-javascript"><code>		var gest = new mo.Gesture(document.getElementById('test')).addGesture('swiperight', handler);</code></pre>
 
     
 </dd>
@@ -264,12 +257,6 @@ function SetWinHeight(obj) {
     
     
     
-    
-        <h3 class="subsection-title">依赖：</h3>
-        
-        <ul>
-            <li>module:lib/zepto.js</li>
-        </ul>
        
 
 
@@ -287,7 +274,7 @@ function SetWinHeight(obj) {
     
     
 
-    <ul class="tab-trigger" >
+    <ul class="tab-trigger">
       
       <li><h3 class="subsection-title">参数</h3></li>
       
@@ -295,8 +282,6 @@ function SetWinHeight(obj) {
     
         <li><h3 class="subsection-title">方法</h3></li>
     
-    
-        <li><h3 class="subsection-title">事件</h3></li>
     
     </ul>
 
@@ -328,7 +313,7 @@ function SetWinHeight(obj) {
 	
         <tr>
             
-                <td class="name"><code>container=window</code></td>
+                <td class="name"><code>node</code></td>
             
             
             <td class="type">
@@ -350,14 +335,14 @@ function SetWinHeight(obj) {
             
             
             
-            <td class="description last">懒加载的容器 默认</td>
+            <td class="description last">绑定手势的节点</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>opts</code></td>
+                <td class="name"><code>config</code></td>
             
             
             <td class="type">
@@ -381,7 +366,7 @@ function SetWinHeight(obj) {
             
             
             
-            <td class="description last">配置参数
+            <td class="description last">基本配置参数
                 <h6>Properties</h6>
                 
 
@@ -411,7 +396,7 @@ function SetWinHeight(obj) {
 	
         <tr>
             
-                <td class="name"><code>threshold</code></td>
+                <td class="name"><code>preventDefault</code></td>
             
             
             <td class="type">
@@ -436,49 +421,12 @@ function SetWinHeight(obj) {
             
                 <td class="default">
                 
-                    0
+                    false
                 
                 </td>
             
             
-            <td class="description last">距离viewport的值</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>dataAttr</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">dataAttr</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    original
-                
-                </td>
-            
-            
-            <td class="description last">所有资源加载完成后的回调</td>
+            <td class="description last">是否阻止默认时间</td>
         </tr>
 	
 	
@@ -494,6 +442,147 @@ function SetWinHeight(obj) {
      
     
         <li><dl>
+            
+<dt>
+    <h4 class="name" id="addGesture"><span class="type-signature"></span>addGesture<span class="signature">(type, func)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        添加手势动作
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/gesture/gesture.js">gesture.js</a>, line 453</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="constructor"><span class="type-signature"></span>constructor<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        构造函数
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Base#constructor
+	</li></ul></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 42</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
             
 <dt>
     <h4 class="name" id="off"><span class="type-signature"></span>off<span class="signature">()</span><span class="type-signature"></span></h4>
@@ -525,7 +614,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Base#off
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -598,7 +687,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Base#on
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -614,6 +703,74 @@ function SetWinHeight(obj) {
 	
 	<dt class="tag-source">源码:</dt>
 	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 52</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="removeGesture"><span class="type-signature"></span>removeGesture<span class="signature">(type, func)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        删除手势动作
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/gesture/gesture.js">gesture.js</a>, line 468</li></ul>
 
 
 
@@ -671,7 +828,7 @@ function SetWinHeight(obj) {
 	<dt class="inherited-from">继承自:</dt>
 	<dd class="inherited-from"><ul class="dummy"><li>
 		mo.Base#trigger
-	</li></dd>
+	</li></ul></dd>
 	
 	
 	
@@ -715,245 +872,15 @@ function SetWinHeight(obj) {
         </dl></li>
     
     
-        <li><dl>
-            
-<dt>
-    <h4 class="name" id="event:complete">complete</h4>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>名称</th>
-		
-		
-		<th>类型</th>
-		
-		
-		
-		
-		
-		<th class="last">描述</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">所有资源加载完成</td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/loader/loader.js">loader.js</a>, line 231</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="event:loading">loading</h4>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>名称</th>
-		
-		
-		<th>类型</th>
-		
-		
-		
-		
-		
-		<th class="last">描述</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">单个资源加载完成</td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/loader/loader.js">loader.js</a>, line 222</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        </dl></li>
-    
     </u>
 
     
     
         
             
-        <h3 class="subsection-title">（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/lazyLoad/lazyLoad.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <h3 class="subsection-title">（<a target="_blank" href="http://tgideas.github.io/motion/component/demo/gesture/gesture.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
         <div class="demo-content">
-            <iframe src="http://tgideas.github.io/motion/component/demo/lazyLoad/lazyLoad.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <iframe src="http://tgideas.github.io/motion/component/demo/gesture/gesture.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
             <pre class="code language-javascript"><code></code></pre>
             <div class="cover" onclick="jQuery('#output').show().qrcode(jQuery(this).prev().prev()[0].src)"></div>
         </div>
