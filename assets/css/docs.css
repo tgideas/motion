@@ -1877,6 +1877,7 @@ h1[id] {
  *
  */
 .params td.description, .props td.description{word-break: break-all;word-wrap: break-word;}
+.params td.name,.params td.type,.params td.attributes,.props td.name,.props td.type,.props td.attributes {word-break:normal!important;word-wrap:normal!important;}
 .api-docs .bs-docs-nav .container-fluid {padding-left:25px;padding-right:25px;}
 .api-docs .content {background-color:#fff;}
 .api-docs .main {background-color:#e8e8e8;}
