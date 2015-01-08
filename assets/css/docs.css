@@ -45,8 +45,16 @@ a.btn:hover{box-shadow:0 0 5px rgba(0,0,0,.26);}
   background: linear-gradient(to bottom,  #00ea8f 0%,#00db86 50%,#00c578 51%,#00d07f 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ea8f', endColorstr='#00d07f',GradientType=0 ); /* IE6-9 */
 }
-.btn-primary:hover{
- border-color:transparent;
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color:#00ea8f;
+  border-color: transparent;
 }
 
 /* Outline button for use within the docs */
