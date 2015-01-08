@@ -62,6 +62,7 @@
 
             <div class="options clearfix">
               <label><span data-t="download.compressed">压缩版：</span><input id="uglify" type="checkbox" checked/></label>
+              <label><span data-t="download.zepto">包含Zepto：</span><input id="zepto" type="checkbox" checked/></label>
               <label><span data-t="download.encoding">编码格式：</span><select name="" id="charset"/>
                 <option checked value="utf-8">utf-8</option>
                 <option value="gbk">gbk/gb2312</option>
@@ -326,7 +327,7 @@
             }
 
             var getDownLoadUrl = function(comps){
-              return 'http://digg.tgideas.qq.com/combine.php?u='+comps.join('|')+'&r=1&download=1&charset='+$('#charset').val()+ ($('#uglify')[0].checked ? '' : '&debug=1');
+              return 'http://digg.tgideas.qq.com/combine.php?u='+comps.join('|')+'&r=1&download=1&charset='+$('#charset').val()+ ($('#uglify')[0].checked ? '' : '&debug=1') + ($('#zepto')[0].checked ? '&zepto=1' : '');
             }
 
             var checkedComp = [];
@@ -397,6 +398,9 @@
             });
             $('.btn-package').click(function(){
               localStorage.setItem('comps', checkedComp.sort().join('|'))
+              if(!$('#zepto')[0].checked){
+                alert('您未选择打包zepto库，使用motion前请记得在页面中先引入zepto');
+              }
               location.href=getDownLoadUrl(checkedComp);
             })
 
