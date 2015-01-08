@@ -60,6 +60,7 @@ define(function(require, exports, module) {
 			type: 'alert',
 			buttons: ['确定', '取消'],
 			valign: 'bottom',
+			hasFoot: true,
 			// 设置初始状态
 			start: {
 			},

@@ -58,6 +58,7 @@ define(function(require, exports, module) {
 				<div class="mo-pop-foot"></div>\
 			</div>',
 			type: 'none',
+			hasFoot: true,
 			buttons: ['确定']
 		};
 

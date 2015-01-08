@@ -15,7 +15,7 @@
  * @param {boolean} [config.hasFoot=false] 是否有底部
  * @param {object} [config.start= {'opacity': 0,'transform': 'rotateX(-90deg)','transform-origin': '50% 0'}] 打开弹窗时起始状态
  * @param {object} [config.end={'opacity': 1,'transform': 'rotateX(0)','transform-origin': '50% 0'}] 打开弹窗时结束状态
- * @param {number} [config.duration=150] 动画时间，可设为0关闭动画
+ * @param {number} [config.duration=800] 动画时间，可设为0关闭动画
  * @param {string|element|URLString} [config.content=''] overlay内容
  * @param {string|number} [config.width='300'] overlay宽度
  * @param {string|number} [config.height='auto'] overlay高度
