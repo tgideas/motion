@@ -1876,6 +1876,7 @@ h1[id] {
  * API Page
  *
  */
+.params td, .params th, .props td, .props th {word-break: break-all;word-wrap: break-word;}
 .api-docs .bs-docs-nav .container-fluid {padding-left:25px;padding-right:25px;}
 .api-docs .content {background-color:#fff;}
 .api-docs .main {background-color:#e8e8e8;}
