@@ -3,7 +3,6 @@
 /* reset */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}
 html,body{height:100%}
-body,input,button,textarea,select{font:12px/1.5 "microsoft yahei",Tahoma,Helvetica,Arial;color:#333}
 h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
 table{border-collapse:collapse;border-spacing:0}
 fieldset,img{border:0}
@@ -11,7 +10,6 @@ li,dd{list-style:none}
 a{color:#d30000;text-decoration:none}
 a:hover,a:active{text-decoration:underline}
 section,article,aside,header,footer,nav,dialog,figure,hgroup{display:block}
-body{border-top: 2px solid #343434;}
 
 .main{padding-left: 0;padding-right: 0;}
 .content{padding: 25px;border-left: 1px solid #c3c3c3;}
