@@ -224,6 +224,51 @@ a.btn:hover{box-shadow:0 0 5px rgba(0,0,0,.26);}
   background-color: #00d07f;
 }
 
+@media (min-width:768px){
+  .navbar-nav > li > a{
+    padding-top:32px;
+    padding-bottom:32px;
+    padding-left:12px;
+    padding-right:12px;
+  }
+  .bs-docs-lang {
+      background-color: #00ab68;
+      border-radius:20px;
+      padding:3px;
+      margin-top:26px;
+      margin-right:0;
+  }
+
+  .bs-docs-lang > li > a{
+    font-size:14px !important;
+  }
+  .bs-docs-lang > li.active{
+    background-color:#00df88;
+    border-radius:20px;
+  }
+  .bs-docs-lang > li.active > a{
+    color:#fff !important;
+  }
+
+  .bs-docs-lang > li > a {
+    padding-top:4px;
+    padding-bottom:2px;
+  }
+  .bs-docs-nav1 .bs-docs-lang{background-color:#000;}
+  .bs-docs-nav1 .bs-docs-lang > li.active {background-color:#3b3b3b;}
+
+}
+
+@media (max-width:767px){
+    .bs-docs-nav .navbar-brand, .bs-docs-nav .navbar-nav > li > a {font-size:16px;}
+    .bs-docs-nav .navbar-nav > li > a,.bs-docs-lang > li > a {padding-left:12px;padding-right:12px;}
+}
+@media (max-width:855px){
+    .bs-docs-nav .navbar-brand, .bs-docs-nav .navbar-nav > li > a {font-size:14px;}
+    .bs-docs-nav .navbar-nav > li > a,.bs-docs-lang > li > a {padding-left:10px;padding-right:10px;}
+    .bs-docs-lang > li > a {font-size:12px!important;}
+}
+
 /*
  * Footer
  *
@@ -1762,37 +1807,6 @@ h1[id] {
     top: -16px;
     border-top-right-radius: 0;
   }
-  .navbar-nav > li > a{
-    padding-top:32px;
-    padding-bottom:32px;
-    padding-left:12px;
-    padding-right:12px;
-  }
-    .bs-docs-lang {
-      background-color: #00ab68;
-      border-radius:20px;
-      padding:3px;
-      margin-top:26px;
-      margin-right:0;
-    }
-
-    .bs-docs-lang > li > a{
-      font-size:14px !important;
-    }
-    .bs-docs-lang > li.active{
-      background-color:#00df88;
-      border-radius:20px;
-    }
-    .bs-docs-lang > li.active > a{
-      color:#fff !important;
-    }
-
-  .bs-docs-lang > li > a {
-    padding-top:4px;
-    padding-bottom:2px;
-  }
-  .bs-docs-nav1 .bs-docs-lang{background-color:#000;}
-  .bs-docs-nav1 .bs-docs-lang > li.active {background-color:#3b3b3b;}
 }
 
 

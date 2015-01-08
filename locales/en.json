@@ -3,9 +3,10 @@
         "home":"Home",
         "api":"API",
         "download":"Download",
-        "downloadLnk":"/motion/i18n/en/download/",
-        "homeLnk":"/motion/i18n/en/",
-        "apiLnk":"/motion/i18n/en/doc/",
+        "version":"Versions",
+        "downloadLnk":"/motion/i18n/en/download/index.html",
+        "homeLnk":"/motion/i18n/en/index.html",
+        "apiLnk":"/motion/i18n/en/doc/index.html",
         "github":"Github",
         "faq":"FAQ"
     },
