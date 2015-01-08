@@ -94,13 +94,6 @@ function SetWinHeight(obj) {
     <?js } ?>
     </div>
 
-     <?js if (doc.augments && doc.augments.length) { ?>
-        <h3 class="subsection-title">继承：</h3>
-        
-        <ul><?js doc.augments.forEach(function(a) { ?>
-            <li><?js= self.linkto(a, a) ?></li>
-        <?js }); ?></ul>
-    <?js } ?>
     
     <?js if (doc.mixes && doc.mixes.length) { ?>
         <h3 class="subsection-title">Mixes In</h3>
@@ -110,13 +103,6 @@ function SetWinHeight(obj) {
         <?js }); ?></ul>
     <?js } ?>
     
-    <?js if (doc.requires && doc.requires.length) { ?>
-        <h3 class="subsection-title">依赖：</h3>
-        
-        <ul><?js doc.requires.forEach(function(r) { ?>
-            <li><?js= self.linkto(r, r) ?></li>
-        <?js }); ?></ul>
-    <?js } ?>   
 
 
 

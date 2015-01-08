@@ -14,7 +14,7 @@ var self = this;
     <?js } ?>
         
 	<?js if (data.version) {?>
-	<dt class="tag-version">Version:</dt>
+	<dt class="tag-version">版本:</dt>
 	<dd class="tag-version"><ul class="dummy"><li><?js= version ?></li></ul></dd>
 	<?js } ?>
 	
@@ -38,7 +38,7 @@ var self = this;
     <?js } ?>
 	
 	<?js if (data.author && author.length) {?>
-	<dt class="tag-author">Author:</dt>
+	<dt class="tag-author">作者:</dt>
 	<dd class="tag-author">
         <ul><?js author.forEach(function(a) { ?>
             <li><?js= a ?></li>
@@ -60,6 +60,26 @@ var self = this;
 	<dt class="tag-default">默认值:</dt>
 	<dd class="tag-default"><ul class="dummy"><li><?js= data.defaultvalue ?></li></ul></dd>
 	<?js } ?>
+
+     <?js if (data.augments && data.augments.length) { ?>
+    <dt class="tag-inherit">继承:</dt>
+	<dd class="tag-inherit">
+        <ul><?js data.augments.forEach(function(a) { ?>
+            <li><?js= self.linkto(a, a) ?></li>
+        <?js }); ?></ul>
+	</dd>
+    <?js } ?>
+
+    <?js if (data.requires && data.requires.length) { ?>
+    <dt class="tag-depend">依赖:</dt>
+	<dd class="tag-depend">
+        <ul><?js data.requires.forEach(function(r) { ?>
+            <li><?js= self.linkto(r, r) ?></li>
+        <?js }); ?></ul>
+    </dd>
+    <?js } ?>   
+
+
 	
 	<?js if (data.meta) {?>
 	<dt class="tag-source">源码:</dt>
