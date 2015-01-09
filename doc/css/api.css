@@ -200,7 +200,7 @@ h6
 .details dd { margin-left: 50px; }
 .details ul { margin: 0; }
 .details ul { list-style-type: none; }
-.details li { margin-left: 30px; padding-top: 6px; }
+.details li {display: inline-block;margin-left: 30px; padding-top: 6px; }
 
 .description {
 	margin-bottom: 1em;
@@ -281,9 +281,9 @@ h6
 
 .sub-nav h3{margin-top: 10px;font-weight: bold;}
 
-.tab-trigger{height: 50px;margin-top: 20px;margin-bottom: 10px;}
+.tab-trigger{display:-webkit-box;display: box;height: 50px;margin-top: 20px;margin-bottom: 10px;}
 .tab-trigger .subsection-title{margin: 0;padding: 0;}
-.tab-trigger > li{float: left;width: 25%;text-align: center;}
+.tab-trigger > li{-webkit-box-flex:1;box-flex:1;text-align: center;}
 .tab-trigger > li h3{border-right:1px solid #ddd;}
 .tab-trigger li:last-child h3{border-right: 0 none;}
 .tab-trigger .current h3{background-color: #00d884;color: #fff;}
