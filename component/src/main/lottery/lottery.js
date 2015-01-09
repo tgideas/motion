@@ -46,7 +46,7 @@
 			'onClickRollEvent' : callJsToStart,//对应上面接口
 			'onCompleteRollEvent':callJsToComplete //对应上面接口
 		});
- * @see lottery/lottery.html
+ * @see lottery/lottery.html 圆形转盘抽奖
  * @class
 */
 define(function(require, exports, module){

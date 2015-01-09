@@ -15,7 +15,7 @@
 			'threshold' : 100,
 			'dataAttr'  : 'original'
 		});
- * @see lazyLoad/lazyLoad.html
+ * @see lazyLoad/lazyLoad.html 资源懒加载
  * @class
 */
 define(function(require, exports, module){

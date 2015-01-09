@@ -22,8 +22,8 @@
 		var film = new mo.Film(document.getElementById('test'), {
 			resource: []
 		});
- * @see film/multiple.htm
- * @see film/sprite.htm
+ * @see film/multiple.htm 多图形式
+ * @see film/sprite.htm   雪碧图形式
  * @class
 */
 

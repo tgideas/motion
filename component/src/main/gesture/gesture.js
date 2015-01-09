@@ -10,7 +10,7 @@
  * @param {number} [config.preventDefault=false] 是否阻止默认时间
  * @example
 		var gest = new mo.Gesture(document.getElementById('test')).addGesture('swiperight', handler);
- * @see gesture/gesture.html
+ * @see gesture/gesture.html 组件使用
  * @class
 */
 
