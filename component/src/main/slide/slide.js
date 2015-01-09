@@ -106,15 +106,14 @@ define(function(require, exports, module) {
 				}
 			},
 
-			touchstart: function(){	
 
-				if(this.moving == true) {
-					return false;
-				}
-			},
 
 			touchmove: function(e, dis){
 				var self = this;
+				if(self.moving == true) {
+					return;
+				}
+
 				var o = {};
 				o[self.cssPrefix + 'transform'] = self.animProp + '(' + (dis - self.target[self.curPage][self.offsetProp]) + 'px)';
 

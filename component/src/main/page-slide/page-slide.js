@@ -107,16 +107,13 @@ define(function(require, exports, module) {
 				}
 			},
 
-			touchstart: function(){
-				if(this.moving == true) {
-					return false;
-				}
-			},
 
 			touchmove: function(e, startDis, moveDis){
-				e.preventDefault();
-
 				var self = this;
+				if(self.moving == true) {
+					return;
+				}
+
 
 				var o = {};
 				var currentVal = /\(([\d-]*).*\)/.exec(self.wrap.css(self.propPrefix + 'Transform'));
@@ -198,14 +195,12 @@ define(function(require, exports, module) {
 				}
 			},
 
-			touchstart: function(){
-				if(this.moving == true) {
-					return false;
-				}
-			},
-
 			touchmove: function(e, startDis, moveDis){
 				var self = this;
+				if(self.moving == true) {
+					return;
+				}
+
 				var angle = self.curPage * self.theta - startDis/5;
 				// console.log(angle, startDis);
 
@@ -283,14 +278,13 @@ define(function(require, exports, module) {
 				}
 			},
 
-			touchstart: function(){
-				if(this.moving == true) {
-					return false;
-				}
-			},
 
 			touchmove: function(e, startDis, moveDis){
 				var self = this;
+				if(self.moving == true) {
+					return;
+				}
+
 				var o = {};
 				var currentObj = self.target.eq(self.curPage);
 				var currentVal = /\(([\d-]*).*\)/.exec(self.wrap.css(self.propPrefix + 'Transform'));

@@ -23,7 +23,7 @@
 			resource: []
 		});
  * @see film/multiple.htm 多图形式
- * @see film/sprite.htm   雪碧图形式
+ * @see film/sprite.htm 雪碧图形式
  * @class
 */
 

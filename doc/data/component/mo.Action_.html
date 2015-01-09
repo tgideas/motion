@@ -1,139 +1,83 @@
 <!doctype html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-    <title>Class: Overlay - Motion.js - A swift javascript ui kit for mobile</title>
-    <meta name="description" content="Motion.js,a slim javascript ui kit for mobile" />
-    <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library" />
-    <meta name="author" content="TGIdeas" />
-    <link rel="shortcut icon" href="/favicon.ico"/>
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css"/>
-
-    <link rel="stylesheet" href="http://tgideas.github.io/motion/doc/css/api.css"/>
-    <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
-    <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
-    <script src="http://tgideas.github.io/motion/assets/js/detect-browser.js"></script>
+    <meta charset="UTF-8">
+    <title>Class: Action-移动端组件库-TGideas</title>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../../css/global.css"/>
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
-<body class="api-docs">
+<body>
     <script>
-      if(SmartPhone.isAny()){
-        jQuery('body').addClass('mobi');
-      }
+    if(!/webkit/i.test(navigator.userAgent)){
+       alert('请使用webkit内核浏览器打开体验，谢谢！');
+    }
     </script>
-    
-    <!-- Docs master nav -->
-    <header class="navbar navbar-static-top bs-docs-nav bs-docs-nav1" id="top" role="banner">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand">Motion</a>
-        </div>
-        <nav class="collapse navbar-collapse bs-navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="http://tgideas.github.io/motion/index.html" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
-            </li>
-            <li class="active">
-              <a href="http://tgideas.github.io/motion/doc/index.html" data-attr-t href-t="menu.apiLnk">API</a>
-            </li>
-            <li>
-              <a href="http://tgideas.github.io/motion/download/index.html" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
-            </li>
-            <li>
-              <a href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
-            </li>
-            <li>
-              <a href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
-            </li>
-            <li>
-              <a href="https://github.com/tgideas/motion/wiki/version" target="_blank" data-t="menu.version">版本信息</a>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right bs-docs-lang">
-              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/mo.Overlay.html" data-attr-t href-t="mods.modUrlOverlay">English</a></li>
-              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.Overlay.html">简体中文</a></li>
-              <script>
-                var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
-                    $menus = jQuery('.bs-docs-lang li');
-                if(lang=='en'){
-                    $menus.removeClass('active').eq(0).addClass('active');
-                }
-              </script>
-          </ul>
+    <section class="sidebar">
+        <h1 class="logo">移动端组件库</h1>
+        <nav>
+            <ul>
+                <li ><a href="javascript:alert('暂未上线');void(0)">模板</a></li>
+                <li><a href="javascript:alert('暂未上线');void(0)">模块</a></li>
+                <li class="current"><a href="#">组件</a></li>
+            </ul>
         </nav>
-      </div>
-    </header>
+    </section>
+    <div id="main" class="main">
+        <div class="tips" style="border:1px solid #ddd;background:#ffd;padding:10px;"><span style="color:red">Tips:</span> 请启用Emulation &gt; Sensors &gt; Emulate touch screen 体验demo</div>
+        
 
-    <div class="main container-fluid">
-        <section class="sidebar col-sm-3">
-            <nav>
-                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.PageSlide.html">PageSlide</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
-            </nav>
-            <script>
-            (function(){
-                var elems = document.querySelectorAll('.sidebar li');
-                for(var i = 0; i < elems.length; i++) {
-
-                }
-            })()
-            </script>
-        </section>
-        <div id="main" class="content col-sm-9">
-
-            
-
-            
-            
-                <h1 class="page-title">Class: Overlay</h1>
-            
-            
-            
+        
+        
+            <h1 class="page-title">Class: Action</h1>
+        
+        
+        <script src="http://ossweb-img.qq.com/images/js/jquery/jquery-1.8.0.min.js"></script>
+<script src="http://ossweb-img.qq.com/images/js/jquery/jquery.qrcode.min.js"></script>
 <script>
-function renderDemo(url,fileName) { 
+function SetWinHeight(obj) { 
+    var win=obj; 
     var body;
-    
-    jQuery.ajax({
-        url:url    
-    }).done(function(data){
-        body = jQuery('<div>'+data+'</div>');
-        var scripts = body[0].getElementsByTagName('script');
-        var html = '';
-        for(var i = 0; i < scripts.length; i++) {
-            if(!scripts[i].src) {
-                html = scripts[i].innerHTML;
-                break;
+    if (document.getElementById)  { 
+        if (win && !window.opera)  { 
+            if (win.contentDocument && win.contentDocument.body.offsetHeight) {
+                win.height = win.contentDocument.body.offsetHeight; 
+                body = win.contentDocument.body;
+            } else if(win.Document && win.Document.body.scrollHeight) {
+                win.height = win.Document.body.scrollHeight; 
+                body = win.Document.body;
             }
+        } 
+    } 
+    var scripts = body.getElementsByTagName('script');
+    var html = '';
+    for(var i = 0; i < scripts.length; i++) {
+        if(!scripts[i].src) {
+            html = scripts[i].innerHTML;
+            break;
         }
-        html = html.replace(/(\t|^)\s*\n/g, '');
-        var tabNum = /^(\t*)\S/.exec(html)[1];
-        if(tabNum) {
-            var repStr = '(\\n|^)';
-            for(var i = 0; i < tabNum.length; i++) {
-                repStr += '\\t';
-            }
-            var rep = new RegExp(repStr , 'g');
-            html = html.replace(rep, function(a,b){return b});
-
+    }
+    html = html.replace(/(\t|^)\s*\n/g, '');
+    var tabNum = /^(\t*)\S/.exec(html)[1];
+    if(tabNum) {
+        var repStr = '(\\n|^)';
+        for(var i = 0; i < tabNum.length; i++) {
+            repStr += '\\t';
         }
-        // html = html.replace(/\n/g, '<br/>');
-        // html = html.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
-        jQuery('[data-file="'+fileName+'"]').find('code').html(html);
+        var rep = new RegExp(repStr , 'g');
+        html = html.replace(rep, function(a,b){return b});
 
-        if(Prism) Prism.highlightAll();
+    }
+    html = html.replace(/\n/g, '<br/>');
+    html = html.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
 
-    }).error(function(jqXHR,textStatus,err){    
-        jQuery('[data-file="'+fileName+'"]').find('code').html('//Error:'+textStatus);
-    });
-
-}; 
+    $(obj).next().height(win.height).find('code').html(html);
+} 
 
 </script>
 
@@ -145,14 +89,14 @@ function renderDemo(url,fileName) {
 
 <section>
     
-<!-- <header>
+<header>
     <h2>
         <span class="ancestors"><a href="mo_.html">mo</a>.</span>
     
-    Overlay
+    Action
     </h2>
     
-</header>   -->
+</header>  
 
 <article>
     <div class="container-overview">
@@ -161,7 +105,7 @@ function renderDemo(url,fileName) {
     
         
 <dt>
-    <h4 class="name" id="Overlay"><span class="type-signature"></span>new Overlay<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Action"><span class="type-signature"></span>new Action<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -169,7 +113,7 @@ function renderDemo(url,fileName) {
     
     
     <div class="description">
-        基础浮层类，没有关闭按钮，没有操作按钮，可应用于操作提示，loading等场景。
+        <p>对话框</p>
     </div>
     
 
@@ -183,7 +127,7 @@ function renderDemo(url,fileName) {
     
         
 	
-	<dt class="tag-version">版本:</dt>
+	<dt class="tag-version">Version:</dt>
 	<dd class="tag-version"><ul class="dummy"><li>1.0</li></ul></dd>
 	
 	
@@ -194,7 +138,7 @@ function renderDemo(url,fileName) {
 	
 	
 	
-	<dt class="tag-author">作者:</dt>
+	<dt class="tag-author">Author:</dt>
 	<dd class="tag-author">
         <ul>
             <li>Brucewan</li>
@@ -207,32 +151,10 @@ function renderDemo(url,fileName) {
 	
 	
 	
-
-     
-    <dt class="tag-inherit">继承:</dt>
-	<dd class="tag-inherit">
-        <ul>
-            <li><a href="mo.Base.html">mo.Base</a></li>
-        </ul>
-	</dd>
-    
-
-    
-    <dt class="tag-depend">依赖:</dt>
-	<dd class="tag-depend">
-        <ul>
-            <li>module:lib/zepto.js</li>
-        
-            <li>module:src/base.js</li>
-        </ul>
-    </dd>
-       
-
-
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 1</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/action/action.js">action.js</a>, line 1</li></ul>
 
 
 
@@ -247,11 +169,7 @@ function renderDemo(url,fileName) {
 	<dt class="tag-see">See:</dt>
 	<dd class="tag-see">
         <ul>
-            <li>overlay/demo1.html 普通浮层</li>
-        
-            <li>overlay/demo2.html 自定义效果</li>
-        
-            <li>overlay/demo3.html 自定义位置</li>
+            <li>action/demo1.html 普通浮层</li>
         </ul>
 	</dd>
 	 -->
@@ -269,7 +187,7 @@ function renderDemo(url,fileName) {
     
         <h5>Example</h5>
         
-    <pre class="language-javascript"><code>		var overlay1 = new mo.Overlay('数据提交成功！');</code></pre>
+    <pre class="prettyprint"><code>		var action1 = new mo.Action('数据提交成功！');</code></pre>
 
     
 </dd>
@@ -277,9 +195,25 @@ function renderDemo(url,fileName) {
     
     </div>
 
+     
+        <h3 class="subsection-title">继承：</h3>
+        
+        <ul>
+            <li><a href="mo.Overlay.html">mo.Overlay</a></li>
+        </ul>
     
     
     
+    
+    
+        <h3 class="subsection-title">依赖：</h3>
+        
+        <ul>
+            <li>module:lib/zepto.js</li>
+        
+            <li>module:src/base.js</li>
+        </ul>
+       
 
 
 
@@ -371,7 +305,7 @@ function renderDemo(url,fileName) {
                 </td>
             
             
-            <td class="description last">是否有蒙板</td>
+            <td class="description last"><p>是否有蒙板</p></td>
         </tr>
 	
 	
@@ -408,7 +342,7 @@ function renderDemo(url,fileName) {
                 </td>
             
             
-            <td class="description last">是否自动打开对话框</td>
+            <td class="description last"><p>是否自动打开对话框</p></td>
         </tr>
 	
 	
@@ -440,12 +374,12 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    'middle'
+                    &#91;'middle'&#93;
                 
                 </td>
             
             
-            <td class="description last">设置overlay打开位置，可选值：'middle', 'top', 'bottom'</td>
+            <td class="description last"><p>设置action打开位置</p></td>
         </tr>
 	
 	
@@ -482,14 +416,14 @@ function renderDemo(url,fileName) {
                 </td>
             
             
-            <td class="description last">自定义class方便控制样式</td>
+            <td class="description last"><p>自定义class方便控制样式</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>config.effect</code></td>
+                <td class="name"><code>config.buttons</code></td>
             
             
             <td class="type">
@@ -514,49 +448,12 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    true
+                    ['normal']
                 
                 </td>
             
             
-            <td class="description last">是否启用过渡效果</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>config.hasFoot</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    false
-                
-                </td>
-            
-            
-            <td class="description last">是否有底部</td>
+            <td class="description last"><p>操作按钮，如自定义文本{'text': '放弃'}</p></td>
         </tr>
 	
 	
@@ -588,12 +485,12 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    {'opacity': 0,'transform': 'rotateX(-90deg)','transform-origin': '50% 0'}
+                    {}
                 
                 </td>
             
             
-            <td class="description last">打开弹窗时起始状态</td>
+            <td class="description last"><p>打开弹窗时起始状态</p></td>
         </tr>
 	
 	
@@ -625,12 +522,12 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    {'opacity': 1,'transform': 'rotateX(0)','transform-origin': '50% 0'}
+                    {}
                 
                 </td>
             
             
-            <td class="description last">打开弹窗时结束状态</td>
+            <td class="description last"><p>打开弹窗时结束状态</p></td>
         </tr>
 	
 	
@@ -662,12 +559,12 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    800
+                    150
                 
                 </td>
             
             
-            <td class="description last">动画时间，可设为0关闭动画</td>
+            <td class="description last"><p>动画时间，可设为0关闭动画</p></td>
         </tr>
 	
 	
@@ -681,12 +578,6 @@ function renderDemo(url,fileName) {
             
                 
 <span class="param-type">string</span>
-|
-
-<span class="param-type">element</span>
-|
-
-<span class="param-type">URLString</span>
 
 
             
@@ -710,7 +601,7 @@ function renderDemo(url,fileName) {
                 </td>
             
             
-            <td class="description last">overlay内容</td>
+            <td class="description last"><p>action内容</p></td>
         </tr>
 	
 	
@@ -745,12 +636,12 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    '300'
+                    '100%'
                 
                 </td>
             
             
-            <td class="description last">overlay宽度</td>
+            <td class="description last"><p>action宽度</p></td>
         </tr>
 	
 	
@@ -790,7 +681,44 @@ function renderDemo(url,fileName) {
                 </td>
             
             
-            <td class="description last">overlay高度</td>
+            <td class="description last"><p>overlay高度</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.type</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    'alert'
+                
+                </td>
+            
+            
+            <td class="description last"><p>action类型，[alert, success, error, none可选]</p></td>
         </tr>
 	
 	
@@ -822,12 +750,12 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    '$_private.tpl'
+                    ''
                 
                 </td>
             
             
-            <td class="description last">弹窗模板</td>
+            <td class="description last"><p>弹窗模板</p></td>
         </tr>
 	
 	
@@ -845,7 +773,7 @@ function renderDemo(url,fileName) {
 <dd>
     
     <div class="description">
-        存储弹窗dom引用(dom.box, dom.head, dom.body, dom.foot. dom.close, dom.mask)
+        <p>存储弹窗dom引用(dom.box, dom.head, dom.body, dom.foot. dom.close)</p>
     </div>
     
     
@@ -858,6 +786,10 @@ function renderDemo(url,fileName) {
 	
 
 	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Overlay#dom
+	</li></dd>
 	
 	
 	
@@ -868,16 +800,11 @@ function renderDemo(url,fileName) {
 	
 	
 	
-
-     
-
-       
-
-
+	
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 192</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/overlay/overlay.js">overlay.js</a>, line 188</li></ul>
 
 
 
@@ -911,7 +838,7 @@ function renderDemo(url,fileName) {
     
     
     <div class="description">
-        关闭弹窗
+        <p>关闭弹窗</p>
     </div>
     
 
@@ -929,6 +856,10 @@ function renderDemo(url,fileName) {
 	
 
 	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Overlay#close
+	</li></dd>
 	
 	
 	
@@ -939,16 +870,11 @@ function renderDemo(url,fileName) {
 	
 	
 	
-
-     
-
-       
-
-
+	
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 467</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/overlay/overlay.js">overlay.js</a>, line 445</li></ul>
 
 
 
@@ -985,7 +911,7 @@ function renderDemo(url,fileName) {
     
     
     <div class="description">
-        构造函数
+        <p>构造函数</p>
     </div>
     
 
@@ -1018,95 +944,10 @@ function renderDemo(url,fileName) {
 	
 	
 	
-
-     
-
-       
-
-
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 42</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="off"><span class="type-signature"></span>off<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        绑定事件
-    </div>
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Base#off
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-     
-
-       
-
-
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 61</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/base/base.js">base.js</a>, line 42</li></ul>
 
 
 
@@ -1143,7 +984,7 @@ function renderDemo(url,fileName) {
     
     
     <div class="description">
-        绑定事件
+        <p>绑定事件</p>
     </div>
     
 
@@ -1176,16 +1017,10 @@ function renderDemo(url,fileName) {
 	
 	
 	
-
-     
-
-       
-
-
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 52</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/base/base.js">base.js</a>, line 52</li></ul>
 
 
 
@@ -1222,7 +1057,7 @@ function renderDemo(url,fileName) {
     
     
     <div class="description">
-        打开浮层
+        <p>打开浮层</p>
     </div>
     
 
@@ -1240,6 +1075,10 @@ function renderDemo(url,fileName) {
 	
 
 	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Overlay#open
+	</li></dd>
 	
 	
 	
@@ -1250,16 +1089,11 @@ function renderDemo(url,fileName) {
 	
 	
 	
-
-     
-
-       
-
-
+	
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 428</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/overlay/overlay.js">overlay.js</a>, line 406</li></ul>
 
 
 
@@ -1296,7 +1130,7 @@ function renderDemo(url,fileName) {
     
     
     <div class="description">
-        触发事件
+        <p>触发事件</p>
     </div>
     
 
@@ -1329,16 +1163,10 @@ function renderDemo(url,fileName) {
 	
 	
 	
-
-     
-
-       
-
-
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 69</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/base/base.js">base.js</a>, line 61</li></ul>
 
 
 
@@ -1428,7 +1256,7 @@ function renderDemo(url,fileName) {
             
             
             
-            <td class="description last">事件对象</td>
+            <td class="description last"><p>事件对象</p></td>
         </tr>
 	
 	
@@ -1442,6 +1270,10 @@ function renderDemo(url,fileName) {
 	
 
 	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Overlay#beforeclose:初始化完成
+	</li></dd>
 	
 	
 	
@@ -1452,16 +1284,11 @@ function renderDemo(url,fileName) {
 	
 	
 	
-
-     
-
-       
-
-
+	
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 471</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/overlay/overlay.js">overlay.js</a>, line 449</li></ul>
 
 
 
@@ -1548,7 +1375,7 @@ function renderDemo(url,fileName) {
             
             
             
-            <td class="description last">事件对象</td>
+            <td class="description last"><p>事件对象</p></td>
         </tr>
 	
 	
@@ -1562,6 +1389,10 @@ function renderDemo(url,fileName) {
 	
 
 	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Overlay#beforeopen:初始化完成
+	</li></dd>
 	
 	
 	
@@ -1572,16 +1403,11 @@ function renderDemo(url,fileName) {
 	
 	
 	
-
-     
-
-       
-
-
+	
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 436</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/overlay/overlay.js">overlay.js</a>, line 414</li></ul>
 
 
 
@@ -1668,7 +1494,7 @@ function renderDemo(url,fileName) {
             
             
             
-            <td class="description last">事件对象</td>
+            <td class="description last"><p>事件对象</p></td>
         </tr>
 	
 	
@@ -1682,6 +1508,10 @@ function renderDemo(url,fileName) {
 	
 
 	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Overlay#close:关闭窗口时
+	</li></dd>
 	
 	
 	
@@ -1692,16 +1522,11 @@ function renderDemo(url,fileName) {
 	
 	
 	
-
-     
-
-       
-
-
+	
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 484</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/overlay/overlay.js">overlay.js</a>, line 462</li></ul>
 
 
 
@@ -1788,7 +1613,7 @@ function renderDemo(url,fileName) {
             
             
             
-            <td class="description last">开始初始化</td>
+            <td class="description last"><p>开始初始化</p></td>
         </tr>
 	
 	
@@ -1802,6 +1627,10 @@ function renderDemo(url,fileName) {
 	
 
 	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Overlay#event:init
+	</li></dd>
 	
 	
 	
@@ -1812,16 +1641,11 @@ function renderDemo(url,fileName) {
 	
 	
 	
-
-     
-
-       
-
-
+	
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 159</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/overlay/overlay.js">overlay.js</a>, line 156</li></ul>
 
 
 
@@ -1908,7 +1732,7 @@ function renderDemo(url,fileName) {
             
             
             
-            <td class="description last">事件对象</td>
+            <td class="description last"><p>事件对象</p></td>
         </tr>
 	
 	
@@ -1922,6 +1746,10 @@ function renderDemo(url,fileName) {
 	
 
 	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Overlay#open:关闭窗口时
+	</li></dd>
 	
 	
 	
@@ -1932,16 +1760,11 @@ function renderDemo(url,fileName) {
 	
 	
 	
-
-     
-
-       
-
-
+	
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/overlay/overlay.js">overlay.js</a>, line 447</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="../../../component/src/main/overlay/overlay.js">overlay.js</a>, line 425</li></ul>
 
 
 
@@ -1975,38 +1798,10 @@ function renderDemo(url,fileName) {
     
         
             
-        <h3 class="subsection-title">普通浮层<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/overlay/demo1.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
-        <div class="demo-content" data-file="overlay/demo1.html">
-            <pre class="code language-javascript"><code>Loading...</code></pre>
-            <script>
-            jQuery(function(){
-                renderDemo("http://tgideas.github.io/motion/component/demo/overlay/demo1.html","overlay/demo1.html");    
-            });
-            </script>
-        </div>
-            
-        
-            
-        <h3 class="subsection-title">自定义效果<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/overlay/demo2.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
-        <div class="demo-content" data-file="overlay/demo2.html">
-            <pre class="code language-javascript"><code>Loading...</code></pre>
-            <script>
-            jQuery(function(){
-                renderDemo("http://tgideas.github.io/motion/component/demo/overlay/demo2.html","overlay/demo2.html");    
-            });
-            </script>
-        </div>
-            
-        
-            
-        <h3 class="subsection-title">自定义位置<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/overlay/demo3.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
-        <div class="demo-content" data-file="overlay/demo3.html">
-            <pre class="code language-javascript"><code>Loading...</code></pre>
-            <script>
-            jQuery(function(){
-                renderDemo("http://tgideas.github.io/motion/component/demo/overlay/demo3.html","overlay/demo3.html");    
-            });
-            </script>
+        <h3 class="subsection-title">普通浮层（<a target="_blank" href="../../../component/demo/action/demo1.html">新窗口</a> | <a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)">二维码</a>）：</h3>
+        <div class="demo-content">
+            <iframe src="../../../component/demo/action/demo1.html" frameborder="0" scrolling="no" onload="Javascript:SetWinHeight(this)"></iframe>
+            <div class="code prettyprint"><code></code></div>
         </div>
             
         
@@ -2059,21 +1854,23 @@ function renderDemo(url,fileName) {
         $(this).empty().hide();
     });
 
+    $('')
+
 })()
 
 </script>
 
-        </div>
-
     </div>
 
+    <nav class="sub-nav">
+        <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="mo.Action_.html">Action</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul><h3>Namespaces</h3><ul><li><a href="mo_.html">mo</a></li></ul>
+    </nav>
 
-    <script type="text/javascript" src="http://ossweb-img.qq.com/images/js/prism/prism.js"></script>
-    <script>
-      $('.sidebar li').each(function(i,elem){if(new RegExp('mo\\.'+$(elem).text()).test(location.href))$(elem).addClass('current')});
-    </script>
-   
-    <script src="http://tgideas.github.io/motion/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="http://ossweb-img.qq.com/images/js/jquery/jquery.qrcode.min.js"></script>
+    <br clear="both">
+
+
+
+    <script> prettyPrint(); </script>
+
 </body>
 </html>

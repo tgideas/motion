@@ -19,7 +19,7 @@
 				console.log('oncomplete:all source loaded:',arguments)
 			}
 		})
- * @see lazyLoad/lazyLoad.html  资源预加载
+ * @see lazyLoad/lazyLoad.html 资源预加载
  * @class
 */
 define(function(require, exports, module){

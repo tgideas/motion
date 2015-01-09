@@ -18,7 +18,7 @@
  * @param {string} [opts.sbtnh=100] 开始抽奖按钮的高度
  * @param {string} [opts.boxw=100] 奖品光效的宽度
  * @param {string} [opts.boxh=100] 奖品光效的高度
- * @param {string} [opts.position="19_20,128_20,238_20,348_19,459_19,568_19,679_19,19_129,128.8_129,568_129,678_129,19_240,128_240,238_240,349_240,459_239,569_239,679_239"] 奖品光效的位置，对应奖品图片的布局，填入每个奖品的位置以及角度用逗号分割  x_y_rotation（角度为0的可以不填写） 例如19_20或者19_20_0 表示第一个奖品的位置 x坐标为19px y坐标为20px 角度为0。）
+ * @param {string} [opts.position="19_20, 128_20, 348_19, 569_239, 679_239"] 奖品光效的位置，对应奖品图片的布局，填入每个奖品的位置以及角度用逗号分割  x_y_rotation（角度为0的可以不填写） 例如19_20或者19_20_0 表示第一个奖品的位置 x坐标为19px y坐标为20px 角度为0。）
  * @param {string} [opts.contentId=swfcontent] 嵌入swf 的div层的 id 
  * @param {string} [opts.onClickRollEvent]
  * @param {string} [opts.onCompleteRollEvent] 奖品光效的高度
