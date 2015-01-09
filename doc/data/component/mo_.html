@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <title>Namespace: mo - Motion.js - A swift javascript ui kit for mobile</title>
+    <meta name="description" content="Motion.js,a slim javascript ui kit for mobile" />
+    <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library" />
+    <meta name="author" content="TGIdeas" />
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css"/>
+
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/doc/css/api.css"/>
+    <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
+    <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
+    <script src="http://tgideas.github.io/motion/assets/js/detect-browser.js"></script>
+</head>
+<body class="api-docs">
+    <script>
+      if(SmartPhone.isAny()){
+        jQuery('body').addClass('mobi');
+      }
+    </script>
+    
+    <!-- Docs master nav -->
+    <header class="navbar navbar-static-top bs-docs-nav bs-docs-nav1" id="top" role="banner">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">Motion</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="http://tgideas.github.io/motion/index.html" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
+            </li>
+            <li class="active">
+              <a href="http://tgideas.github.io/motion/doc/index.html" data-attr-t href-t="menu.apiLnk">API</a>
+            </li>
+            <li>
+              <a href="http://tgideas.github.io/motion/download/index.html" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
+            </li>
+            <li>
+              <a href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
+            </li>
+            <li>
+              <a href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
+            </li>
+            <li>
+              <a href="https://github.com/tgideas/motion/wiki/version" target="_blank" data-t="menu.version">版本信息</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right bs-docs-lang">
+              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/mo.mo.html" data-attr-t href-t="mods.modUrlmo">English</a></li>
+              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.mo.html">简体中文</a></li>
+              <script>
+                var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
+                    $menus = jQuery('.bs-docs-lang li');
+                if(lang=='en'){
+                    $menus.removeClass('active').eq(0).addClass('active');
+                }
+              </script>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="main container-fluid">
+        <section class="sidebar col-sm-3">
+            <nav>
+                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.PageSlide.html">PageSlide</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
+            </nav>
+            <script>
+            (function(){
+                var elems = document.querySelectorAll('.sidebar li');
+                for(var i = 0; i < elems.length; i++) {
+
+                }
+            })()
+            </script>
+        </section>
+        <div id="main" class="content col-sm-9">
+
+            
+
+            
+            
+                <h1 class="page-title">Namespace: mo</h1>
+            
+            
+            
+<script>
+function renderDemo(url,fileName) { 
+    var body;
+    
+    jQuery.ajax({
+        url:url    
+    }).done(function(data){
+        body = jQuery('<div>'+data+'</div>');
+        var scripts = body[0].getElementsByTagName('script');
+        var html = '';
+        for(var i = 0; i < scripts.length; i++) {
+            if(!scripts[i].src) {
+                html = scripts[i].innerHTML;
+                break;
+            }
+        }
+        html = html.replace(/(\t|^)\s*\n/g, '');
+        var tabNum = /^(\t*)\S/.exec(html)[1];
+        if(tabNum) {
+            var repStr = '(\\n|^)';
+            for(var i = 0; i < tabNum.length; i++) {
+                repStr += '\\t';
+            }
+            var rep = new RegExp(repStr , 'g');
+            html = html.replace(rep, function(a,b){return b});
+
+        }
+        // html = html.replace(/\n/g, '<br/>');
+        // html = html.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+        jQuery('[data-file="'+fileName+'"]').find('code').html(html);
+
+        if(Prism) Prism.highlightAll();
+
+    }).error(function(jqXHR,textStatus,err){    
+        jQuery('[data-file="'+fileName+'"]').find('code').html('//Error:'+textStatus);
+    });
+
+}; 
+
+</script>
+
+
+
+
+
+
+
+<section>
+    
+<!-- <header>
+    <h2>
+    mo
+    </h2>
+    
+</header>   -->
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+            <div class="description">mo</div>
+        
+        
+        
+<dl class="details">
+    
+        
+	
+	<dt class="tag-version">版本:</dt>
+	<dd class="tag-version"><ul class="dummy"><li>1.0</li></ul></dd>
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 1</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+        
+<!--          -->
+    
+    </div>
+
+    
+    
+    
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+    
+
+    <ul class="tab-trigger" >
+        
+    
+        <li><h3 class="subsection-title">属性</h3></li>
+    
+    
+        <li><h3 class="subsection-title">方法</h3></li>
+    
+    
+    </ul>
+
+    <u class="tab-target">
+        
+      
+        <li><dl>
+            
+<dt>
+    <h4 class="name" id="version"><span class="type-signature">&lt;static> </span>version<span class="type-signature"> :string</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        tg版本号
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/motion/motion.js">motion.js</a>, line 26</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        </dl></li>
+     
+    
+        <li><dl>
+            
+<dt>
+    <h4 class="name" id="add"><span class="type-signature">&lt;static> </span>add<span class="signature">(name, obj)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        命令空间管理 eg. Motion.add('mo.Slide:mo.Tab', function(){})
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/motion/motion.js">motion.js</a>, line 34</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl></li>
+    
+    
+    </u>
+
+    
+    
+    
+
+
+<div id="output"></div>
+
+
+</article>
+
+</section>  
+
+
+
+
+
+
+<script>
+(function(){
+    var Tab = function(target, trigger){
+        var self = this;
+        this.target = target;
+        this.trigger = trigger;
+        this.playTo(0);
+        for(var i = 0; i < trigger.length; i ++) {
+            (function(i){
+                trigger[i].onclick = function(){
+                    self.playTo(i);
+                }
+            })(i);
+        }
+    };
+
+    Tab.prototype.playTo = function(n){
+        for(var i = 0; i < this.target.length; i++) {
+            this.target[i].style.display = 'none';
+            this.trigger[i].className = '';
+        }
+        this.target[n].style.display = 'block';
+        this.trigger[n].className = 'current';
+    }
+    new Tab(
+        document.querySelectorAll('.tab-target > li'), 
+        document.querySelectorAll('.tab-trigger > li')
+    );
+
+    $('#output').on('click', function(){
+        $(this).empty().hide();
+    });
+
+})()
+
+</script>
+
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="http://ossweb-img.qq.com/images/js/prism/prism.js"></script>
+    <script>
+      $('.sidebar li').each(function(i,elem){if(new RegExp('mo\\.'+$(elem).text()).test(location.href))$(elem).addClass('current')});
+    </script>
+   
+    <script src="http://tgideas.github.io/motion/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://ossweb-img.qq.com/images/js/jquery/jquery.qrcode.min.js"></script>
+</body>
+</html>
