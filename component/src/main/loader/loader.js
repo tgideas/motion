@@ -21,7 +21,7 @@
 				console.log('oncomplete:all source loaded:',arguments)
 			}
 		})
- * @see Loader/Loader.html 资源预加载
+ * @see loader/loader.html 资源预加载
  * @class
 */
 define(function(require, exports, module){
