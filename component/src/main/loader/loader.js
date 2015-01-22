@@ -6,12 +6,14 @@
  * @extends mo.Base
  * @name mo.Loader
  * @requires lib/zepto.js
- * @param {HTMLElement} container=window 懒加载的容器 默认
+ * @param {Array} [res=[]] 需要加载的资源列表
  * @param {object} [opts] 配置参数
- * @param {number} [opts.threshold=0] 距离viewport的值
- * @param {dataAttr} [opts.dataAttr=original] 所有资源加载完成后的回调
+ * @param {Function} [opts.onLoading] 当个资源加载完成后的回调
+ * @param {Function} [opts.onComplete] 所有资源加载完成后的回调
+ * @param {Strnig} [opts.dataAttr=preload] Dom元素需要预加载资源的dom属性默认：data-preload
  * @example
-		new mo.Loader(getSource(),{
+ 		var sourceArr = []; //需要加载的资源列表
+		new mo.Loader(source,{
 			onLoading : function(count,total){
 				console.log('onloading:single loaded:',arguments)
 			},
@@ -19,7 +21,7 @@
 				console.log('oncomplete:all source loaded:',arguments)
 			}
 		})
- * @see lazyLoad/lazyLoad.html 资源预加载
+ * @see Loader/Loader.html 资源预加载
  * @class
 */
 define(function(require, exports, module){
@@ -235,16 +237,21 @@ define(function(require, exports, module){
 					_self.trigger('complete', [times]);
 				}
 			}
-			Zepto.each(res, function(index, item){
-				_private.getType(item);
-				var type = _private.getType(item);
-				var callFunc = _private[type+'Loader'];
-				if(callFunc === undefined){ //不支持的类型默认认为是加载了
-					load(item);
-				}else{
-					callFunc(item, load);
-				}
-			});
+			if(res.length){
+				Zepto.each(res, function(index, item){
+					_private.getType(item);
+					var type = _private.getType(item);
+					var callFunc = _private[type+'Loader'];
+					if(callFunc === undefined){ //不支持的类型默认认为是加载了
+						load(item);
+					}else{
+						callFunc(item, load);
+					}
+				});
+			}else{
+				config.onComplete(0);
+				_self.trigger('complete', [0]);
+			}
 		}
 	});
 });
