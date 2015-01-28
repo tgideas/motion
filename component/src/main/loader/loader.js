@@ -1,6 +1,6 @@
 /**
  * @author AidenXiong
- * @version 1.0
+ * @version 1.1
  * @date 2014-09-16
  * @description 图片懒加载
  * @extends mo.Base
@@ -10,10 +10,12 @@
  * @param {object} [opts] 配置参数
  * @param {Function} [opts.onLoading] 当个资源加载完成后的回调
  * @param {Function} [opts.onComplete] 所有资源加载完成后的回调
+ * @param {Number} [opts.loadType=0] 0为并行加载  1为串行加载
+ * @param {Number} [opts.minTime=0] 加载单个资源需要耗费的最少时间(毫秒)
  * @param {Strnig} [opts.dataAttr=preload] Dom元素需要预加载资源的dom属性默认：data-preload
  * @example
  		var sourceArr = []; //需要加载的资源列表
-		new mo.Loader(source,{
+		new mo.Loader(sourceArr,{
 			onLoading : function(count,total){
 				console.log('onloading:single loaded:',arguments)
 			},
@@ -22,6 +24,8 @@
 			}
 		})
  * @see loader/loader.html 资源预加载
+ * @update 
+ * 	2015/01/28 增加支持并行和串行两种加载方式，且可设置加载单个资源所需的最少时间
  * @class
 */
 define(function(require, exports, module){
@@ -48,9 +52,9 @@ define(function(require, exports, module){
 			 * @return {undefined}       
 			 */
 			'imgLoader' : function(src, fn){
-				var img = new Image();
+				var img = new Image(), sTime = new Date();
 				img.onload = img.onerror = function(){ //加载错误也认为是加载完成
-					fn(src, img);
+					fn(src, img, new Date()-sTime);
 					img.onload = null;
 				}
 				img.src = src;
@@ -70,12 +74,12 @@ define(function(require, exports, module){
 				var readyState = 'readyState';
 				return function(src, fn, charset){
 					charset = charset || 'gb2312';
-					var script = document.createElement('script');
+					var script = document.createElement('script'), sTime = new Date();
 					script.charset = charset;
 					script[onload] = script[onreadystatechange] = function(){
 						if(!this[readyState] || re.test(this[readyState])){
 							script[onload] = script[onreadystatechange] = null;
-							fn && fn(src, script);
+							fn && fn(src, script, new Date() - sTime);
 							script = null;
 						}
 					};
@@ -92,11 +96,12 @@ define(function(require, exports, module){
 			 */
 			'cssLoader' : function(href,fn){
 				var head = document.head || document.getElementsByTagName('head')[0];
+				var sTime = new Date();
 				node = document.createElement('link');
 				node.rel = 'stylesheet';
 				node.href = href;
 				head.appendChild(node);
-				fn && fn(href, node);
+				fn && fn(href, node, new Date() - sTime);
 			},
 			/**
 			 * [description]
@@ -105,9 +110,9 @@ define(function(require, exports, module){
 			 * @return {undefined}    
 			 */
 			'audioLoader' : function(src, fn){
-				var aud = new Audio();
+				var aud = new Audio(), sTime = new Date();
 				$(aud).bind('canplaythrough', function() { // totally loaded
-					fn(src, aud);
+					fn(src, aud, new Date() - sTime);
 				});
 				aud.src = src;
 				aud.load();
@@ -162,6 +167,8 @@ define(function(require, exports, module){
 		_static.config = {
 			'onLoading' : _private.empty,
 			'onComplete' : _private.empty,
+			'loadType' : 0, //0为并行加载  1为串行加载
+			'minTime' : 0,
 			'dataAttr' : 'preload'
 		};
 
@@ -219,35 +226,59 @@ define(function(require, exports, module){
 					})
 				}
 			}
-			var load = function(src, node){
-				config.onLoading(++loaded, len, src, node);
-				/**
-				 * @event mo.Loader#loading
-				 * @property {object} event 单个资源加载完成
-				 */
-				_self.trigger('loading',[loaded, len, src, node]);
-				replaceSrc(src);
-				if(loaded == len){ //加载完成
-					var times = new Date().getTime() - sTime;
-					config.onComplete(times);
+			var load = function(src, node, durTime, realCompleteBack){
+				var loadedFunc = function(){
+					config.onLoading(++loaded, len, src, node);
 					/**
-					 * @event mo.Loader#complete
-					 * @property {object} event 所有资源加载完成
+					 * @event mo.Loader#loading
+					 * @property {object} event 单个资源加载完成
 					 */
-					_self.trigger('complete', [times]);
+					_self.trigger('loading',[loaded, len, src, node]);
+					replaceSrc(src);
+					realCompleteBack([loaded, len, src, node]);
+					if(loaded == len){ //加载完成
+						var times = new Date().getTime() - sTime;
+						config.onComplete(times);
+						/**
+						 * @event mo.Loader#complete
+						 * @property {object} event 所有资源加载完成
+						 */
+						_self.trigger('complete', [times]);
+					}
 				}
+				var timeDiff = config.minTime - durTime;
+				timeDiff > 0 ? setTimeout(loadedFunc, timeDiff) : loadedFunc();
 			}
 			if(res.length){
-				Zepto.each(res, function(index, item){
-					_private.getType(item);
-					var type = _private.getType(item);
+				var loadOne = function(item, resLoadBack, realCompleteBack){
+					var type = _private.getType(item), realCompleteBack = realCompleteBack || function(){};
 					var callFunc = _private[type+'Loader'];
 					if(callFunc === undefined){ //不支持的类型默认认为是加载了
-						load(item);
+						resLoadBack(item);
 					}else{
-						callFunc(item, load);
+						callFunc(item, function(){
+							var args = Array.prototype.slice.call(arguments,0)
+							args.push(realCompleteBack);
+							resLoadBack.apply(null, args)
+						});
 					}
-				});
+				}
+				if(config.loadType == 1){//串行加载
+					var i = 0;
+					(function(){
+						var caller = arguments.callee;
+						loadOne(res[i], function(){
+							load.apply(null, arguments);
+						}, function(){
+							i++;
+							res[i] && caller();
+						})
+					})()
+				}else{ //并行加载
+					Zepto.each(res, function(index, item){
+						loadOne(item, load)
+					});
+				}
 			}else{
 				config.onComplete(0);
 				_self.trigger('complete', [0]);
