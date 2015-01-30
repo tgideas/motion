@@ -45,6 +45,8 @@ $(function(){
 		var _self = $(this);
 		_self.html('加载中...（0%）');
 		new mo.Loader(getSource(),{
+			loadType : 1,
+			minTime : 300,
 			onLoading : function(count,total){
 				console.log('onloading:single loaded:',arguments)
 				_self.html('加载中...（'+count/total*100+'%）');

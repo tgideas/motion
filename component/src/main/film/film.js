@@ -391,11 +391,11 @@ define(function(require, exports, module){
 			_self.aid && _self.pause();
 			var startTime = new Date().getTime(), lastTime = startTime;
 			(function loop(cTime){
+				_self.aid = _private.animation.request(loop);
 				if(cTime > lastTime + t){
 					lastTime = cTime;
 					dir == 'forward' ? _self.next() : _self.prev();
 				}
-				_self.aid = _private.animation.request(loop);
 			})(startTime);
 			return _self;
 		}

@@ -168,7 +168,7 @@ define(function(require, exports, module){
 			'onLoading' : _private.empty,
 			'onComplete' : _private.empty,
 			'loadType' : 0, //0为并行加载  1为串行加载
-			'minTime' : 0,
+			'minTime' : 0, //单个资源加载所需的最小时间数（毫秒）
 			'dataAttr' : 'preload'
 		};
 
