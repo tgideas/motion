@@ -344,7 +344,7 @@
             }
 
             $('[data-stat-cate]').on('click',function(e){
-                typeof(_html)!=='undefined' && _hmt.push(['_trackEvent', this.getAttribute('data-stat-cate')||'common', this.getAttribute('data-stat-action')||'click', this.getAttribute('data-stat-label')||this.id]);
+                typeof(_hmt)!=='undefined' && _hmt.push(['_trackEvent', this.getAttribute('data-stat-cate')||'common', this.getAttribute('data-stat-action')||'click', this.getAttribute('data-stat-label')||this.id]);
             });
 
             var getDownLoadUrl = function(comps){

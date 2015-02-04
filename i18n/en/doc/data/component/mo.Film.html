@@ -2283,7 +2283,7 @@ function renderDemo(url,fileName) {
     <script>
         $('.sidebar li').each(function(i,elem){if(new RegExp('mo\\.'+$(elem).text()).test(location.href))$(elem).addClass('current')});
         $('[data-stat-cate]').on('click',function(e){
-            typeof(_html)!=='undefined' && _hmt.push(['_trackEvent', this.getAttribute('data-stat-cate')||'common', this.getAttribute('data-stat-action')||'click', this.getAttribute('data-stat-label')||this.id]);
+            typeof(_hmt)!=='undefined' && _hmt.push(['_trackEvent', this.getAttribute('data-stat-cate')||'common', this.getAttribute('data-stat-action')||'click', this.getAttribute('data-stat-label')||this.id]);
         });
     </script>
    
