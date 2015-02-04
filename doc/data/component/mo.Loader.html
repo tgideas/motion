@@ -16,6 +16,18 @@
     <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
     <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
     <script src="http://tgideas.github.io/motion/assets/js/detect-browser.js"></script>
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?0a912752eab7bbe5f177c392d0ae2ea4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
 </head>
 <body class="api-docs">
     <script>
@@ -39,27 +51,27 @@
         <nav class="collapse navbar-collapse bs-navbar-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <a href="http://tgideas.github.io/motion/index.html" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
+              <a id="menu-homeLnk" href="http://tgideas.github.io/motion/index.html" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
             </li>
             <li class="active">
-              <a href="http://tgideas.github.io/motion/doc/index.html" data-attr-t href-t="menu.apiLnk">API</a>
+              <a id="menu-apiLnk" href="http://tgideas.github.io/motion/doc/index.html" data-attr-t href-t="menu.apiLnk">API</a>
             </li>
             <li>
-              <a href="http://tgideas.github.io/motion/download/index.html" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
+              <a id="menu-downloadLnk" href="http://tgideas.github.io/motion/download/index.html" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
             </li>
             <li>
-              <a href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
+              <a id="menu-github" href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
             </li>
             <li>
-              <a href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
+              <a id="menu-faq" href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
             </li>
             <li>
-              <a href="https://github.com/tgideas/motion/wiki/version" target="_blank" data-t="menu.version">版本信息</a>
+              <a id="menu-version" href="https://github.com/tgideas/motion/wiki/version" target="_blank" data-t="menu.version">版本信息</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right bs-docs-lang">
-              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/mo.Loader.html" data-attr-t href-t="mods.modUrlLoader">English</a></li>
-              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.Loader.html">简体中文</a></li>
+              <li><a id="menu-lang-en" href="http://tgideas.github.io/motion/i18n/en/doc/data/component/mo.Loader.html" data-attr-t href-t="mods.modUrlLoader">English</a></li>
+              <li class="active"><a id="menu-lang-cn" href="http://tgideas.github.io/motion/doc/data/component/mo.Loader.html">简体中文</a></li>
               <script>
                 var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
                     $menus = jQuery('.bs-docs-lang li');
@@ -75,7 +87,7 @@
     <div class="main container-fluid">
         <section class="sidebar col-sm-3">
             <nav>
-                <ul><li><a href="mo.Action_.html">Action</a></li><li><a href="mo.Animation_.html">Animation</a></li><li><a href="mo.Base_.html">Base</a></li><li><a href="mo.Dialog_.html">Dialog</a></li><li><a href="mo.Film_.html">Film</a></li><li><a href="mo.Gesture_.html">Gesture</a></li><li><a href="mo.ImageEditor_.html">ImageEditor</a></li><li><a href="mo.LaunchAPP_.html">LaunchAPP</a></li><li><a href="mo.LazyLoad_.html">LazyLoad</a></li><li><a href="mo.Loader_.html">Loader</a></li><li><a href="mo.Lottery_.html">Lottery</a></li><li><a href="mo.Overlay_.html">Overlay</a></li><li><a href="mo.PageSlide_.html">PageSlide</a></li><li><a href="mo.Slide_.html">Slide</a></li><li><a href="mo.Tab_.html">Tab</a></li></ul>
+                <ul><li id="snav-Action"><a href="mo.Action.html">Action</a></li><li id="snav-Animation"><a href="mo.Animation.html">Animation</a></li><li id="snav-Base"><a href="mo.Base.html">Base</a></li><li id="snav-Dialog"><a href="mo.Dialog.html">Dialog</a></li><li id="snav-Film"><a href="mo.Film.html">Film</a></li><li id="snav-Gesture"><a href="mo.Gesture.html">Gesture</a></li><li id="snav-ImageEditor"><a href="mo.ImageEditor.html">ImageEditor</a></li><li id="snav-LaunchAPP"><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li id="snav-LazyLoad"><a href="mo.LazyLoad.html">LazyLoad</a></li><li id="snav-Loader"><a href="mo.Loader.html">Loader</a></li><li id="snav-Lottery"><a href="mo.Lottery.html">Lottery</a></li><li id="snav-Overlay"><a href="mo.Overlay.html">Overlay</a></li><li id="snav-PageSlide"><a href="mo.PageSlide.html">PageSlide</a></li><li id="snav-Slide"><a href="mo.Slide.html">Slide</a></li><li id="snav-Tab"><a href="mo.Tab.html">Tab</a></li></ul>
             </nav>
             <script>
             (function(){
@@ -147,7 +159,7 @@ function renderDemo(url,fileName) {
     
 <!-- <header>
     <h2>
-        <span class="ancestors"><a href="mo___.html">mo</a>.</span>
+        <span class="ancestors"><a href="mo_.html">mo</a>.</span>
     
     Loader
     </h2>
@@ -184,7 +196,7 @@ function renderDemo(url,fileName) {
         
 	
 	<dt class="tag-version">版本:</dt>
-	<dd class="tag-version"><ul class="dummy"><li>1.0</li></ul></dd>
+	<dd class="tag-version"><ul class="dummy"><li>1.1</li></ul></dd>
 	
 	
 	
@@ -212,7 +224,7 @@ function renderDemo(url,fileName) {
     <dt class="tag-inherit">继承:</dt>
 	<dd class="tag-inherit">
         <ul>
-            <li><a href="mo.Base_.html">mo.Base</a></li>
+            <li><a href="mo.Base.html">mo.Base</a></li>
         </ul>
 	</dd>
     
@@ -245,7 +257,7 @@ function renderDemo(url,fileName) {
 	<dt class="tag-see">See:</dt>
 	<dd class="tag-see">
         <ul>
-            <li>Loader/Loader.html 资源预加载</li>
+            <li>loader/loader.html 资源预加载</li>
         </ul>
 	</dd>
 	 -->
@@ -264,7 +276,7 @@ function renderDemo(url,fileName) {
         <h5>Example</h5>
         
     <pre class="language-javascript"><code> 		var sourceArr = []; //需要加载的资源列表
-		new mo.Loader(source,{
+		new mo.Loader(sourceArr,{
 			onLoading : function(count,total){
 				console.log('onloading:single loaded:',arguments)
 			},
@@ -506,6 +518,80 @@ function renderDemo(url,fileName) {
 	
         <tr>
             
+                <td class="name"><code>loadType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">0为并行加载  1为串行加载</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>minTime</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">加载单个资源需要耗费的最少时间(毫秒)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>dataAttr</code></td>
             
             
@@ -633,243 +719,6 @@ function renderDemo(url,fileName) {
         
             
 <dt>
-    <h4 class="name" id="off"><span class="type-signature"></span>off<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        绑定事件
-    </div>
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Base#off
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-     
-
-       
-
-
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 61</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="off"><span class="type-signature"></span>off<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        绑定事件
-    </div>
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Base#off
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-     
-
-       
-
-
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 61</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="off"><span class="type-signature"></span>off<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        绑定事件
-    </div>
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Base#off
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-     
-
-       
-
-
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 61</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
     <h4 class="name" id="on"><span class="type-signature"></span>on<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
@@ -921,480 +770,6 @@ function renderDemo(url,fileName) {
 	
 	<dt class="tag-source">源码:</dt>
 	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 52</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="on"><span class="type-signature"></span>on<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        绑定事件
-    </div>
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Base#on
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-     
-
-       
-
-
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 52</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="on"><span class="type-signature"></span>on<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        绑定事件
-    </div>
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Base#on
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-     
-
-       
-
-
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 52</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="on"><span class="type-signature"></span>on<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        绑定事件
-    </div>
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Base#on
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-     
-
-       
-
-
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 52</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="trigger"><span class="type-signature"></span>trigger<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        触发事件
-    </div>
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Base#trigger
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-     
-
-       
-
-
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 69</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="trigger"><span class="type-signature"></span>trigger<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        触发事件
-    </div>
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Base#trigger
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-     
-
-       
-
-
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 69</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="trigger"><span class="type-signature"></span>trigger<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        触发事件
-    </div>
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	<dt class="inherited-from">继承自:</dt>
-	<dd class="inherited-from"><ul class="dummy"><li>
-		mo.Base#trigger
-	</li></dd>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-     
-
-       
-
-
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 69</li></ul>
 
 
 
@@ -1596,127 +971,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/loader/loader.js">loader.js</a>, line 233</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="event:complete">complete</h4>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>名称</th>
-		
-		
-		<th>类型</th>
-		
-		
-		
-		
-		
-		<th class="last">描述</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">所有资源加载完成</td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-     
-
-       
-
-
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/loader/loader.js">loader.js</a>, line 233</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/loader/loader.js">loader.js</a>, line 242</li></ul>
 
 
 
@@ -1836,127 +1091,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/loader/loader.js">loader.js</a>, line 224</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="event:loading">loading</h4>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-
-    
-<dl class="details">
-    
-        
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>名称</th>
-		
-		
-		<th>类型</th>
-		
-		
-		
-		
-		
-		<th class="last">描述</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">单个资源加载完成</td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-     
-
-       
-
-
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/loader/loader.js">loader.js</a>, line 224</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/loader/loader.js">loader.js</a>, line 232</li></ul>
 
 
 
@@ -1990,12 +1125,12 @@ function renderDemo(url,fileName) {
     
         
             
-        <h3 class="subsection-title">资源预加载<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/Loader/Loader.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
-        <div class="demo-content" data-file="Loader/Loader.html">
+        <h3 class="subsection-title">资源预加载<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/loader/loader.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
+        <div class="demo-content" data-file="loader/loader.html">
             <pre class="code language-javascript"><code>Loading...</code></pre>
             <script>
             jQuery(function(){
-                renderDemo("http://tgideas.github.io/motion/component/demo/Loader/Loader.html","Loader/Loader.html");    
+                renderDemo("http://tgideas.github.io/motion/component/demo/loader/loader.html","loader/loader.html");    
             });
             </script>
         </div>

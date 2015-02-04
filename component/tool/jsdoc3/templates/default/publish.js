@@ -127,7 +127,7 @@ function buildNav(members) {
                 moduleClasses = -1;
             }
             if ( !hasOwnProp.call(seen, c.longname) ) {
-                nav += '<li>'+linkto(c.longname, c.name)+'</li>';
+                nav += '<li id="snav-'+c.name+'">'+linkto(c.longname, c.name)+'</li>';
             }
             seen[c.longname] = true;
         });
