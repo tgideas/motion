@@ -13,6 +13,19 @@
         <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css">
         <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
+
+
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?0a912752eab7bbe5f177c392d0ae2ea4";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+
     </head>
     <body>
         
@@ -31,27 +44,27 @@
             <nav class="collapse navbar-collapse bs-navbar-collapse">
               <ul class="nav navbar-nav">
                 <li>
-                  <a href="/motion/i18n/en/index.html">Home</a>
+                  <a id="menu-homeLnk" href="/motion/i18n/en/index.html">Home</a>
                 </li>
                 <li>
-                  <a href="/motion/i18n/en/doc/index.html">API</a>
+                  <a id="menu-apiLnk" href="/motion/i18n/en/doc/index.html">API</a>
                 </li>
                 <li class="active">
-                  <a href="/motion/i18n/en/download/index.html">Download</a>
+                  <a id="menu-download" href="/motion/i18n/en/download/index.html">Download</a>
                 </li>
                 <li>
-                  <a href="https://github.com/tgideas/motion" target="_blank">Github</a>
+                  <a id="menu-github" href="https://github.com/tgideas/motion" target="_blank">Github</a>
                 </li>
                 <li>
-                  <a href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
+                  <a id="menu-faq" href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
                 </li>
                 <li>
-                  <a href="https://github.com/tgideas/motion/wiki/version" target="_blank">Versions</a>
+                  <a id="menu-version" href="https://github.com/tgideas/motion/wiki/version" target="_blank">Versions</a>
                 </li>
               </ul>
               <ul class="nav navbar-nav navbar-right bs-docs-lang">
-                  <li><a href="http://tgideas.github.io/motion/i18n/en/download/index.html">English</a></li>
-                  <li class="active"><a href="http://tgideas.github.io/motion/download/index.html">简体中文</a></li>
+                  <li><a id="menu-lang-en" href="http://tgideas.github.io/motion/i18n/en/download/index.html">English</a></li>
+                  <li class="active"><a id="menu-lang-cn" href="http://tgideas.github.io/motion/download/index.html">简体中文</a></li>
               </ul>
             </nav>
           </div>
@@ -76,7 +89,7 @@
             <div class="row bs-docs-mods">
             
               <div class="col-xs-6 col-sm-3">
-                <div class="mt-mod mt-mod1" u="action">
+                <div id="down-mod-action" class="mt-mod mt-mod1" u="action">
                   <div class="mt-mod-r1">
                     <h3>Action</h3>
                     <p class="mt-mod-desc">IOS Style Action Sheet</p>
@@ -89,7 +102,7 @@
               </div>
             
               <div class="col-xs-6 col-sm-3">
-                <div class="mt-mod mt-mod1" u="animation">
+                <div id="down-mod-animation" class="mt-mod mt-mod1" u="animation">
                   <div class="mt-mod-r1">
                     <h3>Animation</h3>
                     <p class="mt-mod-desc">Sequential Animation builder</p>
@@ -103,7 +116,7 @@
               </div>
             
               <div class="col-xs-6 col-sm-3">
-                <div class="mt-mod mt-mod1" u="dialog">
+                <div id="down-mod-dialog" class="mt-mod mt-mod1" u="dialog">
                   <div class="mt-mod-r1">
                     <h3>Dialog</h3>
                     <p class="mt-mod-desc">Daily use dialog</p>
@@ -117,7 +130,7 @@
               </div>
             
               <div class="col-xs-6 col-sm-3">
-                <div class="mt-mod mt-mod1" u="film">
+                <div id="down-mod-film" class="mt-mod mt-mod1" u="film">
                   <div class="mt-mod-r1">
                     <h3>Film</h3>
                     <p class="mt-mod-desc">Image frame animation</p>
@@ -130,7 +143,7 @@
 
               </div>
               <div class="col-xs-6 col-sm-3">
-                <div class="mt-mod mt-mod1" u="gesture">
+                <div id="down-mod-gesture" class="mt-mod mt-mod1" u="gesture">
                   <div class="mt-mod-r1">
                     <h3>Gesture</h3>
                     <p class="mt-mod-desc">Common gesture component</p>
@@ -143,7 +156,7 @@
 
               </div>
               <div class="col-xs-6 col-sm-3">
-                <div class="mt-mod mt-mod1" u="image-editor">
+                <div id="down-mod-image-editor" class="mt-mod mt-mod1" u="image-editor">
                   <div class="mt-mod-r1">
                     <h3>ImageEditor</h3>
                     <p class="mt-mod-desc">An image editor for your instant captured photos</p>
@@ -157,7 +170,7 @@
               </div>
 
               <div class="col-xs-6 col-sm-3">
-                <div class="mt-mod mt-mod1" u="lanuch-app">
+                <div id="down-mod-launch-app" class="mt-mod mt-mod1" u="lanuch-app">
                   <div class="mt-mod-r1">
                     <h3>LaunchApp</h3>
                     <p class="mt-mod-desc">App launcher</p>
@@ -171,7 +184,7 @@
               </div>
 
               <div class="col-xs-6 col-sm-3">
-                <div class="mt-mod mt-mod1" u="lazyLoad">
+                <div id="down-mod-lazyload" class="mt-mod mt-mod1" u="lazyLoad">
                   <div class="mt-mod-r1">
                     <h3>LazyLoad</h3>
                     <p class="mt-mod-desc">Resources lazy loader</p>
@@ -185,7 +198,7 @@
               </div>
 
               <div class="col-xs-6 col-sm-3">
-                <div class="mt-mod mt-mod1" u="loader">
+                <div id="down-mod-loader" class="mt-mod mt-mod1" u="loader">
                   <div class="mt-mod-r1">
                     <h3>Loader</h3>
                     <p class="mt-mod-desc">Resources pre-loader</p>
@@ -199,7 +212,7 @@
               </div>
 
               <div class="col-xs-6 col-sm-3">
-                <div class="mt-mod mt-mod1" u="lottery">
+                <div id="down-mod-lottery" class="mt-mod mt-mod1" u="lottery">
                   <div class="mt-mod-r1">
                     <h3>Lottery</h3>
                     <p class="mt-mod-desc">Simple Lottery</p>
@@ -213,7 +226,7 @@
               </div>
 
               <div class="col-xs-6 col-sm-3">
-                <div class="mt-mod mt-mod1" u="overlay">
+                <div id="down-mod-overlay" class="mt-mod mt-mod1" u="overlay">
                   <div class="mt-mod-r1">
                     <h3>Overlay</h3>
                     <p class="mt-mod-desc">Full page overlay</p>
@@ -227,7 +240,7 @@
               </div>
 
               <div class="col-xs-6 col-sm-3">
-                <div class="mt-mod mt-mod1" u="page-slide">
+                <div id="down-mod-page-slide" class="mt-mod mt-mod1" u="page-slide">
                   <div class="mt-mod-r1">
                     <h3>PageSlide</h3>
                     <p class="mt-mod-desc">Common paging slider component</p>
@@ -241,7 +254,7 @@
               </div>
 
               <div class="col-xs-6 col-sm-3">
-                <div class="mt-mod mt-mod1" u="slide">
+                <div id="down-mod-slide" class="mt-mod mt-mod1" u="slide">
                   <div class="mt-mod-r1">
                     <h3>Slide</h3>
                     <p class="mt-mod-desc">Common slider component</p>
@@ -255,7 +268,7 @@
               </div>
 
               <div class="col-xs-6 col-sm-3">
-                <div class="mt-mod mt-mod1" u="tab">
+                <div id="down-mod-tab" class="mt-mod mt-mod1" u="tab">
                   <div class="mt-mod-r1">
                     <h3>Tab</h3>
                     <p class="mt-mod-desc">Common Tab component</p>
@@ -277,7 +290,7 @@
           <div class="container">
             <div class="row">
               <div class="mt-downacts">
-                <a href="javascript:;" class="btn btn-primary btn-package"><span class="btn-package-txt">Download Now</span></a>                
+                <a id="btn-down" href="javascript:;" class="btn btn-primary btn-package"><span class="btn-package-txt">Download Now</span></a>                
               </div>
               <div id="zeptoTip" class="alert alert-warning zepto-tip hide">Your custom build of Motion.JS didn't include Zepto.JS, don't forget to reference Zepto.JS in your HTML pages when using it. </div>
             </div>

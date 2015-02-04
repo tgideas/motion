@@ -24,6 +24,17 @@
         <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css"/>
         <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
+
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?0a912752eab7bbe5f177c392d0ae2ea4";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+    
     </head>
     <body>
         
@@ -42,27 +53,27 @@
             <nav class="collapse navbar-collapse bs-navbar-collapse">
               <ul class="nav navbar-nav">
                 <li class="active">
-                  <a href="http://tgideas.github.io/motion/index.html" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
+                  <a id="menu-homeLnk" href="http://tgideas.github.io/motion/index.html" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
                 </li>
                 <li>
-                  <a href="http://tgideas.github.io/motion/doc/index.html" data-attr-t href-t="menu.apiLnk">API</a>
+                  <a id="menu-apiLnk" href="http://tgideas.github.io/motion/doc/index.html" data-attr-t href-t="menu.apiLnk">API</a>
                 </li>
                 <li>
-                  <a href="http://tgideas.github.io/motion/download/index.html" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
+                  <a id="menu-downloadLnk" href="http://tgideas.github.io/motion/download/index.html" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
                 </li>
                 <li>
-                  <a href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
+                  <a id="menu-github" href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
                 </li>
                 <li>
-                  <a href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
+                  <a id="menu-faq" href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
                 </li>
                 <li>
-                  <a href="https://github.com/tgideas/motion/wiki/version" target="_blank" data-t="menu.version">版本信息</a>
+                  <a id="menu-version" href="https://github.com/tgideas/motion/wiki/version" target="_blank" data-t="menu.version">版本信息</a>
                 </li>
               </ul>
               <ul class="nav navbar-nav navbar-right bs-docs-lang">
-                  <li><a href="http://tgideas.github.io/motion/i18n/en/index.html">English</a></li>
-                  <li class="active"><a href="http://tgideas.github.io/motion/index.html">简体中文</a></li>
+                  <li><a id="menu-lang-en" href="http://tgideas.github.io/motion/i18n/en/index.html">English</a></li>
+                  <li class="active"><a id="menu-lang-cn" href="http://tgideas.github.io/motion/index.html">简体中文</a></li>
               </ul>
             </nav>
           </div>
@@ -72,7 +83,7 @@
           <div class="container">
             <h1 data-t="motion.slogan">为移动设备而生</h1>
             <p class="lead" data-t="motion.desc">Motion 是一款基于ZeptoJS，为移动终端Web应用量身定制的组件库，重点开发结合HTML5新特征的创新实用组件。</p>
-            <a class="btn btn-primary btn-download" href="/motion/download/index.html" href-t="menu.downloadLnk"  title="下载" data-attr-t title-t="menu.download" data-t="btn.downloadNow">立即下载</a>
+            <a id="btn-home-download" class="btn btn-primary btn-download" href="/motion/download/index.html" href-t="menu.downloadLnk"  title="下载" data-attr-t title-t="menu.download" data-t="btn.downloadNow">立即下载</a>
           </div>
         </div>
 
@@ -119,7 +130,7 @@
             <div class="row bs-docs-featured-sites">
             
               <div class="col-xs-6 col-sm-3">
-                <a href="http://tgideas.github.io/motion/doc/data/component/mo.PageSlide.html" class="mt-mod">
+                <a id="home-mod1" href="http://tgideas.github.io/motion/doc/data/component/mo.PageSlide.html" class="mt-mod">
                   <div class="mt-mod-r1">
                     <h3 data-t="mods.mod13">PageSlide</h3>
                     <h3>单屏滑动</h3>
@@ -131,7 +142,7 @@
               </div>
             
               <div class="col-xs-6 col-sm-3">
-                <a href="http://tgideas.github.io/motion/doc/data/component/mo.Animation.html" class="mt-mod">
+                <a id="home-mod2" href="http://tgideas.github.io/motion/doc/data/component/mo.Animation.html" class="mt-mod">
                   <div class="mt-mod-r1">
                     <h3 data-t="mods.mod2">Animation</h3>
                     <h3>动画生成器</h3>
@@ -144,7 +155,7 @@
               </div>
             
               <div class="col-xs-6 col-sm-3">
-                <a href="http://tgideas.github.io/motion/doc/data/component/mo.ImageEditor.html" class="mt-mod">
+                <a id="home-mod3" href="http://tgideas.github.io/motion/doc/data/component/mo.ImageEditor.html" class="mt-mod">
                   <div class="mt-mod-r1">
                     <h3 data-t="mods.mod7">ImageEditor</h3>
                     <h3>拍照组件</h3>
@@ -157,7 +168,7 @@
               </div>
             
               <div class="col-xs-6 col-sm-3">
-                <a href="http://tgideas.github.io/motion/doc/data/component/mo.LaunchAPP.html" class="mt-mod">
+                <a id="home-mod4" href="http://tgideas.github.io/motion/doc/data/component/mo.LaunchAPP.html" class="mt-mod">
                   <div class="mt-mod-r1">
                     <h3 data-t="mods.mod8">LaunchApp</h3>
                     <h3>启动手机App组件</h3>

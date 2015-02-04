@@ -16,6 +16,18 @@
     <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
     <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
     <script src="http://tgideas.github.io/motion/assets/js/detect-browser.js"></script>
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?0a912752eab7bbe5f177c392d0ae2ea4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
 </head>
 <body class="api-docs">
     <script>
@@ -39,27 +51,27 @@
         <nav class="collapse navbar-collapse bs-navbar-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <a href="http://tgideas.github.io/motion/index.html" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
+              <a id="menu-homeLnk" href="http://tgideas.github.io/motion/index.html" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
             </li>
             <li class="active">
-              <a href="http://tgideas.github.io/motion/doc/index.html" data-attr-t href-t="menu.apiLnk">API</a>
+              <a id="menu-apiLnk" href="http://tgideas.github.io/motion/doc/index.html" data-attr-t href-t="menu.apiLnk">API</a>
             </li>
             <li>
-              <a href="http://tgideas.github.io/motion/download/index.html" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
+              <a id="menu-downloadLnk" href="http://tgideas.github.io/motion/download/index.html" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
             </li>
             <li>
-              <a href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
+              <a id="menu-github" href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
             </li>
             <li>
-              <a href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
+              <a id="menu-faq" href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
             </li>
             <li>
-              <a href="https://github.com/tgideas/motion/wiki/version" target="_blank" data-t="menu.version">版本信息</a>
+              <a id="menu-version" href="https://github.com/tgideas/motion/wiki/version" target="_blank" data-t="menu.version">版本信息</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right bs-docs-lang">
-              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/index.html" data-attr-t href-t="mods.modUrlindex">English</a></li>
-              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/index.html">简体中文</a></li>
+              <li><a id="menu-lang-en" href="http://tgideas.github.io/motion/i18n/en/doc/data/component/index.html" data-attr-t href-t="mods.modUrlindex">English</a></li>
+              <li class="active"><a id="menu-lang-cn" href="http://tgideas.github.io/motion/doc/data/component/index.html">简体中文</a></li>
               <script>
                 var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
                     $menus = jQuery('.bs-docs-lang li');
@@ -75,7 +87,7 @@
     <div class="main container-fluid">
         <section class="sidebar col-sm-3">
             <nav>
-                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.PageSlide.html">PageSlide</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
+                <ul><li id="snav-Action"><a href="mo.Action.html">Action</a></li><li id="snav-Animation"><a href="mo.Animation.html">Animation</a></li><li id="snav-Base"><a href="mo.Base.html">Base</a></li><li id="snav-Dialog"><a href="mo.Dialog.html">Dialog</a></li><li id="snav-Film"><a href="mo.Film.html">Film</a></li><li id="snav-Gesture"><a href="mo.Gesture.html">Gesture</a></li><li id="snav-ImageEditor"><a href="mo.ImageEditor.html">ImageEditor</a></li><li id="snav-LaunchAPP"><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li id="snav-LazyLoad"><a href="mo.LazyLoad.html">LazyLoad</a></li><li id="snav-Loader"><a href="mo.Loader.html">Loader</a></li><li id="snav-Lottery"><a href="mo.Lottery.html">Lottery</a></li><li id="snav-Overlay"><a href="mo.Overlay.html">Overlay</a></li><li id="snav-PageSlide"><a href="mo.PageSlide.html">PageSlide</a></li><li id="snav-Slide"><a href="mo.Slide.html">Slide</a></li><li id="snav-Tab"><a href="mo.Tab.html">Tab</a></li></ul>
             </nav>
             <script>
             (function(){
