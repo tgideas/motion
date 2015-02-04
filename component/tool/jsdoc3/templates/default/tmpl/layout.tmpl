@@ -55,27 +55,27 @@
         <nav class="collapse navbar-collapse bs-navbar-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <a id="menu-homeLnk" href="http://tgideas.github.io/motion/index.html" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
+              <a data-stat-cate="menu" id="menu-homeLnk" href="http://tgideas.github.io/motion/index.html" data-t="menu.home" data-attr-t href-t="menu.homeLnk">首页</a>
             </li>
             <li class="active">
-              <a id="menu-apiLnk" href="http://tgideas.github.io/motion/doc/index.html" data-attr-t href-t="menu.apiLnk">API</a>
+              <a data-stat-cate="menu" id="menu-apiLnk" href="http://tgideas.github.io/motion/doc/index.html" data-attr-t href-t="menu.apiLnk">API</a>
             </li>
             <li>
-              <a id="menu-downloadLnk" href="http://tgideas.github.io/motion/download/index.html" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
+              <a data-stat-cate="menu" id="menu-downloadLnk" href="http://tgideas.github.io/motion/download/index.html" data-t="menu.download" data-attr-t href-t="menu.downloadLnk">下载</a>
             </li>
             <li>
-              <a id="menu-github" href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
+              <a data-stat-cate="menu" id="menu-github" href="https://github.com/tgideas/motion" target="_blank" data-t="menu.github">Github源码</a>
             </li>
             <li>
-              <a id="menu-faq" href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
+              <a data-stat-cate="menu" id="menu-faq" href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
             </li>
             <li>
-              <a id="menu-version" href="https://github.com/tgideas/motion/wiki/version" target="_blank" data-t="menu.version">版本信息</a>
+              <a data-stat-cate="menu" id="menu-version" href="https://github.com/tgideas/motion/wiki/version" target="_blank" data-t="menu.version">版本信息</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right bs-docs-lang">
-              <li><a id="menu-lang-en" href="http://tgideas.github.io/motion/i18n/en/doc/data/component/<?js= docName ?>.html" data-attr-t href-t="mods.modUrl<?js= docName0  ?>">English</a></li>
-              <li class="active"><a id="menu-lang-cn" href="http://tgideas.github.io/motion/doc/data/component/<?js= docName ?>.html">简体中文</a></li>
+              <li><a id="menu-lang-en" data-stat-cate="menu" href="http://tgideas.github.io/motion/i18n/en/doc/data/component/<?js= docName ?>.html" data-attr-t href-t="mods.modUrl<?js= docName0  ?>">English</a></li>
+              <li class="active"><a id="menu-lang-cn" data-stat-cate="menu" href="http://tgideas.github.io/motion/doc/data/component/<?js= docName ?>.html">简体中文</a></li>
               <script>
                 var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
                     $menus = jQuery('.bs-docs-lang li');
@@ -119,7 +119,10 @@
 
     <script type="text/javascript" src="http://ossweb-img.qq.com/images/js/prism/prism.js"></script>
     <script>
-      $('.sidebar li').each(function(i,elem){if(new RegExp('mo\\.'+$(elem).text()).test(location.href))$(elem).addClass('current')});
+        $('.sidebar li').each(function(i,elem){if(new RegExp('mo\\.'+$(elem).text()).test(location.href))$(elem).addClass('current')});
+        $('[data-stat-cate]').on('click',function(e){
+            typeof(_html)!=='undefined' && _hmt.push(['_trackEvent', this.getAttribute('data-stat-cate')||'common', this.getAttribute('data-stat-action')||'click', this.getAttribute('data-stat-label')||this.id]);
+        });
     </script>
    
     <script src="http://tgideas.github.io/motion/assets/bootstrap/js/bootstrap.min.js"></script>
