@@ -53,27 +53,27 @@
             <nav class="collapse navbar-collapse bs-navbar-collapse">
               <ul class="nav navbar-nav">
                 <li class="active">
-                  <a id="menu-homeLnk" href="/motion/i18n/en/index.html">Home</a>
+                  <a id="menu-homeLnk" data-stat-cate="menu" href="/motion/i18n/en/index.html">Home</a>
                 </li>
                 <li>
-                  <a id="menu-apiLnk" href="/motion/i18n/en/doc/index.html">API</a>
+                  <a id="menu-apiLnk" data-stat-cate="menu" href="/motion/i18n/en/doc/index.html">API</a>
                 </li>
                 <li>
-                  <a id="menu-downloadLnk" href="/motion/i18n/en/download/index.html">Download</a>
+                  <a id="menu-downloadLnk" data-stat-cate="menu" href="/motion/i18n/en/download/index.html">Download</a>
                 </li>
                 <li>
-                  <a id="menu-github" href="https://github.com/tgideas/motion" target="_blank">Github</a>
+                  <a id="menu-github" data-stat-cate="menu" href="https://github.com/tgideas/motion" target="_blank">Github</a>
                 </li>
                 <li>
-                  <a id="menu-faq" href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
+                  <a id="menu-faq" data-stat-cate="menu" href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
                 </li>
                 <li>
-                  <a id="menu-version" href="https://github.com/tgideas/motion/wiki/version" target="_blank">Versions</a>
+                  <a id="menu-version" data-stat-cate="menu" href="https://github.com/tgideas/motion/wiki/version" target="_blank">Versions</a>
                 </li>
               </ul>
               <ul class="nav navbar-nav navbar-right bs-docs-lang">
-                  <li><a id="menu-lang-en" href="http://tgideas.github.io/motion/i18n/en/index.html">English</a></li>
-                  <li class="active"><a id="menu-lang-cn" href="http://tgideas.github.io/motion/index.html">简体中文</a></li>
+                  <li><a id="menu-lang-en" data-stat-cate="menu" href="http://tgideas.github.io/motion/i18n/en/index.html">English</a></li>
+                  <li class="active"><a id="menu-lang-cn" data-stat-cate="menu" href="http://tgideas.github.io/motion/index.html">简体中文</a></li>
               </ul>
             </nav>
           </div>
@@ -83,7 +83,7 @@
           <div class="container">
             <h1>For Mobile Web Applications</h1>
             <p class="lead">Motion.JS is a swift javascript framework, which includes a bundle of useful components leveraging the cool new features from HTML5. Like the name 'Motion', most Motion.JS components are behavior focused, it's a piece of cake for you to custom their UI styles. In addition, Motion.JS is built on top of Zepto, the minimalist JavaScript library for modern browsers.</p>
-            <a id="btn-home-download" class="btn btn-primary btn-download" href="/motion/i18n/en/download/index.html" title="Download">Download Now</a>
+            <a id="btn-home-download" data-stat-cate="btn" class="btn btn-primary btn-download" href="/motion/i18n/en/download/index.html" title="Download">Download Now</a>
           </div>
         </div>
 
@@ -129,7 +129,7 @@
             <div class="row bs-docs-featured-sites">
             
               <div class="col-xs-6 col-sm-3">
-                <a id="home-mod1" href="http://tgideas.github.io/motion/doc/data/component/mo.PageSlide.html" class="mt-mod">
+                <a id="home-mod1" data-stat-cate="home-mod" data-stat-label="mod1" href="http://tgideas.github.io/motion/doc/data/component/mo.PageSlide.html" class="mt-mod">
                   <div class="mt-mod-r1">
                     <h3>PageSlide</h3>
                     <h3>单屏滑动</h3>
@@ -139,7 +139,7 @@
               </div>
             
               <div class="col-xs-6 col-sm-3">
-                <a id="home-mod2" href="http://tgideas.github.io/motion/doc/data/component/mo.Animation.html" class="mt-mod">
+                <a id="home-mod2" data-stat-cate="home-mod" href="http://tgideas.github.io/motion/doc/data/component/mo.Animation.html" class="mt-mod">
                   <div class="mt-mod-r1">
                     <h3>Animation</h3>
                     <h3>动画生成器</h3>
@@ -150,7 +150,7 @@
               </div>
             
               <div class="col-xs-6 col-sm-3">
-                <a id="home-mod3" href="http://tgideas.github.io/motion/doc/data/component/mo.ImageEditor.html" class="mt-mod">
+                <a id="home-mod3" data-stat-cate="home-mod" href="http://tgideas.github.io/motion/doc/data/component/mo.ImageEditor.html" class="mt-mod">
                   <div class="mt-mod-r1">
                     <h3>ImageEditor</h3>
                     <h3>拍照组件</h3>
@@ -161,7 +161,7 @@
               </div>
             
               <div class="col-xs-6 col-sm-3">
-                <a id="home-mod4" href="http://tgideas.github.io/motion/doc/data/component/mo.LaunchAPP.html" class="mt-mod">
+                <a id="home-mod4" data-stat-cate="home-mod" href="http://tgideas.github.io/motion/doc/data/component/mo.LaunchAPP.html" class="mt-mod">
                   <div class="mt-mod-r1">
                     <h3>LaunchApp</h3>
                     <h3>启动手机App组件</h3>
@@ -209,6 +209,11 @@
             if(lang=='en'){
                 $menus.removeClass('active').eq(0).addClass('active');
             }
+
+            $('[data-stat-cate]').on('click',function(e){
+                typeof(_html)!=='undefined' && _hmt.push(['_trackEvent', this.getAttribute('data-stat-cate')||'common', this.getAttribute('data-stat-action')||'click', this.getAttribute('data-stat-label')||this.id]);
+            });
+
         });
         </script>
         <script type="text/javascript" src="http://tajs.qq.com/stats?sId=38002296" charset="UTF-8"></script>
