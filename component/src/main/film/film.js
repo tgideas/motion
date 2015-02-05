@@ -387,6 +387,7 @@ define(function(require, exports, module){
 		 * @return {object} film对象
 		 */
 		_public.play = function(t, dir){
+			dir = dir || 'forward';
 			var _self = this;
 			_self.aid && _self.pause();
 			var startTime = new Date().getTime(), lastTime = startTime;
