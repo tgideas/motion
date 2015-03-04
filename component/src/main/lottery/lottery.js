@@ -47,6 +47,7 @@
 			'onCompleteRollEvent':callJsToComplete //对应上面接口
 		});
  * @see lottery/lottery.html 圆形转盘抽奖
+ * @see  lottery/square.html 方形抽奖
  * @class
 */
 define(function(require, exports, module){
