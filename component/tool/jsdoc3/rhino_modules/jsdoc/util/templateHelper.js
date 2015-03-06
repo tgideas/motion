@@ -40,14 +40,14 @@ function makeFilenameUnique(filename, str) {
     var nonUnique = true;
 
     // append enough underscores to make the filename unique
-    while (nonUnique) {
-        if ( files[key] && hasOwnProp.call(files, key) ) {
-            filename += '_';
-            key = filename.toLowerCase();
-        } else {
-            nonUnique = false;
-        }
-    }
+    // while (nonUnique) {
+    //     if ( files[key] && hasOwnProp.call(files, key) ) {
+    //         filename += '_';
+    //         key = filename.toLowerCase();
+    //     } else {
+    //         nonUnique = false;
+    //     }
+    // }
 
     files[key] = str;
     return filename;

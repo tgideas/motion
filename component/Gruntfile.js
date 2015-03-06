@@ -78,7 +78,7 @@ module.exports = function(grunt) {
       grunt.config.set('motion_build.dev.files.0.src', filesSrc);
       grunt.config.set('uglify.dev.files', uglifyOpt);
       grunt.config.set('uglify.dev.options.banner', "/*! motion v<%= pkg.version %> | " +
-            "(c) 2014, <%= grunt.template.today('yyyy/mm/dd') %> | "+file.replace(/\|/g,' ')+" | motion Foundation, Inc. */\r\n");
+            "(c) <%= grunt.template.today('yyyy') %>, <%= grunt.template.today('yyyy/mm/dd') %> | "+file.replace(/\|/g,' ')+" | motion Foundation, Inc. */\r\n");
   })
 
   grunt.registerTask('motionCust','custom build motion', function(file){

@@ -67,6 +67,7 @@ define(function(require, exports, module) {
 			iteration: 1,
 			direction: 'normal',
 			effect: '',
+			apply: true,
 			keyframes: {}
 		};
 
@@ -215,11 +216,15 @@ define(function(require, exports, module) {
 			 * 关键帧
 			 * @type {Object}
 			 */
-			self.keyframes = config.keyframes;
 
+			self.keyframes = {};
 			if(config.effect) {
-				self.keyframes = Zepto.extend({}, config.keyframes, _private.effect[config.effect]);
+				Zepto.extend(self.keyframes, _private.effect[config.effect]);
 			}
+			if(config.keyframes) {
+				Zepto.extend(self.keyframes, config.keyframes);
+			}
+
 
 			if(self.target.length < 1 || !self.keyframes) {
 				return;
@@ -261,8 +266,8 @@ define(function(require, exports, module) {
 				}
 		    }
 
-		    self.__prefix = prefix;
-		    self.__eventPrefix = eventPrefix;
+		    _static.__prefix = prefix;
+		    _static.__eventPrefix = eventPrefix;
 
 
 			// create animate style
@@ -292,7 +297,7 @@ define(function(require, exports, module) {
 
 			// apply animate
 		    var style = self.animationStyle = {};
-			style[prefix + 'animation-name'] = animateName;
+			if(config.apply) style[prefix + 'animation-name'] = animateName;
 			style[prefix + 'animation-duration'] = formatTime(config.duration);
 			style[prefix + 'animation-timing-function'] = config.easing;
 			style[prefix + 'animation-delay'] = formatTime(config.delay);
@@ -302,7 +307,10 @@ define(function(require, exports, module) {
 			style[prefix + 'animation-iteration-count'] = config.iteration.toString();
 			self.target.css(style);
 
+			self.animateName = animateName;
+			self.target.data('animation-name', animateName);
 
+			self.target.addClass('mo-animation');
 
 		}
 
@@ -311,7 +319,7 @@ define(function(require, exports, module) {
 			var config = self.config;
 
 
-			self.target[0].addEventListener(self.__eventPrefix + 'AnimationStart', function(e){
+			self.target[0].addEventListener(_static.__eventPrefix + 'AnimationStart', function(e){
 				self.__startTime = new Date();
 				self.__runtime = 0;
 				window.clearInterval(self.__timer);
@@ -341,14 +349,14 @@ define(function(require, exports, module) {
 				 */
 				self.trigger('start');
 			});
-			self.target[0].addEventListener(self.__eventPrefix + 'AnimationIteration', function(e){
+			self.target[0].addEventListener(_static.__eventPrefix + 'AnimationIteration', function(e){
 				/**
 				 * @event mo.Animation#start: 动画重复时
 				 * @property {object} event 事件对象
 				 */	
 				self.trigger('iteration') 
 			});
-			self.target[0].addEventListener(self.__eventPrefix + 'AnimationEnd', function(e){
+			self.target[0].addEventListener(_static.__eventPrefix + 'AnimationEnd', function(e){
 				self.percent = 100;
 				self.trigger('running');
 
@@ -369,12 +377,12 @@ define(function(require, exports, module) {
 
 			this.playing = true;
 			this.__startTime = new Date();
-			this.target.css(this.__prefix + 'animation-play-state', 'running');
+			this.target.css(_static.__prefix + 'animation-play-state', 'running');
 
 		};
 
 		_public.getState = function(){
-			return this.target.css(this.__prefix + 'animation-play-state');
+			return this.target.css(_static.__prefix + 'animation-play-state');
 		};
 
 		/**
@@ -393,29 +401,78 @@ define(function(require, exports, module) {
 			 * @type {boolean}
 			 */
 			this.playing = false;
-			this.target.css(this.__prefix + 'animation-play-state', 'paused');
+			this.target.css(_static.__prefix + 'animation-play-state', 'paused');
+		};
+
+		/**
+		 * 应用动画
+		 */
+		_public.apply = function(){
+			this.target.css(_static.__prefix + 'animation-name', this.animateName);
+		};
+
+		/**
+		 * 撤消动画
+		 */
+		_public.revoke = function(){
+			this.target.css(_static.__prefix + 'animation-name', '');
 		};
 
 		/**
 		 * 通过class自动触发动画
 		 */
-		_static.init = function(){
-			var animElems = document.querySelectorAll('.mo-animation');
-			for(var i = 0; i < animElems.length; i++) {
+		_static.parse = function(context){
+			var container = Zepto(document);
+			if(context) {
+				container = Zepto(context);
+			}
+			var animElems = container.find('.mo-animation');
+			animElems.each(function(i, elem){
+				elem = Zepto(elem);
 				var pars = {
-					target: animElems[i]
+					target: elem
 				};
 				for(var prop in _static.config) {
-					var val = animElems[i].getAttribute('data-' + prop);
+					var val = elem.data(prop);
+					
 					if(val !== null) {
 						pars[prop] = val;
 					}
 					
 				}
-			
 				new mo.Animation(pars);
-			}
+			});
 		}
+
+
+		/**
+		 * 应用动画
+		 */
+		_static.apply = function(context){
+			var container = Zepto(document);
+			if(context) {
+				container = Zepto(context);
+			}
+			var animElems = container.find('.mo-animation');
+			animElems.each(function(i, elem){
+				elem = Zepto(elem);
+				elem.css(_static.__prefix + 'animation-name', elem.data('animation-name'));
+				console.log(_static.__prefix + 'animation-name', elem.data('animation-name'));
+			});
+		};
+
+		/**
+		 * 撤消动画
+		 */
+		_static.revoke = function(context){
+			var container = Zepto(document);
+			if(context) {
+				container = Zepto(context);
+			}
+			var animElems = container.find('.mo-animation');
+			animElems.css(_static.__prefix + 'animation-name', '');
+		};
+
 
 
 
