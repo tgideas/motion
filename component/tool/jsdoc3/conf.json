@@ -3,17 +3,9 @@
         "allowUnknownTags": true
     },
     "source": {
-        "include":["../src/main","../../README.md"],
-        "exclude":[],
         "includePattern": ".+\\.js(doc)?$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
-    "opts":{
-        "template": "templates/default",
-        "encoding": "utf8",
-        "destination": "../../doc/data/component",
-        "recurse": true  
-    },
-    "plugins": [],
+    "plugins": ["plugins/escapeHtml"],
     "jsVersion": 180
 }
