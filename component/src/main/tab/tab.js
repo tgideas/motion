@@ -72,6 +72,7 @@ define(function(require, exports, module) {
 			merge: false,
 			degradation: 'base',
 			animateTime: 300,
+			event: {},
 			easing: 'swing',
 			title: {
 				delay: 0
@@ -141,11 +142,18 @@ define(function(require, exports, module) {
 				isPlaying: config.autoPlay
 			});
 
+			// 快捷传入自定义事件
+			for(var name in config) {
+				var result = /^on(.+)/.exec(name);
+				if(result && result[1]) {
+					config.event[result[1]] = config[name];
+				}
+			}
 
 
 			// 自定义事件绑定
 			_static.effect[config.effect] && self.on(_static.effect[config.effect]);
-			config.event && self.on(config.event);
+			self.on(config.event);
 
 
 			/**
@@ -203,7 +211,7 @@ define(function(require, exports, module) {
 					var ul = Zepto('<ul class="controller">');
 					var str = '';
 					for (var i = 0; i < self.target.length; i++) {
-						str += '<li><a href="#">' + (i + 1) + '</a></li>';
+						str += '<li>' + (i + 1) + '</li>';
 					}
 					ul.html(str);
 					self.container.append(ul);
@@ -360,7 +368,9 @@ define(function(require, exports, module) {
 			 * @event mo.Tab#beforechange
 			 * @property {object} event 开始切换
 			 */
-			self.trigger('beforechange');
+			if (self.trigger('beforechange') === false) {
+				return;
+			}
 
 			//if(self.effect) self.effect.onchange.call(self);
 
