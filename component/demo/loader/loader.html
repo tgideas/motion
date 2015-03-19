@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <title>Loader-资源预加载</title>
 <script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
-<script src="http://digg.tgideas.qq.com/combine.php?u=loader"></script>
+<script src="http://ossweb-img.qq.com/images/js/motion/loader.min.js"></script>
 <style>
 	div{width:200px; height: 60px; line-height: 60px}
 </style>
@@ -45,6 +45,8 @@ $(function(){
 		var _self = $(this);
 		_self.html('加载中...（0%）');
 		new mo.Loader(getSource(),{
+			loadType : 1,
+			minTime : 300,
 			onLoading : function(count,total){
 				console.log('onloading:single loaded:',arguments)
 				_self.html('加载中...（'+count/total*100+'%）');
