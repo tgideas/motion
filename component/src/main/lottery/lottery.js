@@ -358,7 +358,7 @@ define(function(require, exports, module){
 			}
 			
 			var bind = (function(){
-				Zepto(startBtn).bind('click touchend', function(){
+				Zepto(startBtn).bind('touchend', function(e){
 					btn.disable() && config.onClickRollEvent();
 				});
 
@@ -436,6 +436,9 @@ define(function(require, exports, module){
 			}
 
 			var fastTime = 30, slowTime = 300, rdis = 8;
+			this.reset = function(){
+				btn.enable();
+			};
 			this.stopRoll = function(id){
 				if(config.r){
 					_private.change(classes['speed_up'], _private.prefix + 'transform' , 360 - step[curIndex], step[curIndex] + 720);

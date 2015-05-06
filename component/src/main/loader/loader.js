@@ -24,8 +24,11 @@
 			}
 		})
  * @see loader/loader.html 资源预加载
+ * @see loader/byselector.html 通过选择器的方式预加载
+ * @see loader/mixed.html 混合加载方式
  * @update 
  * 	2015/01/28 增加支持并行和串行两种加载方式，且可设置加载单个资源所需的最少时间
+ * 	2015/04/13 增加通过选择器方式定义加载图片/背景资源的方式
  * @class
 */
 define(function(require, exports, module){
@@ -205,6 +208,14 @@ define(function(require, exports, module){
 
 			config.event && _self.on(config.event);
 			var len = res.length, loaded = 0;
+			Zepto(res).each(function(index, item){
+				if(typeof item == 'object'){
+					len--;
+					for(var k in item){
+						len++;
+					}
+				}
+			});
 			var sTime = new Date().getTime();
 			var replaceSrc = function(src){
 				if(resourceCache[src]){ //是从节点上提取到的预加载数据
@@ -251,16 +262,36 @@ define(function(require, exports, module){
 			}
 			if(res.length){
 				var loadOne = function(item, resLoadBack, realCompleteBack){
-					var type = _private.getType(item), realCompleteBack = realCompleteBack || function(){};
-					var callFunc = _private[type+'Loader'];
-					if(callFunc === undefined){ //不支持的类型默认认为是加载了
-						resLoadBack(item);
+					var resLoaded = function(item, resLoadBack, realCompleteBack){
+						var type = _private.getType(item), realCompleteBack = realCompleteBack || function(){};
+						var callFunc = _private[type+'Loader'];
+						if(callFunc === undefined){ //不支持的类型默认认为是加载了
+							resLoadBack(item);
+						}else{
+							callFunc(item, function(){
+								var args = Array.prototype.slice.call(arguments,0)
+								args.push(realCompleteBack);
+								resLoadBack.apply(null, args)
+							});
+						}
+					}
+					if(typeof item == 'object'){
+						for(var k in item){//传入的为键值对  那么认为是选择器+背景图片资源   加载完成后直接应用
+							(function(key, value){
+								resLoaded(value, function(){
+									var items = Zepto(key)
+									if(items.is('img')){
+										items.attr('src', value);
+									}else{
+										items.css('backgroundImage', 'url("'+value+'")');
+									}
+									var args = Array.prototype.slice.call(arguments,0)
+									resLoadBack.apply(null, args);
+								}, realCompleteBack);
+							})(k, item[k])
+						}
 					}else{
-						callFunc(item, function(){
-							var args = Array.prototype.slice.call(arguments,0)
-							args.push(realCompleteBack);
-							resLoadBack.apply(null, args)
-						});
+						resLoaded(item, resLoadBack, realCompleteBack);
 					}
 				}
 				if(config.loadType == 1){//串行加载

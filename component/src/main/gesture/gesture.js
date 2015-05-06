@@ -314,16 +314,16 @@ define(function(require, exports, module){
 		var Gesture;
 
 		_public.init = Gesture = function(node, opts){
-			node = node || document;
+			node = Zepto(node || document);
 			opts = Zepto.extend(true, {}, _static.config, opts);
 			this.eventCache = {};
 			this.posInfo = {}
 			var _this = this;
 			for(var k in touchEvents){
 				(function(k){
-					node.addEventListener(k, function(e){
+					node.on(k, function(e){
 						touchEvents[k].call(_this, e, opts)
-					}, false);
+					});
 				})(k)
 			}
 		}
