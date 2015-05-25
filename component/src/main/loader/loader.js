@@ -254,7 +254,7 @@ define(function(require, exports, module){
 					var type = _private.getType(item), realCompleteBack = realCompleteBack || function(){};
 					var callFunc = _private[type+'Loader'];
 					if(callFunc === undefined){ //不支持的类型默认认为是加载了
-						resLoadBack(item);
+						resLoadBack(item, null, 0, realCompleteBack);
 					}else{
 						callFunc(item, function(){
 							var args = Array.prototype.slice.call(arguments,0)
