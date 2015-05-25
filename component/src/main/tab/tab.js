@@ -68,6 +68,7 @@ define(function(require, exports, module) {
 			stay: 2000,
 			delay: 200,
 			touchDis: 20,
+			loop: true,
 			lazy: window.undefined,
 			merge: false,
 			degradation: 'base',
@@ -327,11 +328,21 @@ define(function(require, exports, module) {
 			var hasCur = self.curPage !== window.undefined;
 			var prevPage;
 
+			// 临界计算
+			self._outBound =  function(i) {
+				if (i >= self.target.length) i %= self.target.length;
+				if (i < 0) {
+					var m = i % self.target.length;
+					i = m === 0 ? 0 : (m + self.target.length);
+				}
+				return i;
+			}
+
 
 			self.prevPage = self.curPage;
 
 			prevPage = self.curPage;
-			page = self.curPage = outBound(page);
+			page = self.curPage = self._outBound(page);
 
 
 			if (self.controller && page !== prevPage) {
@@ -342,6 +353,13 @@ define(function(require, exports, module) {
 					Zepto(curCtrl).addClass(self.config.currentClass);
 				}
 				if (prevCtrl) Zepto(prevCtrl).removeClass(self.config.currentClass); //如果正常获取
+
+
+			}
+
+			if(page !== prevPage) {
+				self.target.eq(page).addClass(self.config.currentClass);
+				self.target.eq(prevPage).removeClass(self.config.currentClass);	
 			}
 
 			// 填充标题
@@ -368,21 +386,14 @@ define(function(require, exports, module) {
 			 * @event mo.Tab#beforechange
 			 * @property {object} event 开始切换
 			 */
-			if (self.trigger('beforechange') === false) {
+			if (self.trigger('beforechange', [self.curPage]) === false) {
 				return;
 			}
 
+			self.trigger('mobeforechange');
 			//if(self.effect) self.effect.onchange.call(self);
 
-			// 临界计算
-			function outBound(i) {
-				if (i >= self.target.length) i %= self.target.length;
-				if (i < 0) {
-					var m = i % self.target.length;
-					i = m === 0 ? 0 : (m + self.target.length);
-				}
-				return i;
-			}
+			
 
 		};
 
