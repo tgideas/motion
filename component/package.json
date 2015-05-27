@@ -9,8 +9,5 @@
     "grunt-motion-build": "*",
     "iconv-lite": "^0.4.10"
   },
-  "author": "aidenxiong brucewan",
-  "dependencies": {
-    "iconv-lite": "^0.4.10"
-  }
+  "author": "aidenxiong brucewan"
 }
