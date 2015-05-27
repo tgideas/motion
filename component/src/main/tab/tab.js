@@ -12,6 +12,7 @@
  * @param {string} [config.direction='x'] 指定方向，仅效果为'slide'时有效
  * @param {boolean}  [config.autoPlay=false] 是否自动播放 
  * @param {number}  [config.playTo=0] 默认播放第几个（索引值计数，即0开始的计数方式） 
+ * @param {number}  [config.switchTo=undefined] 切换到第几个（无动画效果） 
  * @param {string}  [config.type='touchend'] 事件触发类型
  * @param {string}  [config.currentClass='current'] 当前样式名称, 多tab嵌套时有指定需求
  * @param {boolean}  [config.link=false] tab controller中的链接是否可被点击
@@ -62,13 +63,13 @@ define(function(require, exports, module) {
 			direction: 'x',
 			autoPlay: false,
 			playTo: 0, // 播放到第几个 tab
+			switchTo: window.undefined, // 切换到第几个 tab
 			type: 'touchend',
 			currentClass: 'current',
 			link: false,
 			stay: 2000,
 			delay: 200,
 			touchDis: 20,
-			loop: true,
 			lazy: window.undefined,
 			merge: false,
 			degradation: 'base',
@@ -98,6 +99,13 @@ define(function(require, exports, module) {
 			var target = Zepto(config.target);
 			if (target.length <= 1) {
 				return;
+			}
+
+			// 统计实例
+			if(this.constructor.instances) {
+				this.constructor.instances.push(this);
+			} else {
+				this.constructor.instances = [this];
 			}
 
 			// 参数处理
@@ -151,9 +159,14 @@ define(function(require, exports, module) {
 				}
 			}
 
+			// 效果作为自定义事件绑定
+			if(_static.effect[config.effect]['beforechange']) {
+				_static.effect[config.effect]['mobeforechange'] = _static.effect[config.effect]['beforechange'];
+				delete _static.effect[config.effect]['beforechange'];
+			}
+			self.on(_static.effect[config.effect]);
 
 			// 自定义事件绑定
-			_static.effect[config.effect] && self.on(_static.effect[config.effect]);
 			self.on(config.event);
 
 
@@ -182,7 +195,13 @@ define(function(require, exports, module) {
 
 
 			// 播放到默认Tab
-			self.playTo(config.playTo);
+			if(config.switchTo !== window.undefined) {
+				self.switchTo(config.switchTo);
+			} else {
+				self.playTo(config.playTo);
+			}
+			
+
 			// 自动播放
 			if (config.autoPlay) self.play();
 
@@ -456,6 +475,16 @@ define(function(require, exports, module) {
 			self.trigger('stop');
 		};
 
+		/**
+		 * 无动画效果切换
+		 */
+		_public.switchTo = function(page) {
+			var userAnimateTime = this.config.animateTime;
+			this.config.animateTime = 0;
+			this.playTo(page);
+			this.config.animateTime = userAnimateTime;
+		};
+
 		_static.extend = function(name, events) {
 			var obj = {};
 			if (Zepto.isPlainObject(name)) {
@@ -606,7 +635,7 @@ define(function(require, exports, module) {
 				 * @event mo.Tab#change
 				 * @property {object} event 切换完成
 				 */
-				self.trigger('change');
+				self.trigger('change', [self.curPage]);
 
 			}
 		});
