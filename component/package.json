@@ -6,7 +6,11 @@
   "devDependencies": {
     "grunt": "0.4.5",
     "grunt-contrib-uglify": "^0.5.0",
-    "grunt-motion-build": "*"
+    "grunt-motion-build": "*",
+    "iconv-lite": "^0.4.10"
   },
-  "author": "aidenxiong brucewan"
+  "author": "aidenxiong brucewan",
+  "dependencies": {
+    "iconv-lite": "^0.4.10"
+  }
 }
