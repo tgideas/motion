@@ -19,6 +19,7 @@
  * @param {string}  [config.currentClass='current'] 当前样式名称, 多tab嵌套时有指定需求
  * @param {boolean}  [config.link=false] tab controller中的链接是否可被点击
  * @param {number}  [config.stay=2000] 自动播放时停留时间
+ * @param {boolean}  [config.loop=false] 是否启用循环滚动
  * @param {number}  [config.delay=150] mouseover触发延迟时间
  * @param {object|string}  [config.prevBtn] 播放前一张，调用prev()
  * @param {object|string}  [config.nextBtn] 插放后一张，调用next()
@@ -151,7 +152,7 @@ define(function(require, exports, module) {
 				self.moving = true;
 				self.wrap.animate(o, config.animateTime, config.easing, function() {
 					self.moving = false;
-					self.trigger('change');
+					self.trigger('change', [self.curPage]);
 				});
 			}
 
@@ -223,7 +224,7 @@ define(function(require, exports, module) {
 				self.moving = true;
 				self.wrap.animate(o, config.animateTime, config.easing, function() {
 					self.moving = false;
-					self.trigger('change');
+					self.trigger('change', [self.curPage]);
 				});
 			},
 
@@ -353,7 +354,7 @@ define(function(require, exports, module) {
 				self.wrap.animate(wrapProp, config.animateTime, config.easing, function() {
 					self.moving = false;
 
-					self.trigger('change');
+					self.trigger('change', [self.curPage]);
 				});
 
 
@@ -370,6 +371,134 @@ define(function(require, exports, module) {
 
 
 
+		mo.Tab.extend('xx', {
+			init: function() {
+				var self = this;
+				var config = self.config;
+				var wrapOffset = self.wrap.offset();
+
+				// 初始化样式
+				self.wrap.css({
+					'position': 'relative',
+					'overflow': 'hidden'
+				});
+				self.target.css({
+					'position': 'absolute'
+				});
+
+				// 设置不同方向不同的操作属性
+				if (config.direction == 'x') {
+					self.animProp = 'translateX'; 
+					self.offset = wrapOffset.width;
+				} else {
+					self.animProp = 'translateY'; 
+					self.offset = wrapOffset.height;
+				}
+
+				// 往上翻移动层级
+				self._launch = function(obj){
+					self.target.css('zIndex', '1');
+					var o = {};
+					o[self.cssPrefix + 'transform'] = self.animProp + '(' + obj.data('oriPos') + 'px)';
+					o.zIndex = '3';
+					obj.css(o);
+					obj.data('hasReady', true);
+					
+				};
+			},
+
+
+			touchmove: function(e, startDis, moveDis){
+				var self = this;
+				var targetObj;
+				var plus;
+				if(self.moving == true) {
+					return;
+				}
+
+				if(self._targetObj === window.undefined) {
+					var targetPage;
+					var oriPos;
+					if(startDis < 0) {
+						targetPage = self._outBound(self.curPage + 1);
+						oriPos =  self.offset;
+					} else {
+						targetPage = self._outBound(self.curPage - 1);
+						oriPos = -self.offset;
+					}
+					self._targetObj = self.target.eq(targetPage);
+					self._targetObj.data('oriPos', oriPos);
+					self._launch(self._targetObj);[
+					]
+					self.target.eq(self.curPage).css('zIndex', '2');
+				}
+
+				var o = {};
+				o[self.cssPrefix + 'transform'] = self.animProp + '(' + (startDis + self._targetObj.data('oriPos')) + 'px)';
+				self._targetObj.css(o);
+			},
+
+			touchend: function(e, dis){
+				var self = this;
+				var config = self.config;
+				// 回到本页
+				if(Math.abs(dis) < self.config.touchDis) {console.log(self._targetObj);
+					var o = {};
+					o[self.animProp] =   '0px';
+					self._targetObj.animate(o, config.animateTime, config.easing, function(){
+						self.moving = false;
+						self._targetObj.data('hasReady', false);
+
+						delete self._targetObj;
+					});
+				} 
+
+			},
+
+			beforechange: function() {
+				var self = this;
+				var config = self.config;
+				var pos;
+				var o = {};
+				var animObj;
+
+
+				if(self._targetObj === window.undefined) {
+					var oriPos;
+					if( (self.prevPage !== window.undefined) && (self.curPage < self.prevPage)) {
+						oriPos = -self.offset;
+					} else {
+						oriPos =  self.offset;
+					}
+					self._targetObj = self.target.eq(self.curPage);
+					self._targetObj.data('oriPos', oriPos);
+					self._launch(self._targetObj);
+					self.target.eq(self.prevPage).css('zIndex', '2');
+				}
+
+
+
+				o[self.animProp] =   '0px';
+				// console.log(self.curPage);
+
+				self._targetObj.animate(o, config.animateTime, config.easing, function() {
+					self.moving = false;
+					self._targetObj.data('hasReady', false);
+					delete self._targetObj;
+					self.trigger('change', [self.curPage]);
+				});
+
+	
+
+
+			},
+
+			change: function(){
+
+			}
+
+
+		});
 
 
 
