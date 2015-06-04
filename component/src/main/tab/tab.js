@@ -295,7 +295,7 @@ define(function(require, exports, module) {
 						self.playTo(i);
 					});
 					if (!config.link) {
-						Zepto(elem).on('touchend', function(e) {
+						Zepto(elem).on('touchend mouseup', function(e) {
 							e.preventDefault();
 						});
 					}
@@ -304,26 +304,26 @@ define(function(require, exports, module) {
 			}
 
 			if (self.nextBtn) {
-				Zepto(self.nextBtn).on('touchend', function(e) {
+				Zepto(self.nextBtn).on('touchend mouseup', function(e) {
 					self.next();
 					e.preventDefault();
 				});
 			}
 
 			if (self.prevBtn) {
-				Zepto(self.prevBtn).on('touchend', function(e) {
+				Zepto(self.prevBtn).on('touchend mouseup', function(e) {
 					self.prev();
 					e.preventDefault();
 				});
 			}
 
-			self.wrap.on('touchstart', function() {
+			self.wrap.on('touchstart mousedown', function() {
 				// 如果没在自动播放
 				if (self.isPlaying) {
 					_private.clearTimer.call(self);
 				}
 			});
-			Zepto('body').on('touchend', function() {
+			Zepto('body').on('touchend mouseup', function() {
 				// 如果没在自动播放
 				if (self.isPlaying) {
 					_private.setTimer.call(self);
@@ -514,9 +514,10 @@ define(function(require, exports, module) {
 			var moveX,moveY, moveDisX, moveDisY, moveDis;
 
 			if (config.touchMove) {
-				self.wrap.on('touchstart', function(e) {
-					startX = moveX = e.touches[0].pageX;
-					startY = moveY = e.touches[0].pageY;
+				self.wrap.on('touchstart mousedown', function(e) {
+					var evt = e.touches ?  e.touches[0] : e;
+					startX = moveX = evt.pageX;
+					startY = moveY = evt.pageY;
 
 					/**
 					 * @event mo.Tab#touchstart
@@ -526,14 +527,15 @@ define(function(require, exports, module) {
 						return;
 					}
 
-					self.wrap.on('touchmove', touchMove);
-					self.wrap.on('touchend', touchEnd);
+					self.wrap.on('touchmove mousemove', touchMove);
+					self.wrap.on('touchend mouseup', touchEnd);
 					touchDirection = '';
 				});
 			}
 			touchMove = function(e) {
-				var x = e.touches[0].pageX;
-				var y =  e.touches[0].pageY;
+				var evt = e.touches ?  e.touches[0] : e;
+				var x = evt.pageX;
+				var y =  evt.pageY;
 				disX = x - startX;
 				disY = y - startY;
 				moveDisX = x - moveX;
@@ -564,7 +566,7 @@ define(function(require, exports, module) {
 					 * @event mo.Tab#touchmove
 					 * @property {object} event 开始切换
 					 */
-					self.trigger('touchmove', [dis, moveDis, e]);
+					self.trigger('touchmove', [dis, moveDis, evt]);
 				}
 				// if ((dis > 0 && self.curPage >= 0) || (dis < 0 && self.curPage <= self.target.length - 1)) {
 
@@ -582,8 +584,8 @@ define(function(require, exports, module) {
 				}
 
 				// self.wrap.style.webkitTransitionDuration = config.animTime + 'ms';
-				self.wrap.off('touchmove', touchMove);
-				self.wrap.off('touchend', touchEnd);
+				self.wrap.off('touchmove mousemove', touchMove);
+				self.wrap.off('touchend mouseup', touchEnd);
 
 				var isOK = true;
 
