@@ -71,7 +71,15 @@ module.exports = function(grunt) {
   grunt.registerTask('setFile','set file name', function(file){
       var fileName = file.replace(/\|/g,'_');
       var filesSrc = file.split('|').map(function(src){
-        return src + '/' + src + '.js';
+      var compName = src, pluginName;
+        if(compName.indexOf('.')){//contains plugins
+          var srcArr = compName.split('.');
+          compName = srcArr[0];
+          if(pluginName = srcArr[1]){
+            plugins.push(compName + '/plugins/' + pluginName + '.js');
+          }
+        }
+        return compName + '/' + compName + '.js';
       });
       var uglifyOpt = {}
       uglifyOpt['build/'+fileName+'.min.js'] = ['build/'+fileName+'.js'];
