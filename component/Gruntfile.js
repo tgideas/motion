@@ -70,12 +70,14 @@ module.exports = function(grunt) {
 
   grunt.registerTask('setFile','set file name', function(file){
       var fileName = file.replace(/\|/g,'_');
+      var plugReg = /(\S*?)\[(\S*?)\]/;
+      var plugins = [];
       var filesSrc = file.split('|').map(function(src){
-      var compName = src, pluginName;
-        if(compName.indexOf('.')){//contains plugins
-          var srcArr = compName.split('.');
-          compName = srcArr[0];
-          if(pluginName = srcArr[1]){
+        var compName = src, compInfo,pluginName;
+        if(compInfo = compName.match(plugReg)){//contains plugins
+          compName = compInfo[1];
+          var pluginNames = compInfo[2].split(',');
+          while(pluginName=pluginNames.shift()){
             plugins.push(compName + '/plugins/' + pluginName + '.js');
           }
         }
