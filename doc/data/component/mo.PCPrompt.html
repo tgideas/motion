@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-    <title>Class: Lottery - Motion.js - A swift javascript ui kit for mobile</title>
+    <title>Class: PCPrompt - Motion.js - A swift javascript ui kit for mobile</title>
     <meta name="description" content="Motion.js,a slim javascript ui kit for mobile" />
     <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library" />
     <meta name="author" content="TGIdeas" />
@@ -58,8 +58,8 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right bs-docs-lang">
-              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/mo.Lottery.html" data-attr-t href-t="mods.modUrlLottery">English</a></li>
-              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.Lottery.html">简体中文</a></li>
+              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/mo.PCPrompt.html" data-attr-t href-t="mods.modUrlPCPrompt">English</a></li>
+              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.PCPrompt.html">简体中文</a></li>
               <script>
                 var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
                     $menus = jQuery('.bs-docs-lang li');
@@ -92,7 +92,7 @@
 
             
             
-                <h1 class="page-title">Class: Lottery</h1>
+                <h1 class="page-title">Class: PCPrompt</h1>
             
             
             
@@ -149,7 +149,7 @@ function renderDemo(url,fileName) {
     <h2>
         <span class="ancestors"><a href="mo_.html">mo</a>.</span>
     
-    Lottery
+    PCPrompt
     </h2>
     
 </header>   -->
@@ -161,7 +161,7 @@ function renderDemo(url,fileName) {
     
         
 <dt>
-    <h4 class="name" id="Lottery"><span class="type-signature"></span>new Lottery<span class="signature">(<span class="optional">opts</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="PCPrompt"><span class="type-signature"></span>new PCPrompt<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -169,7 +169,7 @@ function renderDemo(url,fileName) {
     
     
     <div class="description">
-        抽奖组件
+        当移动端网站在PC中打开时，给予友好提示。
     </div>
     
 
@@ -184,7 +184,7 @@ function renderDemo(url,fileName) {
         
 	
 	<dt class="tag-version">版本:</dt>
-	<dd class="tag-version"><ul class="dummy"><li>1.0</li></ul></dd>
+	<dd class="tag-version"><ul class="dummy"><li>1.1</li></ul></dd>
 	
 	
 	
@@ -197,7 +197,7 @@ function renderDemo(url,fileName) {
 	<dt class="tag-author">作者:</dt>
 	<dd class="tag-author">
         <ul>
-            <li>AidenXiong</li>
+            <li>Kimixiao</li>
         </ul>
 	</dd>
 	
@@ -222,6 +222,8 @@ function renderDemo(url,fileName) {
 	<dd class="tag-depend">
         <ul>
             <li>module:lib/zepto.js</li>
+        
+            <li>module:src/base.js</li>
         </ul>
     </dd>
        
@@ -230,7 +232,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/lottery/lottery.js">lottery.js</a>, line 1</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/pc-prompt/pc-prompt.js">pc-prompt.js</a>, line 1</li></ul>
 
 
 
@@ -245,9 +247,9 @@ function renderDemo(url,fileName) {
 	<dt class="tag-see">See:</dt>
 	<dd class="tag-see">
         <ul>
-            <li>lottery/lottery.html 圆形转盘抽奖</li>
+            <li>pc-prompt/demo1.html 必填项</li>
         
-            <li>lottery/square.html 方形抽奖</li>
+            <li>pc-prompt/demo2.html 完全填写</li>
         </ul>
 	</dd>
 	 -->
@@ -265,7 +267,7 @@ function renderDemo(url,fileName) {
     
         <h5>Example</h5>
         
-    <pre class="language-javascript"><code>		var lottery = new mo.Lottery({<br>			'flashUrl' : 'http://ossweb-img.qq.com/images/flash/lottery/circle/lotteyround_2013_v1.swf',<br>			'r':8,//奖品总数<br>			'width':488,//flash宽度<br>			'height':488,//flash高度<br>			'flashFirst':false,<br>			'b':'http://ossweb-img.qq.com/images/flash/lottery/circle/g.png',//圆盘的图片 文件格式可以是swf、png、jpg（建议swf 可以压缩）<br>			's':'http://ossweb-img.qq.com/images/flash/lottery/circle/z.png',//开始抽奖按钮图片<br>			'bx':0,//圆盘的图片位置x坐标 （转盘的中心点坐标为（0,0））<br>			'by':0,//圆盘的图片位置y坐标<br>			'sx':0,//开始抽奖按钮x坐标<br>			'sy':0,//开始抽奖按钮y坐标<br>			'contentId' : 'swfcontent',//嵌入swf 的div层的 id <br>			'onClickRollEvent' : callJsToStart,//对应上面接口<br>			'onCompleteRollEvent':callJsToComplete //对应上面接口<br>		});</code></pre>
+    <pre class="language-javascript"><code> var PCPrompt = new mo.PCPrompt();</code></pre>
 
     
 </dd>
@@ -301,63 +303,13 @@ function renderDemo(url,fileName) {
         <li><h3 class="subsection-title">方法</h3></li>
     
     
+        <li><h3 class="subsection-title">事件</h3></li>
+    
     </ul>
 
     <u class="tab-target">
       
         <li>
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>名称</th>
-		
-		
-		<th>类型</th>
-		
-		
-		<th>参数</th>
-		
-		
-		
-		
-		<th class="last">描述</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>opts</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">配置参数
-                <h6>Properties</h6>
-                
 
 <table class="params">
     <thead>
@@ -385,7 +337,7 @@ function renderDemo(url,fileName) {
 	
         <tr>
             
-                <td class="name"><code>lighturl</code></td>
+                <td class="name"><code>config.url</code></td>
             
             
             <td class="type">
@@ -410,19 +362,19 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    ''
+                    window.location.href
                 
                 </td>
             
             
-            <td class="description last">外部光圈png  不填写就用默认的效果</td>
+            <td class="description last">项目地址，会根据此地址生成二维码；留空则获取地址栏。</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>starturl</code></td>
+                <td class="name"><code>config.title</code></td>
             
             
             <td class="type">
@@ -447,19 +399,19 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    ''
+                    &lt;title&gt;
                 
                 </td>
             
             
-            <td class="description last">外部按钮png  不填写就用默认的按钮效果</td>
+            <td class="description last">项目标题，不设置则取title标签中的文字作为默认标题。</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>width</code></td>
+                <td class="name"><code>config.description</code></td>
             
             
             <td class="type">
@@ -484,459 +436,19 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    800
+                    &lt;meta:description&gt;
                 
                 </td>
             
             
-            <td class="description last">宽度</td>
+            <td class="description last">项目简介，最多240字，超出会做截断，不设置则取<meta>标签中的 description 作为默认简介。</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>height</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    660
-                
-                </td>
-            
-            
-            <td class="description last">高度</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>total</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    18
-                
-                </td>
-            
-            
-            <td class="description last">抽奖产品的总数</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>sbtnx</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    239
-                
-                </td>
-            
-            
-            <td class="description last">开始抽奖按钮的位置x坐标</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>sbtny</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    130
-                
-                </td>
-            
-            
-            <td class="description last">开始抽奖按钮的位置y坐标</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>sbtnw</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    320
-                
-                </td>
-            
-            
-            <td class="description last">开始抽奖按钮的宽度</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>sbtnh</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    100
-                
-                </td>
-            
-            
-            <td class="description last">开始抽奖按钮的高度</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>boxw</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    100
-                
-                </td>
-            
-            
-            <td class="description last">奖品光效的宽度</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>boxh</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    100
-                
-                </td>
-            
-            
-            <td class="description last">奖品光效的高度</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>position</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    "19_20, 128_20, 348_19, 569_239, 679_239"
-                
-                </td>
-            
-            
-            <td class="description last">奖品光效的位置，对应奖品图片的布局，填入每个奖品的位置以及角度用逗号分割  x_y_rotation（角度为0的可以不填写） 例如19_20或者19_20_0 表示第一个奖品的位置 x坐标为19px y坐标为20px 角度为0。）</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>contentId</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    swfcontent
-                
-                </td>
-            
-            
-            <td class="description last">嵌入swf 的div层的 id</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>onClickRollEvent</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last"></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>onCompleteRollEvent</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last">奖品光效的高度</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>r</code></td>
+                <td class="name"><code>config.preview</code></td>
             
             
             <td class="type">
@@ -966,14 +478,14 @@ function renderDemo(url,fileName) {
                 </td>
             
             
-            <td class="description last">奖品总数</td>
+            <td class="description last">项目预览图，尺寸212*377。</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>b</code></td>
+                <td class="name"><code>config.direction</code></td>
             
             
             <td class="type">
@@ -998,25 +510,25 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    null
+                    K_PCPrompt
                 
                 </td>
             
             
-            <td class="description last">圆盘的图片</td>
+            <td class="description last">PC提示层设计的id及class前缀。</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>s</code></td>
+                <td class="name"><code>config.jump</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -1040,20 +552,20 @@ function renderDemo(url,fileName) {
                 </td>
             
             
-            <td class="description last">开始抽奖按钮图片</td>
+            <td class="description last">点击“直接进入”执行的回调。</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>bx</code></td>
+                <td class="name"><code>config.init</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -1077,124 +589,7 @@ function renderDemo(url,fileName) {
                 </td>
             
             
-            <td class="description last">圆盘的图片位置x坐标 （转盘的中心点坐标为（0,0））</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>by</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">圆盘的图片位置y坐标</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>sx</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">开始抽奖按钮x坐标</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>sy</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">开始抽奖按钮y坐标</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-            </td>
+            <td class="description last">非PC用户，初始化移动端代码</td>
         </tr>
 	
 	
@@ -1522,30 +917,272 @@ function renderDemo(url,fileName) {
         </dl></li>
     
     
+        <li><dl>
+            
+<dt>
+    <h4 class="name" id="event:mouseout">mouseout</h4>
+
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>名称</th>
+		
+		
+		<th>类型</th>
+		
+		
+		
+		
+		
+		<th class="last">描述</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">鼠标离开二维码时执行的回调（需设置config.preview）。</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/pc-prompt/pc-prompt.js">pc-prompt.js</a>, line 644</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:mouseover">mouseover</h4>
+
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>名称</th>
+		
+		
+		<th>类型</th>
+		
+		
+		
+		
+		
+		<th class="last">描述</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">鼠标经过二维码时执行的回调（需设置config.preview）。</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/pc-prompt/pc-prompt.js">pc-prompt.js</a>, line 635</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl></li>
+    
     </u>
 
     
     
         
             
-        <h3 class="subsection-title">圆形转盘抽奖<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/lottery/lottery.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
-        <div class="demo-content" data-file="lottery/lottery.html">
+        <h3 class="subsection-title">必填项<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/pc-prompt/demo1.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
+        <div class="demo-content" data-file="pc-prompt/demo1.html">
             <pre class="code language-javascript"><code>Loading...</code></pre>
             <script>
             jQuery(function(){
-                renderDemo("http://tgideas.github.io/motion/component/demo/lottery/lottery.html","lottery/lottery.html");    
+                renderDemo("http://tgideas.github.io/motion/component/demo/pc-prompt/demo1.html","pc-prompt/demo1.html");    
             });
             </script>
         </div>
             
         
             
-        <h3 class="subsection-title">方形抽奖<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/lottery/square.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
-        <div class="demo-content" data-file="lottery/square.html">
+        <h3 class="subsection-title">完全填写<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/pc-prompt/demo2.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
+        <div class="demo-content" data-file="pc-prompt/demo2.html">
             <pre class="code language-javascript"><code>Loading...</code></pre>
             <script>
             jQuery(function(){
-                renderDemo("http://tgideas.github.io/motion/component/demo/lottery/square.html","lottery/square.html");    
+                renderDemo("http://tgideas.github.io/motion/component/demo/pc-prompt/demo2.html","pc-prompt/demo2.html");    
             });
             </script>
         </div>

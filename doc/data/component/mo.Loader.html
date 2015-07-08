@@ -75,7 +75,7 @@
     <div class="main container-fluid">
         <section class="sidebar col-sm-3">
             <nav>
-                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.PageSlide.html">PageSlide</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
+                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.Landscape.html">Landscape</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.PageSlide_.html">PageSlide</a></li><li><a href="mo.PCPrompt.html">PCPrompt</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
             </nav>
             <script>
             (function(){
@@ -246,6 +246,10 @@ function renderDemo(url,fileName) {
 	<dd class="tag-see">
         <ul>
             <li>loader/loader.html 资源预加载</li>
+        
+            <li>loader/byselector.html 通过选择器的方式预加载</li>
+        
+            <li>loader/mixed.html 混合加载方式</li>
         </ul>
 	</dd>
 	 -->
@@ -951,7 +955,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/loader/loader.js">loader.js</a>, line 242</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/loader/loader.js">loader.js</a>, line 253</li></ul>
 
 
 
@@ -1071,7 +1075,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/loader/loader.js">loader.js</a>, line 232</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/loader/loader.js">loader.js</a>, line 243</li></ul>
 
 
 
@@ -1111,6 +1115,30 @@ function renderDemo(url,fileName) {
             <script>
             jQuery(function(){
                 renderDemo("http://tgideas.github.io/motion/component/demo/loader/loader.html","loader/loader.html");    
+            });
+            </script>
+        </div>
+            
+        
+            
+        <h3 class="subsection-title">通过选择器的方式预加载<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/loader/byselector.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
+        <div class="demo-content" data-file="loader/byselector.html">
+            <pre class="code language-javascript"><code>Loading...</code></pre>
+            <script>
+            jQuery(function(){
+                renderDemo("http://tgideas.github.io/motion/component/demo/loader/byselector.html","loader/byselector.html");    
+            });
+            </script>
+        </div>
+            
+        
+            
+        <h3 class="subsection-title">混合加载方式<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/loader/mixed.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
+        <div class="demo-content" data-file="loader/mixed.html">
+            <pre class="code language-javascript"><code>Loading...</code></pre>
+            <script>
+            jQuery(function(){
+                renderDemo("http://tgideas.github.io/motion/component/demo/loader/mixed.html","loader/mixed.html");    
             });
             </script>
         </div>

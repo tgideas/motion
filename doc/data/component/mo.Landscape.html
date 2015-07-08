@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-    <title>Class: Lottery - Motion.js - A swift javascript ui kit for mobile</title>
+    <title>Class: Landscape - Motion.js - A swift javascript ui kit for mobile</title>
     <meta name="description" content="Motion.js,a slim javascript ui kit for mobile" />
     <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library" />
     <meta name="author" content="TGIdeas" />
@@ -58,8 +58,8 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right bs-docs-lang">
-              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/mo.Lottery.html" data-attr-t href-t="mods.modUrlLottery">English</a></li>
-              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.Lottery.html">简体中文</a></li>
+              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/mo.Landscape.html" data-attr-t href-t="mods.modUrlLandscape">English</a></li>
+              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.Landscape.html">简体中文</a></li>
               <script>
                 var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
                     $menus = jQuery('.bs-docs-lang li');
@@ -92,7 +92,7 @@
 
             
             
-                <h1 class="page-title">Class: Lottery</h1>
+                <h1 class="page-title">Class: Landscape</h1>
             
             
             
@@ -149,7 +149,7 @@ function renderDemo(url,fileName) {
     <h2>
         <span class="ancestors"><a href="mo_.html">mo</a>.</span>
     
-    Lottery
+    Landscape
     </h2>
     
 </header>   -->
@@ -161,7 +161,7 @@ function renderDemo(url,fileName) {
     
         
 <dt>
-    <h4 class="name" id="Lottery"><span class="type-signature"></span>new Lottery<span class="signature">(<span class="optional">opts</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Landscape"><span class="type-signature"></span>new Landscape<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -169,7 +169,7 @@ function renderDemo(url,fileName) {
     
     
     <div class="description">
-        抽奖组件
+        当用户切换横竖屏时，给予友好提示。
     </div>
     
 
@@ -197,7 +197,7 @@ function renderDemo(url,fileName) {
 	<dt class="tag-author">作者:</dt>
 	<dd class="tag-author">
         <ul>
-            <li>AidenXiong</li>
+            <li>lyushine</li>
         </ul>
 	</dd>
 	
@@ -222,6 +222,8 @@ function renderDemo(url,fileName) {
 	<dd class="tag-depend">
         <ul>
             <li>module:lib/zepto.js</li>
+        
+            <li>module:src/base.js</li>
         </ul>
     </dd>
        
@@ -230,7 +232,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/lottery/lottery.js">lottery.js</a>, line 1</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/landscape/landscape.js">landscape.js</a>, line 1</li></ul>
 
 
 
@@ -245,9 +247,9 @@ function renderDemo(url,fileName) {
 	<dt class="tag-see">See:</dt>
 	<dd class="tag-see">
         <ul>
-            <li>lottery/lottery.html 圆形转盘抽奖</li>
+            <li>landscape/demo1.html   横屏切换提示</li>
         
-            <li>lottery/square.html 方形抽奖</li>
+            <li>landscape/demo2.html   竖屏切换提示</li>
         </ul>
 	</dd>
 	 -->
@@ -265,7 +267,7 @@ function renderDemo(url,fileName) {
     
         <h5>Example</h5>
         
-    <pre class="language-javascript"><code>		var lottery = new mo.Lottery({<br>			'flashUrl' : 'http://ossweb-img.qq.com/images/flash/lottery/circle/lotteyround_2013_v1.swf',<br>			'r':8,//奖品总数<br>			'width':488,//flash宽度<br>			'height':488,//flash高度<br>			'flashFirst':false,<br>			'b':'http://ossweb-img.qq.com/images/flash/lottery/circle/g.png',//圆盘的图片 文件格式可以是swf、png、jpg（建议swf 可以压缩）<br>			's':'http://ossweb-img.qq.com/images/flash/lottery/circle/z.png',//开始抽奖按钮图片<br>			'bx':0,//圆盘的图片位置x坐标 （转盘的中心点坐标为（0,0））<br>			'by':0,//圆盘的图片位置y坐标<br>			'sx':0,//开始抽奖按钮x坐标<br>			'sy':0,//开始抽奖按钮y坐标<br>			'contentId' : 'swfcontent',//嵌入swf 的div层的 id <br>			'onClickRollEvent' : callJsToStart,//对应上面接口<br>			'onCompleteRollEvent':callJsToComplete //对应上面接口<br>		});</code></pre>
+    <pre class="language-javascript"><code> var PCPrompt = new mo.PCPrompt();</code></pre>
 
     
 </dd>
@@ -321,58 +323,6 @@ function renderDemo(url,fileName) {
 		
 		
 		
-		
-		<th class="last">描述</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>opts</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">配置参数
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>名称</th>
-		
-		
-		<th>类型</th>
-		
-		
-		<th>参数</th>
-		
-		
-		
 		<th>默认值</th>
 		
 		
@@ -385,7 +335,7 @@ function renderDemo(url,fileName) {
 	
         <tr>
             
-                <td class="name"><code>lighturl</code></td>
+                <td class="name"><code>config.pic</code></td>
             
             
             <td class="type">
@@ -410,25 +360,23 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    ''
-                
                 </td>
             
             
-            <td class="description last">外部光圈png  不填写就用默认的效果</td>
+            <td class="description last">图片地址 如'http://ossweb-img.qq.com/images/js/landscape/landscape.png'</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>starturl</code></td>
+                <td class="name"><code>config.picZoom</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">number</span>
 
 
             
@@ -447,19 +395,19 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    ''
+                    2
                 
                 </td>
             
             
-            <td class="description last">外部按钮png  不填写就用默认的按钮效果</td>
+            <td class="description last">图片缩放比例 如 2</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>width</code></td>
+                <td class="name"><code>config.mode</code></td>
             
             
             <td class="type">
@@ -484,19 +432,19 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    800
+                    portrait
                 
                 </td>
             
             
-            <td class="description last">宽度</td>
+            <td class="description last">页面模式，如'portrait'或'landscape'</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>height</code></td>
+                <td class="name"><code>config.bgcolor</code></td>
             
             
             <td class="type">
@@ -521,19 +469,19 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    660
+                    #32373b
                 
                 </td>
             
             
-            <td class="description last">高度</td>
+            <td class="description last">背景色,如 '#000'</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>total</code></td>
+                <td class="name"><code>config.txt</code></td>
             
             
             <td class="type">
@@ -558,19 +506,19 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    18
+                    '为了更好的体验，请将手机/平板竖过来'
                 
                 </td>
             
             
-            <td class="description last">抽奖产品的总数</td>
+            <td class="description last">提示文字, 如 '为了更好的体验，请将手机/平板竖过来'</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>sbtnx</code></td>
+                <td class="name"><code>config.txtColor</code></td>
             
             
             <td class="type">
@@ -595,19 +543,19 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    239
+                    '#ffd40a'
                 
                 </td>
             
             
-            <td class="description last">开始抽奖按钮的位置x坐标</td>
+            <td class="description last">提示文字颜色 如'#ffd40a'</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>sbtny</code></td>
+                <td class="name"><code>config.prefix</code></td>
             
             
             <td class="type">
@@ -632,569 +580,12 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    130
+                    Shine
                 
                 </td>
             
             
-            <td class="description last">开始抽奖按钮的位置y坐标</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>sbtnw</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    320
-                
-                </td>
-            
-            
-            <td class="description last">开始抽奖按钮的宽度</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>sbtnh</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    100
-                
-                </td>
-            
-            
-            <td class="description last">开始抽奖按钮的高度</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>boxw</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    100
-                
-                </td>
-            
-            
-            <td class="description last">奖品光效的宽度</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>boxh</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    100
-                
-                </td>
-            
-            
-            <td class="description last">奖品光效的高度</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>position</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    "19_20, 128_20, 348_19, 569_239, 679_239"
-                
-                </td>
-            
-            
-            <td class="description last">奖品光效的位置，对应奖品图片的布局，填入每个奖品的位置以及角度用逗号分割  x_y_rotation（角度为0的可以不填写） 例如19_20或者19_20_0 表示第一个奖品的位置 x坐标为19px y坐标为20px 角度为0。）</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>contentId</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    swfcontent
-                
-                </td>
-            
-            
-            <td class="description last">嵌入swf 的div层的 id</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>onClickRollEvent</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last"></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>onCompleteRollEvent</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last">奖品光效的高度</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>r</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">奖品总数</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>b</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">圆盘的图片</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>s</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">开始抽奖按钮图片</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>bx</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">圆盘的图片位置x坐标 （转盘的中心点坐标为（0,0））</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>by</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">圆盘的图片位置y坐标</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>sx</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">开始抽奖按钮x坐标</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>sy</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-            
-            <td class="description last">开始抽奖按钮y坐标</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-            </td>
+            <td class="description last">前缀 如 'Shine'</td>
         </tr>
 	
 	
@@ -1528,24 +919,24 @@ function renderDemo(url,fileName) {
     
         
             
-        <h3 class="subsection-title">圆形转盘抽奖<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/lottery/lottery.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
-        <div class="demo-content" data-file="lottery/lottery.html">
+        <h3 class="subsection-title"><span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/landscape/demo1.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
+        <div class="demo-content" data-file="landscape/demo1.html">
             <pre class="code language-javascript"><code>Loading...</code></pre>
             <script>
             jQuery(function(){
-                renderDemo("http://tgideas.github.io/motion/component/demo/lottery/lottery.html","lottery/lottery.html");    
+                renderDemo("http://tgideas.github.io/motion/component/demo/landscape/demo1.html","landscape/demo1.html");    
             });
             </script>
         </div>
             
         
             
-        <h3 class="subsection-title">方形抽奖<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/lottery/square.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
-        <div class="demo-content" data-file="lottery/square.html">
+        <h3 class="subsection-title"><span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/landscape/demo2.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
+        <div class="demo-content" data-file="landscape/demo2.html">
             <pre class="code language-javascript"><code>Loading...</code></pre>
             <script>
             jQuery(function(){
-                renderDemo("http://tgideas.github.io/motion/component/demo/lottery/square.html","lottery/square.html");    
+                renderDemo("http://tgideas.github.io/motion/component/demo/landscape/demo2.html","landscape/demo2.html");    
             });
             </script>
         </div>

@@ -16,7 +16,9 @@
  * @param {string}  [config.type='touchend'] 事件触发类型
  * @param {string}  [config.currentClass='current'] 当前样式名称, 多tab嵌套时有指定需求
  * @param {boolean}  [config.link=false] tab controller中的链接是否可被点击
+ * @param {boolean}  [config.circle=false] 是否循环滚动
  * @param {number}  [config.stay=2000] 自动播放时停留时间
+ * @param {number}  [config.disable] 禁止某屏滚动
  * @param {object|string}  [config.prevBtn] 播放前一张，调用prev()
  * @param {object|string}  [config.nextBtn] 插放后一张，调用next()
  * @param {string}  [config.easing='swing'] 动画方式：默认可选(可加载Zepto.easying.js扩充)：'swing', 'linear'
@@ -59,6 +61,8 @@ define(function(require, exports, module) {
 			//controller // tab header(toc?)
 			//width // 限定目标宽度
 			//height // 限定目标高度
+			//disable // 禁止某屏滚动
+			//arrow // 指示箭头
 			effect: 'base',
 			direction: 'x',
 			autoPlay: false,
@@ -71,11 +75,11 @@ define(function(require, exports, module) {
 			delay: 200,
 			touchDis: 20,
 			lazy: window.undefined,
-			merge: false,
+			circle: false,
 			degradation: 'base',
 			animateTime: 300,
 			event: {},
-			easing: 'swing',
+			easing: 'ease',
 			title: {
 				delay: 0
 			},
@@ -83,6 +87,16 @@ define(function(require, exports, module) {
 		};
 
 		_static.effect = {};
+
+		_private.supportTouch = 'ontouchstart' in window;
+		_private.e = {
+			'touchstart' : _private.supportTouch ? 'touchstart' : 'mousedown',
+			'touchmove' : _private.supportTouch ? 'touchmove' : 'mousemove',
+			'touchend' : _private.supportTouch ? 'touchend' : 'mouseup'
+		}
+
+		_private.disabledPrevList = [];
+		_private.disabledNextList = [];
 
 		/***
 		 * 初始化
@@ -151,6 +165,10 @@ define(function(require, exports, module) {
 				isPlaying: config.autoPlay
 			});
 
+			if(config.disable !== window.undefined) {
+				self.disable(config.disable);
+			}
+
 			// 快捷传入自定义事件
 			for(var name in config) {
 				var result = /^on(.+)/.exec(name);
@@ -198,7 +216,7 @@ define(function(require, exports, module) {
 			if(config.switchTo !== window.undefined) {
 				self.switchTo(config.switchTo);
 			} else {
-				self.playTo(config.playTo);
+				self.switchTo(config.playTo);
 			}
 			
 
@@ -295,7 +313,7 @@ define(function(require, exports, module) {
 						self.playTo(i);
 					});
 					if (!config.link) {
-						Zepto(elem).on('touchend mouseup', function(e) {
+						Zepto(elem).on(_private.e.touchstart, function(e) {
 							e.preventDefault();
 						});
 					}
@@ -304,26 +322,26 @@ define(function(require, exports, module) {
 			}
 
 			if (self.nextBtn) {
-				Zepto(self.nextBtn).on('touchend mouseup', function(e) {
+				Zepto(self.nextBtn).on(_private.e.touchend, function(e) {
 					self.next();
 					e.preventDefault();
 				});
 			}
 
 			if (self.prevBtn) {
-				Zepto(self.prevBtn).on('touchend mouseup', function(e) {
+				Zepto(self.prevBtn).on(_private.e.touchend, function(e) {
 					self.prev();
 					e.preventDefault();
 				});
 			}
 
-			self.wrap.on('touchstart mousedown', function() {
+			self.wrap.on(_private.e.touchstart, function() {
 				// 如果没在自动播放
 				if (self.isPlaying) {
 					_private.clearTimer.call(self);
 				}
 			});
-			Zepto('body').on('touchend mouseup', function() {
+			Zepto('body').on(_private.e.touchend, function() {
 				// 如果没在自动播放
 				if (self.isPlaying) {
 					_private.setTimer.call(self);
@@ -342,10 +360,19 @@ define(function(require, exports, module) {
 		 * @param {number} page 第几页（索引值）
 		 */
 		_public.playTo = function(page) {
+			page = parseInt(page);
+			if(page === NaN ) {
+				return;
+			}
 			var self = this;
 			var config = self.config;
 			var hasCur = self.curPage !== window.undefined;
 			var prevPage;
+
+			if(page === self.oriCurPage) {
+				self.trigger('mobeforechange');
+				return;
+			}
 
 			// 临界计算
 			self._outBound =  function(i) {
@@ -357,9 +384,11 @@ define(function(require, exports, module) {
 				return i;
 			}
 
+			self.oriPrevPage = self.oriCurPage;
+			self.oriCurPage = page;
+
 
 			self.prevPage = self.curPage;
-
 			prevPage = self.curPage;
 			page = self.curPage = self._outBound(page);
 
@@ -398,6 +427,30 @@ define(function(require, exports, module) {
 			}
 			if (config.lazy === true) {
 				if (curTarget.length > 0 && !curTarget.data('parsed')) _private.lazyload(curTarget);
+				if(self._loaded === window.undefined) {
+					self._loaded = [];
+				}
+				if(self._loaded.indexOf(page) === -1) {
+					var curObj = self.target.eq(page);
+					var elems = curObj.find('*');
+					elems = Zepto(elems.concat(curObj));
+					elems.each(function(i, elem){
+						elem = Zepto(elem);
+						var src = elem.data('src');
+						if(src) {
+							if(/img|audio|video|link/i.test(elem[0].tagName)) {
+								elem.attr('src', src);
+							} else {
+								elem.css('background-image', 'url(' + src + ')');
+							}
+							
+							elem.removeAttr('data-src');
+						}
+
+					});
+					self._loaded.push(page);
+				}
+				
 			}
 
 			//self.config.onchange.call(self, page);
@@ -412,7 +465,16 @@ define(function(require, exports, module) {
 			self.trigger('mobeforechange');
 			//if(self.effect) self.effect.onchange.call(self);
 
-			
+			// 指示箭头显示/隐藏
+			var arrow = Zepto(config.arrow);
+			if(arrow.length > 0) {
+				console.log(self.curPage >= self.target.length - 1);
+				if((self.curPage >= self.target.length - 1 && !config.circle) || _private.disabledNextList.indexOf(self.curPage) != -1) {
+					arrow.css('display', 'none')
+				} else {
+					arrow.css('display', 'block')
+				}
+			}
 
 		};
 
@@ -420,14 +482,14 @@ define(function(require, exports, module) {
 		 * 播放后一个
 		 */
 		_public.next = function() {
-			this.playTo(this.curPage + 1);
+			this.playTo(this.oriCurPage + 1);
 		};
 
 		/**
 		 * 播放前一个
 		 */
 		_public.prev = function() {
-			this.playTo(this.curPage - 1);
+			this.playTo(this.oriCurPage - 1);
 		};
 
 		/**
@@ -475,6 +537,40 @@ define(function(require, exports, module) {
 			self.trigger('stop');
 		};
 
+
+		/**
+		 * 禁用某屏
+		 */
+		_public.disable = function(index, direction) {
+			var self = this;
+			if(!direction || direction == 'prev') {
+				_private.disabledPrevList.push(index);
+			}
+			if(!direction || direction == 'next') {
+				_private.disabledNextList.push(index);
+			}			
+		};
+
+
+		/**
+		 * 启用某屏
+		 */
+		_public.enable = function(index, direction) {
+			var self = this;
+			if(!direction || direction == 'prev') {
+				var pos = _private.disabledPrevList.indexOf(index);
+				if(pos !== -1) {
+					_private.disabledPrevList.splice(pos, 1);
+				}
+			}
+			if(!direction || direction == 'next') {
+				var pos = _private.disabledNextList.indexOf(index);
+				if(pos !== -1) {
+					_private.disabledNextList.splice(pos, 1);
+				}
+			}			
+		};
+
 		/**
 		 * 无动画效果切换
 		 */
@@ -514,10 +610,11 @@ define(function(require, exports, module) {
 			var moveX,moveY, moveDisX, moveDisY, moveDis;
 
 			if (config.touchMove) {
-				self.wrap.on('touchstart mousedown', function(e) {
+				self.wrap.on(_private.e.touchstart, function(e) {
 					var evt = e.touches ?  e.touches[0] : e;
 					startX = moveX = evt.pageX;
 					startY = moveY = evt.pageY;
+					// console.log(startY);
 
 					/**
 					 * @event mo.Tab#touchstart
@@ -527,8 +624,8 @@ define(function(require, exports, module) {
 						return;
 					}
 
-					self.wrap.on('touchmove mousemove', touchMove);
-					self.wrap.on('touchend mouseup', touchEnd);
+					self.wrap.on(_private.e.touchmove, touchMove);
+					self.wrap.on(_private.e.touchend, touchEnd);
 					touchDirection = '';
 				});
 			}
@@ -579,35 +676,50 @@ define(function(require, exports, module) {
 				if (touchDirection && config.direction != touchDirection) {
 					return;
 				}
-				if (dis === undefined || isNaN(dis)) {
-					dis = 0;
+				if (dis === undefined || isNaN(dis) || dis === 0) {
+					return;
 				}
 
 				// self.wrap.style.webkitTransitionDuration = config.animTime + 'ms';
-				self.wrap.off('touchmove mousemove', touchMove);
-				self.wrap.off('touchend mouseup', touchEnd);
+				self.wrap.off(_private.e.touchmove, touchMove);
+				self.wrap.off(_private.e.touchend, touchEnd);
 
-				var isOK = true;
+			
+
+
+
+
+
 
 				/**
 				 * @event mo.Tab#touchend
 				 * @property {object} event 开始切换
 				 */
 				if (self.trigger('touchend', [dis]) === false) {
+					dis = 0;
 					return;
 				}
 
+				var isOK = true;
 				if (!dis || (Math.abs(dis) < config.touchDis || !isOK)) {
 					self.playTo(self.curPage);
+					dis = 0;
+					return;
+				}
+
+				if ( (_private.disabledPrevList.indexOf(self.curPage) !== -1 && dis > 0) || 
+					(_private.disabledNextList.indexOf(self.curPage) !== -1 && dis < 0) ) {
+					self.playTo(self.oriCurPage);
+					dis = 0;
 					return;
 				}
 
 
-
-				if (dis > 0) {
-					var to = self.curPage - 1 < 0 ? 0 : self.curPage - 1;
-				} else {
-					var to = self.curPage + 1 >= self.target.length ? self.target.length - 1 : self.curPage + 1;
+				var to = dis > 0 ? self.oriCurPage - 1 : self.oriCurPage + 1;
+				var length = self.target.length;
+				if(!config.circle) {
+					to = to < 0 ? 0 : to;
+					to = to >= length ? length - 1 : to;
 				}
 
 				self.playTo(to);

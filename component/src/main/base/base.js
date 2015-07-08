@@ -71,7 +71,6 @@ define(function(require, exports, module){
 			return box.triggerHandler.apply(box, arguments);
 		};
 
-		
 
 	});
 

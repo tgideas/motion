@@ -85,7 +85,7 @@ module.exports = function(grunt) {
       });
       var uglifyOpt = {}
       uglifyOpt['build/'+fileName+'.min.js'] = ['build/'+fileName+'.js'];
-      grunt.config.set('motion_build.dev.files.0.src', filesSrc);
+      grunt.config.set('motion_build.dev.files.0.src', filesSrc.concat(plugins));
       grunt.config.set('uglify.dev.files', uglifyOpt);
       grunt.config.set('uglify.dev.options.banner', "/*! motion v<%= pkg.version %> | " +
             "(c) <%= grunt.template.today('yyyy') %>, <%= grunt.template.today('yyyy/mm/dd') %> | "+file.replace(/\|/g,' ')+" | motion Foundation, Inc. */\r\n");

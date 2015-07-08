@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Tencent-TGideas">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>Launch-app 启动APP</title>
+
+<style>
+/* reset */
+*{margin:0; padding:0;border:0;}
+img{border:0;vertical-align:middle;}
+ul,ol,dl{list-style:none;}
+body, button {height: 100%;font-size:12px; font-family:arial, "Microsoft YaHei", simsun; line-height:20px}
+.content p{margin: 60px;}
+button{margin-left: 30px;background-color: #666;color: #fff;border-radius: 5px;padding: 5px;}
+</style>
+</head>
+
+<body>
+	<script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
+	<script src="http://ossweb-img.qq.com/images/js/motion/launch-app.min.js"></script>
+	<div class="content">
+		<p>内容 <button>启动游戏</button></p>
+		<p>内容</p>
+		<p>内容</p>
+		<p>内容</p>
+		<p>内容</p>
+		<p>内容</p>		
+	</div>
+
+
+	<script>
+		
+		$(function(){
+			$('button').on('touchend', function(){
+				new mo.LaunchAPP({
+					androidScheme: 'candycrushsaga://tencent',
+					iosScheme: 'tencent101021990://',
+					androidInstallURL: 'http://dlied5.qq.com/candycrush/candycrushsaga_1.34.1-Release-Tencent-NUKE_Tencent-Launch-0.1.17_Android-release-LIVE-tencent_10000703_140901095434c.apk',
+					iosInstallURL: 'https://itunes.apple.com/cn/app/tang-guo-chuan-qi/id838804006?mt=8'
+				});
+			})
+
+		});
+
+	</script>
+</body>
+</html>

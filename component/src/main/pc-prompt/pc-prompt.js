@@ -1,23 +1,21 @@
 /**
  * @author Kimixiao
- * @version 1.0
+ * @version 1.1
  * @date 2015-05-06
  * @description 当移动端网站在PC中打开时，给予友好提示。
  * @extends mo.Base
  * @name mo.PCPrompt
  * @requires lib/zepto.js
  * @requires src/base.js
- * @param {string} config.url 项目地址，会根据此地址生成二维码。
- * @param {string} config.title [config.title='title'] 项目标题，不设置则取title标签中的文字作为默认标题。
- * @param {string} config.description [config.description='meta:description'] 项目简介，最多240字，超出会做截断，不设置则取<meta>标签中的 description 作为默认简介。
- * @param {string} config.preview 项目预览图，尺寸212*377。
- * @param {string} config.prefix [config.direction='K_PCPrompt'] PC提示层设计的id及class前缀。
- * @param {object} config.jump 点击“直接进入”执行的回调。
- * @param {object} config.init 非PC用户，初始化移动端代码
+ * @param {string} [config.url=window.location.href] 项目地址，会根据此地址生成二维码；留空则获取地址栏。
+ * @param {string} [config.title=&lt;title&gt;] 项目标题，不设置则取title标签中的文字作为默认标题。
+ * @param {string} [config.description=&lt;meta:description&gt;] 项目简介，最多240字，超出会做截断，不设置则取<meta>标签中的 description 作为默认简介。
+ * @param {string} [config.preview=null] 项目预览图，尺寸212*377。
+ * @param {string} [config.direction=K_PCPrompt] PC提示层设计的id及class前缀。
+ * @param {object} [config.jump=null] 点击“直接进入”执行的回调。
+ * @param {object} [config.init=null] 非PC用户，初始化移动端代码
  * @example
- var PCPrompt = new mo.PCPrompt({
-    url:'http://tgideas.github.io/motion/component/demo/pc-prompt/demo1.html'
- });
+ var PCPrompt = new mo.PCPrompt();
  * @see pc-prompt/demo1.html 必填项
  * @see pc-prompt/demo2.html 完全填写
  * @class
@@ -47,6 +45,9 @@ define(function(require, exports, module) {
             var self = this;
 
             // 快捷传入自定义事件
+            if(!par){
+                par = {};
+            }
             par.event = par.event || {};
             for(var name in par) {
                 var result = /^on(.+)/.exec(name);
@@ -613,7 +614,7 @@ define(function(require, exports, module) {
                 var qrcode;
                 if(div.offsetHeight > 700){
                     qrcode = new QRCode(divId+'_QRCodeBox',{
-                        text:par.url,
+                        text:par.url||window.location.href,
                         width:250,
                         height:250,
                         colorDark:"#000000"
@@ -624,7 +625,7 @@ define(function(require, exports, module) {
                     comm.g(divId+'_QRCodeBox').style.height = '170px';
                     comm.g(divId+'_QRCodeBox').style.padding = '15px';
                     qrcode = new QRCode(divId+'_QRCodeBox',{
-                        text:par.url,
+                        text:par.url||window.location.href,
                         width:170,
                         height:170,
                         colorDark:"#000000"

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Tencent-TGideas">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>单屏滚动-嵌套</title>
+<script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
+<script src="http://127.0.0.1:1024/?u=slide&debug=1&r=1"></script>
+<style>
+/* reset */
+*{margin:0; padding:0;border:0;}
+img{border:0;vertical-align:middle;}
+ul,ol,dl{list-style:none;}
+html, body{height: 100%;}
+body {font-size:12px; font-family:arial, "Microsoft YaHei", simsun; line-height:20px;}
+
+
+</style>
+</head>
+
+<body>
+
+	<div class="slide">					 
+		<ul class="content">
+			<li class="page">
+				<div class="img-slide">
+					<ul>
+						<li>11</li>
+						<li>22</li>
+						<li>33</li>
+					</ul>
+				</div>
+			</li>
+			<li class="page">2</li>
+			<li class="page">3</li>
+		 </ul>
+	</div>
+
+	<style>
+		.slide {position:relative; width:100%; height:100%;overflow: hidden;}
+		.slide .content{width: 100%;height: 100%;margin: 0 auto;}
+		.slide .content .page{width: 100%;height:100%;overflow: hidden;-webkit-background-size: cover;background-size: cover;line-height: 400px;text-align: center;color: #fff;font-size:100px;}
+		.slide .content .page:nth-child(1){background-image:url(http://ossweb-img.qq.com/images/sy/motion/b1.jpg);}
+		.slide .content .page:nth-child(2){background-image:url(http://ossweb-img.qq.com/images/sy/motion/b2.jpg);}
+		.slide .content .page:nth-child(3){background-image:url(http://ossweb-img.qq.com/images/sy/motion/b3.jpg);}
+		.slide .content .page:nth-child(4){background-image:url(http://ossweb-img.qq.com/images/sy/motion/b4.jpg);}
+
+		.img-slide{position: relative;width: 95%;height: 400px;top: 50%;margin:-200px auto 0; font-size: 20px;line-height: 30px;overflow: hidden;}
+		.img-slide ul{width: 100%;height: 100%;}
+		.img-slide li{width: 100%;height: 100%;background-color: blue;}
+		.img-slide li:nth-child(2){background-color: orange;}
+		.img-slide li:nth-child(3){background-color: purple;}
+		.img-slide .controller{position:absolute;bottom:5px;z-index:10;width: 100%;height:24px;text-align: center;}
+		.img-slide .controller li{display: inline-block;width: 10px;height: 10px;margin: 5px;border-radius: 10px;background-color: #fff;line-height: 100px;overflow: hidden;}
+		.img-slide .controller li.current{background-color: #f00;}
+
+	</style>
+	
+	<script>
+		Zepto(function($){
+			window.pageSlide = new mo.Slide({
+				target: $('.slide .page')
+			});
+
+			imgSlide = new mo.Slide({
+				target: $('.img-slide li'),
+				direction: 'x',
+				effect: 'flip',
+				circle: true,
+				controller: true,
+				autoPlay: false
+			})
+		});
+	</script>
+
+</body>
+</html>

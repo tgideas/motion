@@ -11,6 +11,7 @@
  * @param {boolean}  [config.touchMove=true] 是否允许手指滑动
   * @param {object|string} config.target 目标选项卡片，即供切换的 Elements list (Elements.length >= 2)
  * @param {object|string} [config.controller='ul>li*'] 触发器
+ * @param {string} [config.effect='slide'] 指定效果，可选值：'slide', 'roll', 'scale'
  * @param {string} [config.direction='x'] 指定方向，仅效果为'slide'时有效
  * @param {boolean}  [config.autoPlay=false] 是否自动播放 
  * @param {number}  [config.playTo=0] 默认播放第几个（索引值计数，即0开始的计数方式） 
@@ -18,6 +19,7 @@
  * @param {string}  [config.currentClass='current'] 当前样式名称, 多tab嵌套时有指定需求
  * @param {boolean}  [config.link=false] tab controller中的链接是否可被点击
  * @param {number}  [config.stay=2000] 自动播放时停留时间
+ * @param {boolean}  [config.loop=false] 是否启用循环滚动
  * @param {number}  [config.delay=150] mouseover触发延迟时间
  * @param {object|string}  [config.prevBtn] 播放前一张，调用prev()
  * @param {object|string}  [config.nextBtn] 插放后一张，调用next()
@@ -29,10 +31,8 @@
 		var tab1 = new mo.Slide({
 			target: $('#slide01 li')
 		});
- * @see slide/demo1.html 普通滑动
- * @see slide/demo2.html 横向单屏滑动-扫二维码看效果
- * @see slide/demo3.html 带标题的滑动
- * @see slide/demo4.html 未命名滑动
+ * @see page-slide/demo2.html 垂直单屏滑动
+ * @see page-slide/demo3.html 垂直缩放滑动
  * @class
 */
 define(function(require, exports, module) {
@@ -65,7 +65,9 @@ define(function(require, exports, module) {
 
 		_static.config = {
 			touchMove: true,
-			effect: 'slide'
+			direction: 'y',
+			effect: 'slide',
+			controller: false
 		};
 
 		mo.Tab.extend('slide', {
@@ -74,74 +76,149 @@ define(function(require, exports, module) {
 				var config = self.config;
 
 				// 清除浮动
-				self.container.css({
+				self.wrap.css({
 					'position': 'relative',
 					'overflow': 'hidden'
 				});
-				self.container.css('-webkit-backface-visibility', 'hidden');
-
+				self.wrap.css('-webkit-backface-visibility', 'hidden');
+				self.target.css({
+					'position': 'absolute',
+					'top': '0'
+				});
 
 				// 设置不同方向不同的操作属性
 				if (config.direction == 'x') {
 
-					// 初始化CSS
-					self.target.css('float', 'left');
+					// // 初始化CSS
+					// var wrapWidth = 0;
+					// self.target.each(function(i, elem) {
+					// 	wrapWidth += Zepto(elem)[0].offsetWidth;
+					// });
+					// if (wrapWidth <= 0) {
+					// 	wrapWidth = document.documentElement.offsetWidth * self.target.length;
+					// }
 
-					var wrapWidth = 0;
-					self.target.each(function(i, elem) {
-						wrapWidth += Zepto(elem)[0].offsetWidth;
-					});
-					if (wrapWidth <= 0) {
-						wrapWidth = document.documentElement.offsetWidth * self.target.length;
-					}
-
-					self.wrap.css('width', config.wrapWidth || wrapWidth + 'px');
+					// self.wrap.css('width', config.wrapWidth || wrapWidth + 'px');
 
 					// 设置操作属性
-					self.animProp = 'translateX'; // 为避免DOM树插入节点带来的风险，停用scrollLeft
-					self.offsetProp = 'offsetLeft';
+					self.animProp = 'translateX'; 
+					self.sizeProp = 'width';
+					self.posProp = ['left', 'right'];
 				} else {
-					self.animProp = 'translateY';
-					self.offsetProp = 'offsetTop';
+					self.animProp = 'translateY'; 
+					self.sizeProp = 'height';
+					self.posProp = ['top', 'bottom'];
 				}
 			},
 
 
-
-			touchmove: function(e, dis){
+			touchmove: function(e, startDis, moveDis){
 				var self = this;
+				var curObj = self.target.eq(self.curPage);
 				if(self.moving == true) {
 					return;
 				}
 
-				var o = {};
-				o[self.cssPrefix + 'transform'] = self.animProp + '(' + (dis - self.target[self.curPage][self.offsetProp]) + 'px)';
+				// 获取当前偏移值
+				var currentVal = /\(([\d-]*).*\)/.exec(curObj.css(self.propPrefix + 'Transform'));
+				var currentPos = currentVal ? currentVal[1]*1 : 0;
 
-				self.wrap.css(o, 0);
+				// 设置当前屏位置
+				var curStyle = {};
+				curStyle[self.cssPrefix + 'transform'] = self.animProp + '(' + (currentPos + moveDis) + 'px)';
+				self.target.css('zIndex', 0);
+				curObj.css(curStyle).css('zIndex', 1);
 
+				// 设置下一屏位置
+				var nextObj, nextDis = {}, nextSize;
+				if(startDis > 0) {
+					nextObj = self.target.eq(self._outBound(self.curPage-1));
+					nextSize = - nextObj[self.sizeProp]();
+				} else {
+					nextObj = self.target.eq(self._outBound(self.curPage+1));
+					nextSize = curObj[self.sizeProp]();
 
+				}
+				nextObj.css('zIndex', 1);
+				nextDis[self.cssPrefix + 'transform'] = self.animProp + '(' + (currentPos + moveDis +  nextSize) + 'px)';
+				nextObj.css(nextDis);			
 			},
 
-			beforechange: function() {				
+			touchend: function(e, dis){
+				var self = this;
+				var curObj = self.target.eq(self.curPage);
+
+				// 如果有单屏页面内容过多
+				var rect = self.target[self.curPage].getBoundingClientRect();
+				var winHeight = window.innerHeight;
+				if( (dis <= 0 && rect[self.posProp[1]] > winHeight) || (dis > 0 && rect[self.posProp[0]] < 0)) {
+					var currentVal = /\(([\d-]*).*\)/.exec(curObj.css(self.propPrefix + 'Transform'));
+					var currentPos = currentVal ? currentVal[1]*1 : 0;
+					var posObj = {};
+					var pos = currentPos + dis;
+					var size  = curObj[self.sizeProp]();
+					var wrapSize = self.wrap[self.sizeProp]();
+					pos = pos > 0 ? 0 : pos;
+					pos = pos < wrapSize - size ? wrapSize  - size: pos;
+					posObj[self.cssPrefix + 'transform'] = self.animProp+'('+ pos +'px)';
+					curObj.animate(posObj);
+					return false;
+				}
+			},
+
+			beforechange: function() {
 				var self = this;
 				var config = self.config;
-				var from = self.prevPage === window.undefined ? 0 : self.prevPage;
-				var to = self.curPage;
-				var pos;
-				var o = {};
-				var animObj;
+				var prevIndex = self.prevPage === window.undefined ? self._outBound(self.curPage - 1) : self.prevPage;
+				var curIndex = self.curPage;
+				var prevObj = self.target.eq(prevIndex);
+				var curObj = self.target.eq(curIndex);
+				var prevStartPos = {}, prevEndPos = {}, curStartPos = {}, curEndPos = {};
+				var size;
 
-				o[self.animProp] = -self.target[to][self.offsetProp] + 'px';
+				// 位置
+				if(self.oriPrevPage !== window.undefined && self.oriCurPage < self.oriPrevPage) {
+					size = -curObj[self.sizeProp]();
 
-				self.moving = true;
-				self.wrap.animate(o, config.animateTime, config.easing, function() {
+				} else {
+					size = prevObj[self.sizeProp]();
+
+				}
+				curStartPos[self.cssPrefix + 'transform'] = self.animProp+'('+ size +'px)';
+				prevEndPos[self.cssPrefix + 'transform'] = self.animProp+'('+ (-size) +'px)';
+				curEndPos[self.cssPrefix + 'transform'] = self.animProp+'(0px)';
+
+				// 设置初始属性
+				// curObj.css(curStartPos);
+				self.target.css('zIndex', 0);
+				prevObj.css('zIndex', 1);
+				curObj.css('zIndex', 1);
+
+				// 设置终点属性
+				prevObj.animate(prevEndPos, config.animateTime, config.easing, function(){
+					prevObj.css('zIndex', 0);
+				});
+				curObj.animate(curEndPos, config.animateTime, config.easing, function(){
 					self.moving = false;
-					self.trigger('change');
+					self.trigger('change', [self.curPage]);				
 				});
 			}
 
-
 		});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -149,3 +226,7 @@ define(function(require, exports, module) {
 	});
 
 });
+
+
+
+
