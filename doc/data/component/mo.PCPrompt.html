@@ -16,6 +16,16 @@
     <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
     <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
     <script src="http://tgideas.github.io/motion/assets/js/detect-browser.js"></script>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8a2c692a5eb965c4b5021c0be91e0585";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
 </head>
 <body class="api-docs">
     <script>
@@ -75,7 +85,7 @@
     <div class="main container-fluid">
         <section class="sidebar col-sm-3">
             <nav>
-                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.PageSlide.html">PageSlide</a></li><li><a href="mo.PCPrompt.html">PCPrompt</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
+                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Audio.html">Audio</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.Landscape.html">Landscape</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.PageSlide.html">PageSlide</a></li><li><a href="mo.PCPrompt.html">PCPrompt</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
             </nav>
             <script>
             (function(){
@@ -184,7 +194,7 @@ function renderDemo(url,fileName) {
         
 	
 	<dt class="tag-version">版本:</dt>
-	<dd class="tag-version"><ul class="dummy"><li>1.0</li></ul></dd>
+	<dd class="tag-version"><ul class="dummy"><li>1.1</li></ul></dd>
 	
 	
 	
@@ -267,7 +277,7 @@ function renderDemo(url,fileName) {
     
         <h5>Example</h5>
         
-    <pre class="language-javascript"><code> var PCPrompt = new mo.PCPrompt({<br>    url:'http://tgideas.github.io/motion/component/demo/pc-prompt/demo1.html'<br> });</code></pre>
+    <pre><code> var PCPrompt = new mo.PCPrompt();</code></pre>
 
     
 </dd>
@@ -321,7 +331,11 @@ function renderDemo(url,fileName) {
 		<th>类型</th>
 		
 		
+		<th>参数</th>
 		
+		
+		
+		<th>默认值</th>
 		
 		
 		<th class="last">描述</th>
@@ -346,10 +360,24 @@ function renderDemo(url,fileName) {
             </td>
             
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
             
             
             
-            <td class="description last">项目地址，会根据此地址生成二维码。</td>
+                <td class="default">
+                
+                    window.location.href
+                
+                </td>
+            
+            
+            <td class="description last">项目地址，会根据此地址生成二维码；留空则获取地址栏。</td>
         </tr>
 	
 	
@@ -369,10 +397,24 @@ function renderDemo(url,fileName) {
             </td>
             
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
             
             
             
-            <td class="description last">[config.title='title'] 项目标题，不设置则取title标签中的文字作为默认标题。</td>
+                <td class="default">
+                
+                    &lt;title&gt;
+                
+                </td>
+            
+            
+            <td class="description last">项目标题，不设置则取title标签中的文字作为默认标题。</td>
         </tr>
 	
 	
@@ -392,10 +434,24 @@ function renderDemo(url,fileName) {
             </td>
             
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
             
             
             
-            <td class="description last">[config.description='meta:description'] 项目简介，最多240字，超出会做截断，不设置则取<meta>标签中的 description 作为默认简介。</td>
+                <td class="default">
+                
+                    &lt;meta:description&gt;
+                
+                </td>
+            
+            
+            <td class="description last">项目简介，最多240字，超出会做截断，不设置则取<meta>标签中的 description 作为默认简介。</td>
         </tr>
 	
 	
@@ -415,7 +471,21 @@ function renderDemo(url,fileName) {
             </td>
             
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
             
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
             
             
             <td class="description last">项目预览图，尺寸212*377。</td>
@@ -425,7 +495,7 @@ function renderDemo(url,fileName) {
 	
         <tr>
             
-                <td class="name"><code>config.prefix</code></td>
+                <td class="name"><code>config.direction</code></td>
             
             
             <td class="type">
@@ -438,10 +508,24 @@ function renderDemo(url,fileName) {
             </td>
             
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
             
             
             
-            <td class="description last">[config.direction='K_PCPrompt'] PC提示层设计的id及class前缀。</td>
+                <td class="default">
+                
+                    K_PCPrompt
+                
+                </td>
+            
+            
+            <td class="description last">PC提示层设计的id及class前缀。</td>
         </tr>
 	
 	
@@ -461,7 +545,21 @@ function renderDemo(url,fileName) {
             </td>
             
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
             
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
             
             
             <td class="description last">点击“直接进入”执行的回调。</td>
@@ -484,7 +582,21 @@ function renderDemo(url,fileName) {
             </td>
             
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
             
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
             
             
             <td class="description last">非PC用户，初始化移动端代码</td>
@@ -909,7 +1021,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/pc-prompt/pc-prompt.js">pc-prompt.js</a>, line 643</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/pc-prompt/pc-prompt.js">pc-prompt.js</a>, line 644</li></ul>
 
 
 
@@ -1029,7 +1141,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/pc-prompt/pc-prompt.js">pc-prompt.js</a>, line 634</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/pc-prompt/pc-prompt.js">pc-prompt.js</a>, line 635</li></ul>
 
 
 

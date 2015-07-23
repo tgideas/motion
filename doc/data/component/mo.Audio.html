@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-    <title>Class: LazyLoad - Motion.js - A swift javascript ui kit for mobile</title>
+    <title>Class: Audio - Motion.js - A swift javascript ui kit for mobile</title>
     <meta name="description" content="Motion.js,a slim javascript ui kit for mobile" />
     <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library" />
     <meta name="author" content="TGIdeas" />
@@ -68,8 +68,8 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right bs-docs-lang">
-              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/mo.LazyLoad.html" data-attr-t href-t="mods.modUrlLazyLoad">English</a></li>
-              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.LazyLoad.html">简体中文</a></li>
+              <li><a href="http://tgideas.github.io/motion/i18n/en/doc/data/component/mo.Audio.html" data-attr-t href-t="mods.modUrlAudio">English</a></li>
+              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.Audio.html">简体中文</a></li>
               <script>
                 var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
                     $menus = jQuery('.bs-docs-lang li');
@@ -102,7 +102,7 @@
 
             
             
-                <h1 class="page-title">Class: LazyLoad</h1>
+                <h1 class="page-title">Class: Audio</h1>
             
             
             
@@ -159,7 +159,7 @@ function renderDemo(url,fileName) {
     <h2>
         <span class="ancestors"><a href="mo_.html">mo</a>.</span>
     
-    LazyLoad
+    Audio
     </h2>
     
 </header>   -->
@@ -171,7 +171,7 @@ function renderDemo(url,fileName) {
     
         
 <dt>
-    <h4 class="name" id="LazyLoad"><span class="type-signature"></span>new LazyLoad<span class="signature">(container=window, <span class="optional">opts</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Audio"><span class="type-signature"></span>new Audio<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -179,7 +179,7 @@ function renderDemo(url,fileName) {
     
     
     <div class="description">
-        图片懒加载
+        切换类中
     </div>
     
 
@@ -207,7 +207,7 @@ function renderDemo(url,fileName) {
 	<dt class="tag-author">作者:</dt>
 	<dd class="tag-author">
         <ul>
-            <li>AidenXiong</li>
+            <li>Brucewan</li>
         </ul>
 	</dd>
 	
@@ -232,6 +232,8 @@ function renderDemo(url,fileName) {
 	<dd class="tag-depend">
         <ul>
             <li>module:lib/zepto.js</li>
+        
+            <li>module:src/base.js</li>
         </ul>
     </dd>
        
@@ -240,7 +242,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/lazyLoad/lazyLoad.js">lazyLoad.js</a>, line 1</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/audio/audio.js">audio.js</a>, line 1</li></ul>
 
 
 
@@ -255,7 +257,11 @@ function renderDemo(url,fileName) {
 	<dt class="tag-see">See:</dt>
 	<dd class="tag-see">
         <ul>
-            <li>lazyLoad/lazyLoad.html 资源懒加载</li>
+            <li>audio/normal.html 跟随音乐起舞！-</li>
+        
+            <li>audio/animate.html 让整个页面舞动起来</li>
+        
+            <li>audio/effect.html 音乐特效</li>
         </ul>
 	</dd>
 	 -->
@@ -273,7 +279,7 @@ function renderDemo(url,fileName) {
     
         <h5>Example</h5>
         
-    <pre><code>		var lazyload = new mo.LazyLoad(window, {<br>			'threshold' : 100,<br>			'dataAttr'  : 'original'<br>		});</code></pre>
+    <pre><code>		var audio = new mo.Audio({<br>			src: 'http://ossweb-img.qq.com/images/audio/motion/audio4.mp3',<br>			controller: $('.bg-music')<br>		});</code></pre>
 
     
 </dd>
@@ -333,6 +339,8 @@ function renderDemo(url,fileName) {
 		
 		
 		
+		<th>默认值</th>
+		
 		
 		<th class="last">描述</th>
 	</tr>
@@ -343,13 +351,13 @@ function renderDemo(url,fileName) {
 	
         <tr>
             
-                <td class="name"><code>container=window</code></td>
+                <td class="name"><code>config.src</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">HTMLElement</span>
+<span class="param-type">string</span>
 
 
             
@@ -364,21 +372,28 @@ function renderDemo(url,fileName) {
             
             
             
+                <td class="default">
+                
+                </td>
             
-            <td class="description last">懒加载的容器 默认</td>
+            
+            <td class="description last">需要播放的音频地址，需要同域，或允许跨域请求（accect: *\/*），如果是跨域的音频地址，将只支持基础的功能；</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>opts</code></td>
+                <td class="name"><code>config.controller</code></td>
             
             
             <td class="type">
             
                 
 <span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
 
 
             
@@ -395,38 +410,165 @@ function renderDemo(url,fileName) {
             
             
             
-            
-            <td class="description last">配置参数
-                <h6>Properties</h6>
+                <td class="default">
                 
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>名称</th>
-		
-		
-		<th>类型</th>
-		
-		
-		<th>参数</th>
-		
-		
-		
-		<th>默认值</th>
-		
-		
-		<th class="last">描述</th>
-	</tr>
-	</thead>
+                </td>
+            
+            
+            <td class="description last">显示波形的容器；</td>
+        </tr>
 	
-	<tbody>
 	
 	
         <tr>
             
-                <td class="name"><code>threshold</code></td>
+                <td class="name"><code>config.autoPlay</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">是否自动播放；</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.loop</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">是否循环播放；</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.effect</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    'none'
+                
+                </td>
+            
+            
+            <td class="description last">给音频添加的效果（'cave', 'lodge', 'parking', 'lowpass', 'telephone', 'spatialized', 'backwards', 'wildecho'）；</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.fillColor</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">波形填充颜色，eg.'#ff0000'；</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.fillNum</code></td>
             
             
             <td class="type">
@@ -451,55 +593,12 @@ function renderDemo(url,fileName) {
             
                 <td class="default">
                 
-                    0
+                    12
                 
                 </td>
             
             
-            <td class="description last">距离viewport的值</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>dataAttr</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">dataAttr</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    original
-                
-                </td>
-            
-            
-            <td class="description last">所有资源加载完成后的回调</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-            </td>
+            <td class="description last">容器宽度最好为fillNum的整数倍，eg. fillNum=12，容器宽度为60px</td>
         </tr>
 	
 	
@@ -510,14 +609,14 @@ function renderDemo(url,fileName) {
         <li><dl>
             
 <dt>
-    <h4 class="name" id="container"><span class="type-signature"></span>container<span class="type-signature"> :HTMLElement</span></h4>
+    <h4 class="name" id="currentTime"><span class="type-signature"></span>currentTime<span class="type-signature"> :number</span></h4>
     
     
 </dt>
 <dd>
     
     <div class="description">
-        懒加载容器
+        当前播放时间
     </div>
     
     
@@ -549,69 +648,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/lazyLoad/lazyLoad.js">lazyLoad.js</a>, line 103</li></ul>
-
-
-
-
-
-	</dd>
-	
-    
-    
-	
-<!-- 	 -->
-	
-	
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="type-signature"> :Array</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        需要懒加载的元素列表
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-     
-
-       
-
-
-	
-	
-	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/lazyLoad/lazyLoad.js">lazyLoad.js</a>, line 108</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/audio/audio.js">audio.js</a>, line 131</li></ul>
 
 
 
@@ -637,7 +674,7 @@ function renderDemo(url,fileName) {
         <li><dl>
             
 <dt>
-    <h4 class="name" id="detect"><span class="type-signature"></span>detect<span class="signature">()</span><span class="type-signature"> &rarr; {[type]}</span></h4>
+    <h4 class="name" id="applyEffect"><span class="type-signature"></span>applyEffect<span class="signature">(url)</span><span class="type-signature"></span></h4>
 
     
 </dt>
@@ -645,7 +682,7 @@ function renderDemo(url,fileName) {
     
     
     <div class="description">
-        检测懒加载元素
+        应用音频效果，可选效果：'cave', 'lodge', 'parking', 'lowpass', 'telephone', 'spatialized', 'backwards', 'wildecho'
     </div>
     
 
@@ -682,7 +719,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/lazyLoad/lazyLoad.js">lazyLoad.js</a>, line 121</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/audio/audio.js">audio.js</a>, line 392</li></ul>
 
 
 
@@ -704,28 +741,85 @@ function renderDemo(url,fileName) {
     
     
     
-    <h5>Returns:</h5>
     
+    
+</dd>
+
+        
             
-<div class="param-desc">
-    [description]
-</div>
+<dt>
+    <h4 class="name" id="constructor"><span class="type-signature"></span>constructor<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        构造函数
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Base#constructor
+	</li></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 42</li></ul>
 
 
 
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">[type]</span>
 
 
 	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
 </dl>
 
-        
+    
+    
+    
+    
+    
+    
     
     
 </dd>
@@ -891,6 +985,228 @@ function renderDemo(url,fileName) {
         
             
 <dt>
+    <h4 class="name" id="pause"><span class="type-signature"></span>pause<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        暂停音频
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/audio/audio.js">audio.js</a>, line 266</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="play"><span class="type-signature"></span>play<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        播放音频
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/audio/audio.js">audio.js</a>, line 216</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="stop"><span class="type-signature"></span>stop<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        停止音频
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/audio/audio.js">audio.js</a>, line 282</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="trigger"><span class="type-signature"></span>trigger<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
@@ -973,7 +1289,7 @@ function renderDemo(url,fileName) {
         <li><dl>
             
 <dt>
-    <h4 class="name" id="event:load">load</h4>
+    <h4 class="name" id="event:beforeinit">beforeinit</h4>
 
     
 </dt>
@@ -1031,7 +1347,7 @@ function renderDemo(url,fileName) {
             
             
             
-            <td class="description last">单个资源加载完成</td>
+            <td class="description last"></td>
         </tr>
 	
 	
@@ -1064,7 +1380,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/lazyLoad/lazyLoad.js">lazyLoad.js</a>, line 151</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/audio/audio.js">audio.js</a>, line 101</li></ul>
 
 
 
@@ -1093,7 +1409,7 @@ function renderDemo(url,fileName) {
         
             
 <dt>
-    <h4 class="name" id="event:startLoading">startLoading</h4>
+    <h4 class="name" id="event:init">init</h4>
 
     
 </dt>
@@ -1151,7 +1467,7 @@ function renderDemo(url,fileName) {
             
             
             
-            <td class="description last">单个资源开始加载</td>
+            <td class="description last"></td>
         </tr>
 	
 	
@@ -1184,7 +1500,127 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/lazyLoad/lazyLoad.js">lazyLoad.js</a>, line 131</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/audio/audio.js">audio.js</a>, line 162</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:progress">progress</h4>
+
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>名称</th>
+		
+		
+		<th>类型</th>
+		
+		
+		
+		
+		
+		<th class="last">描述</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/audio/audio.js">audio.js</a>, line 137</li></ul>
 
 
 
@@ -1218,12 +1654,36 @@ function renderDemo(url,fileName) {
     
         
             
-        <h3 class="subsection-title">资源懒加载<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/lazyLoad/lazyLoad.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
-        <div class="demo-content" data-file="lazyLoad/lazyLoad.html">
+        <h3 class="subsection-title">跟随音乐起舞！-<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/audio/normal.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
+        <div class="demo-content" data-file="audio/normal.html">
             <pre class="code language-javascript"><code>Loading...</code></pre>
             <script>
             jQuery(function(){
-                renderDemo("http://tgideas.github.io/motion/component/demo/lazyLoad/lazyLoad.html","lazyLoad/lazyLoad.html");    
+                renderDemo("http://tgideas.github.io/motion/component/demo/audio/normal.html","audio/normal.html");    
+            });
+            </script>
+        </div>
+            
+        
+            
+        <h3 class="subsection-title">让整个页面舞动起来<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/audio/animate.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
+        <div class="demo-content" data-file="audio/animate.html">
+            <pre class="code language-javascript"><code>Loading...</code></pre>
+            <script>
+            jQuery(function(){
+                renderDemo("http://tgideas.github.io/motion/component/demo/audio/animate.html","audio/animate.html");    
+            });
+            </script>
+        </div>
+            
+        
+            
+        <h3 class="subsection-title">音乐特效<span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/audio/effect.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
+        <div class="demo-content" data-file="audio/effect.html">
+            <pre class="code language-javascript"><code>Loading...</code></pre>
+            <script>
+            jQuery(function(){
+                renderDemo("http://tgideas.github.io/motion/component/demo/audio/effect.html","audio/effect.html");    
             });
             </script>
         </div>

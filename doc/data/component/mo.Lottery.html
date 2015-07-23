@@ -16,6 +16,16 @@
     <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
     <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
     <script src="http://tgideas.github.io/motion/assets/js/detect-browser.js"></script>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8a2c692a5eb965c4b5021c0be91e0585";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
 </head>
 <body class="api-docs">
     <script>
@@ -75,7 +85,7 @@
     <div class="main container-fluid">
         <section class="sidebar col-sm-3">
             <nav>
-                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.PageSlide.html">PageSlide</a></li><li><a href="mo.PCPrompt.html">PCPrompt</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
+                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Audio.html">Audio</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.Landscape.html">Landscape</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.PageSlide.html">PageSlide</a></li><li><a href="mo.PCPrompt.html">PCPrompt</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
             </nav>
             <script>
             (function(){
@@ -265,7 +275,7 @@ function renderDemo(url,fileName) {
     
         <h5>Example</h5>
         
-    <pre class="language-javascript"><code>		var lottery = new mo.Lottery({<br>			'flashUrl' : 'http://ossweb-img.qq.com/images/flash/lottery/circle/lotteyround_2013_v1.swf',<br>			'r':8,//奖品总数<br>			'width':488,//flash宽度<br>			'height':488,//flash高度<br>			'flashFirst':false,<br>			'b':'http://ossweb-img.qq.com/images/flash/lottery/circle/g.png',//圆盘的图片 文件格式可以是swf、png、jpg（建议swf 可以压缩）<br>			's':'http://ossweb-img.qq.com/images/flash/lottery/circle/z.png',//开始抽奖按钮图片<br>			'bx':0,//圆盘的图片位置x坐标 （转盘的中心点坐标为（0,0））<br>			'by':0,//圆盘的图片位置y坐标<br>			'sx':0,//开始抽奖按钮x坐标<br>			'sy':0,//开始抽奖按钮y坐标<br>			'contentId' : 'swfcontent',//嵌入swf 的div层的 id <br>			'onClickRollEvent' : callJsToStart,//对应上面接口<br>			'onCompleteRollEvent':callJsToComplete //对应上面接口<br>		});</code></pre>
+    <pre><code>		var lottery = new mo.Lottery({<br>			'flashUrl' : 'http://ossweb-img.qq.com/images/flash/lottery/circle/lotteyround_2013_v1.swf',<br>			'r':8,//奖品总数<br>			'width':488,//flash宽度<br>			'height':488,//flash高度<br>			'flashFirst':false,<br>			'b':'http://ossweb-img.qq.com/images/flash/lottery/circle/g.png',//圆盘的图片 文件格式可以是swf、png、jpg（建议swf 可以压缩）<br>			's':'http://ossweb-img.qq.com/images/flash/lottery/circle/z.png',//开始抽奖按钮图片<br>			'bx':0,//圆盘的图片位置x坐标 （转盘的中心点坐标为（0,0））<br>			'by':0,//圆盘的图片位置y坐标<br>			'sx':0,//开始抽奖按钮x坐标<br>			'sy':0,//开始抽奖按钮y坐标<br>			'contentId' : 'swfcontent',//嵌入swf 的div层的 id <br>			'onClickRollEvent' : callJsToStart,//对应上面接口<br>			'onCompleteRollEvent':callJsToComplete //对应上面接口<br>		});</code></pre>
 
     
 </dd>
