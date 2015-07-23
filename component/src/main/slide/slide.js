@@ -32,13 +32,13 @@
 		var tab1 = new mo.Slide({
 			target: $('#slide01 li')
 		});
- * @see page-slide/demo5.html 默认滚动效果slide
- * @see page-slide/demo6.html 推动滚动效果push
- * @see page-slide/demo7.html 3d翻转效果flip
- * @see page-slide/demo8.html 循环滚动
- * @see page-slide/demo9.html 锁屏
- * @see page-slide/demo10.html 嵌套的slide
- * @see page-slide/demo11.html 按需加载
+ * @see slide/demo5.html 默认滚动效果slide
+ * @see slide/demo6.html 推动滚动效果push
+ * @see slide/demo7.html 3d翻转效果flip
+ * @see slide/demo8.html 循环滚动
+ * @see slide/demo9.html 锁屏
+ * @see slide/demo10.html 嵌套的slide
+ * @see slide/demo11.html 按需加载
  * @class
 */
 define(function(require, exports, module) {
