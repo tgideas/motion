@@ -16,10 +16,10 @@ define(function(require, exports, module) {
 
 			// 设置不同方向不同的操作属性
 			if (config.direction == 'x') {
-				self.animProp = 'translateX'; 
+				self.animProp =  function(val){return 'translate3d('+ val +'px,0px,0px)'}
 				self.offset = wrapOffset.width;
 			} else {
-				self.animProp = 'translateY'; 
+				self.animProp =   function(val){return 'translate3d(0px, '+ val +'px,0px)'}
 				self.offset = wrapOffset.height;
 			}
 
@@ -39,18 +39,28 @@ define(function(require, exports, module) {
 				return;
 			}
 
-			
+			// 判断是否是锁定屏
+			var locked = false;
+			if( (self.disabledNextList.indexOf(self.curPage) !== -1 && moveDis < 0) || (self.disabledPrevList.indexOf(self.curPage) !== -1 && moveDis > 0)) {
+				locked = true;
+			}
+		
 
 			var targetPage;
 			var targetObj;
 			var pos = {};
 
+			var offsetDis = startDis;
+			if(locked) {
+				offsetDis = startDis/12;
+			}
+
 			if(startDis < 0) {
 				targetPage = self.oriCurPage + 1;
-				pos[self.cssPrefix + 'transform'] = self.animProp + '(' + (startDis + self.offset) + 'px)';
+				pos[self.cssPrefix + 'transform'] = self.animProp(offsetDis + self.offset);
 			} else {
 				targetPage = self.oriCurPage - 1;
-				pos[self.cssPrefix + 'transform'] = self.animProp + '(' + (startDis - self.offset) + 'px)';
+				pos[self.cssPrefix + 'transform'] = self.animProp(offsetDis - self.offset);
 			}
 			targetObj = self.target.eq(self._outBound(targetPage));
 			self._launch(targetObj);
@@ -84,7 +94,7 @@ define(function(require, exports, module) {
 				} else if(self._targetPage > self.curPage){
 					targetVal = self.offset;
 				}
-				targetPos[self.cssPrefix + 'transform'] = self.animProp + '(' + targetVal + 'px)';
+				targetPos[self.cssPrefix + 'transform'] = self.animProp(targetVal);
 				targetObj.animate(targetPos, config.animateTime, config.easing);
 			}
 
@@ -95,12 +105,12 @@ define(function(require, exports, module) {
 				} else {
 					oriVal = self.offset;
 				}
-				curPos[self.cssPrefix + 'transform'] = self.animProp + '(' + oriVal + 'px)';
+				curPos[self.cssPrefix + 'transform'] = self.animProp(oriVal);
 				curObj.css(curPos);
 			}
 
 
-			o[self.animProp] =   '0px';
+			o['translate3d'] =   '0px, 0px, 0px';
 			curObj.animate(o, config.animateTime, config.easing, function() {
 				self.moving = false;
 				self.trigger('change', [self.curPage]);

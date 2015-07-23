@@ -15,6 +15,8 @@
  * @param {string}  [config.txt='为了更好的体验，请将手机/平板竖过来'] 提示文字, 如 '为了更好的体验，请将手机/平板竖过来'
  * @param {string}  [config.txtColor='#ffd40a'] 提示文字颜色 如'#ffd40a'
  * @param {string}  [config.prefix=Shine] 前缀 如 'Shine'
+ * @param {object{string:function}}  [config.init] 组件初始化后的回调
+ * @param {object{string:function}}  [config.landback] 友好提示显示后的回调
  * @example
 	var Landscape = new mo.Landscape({}); 
  * @see landscape/demo1.html   横屏切换提示
@@ -50,7 +52,9 @@ define(function(require, exports, module) {
 			'txtColor': '#ffd40a',
 			'prefix':'Shine',
 			'picZoom':2,
-			'zIndex':99
+			'zIndex':99,
+			'init':false,
+			'landback':false
 		};
 		_public.init = function(config){
 			this.config = Zepto.extend(true, {}, _static.config, config); // 参数接收
@@ -99,11 +103,17 @@ define(function(require, exports, module) {
 			window.addEventListener('DOMContentLoaded',function(){
 				setTimeout(function(){
 					landscape();
+					if(_this.option.init){
+		                _this.option.init();
+		            }
 				},50);
 			});
 			window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function(){
 				if(window.orientation==180 || window.orientation==0 || window.orientation==90 || window.orientation==-90){
 					landscape();
+					if(_this.option.landback){
+		                _this.option.landback();
+		            }
 				}
 			}, false);
 		};

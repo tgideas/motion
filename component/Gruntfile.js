@@ -70,7 +70,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('setFile','set file name', function(file){
       var fileName = file.replace(/\|/g,'_');
-      var plugReg = /(\S*?)\[(\S*?)\]/;
+      var plugReg = /(\S*?)\((\S*?)\)/;
       var plugins = [];
       var filesSrc = file.split('|').map(function(src){
         var compName = src, compInfo,pluginName;

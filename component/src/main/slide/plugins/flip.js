@@ -41,7 +41,16 @@ define(function(require, exports, module) {
 				return;
 			}
 
-			
+			// 判断是否是锁定屏
+			var locked = false;
+			if( (self.disabledNextList.indexOf(self.curPage) !== -1 && moveDis < 0) || (self.disabledPrevList.indexOf(self.curPage) !== -1 && moveDis > 0)) {
+				locked = true;
+			}
+
+			if(locked) {
+				startDis = startDis/12;
+			}
+					
 
 			var targetPage;
 			var targetObj;

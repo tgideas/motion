@@ -24,7 +24,7 @@
  * @param {string}  [config.easing='swing'] 动画方式：默认可选(可加载Zepto.easying.js扩充)：'swing', 'linear'
  * @param {object{string:function}}  [config.event] 初始化绑定的事件
  * @param {object{'dataSrc':Element, 'dataProp':String, 'dataWrap':Element, 'delay': Number}}  [config.title] 初始化绑定的事件
- * @param {boolean}  [config.lazy=false] 是否启用按需加载
+ * @param {boolean}  [config.lazy=false] 是否启用按需加载，需要按需加载的元素设置data-src属性
  * @example
 		var tab1 = new mo.Tab({
 			target: $('#slide01 li')
@@ -95,8 +95,7 @@ define(function(require, exports, module) {
 			'touchend' : _private.supportTouch ? 'touchend' : 'mouseup'
 		}
 
-		_private.disabledPrevList = [];
-		_private.disabledNextList = [];
+
 
 		/***
 		 * 初始化
@@ -111,9 +110,7 @@ define(function(require, exports, module) {
 
 			// 必选参数处理
 			var target = Zepto(config.target);
-			if (target.length <= 1) {
-				return;
-			}
+
 
 			// 统计实例
 			if(this.constructor.instances) {
@@ -162,12 +159,24 @@ define(function(require, exports, module) {
 				 * 播放状态
 				 * @type boolean
 				 */
-				isPlaying: config.autoPlay
+				isPlaying: config.autoPlay,
+
+				disabledPrevList: [],
+				disabledNextList: []
 			});
+
+			if (target.length <= 1) {
+				return;
+			}
 
 			if(config.disable !== window.undefined) {
 				self.disable(config.disable);
 			}
+			if(!config.circle) {
+				self.disable(0, 'prev');
+				self.disable(self.target.length-1, 'next');
+			} 
+			
 
 			// 快捷传入自定义事件
 			for(var name in config) {
@@ -469,7 +478,7 @@ define(function(require, exports, module) {
 			var arrow = Zepto(config.arrow);
 			if(arrow.length > 0) {
 				console.log(self.curPage >= self.target.length - 1);
-				if((self.curPage >= self.target.length - 1 && !config.circle) || _private.disabledNextList.indexOf(self.curPage) != -1) {
+				if((self.curPage >= self.target.length - 1 && !config.circle) || self.disabledNextList.indexOf(self.curPage) != -1) {
 					arrow.css('display', 'none')
 				} else {
 					arrow.css('display', 'block')
@@ -544,10 +553,10 @@ define(function(require, exports, module) {
 		_public.disable = function(index, direction) {
 			var self = this;
 			if(!direction || direction == 'prev') {
-				_private.disabledPrevList.push(index);
+				self.disabledPrevList.push(index);
 			}
 			if(!direction || direction == 'next') {
-				_private.disabledNextList.push(index);
+				self.disabledNextList.push(index);
 			}			
 		};
 
@@ -558,15 +567,15 @@ define(function(require, exports, module) {
 		_public.enable = function(index, direction) {
 			var self = this;
 			if(!direction || direction == 'prev') {
-				var pos = _private.disabledPrevList.indexOf(index);
+				var pos = self.disabledPrevList.indexOf(index);
 				if(pos !== -1) {
-					_private.disabledPrevList.splice(pos, 1);
+					self.disabledPrevList.splice(pos, 1);
 				}
 			}
 			if(!direction || direction == 'next') {
-				var pos = _private.disabledNextList.indexOf(index);
+				var pos = self.disabledNextList.indexOf(index);
 				if(pos !== -1) {
-					_private.disabledNextList.splice(pos, 1);
+					self.disabledNextList.splice(pos, 1);
 				}
 			}			
 		};
@@ -707,20 +716,21 @@ define(function(require, exports, module) {
 					return;
 				}
 
-				if ( (_private.disabledPrevList.indexOf(self.curPage) !== -1 && dis > 0) || 
-					(_private.disabledNextList.indexOf(self.curPage) !== -1 && dis < 0) ) {
+				if ( (self.disabledPrevList.indexOf(self.curPage) !== -1 && dis > 0) || 
+					(self.disabledNextList.indexOf(self.curPage) !== -1 && dis < 0) ) {
 					self.playTo(self.oriCurPage);
 					dis = 0;
 					return;
 				}
 
 
+				// var to = dis > 0 ? self.oriCurPage - 1 : self.oriCurPage + 1;
+				// var length = self.target.length;
+				// if(!config.circle) {
+				// 	to = to < 0 ? 0 : to;
+				// 	to = to >= length ? length - 1 : to;
+				// }
 				var to = dis > 0 ? self.oriCurPage - 1 : self.oriCurPage + 1;
-				var length = self.target.length;
-				if(!config.circle) {
-					to = to < 0 ? 0 : to;
-					to = to >= length ? length - 1 : to;
-				}
 
 				self.playTo(to);
 

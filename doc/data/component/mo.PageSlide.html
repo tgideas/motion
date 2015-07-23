@@ -16,6 +16,16 @@
     <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
     <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
     <script src="http://tgideas.github.io/motion/assets/js/detect-browser.js"></script>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8a2c692a5eb965c4b5021c0be91e0585";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
 </head>
 <body class="api-docs">
     <script>
@@ -75,7 +85,7 @@
     <div class="main container-fluid">
         <section class="sidebar col-sm-3">
             <nav>
-                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.PageSlide.html">PageSlide</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
+                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Audio.html">Audio</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.Landscape.html">Landscape</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.PageSlide.html">PageSlide</a></li><li><a href="mo.PCPrompt.html">PCPrompt</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
             </nav>
             <script>
             (function(){
@@ -169,7 +179,7 @@ function renderDemo(url,fileName) {
     
     
     <div class="description">
-        切换类
+        页面滑动类，已停止更新，统一使用 Slide类
     </div>
     
 
@@ -269,7 +279,7 @@ function renderDemo(url,fileName) {
     
         <h5>Example</h5>
         
-    <pre class="language-javascript"><code>		var tab1 = new mo.PageSlide({<br>			target: $('#slide01 li')<br>		});</code></pre>
+    <pre><code>		var tab1 = new mo.PageSlide({<br>			target: $('#slide01 li')<br>		});</code></pre>
 
     
 </dd>
@@ -750,6 +760,43 @@ function renderDemo(url,fileName) {
 	
         <tr>
             
+                <td class="name"><code>config.loop</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">是否启用循环滚动</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>config.delay</code></td>
             
             
@@ -1055,7 +1102,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 131</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 152</li></ul>
 
 
 
@@ -1122,7 +1169,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 113</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 134</li></ul>
 
 
 
@@ -1189,7 +1236,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 125</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 146</li></ul>
 
 
 
@@ -1256,7 +1303,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 141</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 162</li></ul>
 
 
 
@@ -1323,7 +1370,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 119</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 140</li></ul>
 
 
 
@@ -1390,7 +1437,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 107</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 128</li></ul>
 
 
 
@@ -1495,6 +1542,164 @@ function renderDemo(url,fileName) {
         
             
 <dt>
+    <h4 class="name" id="disable"><span class="type-signature"></span>disable<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        禁用某屏
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Tab#disable
+	</li></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 553</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="enable"><span class="type-signature"></span>enable<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        启用某屏
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Tab#enable
+	</li></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 567</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="next"><span class="type-signature"></span>next<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
@@ -1545,7 +1750,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 382</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 493</li></ul>
 
 
 
@@ -1782,7 +1987,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 421</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 532</li></ul>
 
 
 
@@ -1861,7 +2066,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 316</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 371</li></ul>
 
 
 
@@ -1940,7 +2145,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 389</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 500</li></ul>
 
 
 
@@ -2019,7 +2224,86 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 431</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 542</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="switchTo"><span class="type-signature"></span>switchTo<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        无动画效果切换
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Tab#switchTo
+	</li></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 586</li></ul>
 
 
 
@@ -2226,7 +2510,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 359</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 466</li></ul>
 
 
 
@@ -2351,7 +2635,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 151</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 200</li></ul>
 
 
 
@@ -2476,7 +2760,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 584</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 758</li></ul>
 
 
 
@@ -2601,7 +2885,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 166</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 215</li></ul>
 
 
 
@@ -2726,7 +3010,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 540</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 703</li></ul>
 
 
 
@@ -2851,7 +3135,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 513</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 671</li></ul>
 
 
 
@@ -2976,7 +3260,7 @@ function renderDemo(url,fileName) {
 	
 	
 	<dt class="tag-source">源码:</dt>
-	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 471</li></ul>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/tab/tab.js">tab.js</a>, line 628</li></ul>
 
 
 

@@ -2,7 +2,7 @@
  * @author Brucewan
  * @version 1.0
  * @date 2014-06-18
- * @description 切换类
+ * @description 页面切换，图片滑动等全部统一使用mo.Slide
  * @extends mo.Tab
  * @name mo.Slide
  * @requires lib/zepto.js
@@ -11,7 +11,7 @@
  * @param {boolean}  [config.touchMove=true] 是否允许手指滑动
   * @param {object|string} config.target 目标选项卡片，即供切换的 Elements list (Elements.length >= 2)
  * @param {object|string} [config.controller='ul>li*'] 触发器
- * @param {string} [config.effect='slide'] 指定效果，可选值：'slide', 'roll', 'scale'
+ * @param {string} [config.effect='slide'] 指定效果，可选值：'slide', 'push', 'flip'
  * @param {string} [config.direction='x'] 指定方向，仅效果为'slide'时有效
  * @param {boolean}  [config.autoPlay=false] 是否自动播放 
  * @param {number}  [config.playTo=0] 默认播放第几个（索引值计数，即0开始的计数方式） 
@@ -19,6 +19,7 @@
  * @param {string}  [config.currentClass='current'] 当前样式名称, 多tab嵌套时有指定需求
  * @param {boolean}  [config.link=false] tab controller中的链接是否可被点击
  * @param {number}  [config.stay=2000] 自动播放时停留时间
+ * @param {number}  [config.disable] 禁止某屏滚动
  * @param {boolean}  [config.loop=false] 是否启用循环滚动
  * @param {number}  [config.delay=150] mouseover触发延迟时间
  * @param {object|string}  [config.prevBtn] 播放前一张，调用prev()
@@ -26,13 +27,18 @@
  * @param {string}  [config.easing='swing'] 动画方式：默认可选(可加载Zepto.easying.js扩充)：'swing', 'linear'
  * @param {object{string:function}}  [config.event] 初始化绑定的事件
  * @param {object{'dataSrc':Element, 'dataProp':String, 'dataWrap':Element, 'delay': Number}}  [config.title] 初始化绑定的事件
- * @param {boolean}  [config.lazy=false] 是否启用按需加载
+ * @param {boolean}  [config.lazy=false] 是否启用按需加载，需要按需加载的元素设置data-src属性
  * @example
 		var tab1 = new mo.Slide({
 			target: $('#slide01 li')
 		});
- * @see page-slide/demo2.html 垂直单屏滑动
- * @see page-slide/demo3.html 垂直缩放滑动
+ * @see page-slide/demo5.html 默认滚动效果slide
+ * @see page-slide/demo6.html 推动滚动效果push
+ * @see page-slide/demo7.html 3d翻转效果flip
+ * @see page-slide/demo8.html 循环滚动
+ * @see page-slide/demo9.html 锁屏
+ * @see page-slide/demo10.html 嵌套的slide
+ * @see page-slide/demo11.html 按需加载
  * @class
 */
 define(function(require, exports, module) {
@@ -83,7 +89,9 @@ define(function(require, exports, module) {
 				self.wrap.css('-webkit-backface-visibility', 'hidden');
 				self.target.css({
 					'position': 'absolute',
-					'top': '0'
+					'top': '0',
+					'left': '0',
+					'visibility': 'hidden'
 				});
 
 				// 设置不同方向不同的操作属性
@@ -101,7 +109,7 @@ define(function(require, exports, module) {
 					// self.wrap.css('width', config.wrapWidth || wrapWidth + 'px');
 
 					// 设置操作属性
-					self.animProp = 'translateX'; 
+					self.animProp = 'translateX';  
 					self.sizeProp = 'width';
 					self.posProp = ['left', 'right'];
 				} else {
@@ -119,15 +127,25 @@ define(function(require, exports, module) {
 					return;
 				}
 
+				// 判断是否是锁定屏
+				var locked = false;
+				if( (self.disabledNextList.indexOf(self.curPage) !== -1 && moveDis < 0) || (self.disabledPrevList.indexOf(self.curPage) !== -1 && moveDis > 0)) {
+					locked = true;
+				}
+
 				// 获取当前偏移值
 				var currentVal = /\(([\d-]*).*\)/.exec(curObj.css(self.propPrefix + 'Transform'));
 				var currentPos = currentVal ? currentVal[1]*1 : 0;
 
 				// 设置当前屏位置
 				var curStyle = {};
-				curStyle[self.cssPrefix + 'transform'] = self.animProp + '(' + (currentPos + moveDis) + 'px)';
-				self.target.css('zIndex', 0);
-				curObj.css(curStyle).css('zIndex', 1);
+				var offsetDis = currentPos + moveDis;
+				if(locked) {
+					offsetDis = startDis/6;
+				}
+				curStyle[self.cssPrefix + 'transform'] = self.animProp + '(' + (offsetDis) + 'px)';
+				self.target.css('visibility', 'hidden');
+				curObj.css(curStyle).css('visibility', 'visible');
 
 				// 设置下一屏位置
 				var nextObj, nextDis = {}, nextSize;
@@ -139,9 +157,15 @@ define(function(require, exports, module) {
 					nextSize = curObj[self.sizeProp]();
 
 				}
-				nextObj.css('zIndex', 1);
-				nextDis[self.cssPrefix + 'transform'] = self.animProp + '(' + (currentPos + moveDis +  nextSize) + 'px)';
-				nextObj.css(nextDis);			
+
+				if(!locked ) {
+					self.target.css('visibility', 'hidden');
+					curObj.css('visibility', 'visible');
+					nextObj.css('visibility', 'visible');
+					nextDis[self.cssPrefix + 'transform'] = self.animProp + '(' + (currentPos + moveDis +  nextSize) + 'px)';
+					nextObj.css(nextDis);			
+				}
+
 			},
 
 			touchend: function(e, dis){
@@ -190,13 +214,13 @@ define(function(require, exports, module) {
 
 				// 设置初始属性
 				// curObj.css(curStartPos);
-				self.target.css('zIndex', 0);
-				prevObj.css('zIndex', 1);
-				curObj.css('zIndex', 1);
+				self.target.css('visibility', 'hidden');
+				prevObj.css('visibility', 'visible');
+				curObj.css('visibility', 'visible');
 
 				// 设置终点属性
 				prevObj.animate(prevEndPos, config.animateTime, config.easing, function(){
-					prevObj.css('zIndex', 0);
+					prevObj.css('visibility', 'hidden');
 				});
 				curObj.animate(curEndPos, config.animateTime, config.easing, function(){
 					self.moving = false;

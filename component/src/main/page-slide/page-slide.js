@@ -2,7 +2,7 @@
  * @author Brucewan
  * @version 1.0
  * @date 2014-06-18
- * @description 切换类
+ * @description 页面滑动类，已停止更新，统一使用 Slide类
  * @extends mo.Tab
  * @name mo.PageSlide
  * @requires lib/zepto.js
