@@ -129,7 +129,7 @@ define(function(require, exports, module) {
 
 				// 判断是否是锁定屏
 				var locked = false;
-				if( (self.disabledNextList.indexOf(self.curPage) !== -1 && moveDis < 0) || (self.disabledPrevList.indexOf(self.curPage) !== -1 && moveDis > 0)) {
+				if( (self.disabledNextList.indexOf(self.curPage) !== -1 && startDis < 0) || (self.disabledPrevList.indexOf(self.curPage) !== -1 && startDis > 0)) {
 					locked = true;
 				}
 
@@ -143,7 +143,6 @@ define(function(require, exports, module) {
 				if(locked) {
 					offsetDis = startDis/6;
 				}
-				console.log(offsetDis);
 				curStyle[self.cssPrefix + 'transform'] = self.animProp + '(' + (offsetDis) + 'px)';
 				self.target.css('visibility', 'hidden');
 				curObj.css(curStyle).css('visibility', 'visible');
