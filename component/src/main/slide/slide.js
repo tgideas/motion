@@ -143,6 +143,7 @@ define(function(require, exports, module) {
 				if(locked) {
 					offsetDis = startDis/6;
 				}
+				console.log(offsetDis);
 				curStyle[self.cssPrefix + 'transform'] = self.animProp + '(' + (offsetDis) + 'px)';
 				self.target.css('visibility', 'hidden');
 				curObj.css(curStyle).css('visibility', 'visible');
@@ -188,12 +189,14 @@ define(function(require, exports, module) {
 					curObj.animate(posObj);
 					return false;
 				}
+
+				self.touchTrigger = true;
 			},
 
 			beforechange: function() {
 				var self = this;
 				var config = self.config;
-				var prevIndex = self.prevPage === window.undefined ? self._outBound(self.curPage - 1) : self.prevPage;
+				var prevIndex =  self.prevPage;
 				var curIndex = self.curPage;
 				var prevObj = self.target.eq(prevIndex);
 				var curObj = self.target.eq(curIndex);
@@ -201,31 +204,38 @@ define(function(require, exports, module) {
 				var size;
 
 				// 位置
-				if(self.oriPrevPage !== window.undefined && self.oriCurPage < self.oriPrevPage) {
-					size = -curObj[self.sizeProp]();
-
-				} else {
+				if(self.oriCurPage > self.oriPrevPage) {
 					size = prevObj[self.sizeProp]();
-
+				} else {
+					size = -curObj[self.sizeProp]();
 				}
+
+
 				curStartPos[self.cssPrefix + 'transform'] = self.animProp+'('+ size +'px)';
 				prevEndPos[self.cssPrefix + 'transform'] = self.animProp+'('+ (-size) +'px)';
 				curEndPos[self.cssPrefix + 'transform'] = self.animProp+'(0px)';
+				// console.log(curEndPos)
 
-				// 设置初始属性
+				// 设置初始属
+				if(!self.touchTrigger) {
+					curObj.css(curStartPos);
+					self.touchTrigger = false;
+				}
 				// curObj.css(curStartPos);
 				self.target.css('visibility', 'hidden');
 				prevObj.css('visibility', 'visible');
 				curObj.css('visibility', 'visible');
 
-				// 设置终点属性
-				prevObj.animate(prevEndPos, config.animateTime, config.easing, function(){
-					prevObj.css('visibility', 'hidden');
-				});
-				curObj.animate(curEndPos, config.animateTime, config.easing, function(){
-					self.moving = false;
-					self.trigger('change', [self.curPage]);				
-				});
+				window.setTimeout(function(){
+					// 设置终点属性
+					prevObj.animate(prevEndPos, config.animateTime, config.easing, function(){
+						prevObj.css('visibility', 'hidden');
+					});
+					curObj.animate(curEndPos, config.animateTime, config.easing, function(){
+						self.moving = false;
+						self.trigger('change', [self.curPage]);				
+					});
+				}, 0);
 			}
 
 		});
