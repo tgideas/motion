@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Tencent-TGideas">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>单屏滚动-滑动效果</title>
+<script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
+<script src="http://ossweb-img.qq.com/images/js/motion/slide.v2.0.min.js"></script>
+<!-- <script src="http://127.0.0.1:1024/?u=slide(push,flip)&r=1&debug=1"></script> -->
+<style>
+/* reset */
+*{margin:0; padding:0;border:0;}
+img{border:0;vertical-align:middle;}
+ul,ol,dl{list-style:none;}
+html, body{height: 100%;}
+body {font-size:12px; font-family:arial, "Microsoft YaHei", simsun; line-height:20px;}
+
+
+</style>
+</head>
+
+<body>
+
+	<div class="slide">					 
+		<ul class="content">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>4</li>
+			<li>4</li>
+			<li>4</li>
+		 </ul>
+	</div>
+
+	<style>
+		.slide {position:relative; width:100%; height:100%;overflow: hidden;}
+		.slide .content{width: 100%;height: 100%;margin: 0 auto;}
+		.slide .content li{width: 100%;height:100%;overflow: hidden;-webkit-background-size: cover;background-size: cover;line-height: 400px;text-align: center;color: #fff;font-size:100px;}
+		.slide .content li:nth-child(1){background-image:url(http://ossweb-img.qq.com/images/sy/motion/b1.jpg);}
+		.slide .content li:nth-child(2){background-image:url(http://ossweb-img.qq.com/images/sy/motion/b2.jpg);}
+		.slide .content li:nth-child(3){background-image:url(http://ossweb-img.qq.com/images/sy/motion/b3.jpg);}
+		.slide .content li:nth-child(4){background-image:url(http://ossweb-img.qq.com/images/sy/motion/b4.jpg);}
+	</style>
+	
+	<script>
+		Zepto(function($){
+			window.pageSlide = new mo.Slide({
+				target: $('.slide li')
+				// effect: 'flip'
+			});
+		});
+	</script>
+
+</body>
+

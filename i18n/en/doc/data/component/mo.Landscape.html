@@ -1,0 +1,1128 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Class: Landscape - Motion.js - A swift javascript ui kit for mobile</title>
+    <meta name="description" content="Motion.js,a slim javascript ui kit for mobile">
+    <meta name="keywords" content="motionjs,motion, showcase, javascript, javascript components, javascript library">
+    <meta name="author" content="TGIdeas">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/assets/css/docs.css">
+
+    <link rel="stylesheet" href="http://tgideas.github.io/motion/doc/css/api.css">
+    <script src="http://tgideas.github.io/motion/assets/js/modernizr.custom.47593.js"></script>
+    <script src="http://tgideas.github.io/motion/assets/js/jquery.min.js"></script>
+    <script src="http://tgideas.github.io/motion/assets/js/detect-browser.js"></script>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8a2c692a5eb965c4b5021c0be91e0585";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+</head>
+<body class="api-docs">
+    <script>
+      if(SmartPhone.isAny()){
+        jQuery('body').addClass('mobi');
+      }
+    </script>
+    
+    <!-- Docs master nav -->
+    <header class="navbar navbar-static-top bs-docs-nav bs-docs-nav1" id="top" role="banner">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">Motion</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/motion/i18n/en/index.html">Home</a>
+            </li>
+            <li class="active">
+              <a href="/motion/i18n/en/doc/index.html">API</a>
+            </li>
+            <li>
+              <a href="/motion/i18n/en/download/index.html">Download</a>
+            </li>
+            <li>
+              <a href="https://github.com/tgideas/motion" target="_blank">Github</a>
+            </li>
+            <li>
+              <a href="https://github.com/tgideas/motion/issues" target="_blank">FAQ</a>
+            </li>
+            <li>
+              <a href="https://github.com/tgideas/motion/wiki/version" target="_blank">Versions</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right bs-docs-lang">
+              <li><a href="/motion/i18n/en/doc/data/component/mo.Landscape.html">English</a></li>
+              <li class="active"><a href="http://tgideas.github.io/motion/doc/data/component/mo.Landscape.html">简体中文</a></li>
+              <script>
+                var lang = location.href.indexOf('i18n/en')>0?'en':'zh',
+                    $menus = jQuery('.bs-docs-lang li');
+                if(lang=='en'){
+                    $menus.removeClass('active').eq(0).addClass('active');
+                }
+              </script>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="main container-fluid">
+        <section class="sidebar col-sm-3">
+            <nav>
+                <ul><li><a href="mo.Action.html">Action</a></li><li><a href="mo.Animation.html">Animation</a></li><li><a href="mo.Audio.html">Audio</a></li><li><a href="mo.Base.html">Base</a></li><li><a href="mo.Dialog.html">Dialog</a></li><li><a href="mo.Film.html">Film</a></li><li><a href="mo.Gesture.html">Gesture</a></li><li><a href="mo.ImageEditor.html">ImageEditor</a></li><li><a href="mo.Landscape.html">Landscape</a></li><li><a href="mo.LaunchAPP.html">LaunchAPP</a></li><li><a href="mo.LazyLoad.html">LazyLoad</a></li><li><a href="mo.Loader.html">Loader</a></li><li><a href="mo.Lottery.html">Lottery</a></li><li><a href="mo.Overlay.html">Overlay</a></li><li><a href="mo.PageSlide.html">PageSlide</a></li><li><a href="mo.PCPrompt.html">PCPrompt</a></li><li><a href="mo.Slide.html">Slide</a></li><li><a href="mo.Tab.html">Tab</a></li></ul>
+            </nav>
+            <script>
+            (function(){
+                var elems = document.querySelectorAll('.sidebar li');
+                for(var i = 0; i < elems.length; i++) {
+
+                }
+            })()
+            </script>
+        </section>
+        <div id="main" class="content col-sm-9">
+
+            
+
+            
+            
+                <h1 class="page-title">Class: Landscape</h1>
+            
+            
+            
+<script>
+function renderDemo(url,fileName) { 
+    var body;
+    
+    jQuery.ajax({
+        url:url    
+    }).done(function(data){
+        body = jQuery('<div>'+data+'</div>');
+        var scripts = body[0].getElementsByTagName('script');
+        var html = '';
+        for(var i = 0; i < scripts.length; i++) {
+            if(!scripts[i].src) {
+                html = scripts[i].innerHTML;
+                break;
+            }
+        }
+        html = html.replace(/(\t|^)\s*\n/g, '');
+        var tabNum = /^(\t*)\S/.exec(html)[1];
+        if(tabNum) {
+            var repStr = '(\\n|^)';
+            for(var i = 0; i < tabNum.length; i++) {
+                repStr += '\\t';
+            }
+            var rep = new RegExp(repStr , 'g');
+            html = html.replace(rep, function(a,b){return b});
+
+        }
+        // html = html.replace(/\n/g, '<br/>');
+        // html = html.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+        jQuery('[data-file="'+fileName+'"]').find('code').html(html);
+
+        if(Prism) Prism.highlightAll();
+
+    }).error(function(jqXHR,textStatus,err){    
+        jQuery('[data-file="'+fileName+'"]').find('code').html('//Error:'+textStatus);
+    });
+
+}; 
+
+</script>
+
+
+
+
+
+
+
+<section>
+    
+<!-- <header>
+    <h2>
+        <span class="ancestors"><a href="mo_.html">mo</a>.</span>
+    
+    Landscape
+    </h2>
+    
+</header>   -->
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <h4 class="name" id="Landscape"><span class="type-signature"></span>new Landscape<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        当用户切换横竖屏时，给予友好提示。
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	<dt class="tag-version">版本:</dt>
+	<dd class="tag-version"><ul class="dummy"><li>1.0</li></ul></dd>
+	
+	
+	
+
+	
+	
+	
+	
+	
+	<dt class="tag-author">作者:</dt>
+	<dd class="tag-author">
+        <ul>
+            <li>lyushine</li>
+        </ul>
+	</dd>
+	
+	
+	
+	
+	
+	
+	
+
+     
+    <dt class="tag-inherit">继承:</dt>
+	<dd class="tag-inherit">
+        <ul>
+            <li><a href="mo.Base.html">mo.Base</a></li>
+        </ul>
+	</dd>
+    
+
+    
+    <dt class="tag-depend">依赖:</dt>
+	<dd class="tag-depend">
+        <ul>
+            <li>module:lib/zepto.js</li>
+        
+            <li>module:src/base.js</li>
+        </ul>
+    </dd>
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/landscape/landscape.js">landscape.js</a>, line 1</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+        <ul>
+            <li>landscape/demo1.html   横屏切换提示</li>
+        
+            <li>landscape/demo2.html   竖屏切换提示</li>
+        </ul>
+	</dd>
+	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+        <h5>Example</h5>
+        
+    <pre><code>	var Landscape = new mo.Landscape({}); </code></pre>
+
+    
+</dd>
+
+    
+    </div>
+
+    
+    
+    
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+    
+
+    <ul class="tab-trigger">
+      
+      <li><h3 class="subsection-title">参数</h3></li>
+      
+    
+    
+        <li><h3 class="subsection-title">方法</h3></li>
+    
+    
+    </ul>
+
+    <u class="tab-target">
+      
+        <li>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>名称</th>
+		
+		
+		<th>类型</th>
+		
+		
+		<th>参数</th>
+		
+		
+		
+		<th>默认值</th>
+		
+		
+		<th class="last">描述</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.pic</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">图片地址 如'http://ossweb-img.qq.com/images/js/landscape/landscape.png'</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.picZoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    2
+                
+                </td>
+            
+            
+            <td class="description last">图片缩放比例 如 2</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.zIndex</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    99
+                
+                </td>
+            
+            
+            <td class="description last">层级覆盖z-index值</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.mode</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    portrait
+                
+                </td>
+            
+            
+            <td class="description last">页面模式，如'portrait'或'landscape'</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.bgcolor</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    #32373b
+                
+                </td>
+            
+            
+            <td class="description last">背景色,如 '#000'</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.txt</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    '为了更好的体验，请将手机/平板竖过来'
+                
+                </td>
+            
+            
+            <td class="description last">提示文字, 如 '为了更好的体验，请将手机/平板竖过来'</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.txtColor</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    '#ffd40a'
+                
+                </td>
+            
+            
+            <td class="description last">提示文字颜色 如'#ffd40a'</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.prefix</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    Shine
+                
+                </td>
+            
+            
+            <td class="description last">前缀 如 'Shine'</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.init</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object{string:function}</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">组件初始化后的回调</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>config.landback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object{string:function}</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">友好提示显示后的回调</td>
+        </tr>
+	
+	
+	</tbody>
+</table></li>
+      
+     
+    
+        <li><dl>
+            
+<dt>
+    <h4 class="name" id="constructor"><span class="type-signature"></span>constructor<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        构造函数
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Base#constructor
+	</li></ul></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 42</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="off"><span class="type-signature"></span>off<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        绑定事件
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Base#off
+	</li></ul></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 61</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="on"><span class="type-signature"></span>on<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        绑定事件
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Base#on
+	</li></ul></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 52</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="trigger"><span class="type-signature"></span>trigger<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        触发事件
+    </div>
+    
+
+    
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+	
+	
+	
+
+	
+	<dt class="inherited-from">继承自:</dt>
+	<dd class="inherited-from"><ul class="dummy"><li>
+		mo.Base#trigger
+	</li></ul></dd>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+     
+
+       
+
+
+	
+	
+	<dt class="tag-source">源码:</dt>
+	<dd class="tag-source"><ul class="dummy"><li><a href="https://github.com/tgideas/motion/blob/master/component/src/main/base/base.js">base.js</a>, line 69</li></ul>
+
+
+
+
+
+	</dd>
+	
+    
+    
+	
+<!-- 	 -->
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl></li>
+    
+    
+    </u>
+
+    
+    
+        
+            
+        <h3 class="subsection-title"><span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/landscape/demo1.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
+        <div class="demo-content" data-file="landscape/demo1.html">
+            <pre class="code language-javascript"><code>Loading...</code></pre>
+            <script>
+            jQuery(function(){
+                renderDemo("http://tgideas.github.io/motion/component/demo/landscape/demo1.html","landscape/demo1.html");    
+            });
+            </script>
+        </div>
+            
+        
+            
+        <h3 class="subsection-title"><span class="demo-acts"><a title="请打开发界面模拟触屏体验！" target="_blank" href="http://tgideas.github.io/motion/component/demo/landscape/demo2.html" class="btn btn-default demo-act-newwin"><span class="glyphicon glyphicon-new-window"></span>运行Demo</a><a href="javascript:void(0)" onclick="jQuery('#output').show().qrcode(jQuery(this).prev()[0].href)" class="btn btn-default demo-act-qrcode"><span class="glyphicon glyphicon-qrcode"></span>二维码</a></span></h3>
+        <div class="demo-content" data-file="landscape/demo2.html">
+            <pre class="code language-javascript"><code>Loading...</code></pre>
+            <script>
+            jQuery(function(){
+                renderDemo("http://tgideas.github.io/motion/component/demo/landscape/demo2.html","landscape/demo2.html");    
+            });
+            </script>
+        </div>
+            
+        
+    
+    
+
+
+<div id="output"></div>
+
+
+</article>
+
+</section>  
+
+
+
+
+
+
+<script>
+(function(){
+    var Tab = function(target, trigger){
+        var self = this;
+        this.target = target;
+        this.trigger = trigger;
+        this.playTo(0);
+        for(var i = 0; i < trigger.length; i ++) {
+            (function(i){
+                trigger[i].onclick = function(){
+                    self.playTo(i);
+                }
+            })(i);
+        }
+    };
+
+    Tab.prototype.playTo = function(n){
+        for(var i = 0; i < this.target.length; i++) {
+            this.target[i].style.display = 'none';
+            this.trigger[i].className = '';
+        }
+        this.target[n].style.display = 'block';
+        this.trigger[n].className = 'current';
+    }
+    new Tab(
+        document.querySelectorAll('.tab-target > li'), 
+        document.querySelectorAll('.tab-trigger > li')
+    );
+
+    $('#output').on('click', function(){
+        $(this).empty().hide();
+    });
+
+})()
+
+</script>
+
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="http://ossweb-img.qq.com/images/js/prism/prism.js"></script>
+    <script>
+      $('.sidebar li').each(function(i,elem){if(new RegExp('mo\\.'+$(elem).text()).test(location.href))$(elem).addClass('current')});
+    </script>
+   
+    <script src="http://tgideas.github.io/motion/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://ossweb-img.qq.com/images/js/jquery/jquery.qrcode.min.js"></script>
+</body>
+</html>

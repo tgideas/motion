@@ -75,7 +75,13 @@
         "modUrlSlider":"/motion/i18n/en/doc/data/component/mo.Slider.html",
         "mod15":"Tab",
         "modDesc15":"Common Tab component",
-        "modUrlTab":"/motion/i18n/en/doc/data/component/mo.Tab.html"
+        "modUrlTab":"/motion/i18n/en/doc/data/component/mo.Tab.html",
+        "mod16":"Landscape",
+        "modDesc16":"Common Landscape component",
+        "modUrlLandscape":"/motion/i18n/en/doc/data/component/mo.Landscape.html",
+        "mod17":"PCPrompt",
+        "modDesc17":"Common PCPrompt component",
+        "modUrlPCPrompt":"/motion/i18n/en/doc/data/component/mo.PCPrompt.html"
     },
     "download":{
         "tip":"Note: Packager will package all components if none of them was selected.",

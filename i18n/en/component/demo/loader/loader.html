@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>Loader-资源预加载</title>
+<script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
+<script src="http://ossweb-img.qq.com/images/js/motion/loader.min.js"></script>
+<style>
+	div{width:200px; height: 60px; line-height: 60px}
+</style>
+</head>
+<body>
+	<p>目前支持音频(mp3、ogg、wav)、javascript(js)、css(css)、图片(jpg、png、gif)</p>
+	<p><input type="text" placeholder="资源url" value="http://pingjs.qq.com/ping_tcss_ied.js"></p>
+	<p><input type="text" placeholder="资源url" value="http://mat1.gtimg.com/www/mb/css/n/style.2013_140723.css"></p>
+	<p><input type="text" placeholder="资源url" value="http://ossweb-img.qq.com/images/cf/web201105/bc-pic.jpg"></p>
+	<p><input type="text" placeholder="资源url" value="http://mobilegame.tencent.com/act/a20140723invite/crack.mp3"></p>
+	<a href="javascript:;">增加一行</a>
+	<div data-preload="http://img0.bdstatic.com/img/image/shouye/dengni63.jpg">我增加了data-preload属性</div>
+	<p><button>开始加载资源</button></p>
+
+</body>
+<script>
+$(function(){
+	$('a').click(function(){
+		$('<p><input type="text" placeholder="资源url"></p>').insertBefore('a');
+	});
+
+	var getSource = function(){
+		var res = []
+		$('input').each(function(index, input){
+			var val = $(input).val();
+			val && res.push(val);
+		})
+		return res;
+	}
+	var lock = false;
+	$('button').click(function(){
+		if(lock){return}
+		lock = true;
+		var _self = $(this);
+		_self.html('加载中...（0%）');
+		new mo.Loader(getSource(),{
+			loadType : 1,
+			minTime : 300,
+			onLoading : function(count,total){
+				console.log('onloading:single loaded:',arguments)
+				_self.html('加载中...（'+count/total*100+'%）');
+			},
+			onComplete : function(time){
+				console.log('oncomplete:all source loaded:',arguments)
+				_self.html('加载完成,总共耗时:'+time+'ms');
+				setTimeout(function(){
+					_self.html('开始加载资源');
+					lock = false
+				},2000)
+			}
+		})
+	})
+})
+</script>
+</html>

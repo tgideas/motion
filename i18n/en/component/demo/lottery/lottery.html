@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=640; user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>Lottery-抽奖组件</title>
+<script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
+<style>
+html,body{width:488px;}
+</style>
+</head>
+<body style="background-color:#333333;">
+<div class="flash">
+<div id="swfcontent">
+</div>
+</div>
+</body>
+<script src="http://ossweb-img.qq.com/images/js/motion/lottery.min.js"></script>
+<script>
+
+//点击开始抽奖 通知js  flash->js
+function callJsToStart(){
+//测试
+	callFlashToRoll(1);
+}
+//开发获得抽奖结果 通知flash开始播放效果 js->flash
+function callFlashToRoll(id){
+	//通知转盘转到对应的中奖产品的id （序号从0,1,2.....，0是指针初始指示的位置，沿着顺时针的方向递增）
+	if(SWFOBJ)SWFOBJ.stopRoll(id);
+}
+//3、flash动画完成通知js  flash->js
+function callJsToComplete(){
+	alert('恭喜你获得大奖哟！！');
+}
+	//初始化抽奖对象的SWFOBJ 
+	//转盘的中心点坐标为（0,0））
+var SWFOBJ= new mo.Lottery({
+		'flashUrl' : 'http://ossweb-img.qq.com/images/flash/lottery/circle/lotteyround_2013_v1.swf',
+		'r':8,//奖品总数
+		'width':488,//flash宽度
+		'height':488,//flash高度
+		'flashFirst':false,
+		'b':'http://ossweb-img.qq.com/images/flash/lottery/circle/g.png',//圆盘的图片 文件格式可以是swf、png、jpg（建议swf 可以压缩）
+		's':'http://ossweb-img.qq.com/images/flash/lottery/circle/z.png',//开始抽奖按钮图片
+		'bx':0,//圆盘的图片位置x坐标 （转盘的中心点坐标为（0,0））
+		'by':0,//圆盘的图片位置y坐标
+		'sx':0,//开始抽奖按钮x坐标
+		'sy':0,//开始抽奖按钮y坐标
+		'contentId' : 'swfcontent',//嵌入swf 的div层的 id 
+		'onClickRollEvent' : callJsToStart,//对应上面接口
+		'onCompleteRollEvent':callJsToComplete //对应上面接口
+	});
+
+</script>
+</html>

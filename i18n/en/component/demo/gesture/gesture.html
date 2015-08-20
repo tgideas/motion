@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>Gesture手势组件</title>
+<script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
+<script src="http://ossweb-img.qq.com/images/js/motion/gesture.min.js"></script>
+<style>
+html,body{width: 100%; height: 100%; overflow: hidden; padding: 0; margin:0;}
+	#test{width:100px; height: 300px; background: #ccc; position: absolute; top: 20px; left: 50%; margin-left: -50px;}
+</style>
+</head>
+<body>
+<ul>
+	<li>动作类型：event.type=<p id="type"></p></li>
+	<li>滑动角度：event.angle=<p id="angle"></p></li>
+	<li>Ｘ轴速度： event.speed.x=<p id="speedx"></p></li>
+	<li>Ｙ轴速度： event.speed.y=<p id="speedy"></p></li>
+	<li>Ｘ轴距离： event.distance.x=<p id="distancex"></p></li>
+	<li>Ｙ轴距离： event.distance.y=<p id="distancey"></p></li>
+</ul>
+<script>
+	var needShow = ['type','angle','speed','distance']
+	var handler = function(event){
+		for(var k in event){
+			if(needShow.indexOf(k)!=-1){
+				if(k == 'speed' || k == 'distance'){
+					for(var j in event[k]){
+						$('#' + k + j).html(event[k][j]);
+					}
+				}else{
+					$('#' + k).html(event[k]);
+				}
+			}
+		}
+	}
+	var test = document;
+	var gest = new mo.Gesture(test).addGesture('swiperight swipeleft swipeup swipedown hold tap', handler);
+
+</script>
+</body>
+</html>

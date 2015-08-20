@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=640; user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>Lottery-抽奖组件</title>
+<script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
+<style>
+/*html,body{width:488px;}*/
+#swfcontent{background: url(http://ossweb-img.qq.com/images/motion/lottery/lotterybg.jpg) no-repeat; width:800px; height: 360px;}
+#log{line-height: 50px; color: #fff}
+</style>
+</head>
+<body style="background-color:#333333;">
+<div class="flash">
+<div id="swfcontent">
+</div>
+</div>
+<div id="log"></div>
+</body>
+<script src="http://ossweb-img.qq.com/images/js/motion/lottery.min.js"></script>
+<script>
+
+//点击开始抽奖 通知js  flash->js
+function callJsToStart(){
+//测试
+	callFlashToRoll(1);
+}
+//开发获得抽奖结果 通知flash开始播放效果 js->flash
+function callFlashToRoll(id){
+	//通知转盘转到对应的中奖产品的id （序号从0,1,2.....，0是指针初始指示的位置，沿着顺时针的方向递增）
+	if(SWFOBJ)SWFOBJ.stopRoll(id);
+}
+//3、flash动画完成通知js  flash->js
+function callJsToComplete(){
+	document.getElementById('log').innerHTML = '恭喜你获得大奖哟！！';
+}
+	//初始化抽奖对象的SWFOBJ 
+	//转盘的中心点坐标为（0,0））
+var SWFOBJ= new mo.Lottery({
+		// 'lighturl':'http://ossweb-img.qq.com/images/motion/lottery/light.png',
+		'total':18,
+		'width':800,
+		'height':360,
+		'sbtnx':239,
+		'sbtny':130,
+		'sbtnw':320,
+		'sbtnh':100,
+		'boxw':100,
+		'boxh':100,
+		'position':"19_20,128.8_20,238.6_20,348_19,459_19,568.95_19,679.95_19,19_129.45,128.8_129.45,568.95_129.45,678.95_129.45,19.05_240,128.85_240,238_240,349_240,459_239,569_239,679_239",
+		'contentId' : 'swfcontent',
+		'onClickRollEvent' : callJsToStart,
+		'onCompleteRollEvent':callJsToComplete
+	});
+
+</script>
+</html>

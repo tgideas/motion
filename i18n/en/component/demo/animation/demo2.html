@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Tencent-TGideas">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>Loader-Animation-动画</title>
+
+<style>
+/* reset */
+*{margin:0; padding:0;border:0;}
+img{border:0;vertical-align:middle;}
+ul,ol,dl{list-style:none;}
+body {font-size:12px; font-family:arial, "Microsoft YaHei", simsun; line-height:20px;}
+html,body {width: 100%;height: 100%;overflow: hidden;}
+
+/* page */
+.loader-box{position: absolute;left: 50%;top: 50%;width: 100px;height: 100px;margin-left: -50px;margin-top: -50px;}
+.loader-box li{float: left;width: 30px;height: 30px;margin: 1px;background-color: #f00;}
+.loader-box li:nth-child(1){background-color: #b2db11;border-top-left-radius: 5px;}
+.loader-box li:nth-child(2){background-color: #ffff00;}
+.loader-box li:nth-child(3){background-color: #ff0000;border-top-right-radius: 5px;}
+.loader-box li:nth-child(4){background-color: #66b821;}
+.loader-box li:nth-child(5){background-color: #ffb200;}
+.loader-box li:nth-child(6){background-color: #f0027f;}
+.loader-box li:nth-child(7){background-color: #008837;border-bottom-left-radius: 5px;}
+.loader-box li:nth-child(8){background-color: #ff6600;}
+.loader-box li:nth-child(9){background-color: #81017e;border-bottom-right-radius: 5px;}
+
+
+</style>
+</head>
+
+<body>
+	<script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
+	<script src="http://ossweb-img.qq.com/images/js/motion/animation.min.js"></script>
+
+	<ul class="loader-box">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+
+	<script>
+		$(window).on('touchmove', function(e){
+			e.preventDefault();
+		});
+
+		$(function(){
+
+			var boxes = $('.loader-box li');
+			boxes.each(function(i, elem){
+				var delay = parseInt(i/3)+i%3;
+				new mo.Animation({
+					target: $(elem),
+					delay: delay * 200,
+					iteration: 'infinite',
+					keyframes: {
+						50: {opacity: 0, 'transform': 'scale(0.2,0.2)'},
+					}
+				});		
+
+			});
+
+
+		});
+
+	</script>
+</body>
+

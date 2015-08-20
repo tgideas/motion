@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Tencent-TGideas">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>effect-Animation-动画</title>
+
+<style>
+/* reset */
+*{margin:0; padding:0;border:0;}
+img{border:0;vertical-align:middle;}
+ul,ol,dl{list-style:none;}
+body {font-size:12px; font-family:arial, "Microsoft YaHei", simsun; line-height:20px;}
+html,body {width: 100%;height: 100%;overflow: hidden;}
+
+/* page */
+.box{position: absolute;left: 50%;top: 45%;width: 100px;height: 100px;margin-left: -50px;margin-top: -50px;background-color: purple;border-radius: 5px;}
+input{border-radius: 5px;padding: 10px;font-size: 16px;color: #fff;background-color: orange;-webkit-appearance: none; }
+.fuc{position: absolute;top: 50%;width: 100%;margin-top: 60px;font-size: 20px;text-align: center;}
+.fuc p{margin-top: 10px;}
+
+
+</style>
+</head>
+
+<body>
+	<script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
+	<script src="http://ossweb-img.qq.com/images/js/motion/animation.min.js"></script>
+
+	<div class="box"></div>
+	<div class="fuc">
+		<input type="button" value="play" onclick="anim.play();">
+		<input type="button" value="stop" onclick="anim.stop();">
+		<input type="button" value="rePlay" onclick="anim.rePlay();">
+		<p class="percent"></p>
+		<p class="status"></p>
+	</div>
+	
+
+	<script>
+
+		$(function(){
+
+			window.anim = new mo.Animation({
+				target: $('.box'),
+				fillMode: 'forwards',
+				duration: 5000,
+				iteration: 1,
+				keyframes: {
+					0: {opacity: 0, 'transform': 'translate3d(0, -100px, 0)', easing: 'ease-out'},
+					20: {opacity: 1, 'transform': 'translate3d(0, 0, 0)', easing: 'ease-in'},
+					50: {'transform': 'perspective(400px) rotate3d(0, 1, 0, 180deg)'},
+					100: {'transform': 'perspective(400px) scaleX(2)'}
+				}
+			});	
+
+			anim.on('start', function(){
+				$('.fuc .status').text('status: has started');
+			});
+			anim.on('iteration', function(){
+				$('.fuc .status').text('status: iteration');
+			});			
+			anim.on('end', function(){
+				$('.fuc .status').text('status: end');
+			});
+			anim.on('running', function(){
+				$('.fuc .percent').text(this.percent + '%');
+			});
+
+
+		});
+
+	</script>
+
+</body>
+

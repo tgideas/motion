@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Film组件-色子</title>
+<style>
+html,body{width:100px; height: 100%}
+</style>
+</head>
+<body>
+<div id="scene"></div>
+<script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
+<script src="http://ossweb-img.qq.com/images/js/motion/film.min.js"></script>
+<script>
+var scene = document.getElementById('scene');
+var diceFilm = new mo.Film(scene,{
+	resource : ['images/dice.png'],
+	totalFrame:12,
+	aniComplete:function(index){
+		if(index % 2){
+			diceFilm.next();
+		}
+	}
+});
+document.addEventListener('touchstart', function(){
+	diceFilm.playByNum(10 + Math.floor(Math.random() * 50));
+})
+</script>
+</body>
+</html>

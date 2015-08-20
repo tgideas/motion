@@ -1,0 +1,62 @@
+		<!DOCTYPE HTML>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Tencent-TGideas">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>motion-音频组件</title>
+<script src="http://ossweb-img.qq.com/images/js/zepto/zepto.min.js"></script>
+<script src="http://ossweb-img.qq.com/images/js/motion/audio.min.js"></script>
+<style>
+/* reset */
+*{margin:0; padding:0;border:0;}
+img{border:0;vertical-align:middle;}
+ul,ol,dl{list-style:none;}
+body {height: 300px;font-size:12px; font-family:arial, "Microsoft YaHei", simsun; line-height:20px;background-color: #333;}
+.bg-music{position: absolute;bottom: 5px;right: 5px;width: 48px;height: 20px;}
+.desc{margin: 50px;font-size: 14px;color: #fff;}
+.ball{position: absolute;bottom: 50%;left: 20%;width: 50px;height: 50px;border-radius: 25px;background-color: #0ff;opacity: 0}
+.ball2{right:20%;left: auto;background-color: #f00;}
+h2{margin: 10px 0;font-weight: normal;font-size: 20px;}
+</style>
+</head>
+
+<body>
+
+	<div class="bg-music"></div>
+	<div class="ball ball1"></div>
+	<div class="ball ball2"></div>
+
+	<div class="desc">
+		<h2>让波形跟随音乐起舞！</h2>
+		<p>当前大约<span style="color:red;margin:0 5px;">35%</span>的设备支持：<br>
+			ios8+、android5.0+ 所有浏览器；android5.0以下 chrome、firefox。</p>
+		<p style="margin-top:5px;">目前不支持的设备将随便随机动画。</p>
+		<p style="margin-top:5px;color:#888">原理：web audio api</p>
+
+	</div>
+
+	<script>
+		
+		$(function(){
+			window.audio = new mo.Audio({
+				src: 'http://ossweb-img.qq.com/images/audio/motion/audio4.mp3',
+
+				controller: $('.bg-music'),
+
+			});
+
+
+			audio.on('progress', function(e, frequency){
+				// frequency 是一个长度为16的数组
+				$('.ball1').css('opacity', frequency[6]/255)
+				$('.ball2').css('-webkit-transform', 'translateX('+ frequency[6]/5+'px)').css('opacity', '1');
+			})			
+
+		});
+
+	</script>
+</body>
+
