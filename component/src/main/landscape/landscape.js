@@ -92,10 +92,10 @@ define(function(require, exports, module) {
 				};
 			}
 			function landscape(){
-			 	if(window.screen.width > window.screen.height){
-		            document.getElementById(config.prefix+'_landscape').style.display = (config.mode=="portrait"?"block":"none");
+			 	if(document.body.clientWidth > document.body.clientHeight){
+		            document.getElementById(_this.option.prefix+'_landscape').style.display = (_this.option.mode=="portrait"?"block":"none");
 		        }else{
-		        	document.getElementById(config.prefix+'_landscape').style.display = (config.mode=="portrait"?"none":"block");
+		        	document.getElementById(_this.option.prefix+'_landscape').style.display = (_this.option.mode=="portrait"?"none":"block");
 		        }  
 			}
 			createCss();

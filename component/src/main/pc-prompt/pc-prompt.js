@@ -603,9 +603,23 @@ define(function(require, exports, module) {
                         '<div style="background:#333 url('+par.preview+') center center no-repeat;width:212px;height:377px;overflow:hidden;position:absolute;z-index:5;left:33px;top:57px;"></div>'+
                         '</div>';
                 }
+                var getByteLen = function (val) {
+                    var len = 0;
+                    for(var i = 0; i < val.length; i++){
+                        if (val[i].match(/[^x00-xff]/ig) != null) //全角
+                            len += 2;
+                        else
+                            len += 1;
+                    }
+                    return len;
+                };
+                var align = 'text-align:left;';
+                if(getByteLen(description)<120){
+                    align = 'text-align:center;';
+                }
                 html += '<div id="'+divId+'_hover" style="width:300px;height:100%;position:absolute;top:0;left:50%;margin:0 0 0 -150px;z-index:999;"></div>'+
                     '</div>'+
-                    '<p style="color:#999;font-size:12px;text-align:left;width:800px;margin:0 auto;line-height:2em;">'+description.slice(0,240)+(description.length>240?'……':'')+'</p>';
+                    '<p style="'+align+'color:#999;font-size:12px;text-align:left;width:800px;margin:0 auto;line-height:2em;">'+description.slice(0,240)+(description.length>240?'……':'')+'</p>';
                 if(par.jump){
                     html += '<a id="'+divId+'_jump" href="#" style="z-index:999;display:block;position:absolute;right:20px;top:20px;text-align:center;color:#999;font-size:14px;font-weight:bold;">直接进入 &gt;&gt;</a>';
                 }
