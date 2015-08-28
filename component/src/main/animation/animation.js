@@ -320,52 +320,58 @@ define(function(require, exports, module) {
 
 
 			self.target[0].addEventListener(_static.__eventPrefix + 'AnimationStart', function(e){
-				self.__startTime = new Date();
-				self.__runtime = 0;
-				window.clearInterval(self.__timer);
-				self.__timer = window.setInterval(function(){
-			// console.log(self.target[0].className);
-			// console.log( self);
-					if(self.playing) {
-						if(config.iteration === 1) {
-							var now = new Date();
-							self.__runtime += now - self.__startTime;
-							self.__startTime = new Date();
-							self.percent =  Math.round(self.__runtime * 100/config.duration);
-							self.percent = self.percent > 100 ? 100 : self.percent;
+				if(e.target == self.target[0]) {
+					self.__startTime = new Date();
+					self.__runtime = 0;
+					window.clearInterval(self.__timer);
+					self.__timer = window.setInterval(function(){
+				// console.log(self.target[0].className);
+				// console.log( self);
+						if(self.playing) {
+							if(config.iteration === 1) {
+								var now = new Date();
+								self.__runtime += now - self.__startTime;
+								self.__startTime = new Date();
+								self.percent =  Math.round(self.__runtime * 100/config.duration);
+								self.percent = self.percent > 100 ? 100 : self.percent;
+							}
+							/**
+							 * @event mo.Animation#running: 动画播放时
+							 * @property {object} event 事件对象
+							 */
+							self.trigger('running');
+
 						}
-						/**
-						 * @event mo.Animation#running: 动画播放时
-						 * @property {object} event 事件对象
-						 */
-						self.trigger('running');
+					}, 20);
 
-					}
-				}, 20);
-
-				/**
-				 * @event mo.Animation#start: 动画开始时
-				 * @property {object} event 事件对象
-				 */
-				self.trigger('start');
+					/**
+					 * @event mo.Animation#start: 动画开始时
+					 * @property {object} event 事件对象
+					 */
+					self.trigger('start');
+				}
 			});
 			self.target[0].addEventListener(_static.__eventPrefix + 'AnimationIteration', function(e){
-				/**
-				 * @event mo.Animation#start: 动画重复时
-				 * @property {object} event 事件对象
-				 */	
-				self.trigger('iteration') 
+				if(e.target == self.target[0]) {
+					/**
+					 * @event mo.Animation#iteration: 动画重复时
+					 * @property {object} event 事件对象
+					 */	
+					self.trigger('iteration')
+				}
 			});
 			self.target[0].addEventListener(_static.__eventPrefix + 'AnimationEnd', function(e){
-				self.percent = 100;
-				self.trigger('running');
+				if(e.target == self.target[0]) {
+					self.percent = 100;
+					self.trigger('running');
 
-				/**
-				 * @event mo.Animation#start: 动画结束时
-				 * @property {object} event 事件对象
-				 */	
-				self.trigger('end');
-				window.clearInterval(self.__timer);					
+					/**
+					 * @event mo.Animation#end: 动画结束时
+					 * @property {object} event 事件对象
+					 */	
+					self.trigger('end');
+					window.clearInterval(self.__timer);			
+				}		
 			});
 		};
 
