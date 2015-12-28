@@ -52,6 +52,7 @@ define(function(require, exports, module) {
 			'txtColor': '#ffd40a',
 			'prefix':'Shine',
 			'picZoom':2,
+			'txt',false,
 			'zIndex':99,
 			'init':false,
 			'landback':false
@@ -61,17 +62,19 @@ define(function(require, exports, module) {
 			var _this = this;
 			var config = this.config;
 
-			if(config.mode == 'portrait' || config.mode ==""){
-				config.txt = '为了更好的体验，请将手机/平板竖过来';
-			}else config.txt = '为了更好的体验，请将手机/平板横过来';
+			if(!(_this.option.txt)){
+				if( option.mode == 'portrait' || option.mode =="" ){
+					_this.option.txt = decodeURIComponent('%E4%B8%BA%E4%BA%86%E6%9B%B4%E5%A5%BD%E7%9A%84%E4%BD%93%E9%AA%8C%EF%BC%8C%E8%AF%B7%E5%B0%86%E6%89%8B%E6%9C%BA%2F%E5%B9%B3%E6%9D%BF%E7%AB%96%E8%BF%87%E6%9D%A5');
+				}else _this.option.txt = decodeURIComponent('%E4%B8%BA%E4%BA%86%E6%9B%B4%E5%A5%BD%E7%9A%84%E4%BD%93%E9%AA%8C%EF%BC%8C%E8%AF%B7%E5%B0%86%E6%89%8B%E6%9C%BA%2F%E5%B9%B3%E6%9D%BF%E6%A8%AA%E8%BF%87%E6%9D%A5');
+			}
 			function createCss(){
 				var cssBlock = 
-				'.'+config.prefix+'_landscape{width:100%; height:100%; background:'+config.bgcolor+';position: fixed; left:0;top: 0;z-index:'+config.zIndex+'; display:none; text-align: center;}'
-				+'.'+config.prefix+'_landscape_box{position: relative; margin-left: auto; margin-right: auto; top: 50%; transform:translateY(-50%); -webkit-transform:translateY(-50%);}'
-				+'.'+config.prefix+'_landscape span{font-size:22px;display:block;color:'+config.txtColor+'; text-align:center;width: 100%;padding-top: 10px; line-height:2;}'
-				+'.'+config.prefix+'_landscape img{-webkit-animation: Shine_landscapeAni 1.5s ease infinite alternate;animation: Shine_landscapeAni 1.5s ease infinite alternate;}'
-				+'@-webkit-keyframes '+config.prefix+'_landscapeAni{0% {-webkit-transform:rotate(-90deg);}30% {-webkit-transform:rotate(-90deg);}70%{-webkit-transform:rotate(0deg);}100% {-webkit-transform:rotate(0deg);}}'
-				+'@keyframes '+config.prefix+'_landscapeAni{0% {transform:rotate(-90deg);}30% {transform:rotate(-90deg);}70%{transform:rotate(0deg);}100% {transform:rotate(0deg);}}';
+				'.'+_this.option.prefix+'_landscape{width:100%; height:100%; background:'+_this.option.bgcolor+';position: fixed; left:0; right:0; top: 0; bottom:0;z-index:'+_this.option.zIndex+'; display:none; text-align: center;}'
+				+'.'+_this.option.prefix+'_landscape_box{position: relative; margin-left: auto; margin-right: auto; top: 50%; transform:translateY(-50%); -webkit-transform:translateY(-50%);}'
+				+'.'+_this.option.prefix+'_landscape span{font-size:22px;display:block;color:'+_this.option.txtColor+'; text-align:center;width: 100%;padding-top: 10px; line-height:2;}'
+				+'.'+_this.option.prefix+'_landscape img{width:auto !important;-webkit-animation: '+_this.option.prefix+'_landscapeAni 1.5s ease infinite alternate;animation: '+_this.option.prefix+'_landscapeAni 1.5s ease infinite alternate;}'
+				+'@-webkit-keyframes '+_this.option.prefix+'_landscapeAni{0% {-webkit-transform:rotate(-90deg);}30% {-webkit-transform:rotate(-90deg);}70%{-webkit-transform:rotate(0deg);}100% {-webkit-transform:rotate(0deg);}}'
+				+'@keyframes '+_this.option.prefix+'_landscapeAni{0% {transform:rotate(-90deg);}30% {transform:rotate(-90deg);}70%{transform:rotate(0deg);}100% {transform:rotate(0deg);}}';
 				var style = document.createElement("style");
 			    style.type = "text/css";
 			    style.textContent = cssBlock;
@@ -92,6 +95,7 @@ define(function(require, exports, module) {
 				};
 			}
 			function landscape(){
+				if(_this.option.init){ _this.option.init();}
 			 	if(document.documentElement.clientWidth > document.documentElement.clientHeight){
 		            document.getElementById(_this.option.prefix+'_landscape').style.display = (_this.option.mode=="portrait"?"block":"none");
 		        }else{
@@ -101,12 +105,12 @@ define(function(require, exports, module) {
 			createCss();
 			createDom();  
 			window.addEventListener('DOMContentLoaded',function(){
-				setTimeout(function(){
-					landscape();
-					if(_this.option.init){
-		                _this.option.init();
-		            }
-				},50);
+				 var sUserAgent = navigator.userAgent.toLowerCase();
+				if (sUserAgent.indexOf("android") != -1||sUserAgent.indexOf("ipad") != -1||sUserAgent.indexOf("iphone") != -1) {
+					setTimeout(function(){
+						landscape();
+					},50);
+				}
 			});
 			window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function(){
 				if(window.orientation==180 || window.orientation==0 || window.orientation==90 || window.orientation==-90){
