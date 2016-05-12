@@ -300,8 +300,7 @@ define(function(require, exports, module){
 					//光影效果添加的class初始化
 					var slight = {
 						width : '100%',
-						height : '100%',
-						background : 'url(light.png) no-repeat'
+						height : '100%'
 					}
 					slight[_private.prefix + 'backface-visibility'] = 'hidden';
 					slight[_private.prefix + 'animation'] = classes['bgLight'] + ' 3s infinite';
