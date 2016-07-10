@@ -52,7 +52,7 @@ define(function(require, exports, module) {
 			'txtColor': '#ffd40a',
 			'prefix':'Shine',
 			'picZoom':2,
-			'txt',false,
+			'txt':false,
 			'zIndex':99,
 			'init':false,
 			'landback':false
