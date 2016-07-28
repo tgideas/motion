@@ -1,8 +1,4 @@
-.svn
-.DS_Store
-.dynamicBuild
-dynamicBuild
+dist
 build
+.DS_Store
 node_modules
-# branch gh-pages
-site
