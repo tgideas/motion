@@ -1,6 +1,6 @@
 import Base from './core/base';
 
-export default class Lottery extends Base{
+export default class Lazyload extends Base{
   constructor(...args) {
     super(...args);
   }

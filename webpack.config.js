@@ -1,6 +1,7 @@
 const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
+const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 function entries (globPath) {
     let files = glob.sync(globPath);
@@ -14,15 +15,30 @@ function entries (globPath) {
     return entries;
 }
 
-console.log(`${__dirname}`);
+const env = process.env.WEBPACK_ENV;
+
+let plugins = [];
+if(env === 'build'){ //build resource
+  plugins.push(
+    new UglifyJsPlugin({
+      compress: { warnings: false }
+    })
+  )
+}
+
 module.exports = {
-  entry   : entries(`${__dirname}/src/*.js`),
+  // entry   : entries(`${__dirname}/src/*.js`),
+  entry : './src/motion.js',
   output  : {
     path  : `${__dirname}/dist`,
-    filename : '[name].js'
+    // filename : '[name].js',
+    filename : 'motion.js',
+    library : 'Motion',
+    libraryTarget : 'umd',
+    umdNamedDefine : true
   },
   devtool: 'source-map',
-  watch : true,
+  // watch : true,
   module : {
     preLoaders: [
       {
@@ -33,19 +49,11 @@ module.exports = {
     ],
     loaders : [
       {
-        loader: 'expose?Motion',
-        test : require.resolve('./src/core/motion')
-      },
-      {
         loader: 'babel-loader',
         test: /\.js$/,
         exclude:/node_modules/
       }
     ]
   },
-  plugins : [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false }
-    })
-  ]
+  plugins : plugins
 };
