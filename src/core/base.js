@@ -1,5 +1,9 @@
-export default class Motion {
+import EventEmitter from './eventEmitter';
+export default class Base extends EventEmitter{
   constructor() {
-    console.log(111);
+    super();
+  }
+  static addPlugins() {
+    console.log('add plugin')
   }
 }
