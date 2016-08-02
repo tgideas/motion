@@ -1,8 +1,0 @@
-{
-      "apps" : [{
-        "name"        : "http",
-	"cwd" : "/Users/helloworld/dev/workspace/github/tgideas/motion/component",
-        "script"      : "http.js",
-        "log_date_format"  : "YYYY-MM-DD HH:mm Z",
-      }]
-}
