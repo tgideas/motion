@@ -1,11 +1,12 @@
 import Base from './core/base';
+import jsLoader from './loader/javascript';
 
-const EMPTYFUNC = function () {};
+const NOOP = function () {};
 
 const OPS = {
   resource : [],
-  loading : EMPTYFUNC,
-  complete : EMPTYFUNC,
+  loading : NOOP,
+  complete : NOOP,
   type : 0,
   minTime : 0,
   attr : 'preload'
@@ -33,8 +34,13 @@ export default class Loader extends Base{
     this.options = Object.assign({}, OPS, options);
 
     console.log(this.options);
-  }
 
+    jsLoader('https://raw.githubusercontent.com/rgrove/lazyload/release-2.0.1/lazyload.js').then((...args) => {
+        console.log(...args)
+    }).catch((...args)=>{
+        console.log(...args);
+    })
+  }
   start(){}
   stop(){}
 }
