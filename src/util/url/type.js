@@ -1,4 +1,9 @@
 import getExt from './ext';
+/**
+ * Get file type
+ * @param  {String} url url address
+ * @return {String}     file type
+ */
 export default function type(url) {
     let ext = getExt(url);
     const types = {
