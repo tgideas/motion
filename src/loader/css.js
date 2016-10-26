@@ -1,7 +1,7 @@
 import createNode from "../util/dom/createNode";
 
 const firstLink = document.getElementsByTagName('link')[0];
-const linkHead = firstScript.parentNode;
+const linkHead = firstLink ? firstLink.parentNode : document.head;
 
 export default (href, charset = 'utf-8') => {
 
@@ -33,7 +33,7 @@ export default (href, charset = 'utf-8') => {
         });
         link = null;
     }
-    linkHead.insertAfter(link, firstLink);
+    firstLink ? linkHead.insertAfter(link, firstLink) : linkHead.appendChild(link);
   });
 
 }

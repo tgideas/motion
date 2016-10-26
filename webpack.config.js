@@ -1,6 +1,7 @@
 const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
+const fs = require('fs-extra');
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 function entries (globPath) {
@@ -17,6 +18,24 @@ function entries (globPath) {
 
 const env = process.env.WEBPACK_ENV;
 
+let entry = './src/motion.js'
+if (process.env.npm_config_pgk) {
+  entry = {}
+  let packages = process.env.npm_config_pgk.split('+')
+  let importStr = ''
+  packages.forEach((item) => {
+    importStr += `import {${item.replace(/^\S/, function(s){return s.toUpperCase()})}, ${item}} from '../src/${item}';\r\n`;
+  })
+  let exportStr = `export default {\r\n`;
+  packages.forEach((item) => {
+    exportStr += `${item.replace(/^\S/, function(s){return s.toUpperCase()})},${item},\r\n`;
+  })
+  exportStr += `}`;
+  let fileContent = importStr + exportStr
+  entry = './.tmp/' + packages.join('|') + '.js';
+  fs.outputFileSync(entry, fileContent, 'utf8');
+}
+
 let plugins = [];
 if(env === 'build'){ //build resource
   plugins.push(
@@ -28,7 +47,7 @@ if(env === 'build'){ //build resource
 
 module.exports = {
   // entry   : entries(`${__dirname}/src/*.js`),
-  entry : './src/motion.js',
+  entry : entry,
   output  : {
     path  : `${__dirname}/dist`,
     // filename : '[name].js',

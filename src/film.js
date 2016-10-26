@@ -1,9 +1,15 @@
 import Base from './core/base';
 
-export default class Film extends Base{
+class Film extends Base{
   constructor(...args) {
     super(...args);
   }
   play(){}
   pause(){}
+}
+
+export default {
+  Film, film(...args){
+    return new Film(...args);
+  }
 }
