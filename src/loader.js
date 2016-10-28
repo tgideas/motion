@@ -4,6 +4,7 @@ import imgLoader from './loader/image';
 import cssLoader from './loader/css';
 import getType from './util/url/type';
 import './util/polyfill/promise.always';
+import './util/polyfill/object.assign';
 
 const NOOP = function () {};
 

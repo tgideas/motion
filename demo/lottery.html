@@ -2,10 +2,31 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=640,user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <title></title>
   </head>
   <body>
   <div id="lottery"></div>
   </body>
   <script src="../dist/motion.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var a = Motion.lottery({
+      background:"http://ossweb-img.qq.com/images/flash/lottery/circle/g.png",
+      startBtn:"http://ossweb-img.qq.com/images/flash/lottery/circle/z.png",
+      prize: ['一等奖','二等奖','一等奖','二等奖','一等奖','二等奖','一等奖','二等奖'],
+      width : 600,
+      height : 600,
+      offset : 20,
+      end : function (prize, index) {
+        console.log(prize, index)
+      }
+    })
+
+    document.addEventListener('click', function () {
+      a.stop(Math.floor(Math.random()*8))
+    }, false)
+  </script>
 </html>
