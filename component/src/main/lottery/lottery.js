@@ -19,7 +19,7 @@
  * @param {string} [opts.boxw=100] 奖品光效的宽度
  * @param {string} [opts.boxh=100] 奖品光效的高度
  * @param {string} [opts.position="19_20, 128_20, 348_19, 569_239, 679_239"] 奖品光效的位置，对应奖品图片的布局，填入每个奖品的位置以及角度用逗号分割  x_y_rotation（角度为0的可以不填写） 例如19_20或者19_20_0 表示第一个奖品的位置 x坐标为19px y坐标为20px 角度为0。）
- * @param {string} [opts.contentId=swfcontent] 嵌入swf 的div层的 id 
+ * @param {string} [opts.contentId=swfcontent] 嵌入swf 的div层的 id
  * @param {string} [opts.onClickRollEvent]
  * @param {string} [opts.onCompleteRollEvent] 奖品光效的高度
  * @param {string} [opts.r=null] 奖品总数
@@ -42,7 +42,7 @@
 			'by':0,//圆盘的图片位置y坐标
 			'sx':0,//开始抽奖按钮x坐标
 			'sy':0,//开始抽奖按钮y坐标
-			'contentId' : 'swfcontent',//嵌入swf 的div层的 id 
+			'contentId' : 'swfcontent',//嵌入swf 的div层的 id
 			'onClickRollEvent' : callJsToStart,//对应上面接口
 			'onCompleteRollEvent':callJsToComplete //对应上面接口
 		});
@@ -155,15 +155,15 @@ define(function(require, exports, module){
 		        for (var i = 0; i < ss.length; ++i) {
 		        	if(!ss[i].cssRules) continue;
 		            for (var j = 0; j < ss[i].cssRules.length; ++j) {
-		                if (ss[i].cssRules[j].type == (window.CSSRule.WEBKIT_KEYFRAMES_RULE 
-		                	|| window.CSSRule.MOZ_KEYFRAMES_RULE 
-		                	|| window.CSSRule.O_KEYFRAMES_RULE 
-		                	|| window.CSSRule.KEYFRAMES_RULE) 
+		                if (ss[i].cssRules[j].type == (window.CSSRule.WEBKIT_KEYFRAMES_RULE
+		                	|| window.CSSRule.MOZ_KEYFRAMES_RULE
+		                	|| window.CSSRule.O_KEYFRAMES_RULE
+		                	|| window.CSSRule.KEYFRAMES_RULE)
 		                	&& ss[i].cssRules[j].name == rule)
 		                    return ss[i].cssRules[j];
 		            }
 		        }
-		        
+
 		        // rule not found
 		        return null;
 			},
@@ -263,7 +263,7 @@ define(function(require, exports, module){
 					_private.addRule('.' + classes['speed_up'], speed_up);
 					_private.addRule('.' + classes['uniform'], uniform);
 					_private.addRule('.' + classes['slow_down'], slow_down);
-					
+
 				}else{
 					//初始化keyframe
 					_private.addRule('@' + _private.prefix + 'keyframes '+ classes['bgLight'], '0% {background-position: -500px 0}100% {background-position: 500px 0}');
@@ -325,12 +325,12 @@ define(function(require, exports, module){
 			var faceInit = (function(){
 				var str
 				if(config.r){
-					str = '<div class="' + classes['container'] + 
+					str = '<div class="' + classes['container'] +
 					'"><div id="' + classes['hover'] + '" class="' + classes['hover'] + '"></div><img src="'+config.s+'" id="' + classes['start'] + '" class="' + classes['start'] + '"></div>';
 				}else{
-					str = '<div class="' + classes['container'] + 
-					'"><a hidefocus="true" id="' + classes['start'] + '" href="javascript:;" class="' + classes['start'] + 
-					'"><div class="' + classes['slight'] + 
+					str = '<div class="' + classes['container'] +
+					'"><a hidefocus="true" id="' + classes['start'] + '" href="javascript:;" class="' + classes['start'] +
+					'"><div class="' + classes['slight'] +
 					'"></div></a><div id="' + classes['hover'] + '" class="' + classes['hover'] + '"></div></div>';
 				}
 				container.innerHTML = str;
@@ -356,7 +356,7 @@ define(function(require, exports, module){
 					startBtn.className = classes['start'];
 				}
 			}
-			
+
 			var bind = (function(){
 				Zepto(startBtn).bind('touchend', function(e){
 					btn.disable() && config.onClickRollEvent();
@@ -385,24 +385,24 @@ define(function(require, exports, module){
 						Zepto(elem).bind(animationendNames[i], handler);
 					}
 				};
-				if(config.r){
-					animationend(moveBox, function(){
-						if(Zepto(moveBox).hasClass(classes['speed_up'])){
-							Zepto(moveBox).removeClass(classes['speed_up'])
-							setTimeout(function(){
-								Zepto(moveBox).addClass(classes['uniform']);
-							},0)
-						}else if(Zepto(moveBox).hasClass(classes['uniform'])){
-							Zepto(moveBox).removeClass(classes['uniform']);
-							setTimeout(function(){
-								Zepto(moveBox).addClass(classes['slow_down']);
-							},0)
-						}else{
-							btn.enable();
-							config.onCompleteRollEvent();
-						}
-					})
-				}
+				// if(config.r){
+				// 	animationend(moveBox, function(){
+				// 		if(Zepto(moveBox).hasClass(classes['speed_up'])){
+				// 			Zepto(moveBox).removeClass(classes['speed_up'])
+				// 			setTimeout(function(){
+				// 				Zepto(moveBox).addClass(classes['uniform']);
+				// 			},0)
+				// 		}else if(Zepto(moveBox).hasClass(classes['uniform'])){
+				// 			Zepto(moveBox).removeClass(classes['uniform']);
+				// 			setTimeout(function(){
+				// 				Zepto(moveBox).addClass(classes['slow_down']);
+				// 			},0)
+				// 		}else{
+				// 			btn.enable();
+				// 			config.onCompleteRollEvent();
+				// 		}
+				// 	})
+				// }
 			})();
 
 			//处理步骤
@@ -431,20 +431,26 @@ define(function(require, exports, module){
 				if(++curIndex >= config.total){
 					curIndex = 0;
 				}
-				var curInfo = step[curIndex]
+				var curInfo = step[curIndex];
 				moveBox.style.cssText = "display:block;left:"+curInfo.left+'px;top:'+curInfo.top+'px;';
 			}
 
 			var fastTime = 30, slowTime = 300, rdis = 8;
 			this.reset = function(){
 				btn.enable();
+				moveBox.style.cssText = '';
 			};
 			this.stopRoll = function(id){
 				if(config.r){
-					_private.change(classes['speed_up'], _private.prefix + 'transform' , 360 - step[curIndex], step[curIndex] + 720);
-					_private.change(classes['uniform'], _private.prefix + 'transform' , 360 - step[curIndex] - rdis, 360 * 3 + step[id]);
-					_private.change(classes['slow_down'], _private.prefix + 'transform' , step[id] + rdis, 720 - step[id]);
-					Zepto(moveBox).addClass(classes['speed_up']);
+					Zepto(moveBox).animate({
+						rotateZ: ((360-step[id]) + 360 * 10)+'deg'
+					}, 5000, 'cubic-bezier(0.350, -0.005, 0.565, 1.005)', function () {
+						Zepto(moveBox).css({
+							'-webkit-transform': 'rotateZ('+(360-step[curIndex]) + 'deg)'
+						})
+						btn.enable();
+						config.onCompleteRollEvent();
+					})
 					curIndex = id;
 				}else{
 					var ani = function(t, b, c, d){return c * t / d + b;}
@@ -460,7 +466,10 @@ define(function(require, exports, module){
 						moveNext();
 						if( ++index > stepCounts){
 							btn.enable();
-							config.onCompleteRollEvent();
+							setTimeout(function () {
+								config.onCompleteRollEvent();
+							}, 1)
+
 							return;
 						}
 						var moveTime, t = index, b = slowTime, c = fastTime - slowTime , d = speedUp;
@@ -472,7 +481,7 @@ define(function(require, exports, module){
 							moveTime = fastTime;
 						}
 						if(index > uniform){//减速
-							t = slowT++ 
+							t = slowT++
 							b = fastTime;
 							c = slowTime - fastTime;
 							d = slowDown - uniform;
@@ -498,10 +507,10 @@ define(function(require, exports, module){
 			'sbtnw':320,// 开始抽奖按钮的宽度
 			'sbtnh':100,// 开始抽奖按钮的高度
 			'boxw':100,// 奖品光效的宽度
-			'boxh':100,//奖品光效的高度  
+			'boxh':100,//奖品光效的高度
 			'position':"19_20,128_20,238_20,348_19,459_19,568_19,679_19,19_129,128.8_129,568_129,678_129,19_240,128_240,238_240,349_240,459_239,569_239,679_239",
 			//奖品光效的位置，对应奖品图片的布局，填入每个奖品的位置以及角度用逗号分割  x_y_rotation（角度为0的可以不填写） 例如19_20或者19_20_0 表示第一个奖品的位置 x坐标为19px y坐标为20px 角度为0。）
-			'contentId' : 'swfcontent',//嵌入swf 的div层的 id 
+			'contentId' : 'swfcontent',//嵌入swf 的div层的 id
 			'onClickRollEvent' : function(){},//对应上面接口
 			'onCompleteRollEvent':function(){}, //对应上面接口
 			//================以下的参数配置为转盘类的==============================

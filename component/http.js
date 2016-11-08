@@ -51,7 +51,7 @@ var server = http.createServer(function (request, response) {
    var comp = query['u'],  //指定的打包组建
    debug = query['debug'], //是否为非打包模式
    charset = query['charset'] || 'utf-8', //文件编码格式
-   repackage = query['r'], //是否重新打包 
+   repackage = query['r'], //是否重新打包
    zepto = query['zepto'] || 0;
    if(!iconv.encodingExists(charset)){//判断传入的编码是否合法,不合法则指定为utf-8
     charset = 'utf-8';
@@ -70,7 +70,12 @@ var server = http.createServer(function (request, response) {
     }
     response.writeHead(200, header);
    //need package
-   if(comp){ 
+   if(comp){
+     if(/[<>'"`]/.test(comp)){
+       response.write('alert("输入的内容不合法")');
+       response.end();
+       return;
+     }
         grunt.tasks('motionCust:'+comp, {}, function(){
             buildTask = debug == 1 ? 'motionDynamic' : 'motionDynamicUglify';
             filePath = 'build/'+comp.replace(/\|/g,'_') + (debug == 1 ?'':'.min')+'.js';
