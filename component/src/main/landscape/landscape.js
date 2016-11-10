@@ -73,8 +73,8 @@ define(function(require, exports, module) {
 				+'.'+_this.option.prefix+'_landscape_box{position: relative; margin-left: auto; margin-right: auto; top: 50%; transform:translateY(-50%); -webkit-transform:translateY(-50%);}'
 				+'.'+_this.option.prefix+'_landscape span{font-size:22px;display:block;color:'+_this.option.txtColor+'; text-align:center;width: 100%;padding-top: 10px; line-height:2;}'
 				+'.'+_this.option.prefix+'_landscape img{width:auto !important;-webkit-animation: '+_this.option.prefix+'_landscapeAni 1.5s ease infinite alternate;animation: '+_this.option.prefix+'_landscapeAni 1.5s ease infinite alternate;}'
-				+'@-webkit-keyframes '+_this.option.prefix+'_landscapeAni{0% {-webkit-transform:rotate(-90deg);}30% {-webkit-transform:rotate(-90deg);}70%{-webkit-transform:rotate(0deg);}100% {-webkit-transform:rotate(0deg);}}'
-				+'@keyframes '+_this.option.prefix+'_landscapeAni{0% {transform:rotate(-90deg);}30% {transform:rotate(-90deg);}70%{transform:rotate(0deg);}100% {transform:rotate(0deg);}}';
+				+'@-webkit-keyframes '+config.prefix+'_landscapeAni{0% {-webkit-transform:rotate(0deg);}30% {-webkit-transform:rotate(0deg);}70%{-webkit-transform:rotate(90deg);}100% {-webkit-transform:rotate(90deg);}}'
+				+'@keyframes '+config.prefix+'_landscapeAni{0% {transform:rotate(0deg);}30% {transform:rotate(0deg);}70%{transform:rotate(90deg);}100% {transform:rotate(90deg);}}';
 				var style = document.createElement("style");
 			    style.type = "text/css";
 			    style.textContent = cssBlock;
