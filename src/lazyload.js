@@ -12,4 +12,4 @@ export default {
   Lazyload, lazyload(...args){
     return new Lazyload(...args);
   }
-}
+};

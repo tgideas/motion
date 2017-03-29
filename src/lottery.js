@@ -14,7 +14,7 @@ const DEFAULTS = {
   offset : 0,
   start : function () {},
   end : function () {}
-}
+};
 
 class Lottery extends Base{
   constructor(options) {
@@ -23,8 +23,8 @@ class Lottery extends Base{
     if (!(this.options.container && this.options.background && this.options.startBtn)) {
       throw '[Lottery]缺少必要的参数：container|background|startBtn';
     }
-    if (this.options.prize.length == 0) {
-      throw '[Lottery]未配置奖品信息：prize'
+    if (this.options.prize.length === 0) {
+      throw '[Lottery]未配置奖品信息：prize';
     }
     if (/^\w/.test(this.options.container)) {
       this.container = document.getElementById(this.options.container);
@@ -42,9 +42,9 @@ class Lottery extends Base{
       this.scaledBtn = {
         width : this.startBtn.width * this.scale,
         height : this.startBtn.width * this.scale
-      }
+      };
       this.draw(this.angle * Math.PI / 180);
-    }
+    };
 
     imageLoader(this.options.background).then((data) => {
       this.background = data.dom;
@@ -53,16 +53,16 @@ class Lottery extends Base{
       this.canvas.width = this.width;
       this.canvas.height = this.height;
       this.scale = this.width / this.background.width;
-      if (this.startBtn) allLoaded()
+      if (this.startBtn) allLoaded();
     }, function () {
-      throw '[Lottery]奖品图片加载出错'
-    })
+      throw '[Lottery]奖品图片加载出错';
+    });
     imageLoader(this.options.startBtn).then((data) => {
-      this.startBtn = data.dom
-      if (this.background) allLoaded()
+      this.startBtn = data.dom;
+      if (this.background) allLoaded();
     }, function () {
-      throw '[Lottery]按钮图片加载出错'
-    })
+      throw '[Lottery]按钮图片加载出错';
+    });
   }
   /**
    * draw image with rotate angle
@@ -100,10 +100,10 @@ class Lottery extends Base{
       end: (final) => {
         this.angle = final % 360;
         this.isPlaying = false;
-        this.options.end(this.options.prize[this.index = index], index)
-        this.trigger('end', this.options.prize[index], index)
+        this.options.end(this.options.prize[this.index = index], index);
+        this.trigger('end', this.options.prize[index], index);
       }
-    })
+    });
     return this;
   }
 }
@@ -112,4 +112,4 @@ export default {
   Lottery, lottery(...args){
     return new Lottery(...args);
   }
-}
+};

@@ -1,6 +1,6 @@
 export default (src) => {
   return new Promise((resolve, reject) => {
-    let img = new Image()
+    let img = new Image();
     let sTime = Date.now();
     img.onload = () => {
       img.onload =  null;
@@ -21,7 +21,7 @@ export default (src) => {
           status : 'error'
       });
       img = null;
-    }
+    };
     img.src = src;
-  })
-}
+  });
+};

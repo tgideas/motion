@@ -10,4 +10,4 @@ export default {
   Loader,loader,
   Lottery,lottery,
   Slider,slider
-}
+};

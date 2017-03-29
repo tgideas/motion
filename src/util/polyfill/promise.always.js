@@ -4,4 +4,4 @@ Promise.prototype.always = function(onResolveOrReject) {
       onResolveOrReject(reason);
       throw reason;
     });
-}
+};

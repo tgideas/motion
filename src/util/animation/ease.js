@@ -30,7 +30,7 @@ const ease = {
     },
 
     easeOutQuart: function(pos){
-        return -(Math.pow((pos-1), 4) -1)
+        return -(Math.pow((pos-1), 4) -1);
     },
 
     easeInOutQuart: function(pos){
@@ -60,11 +60,11 @@ const ease = {
     },
 
     easeInOutSine: function(pos){
-        return (-.5 * (Math.cos(Math.PI*pos) -1));
+        return (-0.5 * (Math.cos(Math.PI*pos) -1));
     },
 
     easeInExpo: function(pos){
-        return (pos==0) ? 0 : Math.pow(2, 10 * (pos - 1));
+        return (pos===0) ? 0 : Math.pow(2, 10 * (pos - 1));
     },
 
     easeOutExpo: function(pos){
@@ -72,7 +72,7 @@ const ease = {
     },
 
     easeInOutExpo: function(pos){
-        if(pos==0) return 0;
+        if(pos===0) return 0;
         if(pos==1) return 1;
         if((pos/=0.5) < 1) return 0.5 * Math.pow(2,10 * (pos-1));
         return 0.5 * (-Math.pow(2, -10 * --pos) + 2);
@@ -83,7 +83,7 @@ const ease = {
     },
 
     easeOutCirc: function(pos){
-        return Math.sqrt(1 - Math.pow((pos-1), 2))
+        return Math.sqrt(1 - Math.pow((pos-1), 2));
     },
 
     easeInOutCirc: function(pos){
@@ -95,11 +95,11 @@ const ease = {
         if ((pos) < (1/2.75)) {
             return (7.5625*pos*pos);
         } else if (pos < (2/2.75)) {
-            return (7.5625*(pos-=(1.5/2.75))*pos + .75);
+            return (7.5625*(pos-=(1.5/2.75))*pos + 0.75);
         } else if (pos < (2.5/2.75)) {
-            return (7.5625*(pos-=(2.25/2.75))*pos + .9375);
+            return (7.5625*(pos-=(2.25/2.75))*pos + 0.9375);
         } else {
-            return (7.5625*(pos-=(2.625/2.75))*pos + .984375);
+            return (7.5625*(pos-=(2.625/2.75))*pos + 0.984375);
         }
     },
 
@@ -143,11 +143,11 @@ const ease = {
         if (pos < (1/2.75)) {
             return (7.5625*pos*pos);
         } else if (pos < (2/2.75)) {
-            return (7.5625*(pos-=(1.5/2.75))*pos + .75);
+            return (7.5625*(pos-=(1.5/2.75))*pos + 0.75);
         } else if (pos < (2.5/2.75)) {
-            return (7.5625*(pos-=(2.25/2.75))*pos + .9375);
+            return (7.5625*(pos-=(2.25/2.75))*pos + 0.9375);
         } else {
-            return (7.5625*(pos-=(2.625/2.75))*pos + .984375);
+            return (7.5625*(pos-=(2.625/2.75))*pos + 0.984375);
         }
     },
 
@@ -155,11 +155,11 @@ const ease = {
         if (pos < (1/2.75)) {
             return (7.5625*pos*pos);
         } else if (pos < (2/2.75)) {
-            return 2 - (7.5625*(pos-=(1.5/2.75))*pos + .75);
+            return 2 - (7.5625*(pos-=(1.5/2.75))*pos + 0.75);
         } else if (pos < (2.5/2.75)) {
-            return 2 - (7.5625*(pos-=(2.25/2.75))*pos + .9375);
+            return 2 - (7.5625*(pos-=(2.25/2.75))*pos + 0.9375);
         } else {
-            return 2 - (7.5625*(pos-=(2.625/2.75))*pos + .984375);
+            return 2 - (7.5625*(pos-=(2.625/2.75))*pos + 0.984375);
         }
     },
 
@@ -177,7 +177,7 @@ const ease = {
     },
 
     linear:  function(pos) {
-        return pos
+        return pos;
     },
 
     sinusoidal: function(pos) {
@@ -197,7 +197,7 @@ const ease = {
     },
 
     flicker: function(pos) {
-        var pos = pos + (Math.random()-0.5)/5;
+        pos = pos + (Math.random()-0.5)/5;
         return ease.sinusoidal(pos < 0 ? 0 : pos > 1 ? 1 : pos);
     },
 
@@ -206,7 +206,7 @@ const ease = {
     },
 
     pulse: function(pos, pulses) {
-        return (-Math.cos((pos*((pulses||5)-.5)*2)*Math.PI)/2) + .5;
+        return (-Math.cos((pos*((pulses||5)-0.5)*2)*Math.PI)/2) + 0.5;
     },
 
     blink: function(pos, blinks) {
@@ -218,11 +218,11 @@ const ease = {
     },
 
     none: function(pos){
-        return 0
+        return 0;
     },
 
     full: function(pos){
-        return 1
+        return 1;
     }
-}
-export default ease
+};
+export default ease;

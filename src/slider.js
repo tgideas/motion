@@ -12,4 +12,4 @@ export default {
     Slider, slider(...args){
       return new Slider(...args);
     }
-}
+};

@@ -18,10 +18,11 @@ function entries (globPath) {
 
 const env = process.env.WEBPACK_ENV;
 
-let entry = './src/motion.js'
-if (process.env.npm_config_pgk) {
+let entry = './src/motion.js';
+
+if (process.env.npm_config_pkg) {
   entry = {}
-  let packages = process.env.npm_config_pgk.split('+')
+  let packages = process.env.npm_config_pkg.split('+')
   let importStr = ''
   packages.forEach((item) => {
     importStr += `import {${item.replace(/^\S/, function(s){return s.toUpperCase()})}, ${item}} from '../src/${item}';\r\n`;
@@ -30,7 +31,7 @@ if (process.env.npm_config_pgk) {
   packages.forEach((item) => {
     exportStr += `${item.replace(/^\S/, function(s){return s.toUpperCase()})},${item},\r\n`;
   })
-  exportStr += `}`;
+  exportStr += `};`;
   let fileContent = importStr + exportStr
   entry = './.tmp/' + packages.join('|') + '.js';
   fs.outputFileSync(entry, fileContent, 'utf8');
@@ -40,6 +41,7 @@ let plugins = [];
 if(env === 'build'){ //build resource
   plugins.push(
     new UglifyJsPlugin({
+      sourceMap: true,
       compress: { warnings: false }
     })
   )
@@ -57,20 +59,31 @@ module.exports = {
     umdNamedDefine : true
   },
   devtool: 'source-map',
-  // watch : true,
+  watch : true,
   module : {
-    preLoaders: [
+    rules: [
       {
         test: /\.js$/,
-        loader: "jshint-loader",
-        include: "src"
-      }
-    ],
-    loaders : [
+        enforce: "pre",
+        exclude:/node_modules/,
+        use:[
+          {
+            loader: "jshint-loader",
+            options: {
+              esversion: 6,
+              expr: true
+            }
+          }
+        ]
+      },
       {
-        loader: 'babel-loader',
         test: /\.js$/,
-        exclude:/node_modules/
+        exclude:/node_modules/,
+        use: [
+          {
+            loader :'babel-loader'
+          }
+        ]
       }
     ]
   },

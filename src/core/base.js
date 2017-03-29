@@ -4,6 +4,6 @@ export default class Base extends EventEmitter{
     super();
   }
   static addPlugins() {
-    console.log('add plugin')
+    console.log('add plugin');
   }
 }

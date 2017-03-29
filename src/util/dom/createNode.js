@@ -4,7 +4,7 @@
  * @param  {Object} attrs attributes
  * @return {HTMLElement}       Created Element
  */
-export default function createNode(name, attrs) {
+export default (name, attrs) => {
     let node = document.createElement(name);
     for (let attr in attrs) {
         if (attrs.hasOwnProperty(attr)) {
@@ -12,4 +12,4 @@ export default function createNode(name, attrs) {
         }
     }
     return node;
-}
+};

@@ -2,6 +2,8 @@ import Base from './core/base';
 import jsLoader from './loader/javascript';
 import imgLoader from './loader/image';
 import cssLoader from './loader/css';
+import audioLoader from './loader/audio';
+import videoLoader from './loader/video';
 import getType from './util/url/type';
 import './util/polyfill/promise.always';
 import './util/polyfill/object.assign';
@@ -18,20 +20,22 @@ const DEFAULTS = {
   success : NOOP,
   error : NOOP,
   complete : NOOP
-}
+};
 
 const STATUS = {
   READY : 0,
   LOADING : 1,
   SUCCESS : 2,
   ERROR : 3
-}
+};
 
 const LOADER = {
   JAVASCRIPT : jsLoader,
   IMAGE : imgLoader,
-  CSS : cssLoader
-}
+  CSS : cssLoader,
+  AUDIO : audioLoader,
+  VIDEO : videoLoader
+};
 
 class Loader extends Base{
   constructor(resource, options) {
@@ -45,7 +49,7 @@ class Loader extends Base{
         options = {
           complete : tempFunc,
           resource : resource
-        }
+        };
       }else{
         options.resource = (options.resource || []).concat(resource);
       }
@@ -60,11 +64,11 @@ class Loader extends Base{
       this.options.resource[i] = {
         url : v,
         status : STATUS.READY
-      }
+      };
     });
 
     if(this.options.autoStart === true){
-      this.start()
+      this.start();
     }
 
   }
@@ -105,8 +109,14 @@ class Loader extends Base{
       if(v.status === STATUS.READY){
         let curStart = Date.now();
         let type = getType(v.url).toUpperCase();
+        if (['MP3'].indexOf('type') > -1) {
+          type = 'AUDIO';
+        }else if(['MP4'].indexOf('type') > -1){
+          type = 'VIDEO';
+        }
         v.status = STATUS.LOADING;
         let loader = LOADER[type];
+        // console.log(loader, type, LOADER);
         loader(v.url).then((data) => {
           return data;
         }, (data) => {
@@ -123,17 +133,17 @@ class Loader extends Base{
               this.options.complete(durTime);
               this.trigger('complete', durTime);
             }
-          }
+          };
           dif < this.options.minTime ? setTimeout(done, this.options.minTime - dif) : done();
-        })
+        });
       }
-    }
+    };
 
     if (this.options.type === 1) {
       this.on('success', (data, count, totalLen) => {
         count < totalLen && load(this.options.resource[count]);
-      })
-      totalLen && load(this.options.resource[count])
+      });
+      totalLen && load(this.options.resource[count]);
     } else {
       this.options.resource.forEach((v, i)=>{
         load(v);
@@ -146,4 +156,4 @@ export default {
   Loader, loader(...args){
     return new Loader(...args);
   }
-}
+};

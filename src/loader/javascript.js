@@ -30,7 +30,7 @@ export default (src, charset = 'utf-8') => {
               status : 'error'
           });
           script = null;
-      }
+      };
     	scriptHead.insertBefore(script, firstScript);
     });
-}
+};

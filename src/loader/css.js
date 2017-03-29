@@ -32,8 +32,8 @@ export default (href, charset = 'utf-8') => {
             status : 'error'
         });
         link = null;
-    }
+    };
     firstLink ? linkHead.insertAfter(link, firstLink) : linkHead.appendChild(link);
   });
 
-}
+};

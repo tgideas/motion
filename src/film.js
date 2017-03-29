@@ -12,4 +12,4 @@ export default {
   Film, film(...args){
     return new Film(...args);
   }
-}
+};

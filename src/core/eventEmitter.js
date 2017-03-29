@@ -15,7 +15,7 @@ export default class EventEmitter {
    */
   on(event, callback){
     if(typeof callback === 'undefined'){
-      throw new Error('You must provide a callback method.')
+      throw new Error('You must provide a callback method.');
     }
     if(typeof callback !== 'function'){
       throw new Error('Listener must be a function');
@@ -49,7 +49,7 @@ export default class EventEmitter {
     if(typeof callback === 'function'){ //set an
       listeners.forEach((v, i) => {
         if(v === callback){
-          listeners.splice(i, 1)
+          listeners.splice(i, 1);
         }
       });
       if(listeners.length === 0){
@@ -79,7 +79,7 @@ export default class EventEmitter {
       listeners = listeners.slice(0);
       listeners.forEach((v)=>{
         v.apply(this, args);
-      })
+      });
     }
 
     return this;

@@ -7,7 +7,7 @@ const DEFAULTS = {
   duration: 500,
   calc: function () {},
   end: function () {}
-}
+};
 
 export default function (options) {
   let {begin, change, ease, duration, calc, end} = Object.assign({}, DEFAULTS, options);
