@@ -116,7 +116,6 @@ class Loader extends Base{
         }
         v.status = STATUS.LOADING;
         let loader = LOADER[type];
-        // console.log(loader, type, LOADER);
         loader(v.url).then((data) => {
           return data;
         }, (data) => {
@@ -130,7 +129,7 @@ class Loader extends Base{
             this.trigger(data.status, data, count, totalLen);
             if (count >= totalLen) {
               let durTime = Date.now() - start;
-              this.options.complete(durTime);
+              this.options.complete.call(this, durTime);
               this.trigger('complete', durTime);
             }
           };
@@ -138,7 +137,6 @@ class Loader extends Base{
         });
       }
     };
-
     if (this.options.type === 1) {
       this.on('success', (data, count, totalLen) => {
         count < totalLen && load(this.options.resource[count]);

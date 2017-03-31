@@ -11,6 +11,7 @@
   <body>
   <div id="lottery"></div>
   <canvas></canvas>
+  asdf
   </body>
   <script src="../dist/motion.js" charset="utf-8"></script>
   <script type="text/javascript">
@@ -33,23 +34,30 @@
     // 
     
 
-    var canvas = document.querySelector('canvas');
-    var context = canvas.getContext('2d');
-    Motion.loader('video.mp4', function(d){
-      console.log(d)
-    }).on('success', function(d){
-      function updateCanvas(){
-          context.clearRect(0,0,canvas.width,canvas.height); 
-          context.drawImage(d.dom, 0, 0, canvas.width,canvas.height);
-          if (!(d.dom.paused || d.dom.ended)) {
-            requestAnimationFrame(updateCanvas);
-          }
+    // var canvas = document.querySelector('canvas');
+    // var context = canvas.getContext('2d');
+    // Motion.loader('video.mp4', function(d){
+    //   console.log(d)
+    // }).on('success', function(d){
+    //   function updateCanvas(){
+    //       context.clearRect(0,0,canvas.width,canvas.height); 
+    //       context.drawImage(d.dom, 0, 0, canvas.width,canvas.height);
+    //       if (!(d.dom.paused || d.dom.ended)) {
+    //         requestAnimationFrame(updateCanvas);
+    //       }
           
-      }
-      requestAnimationFrame(updateCanvas);
-      d.dom.play();
-    }).on('complete', function(d){
-      console.log(d)
-    })
+    //   }
+    //   requestAnimationFrame(updateCanvas);
+    //   d.dom.play();
+    // }).on('complete', function(d){
+    //   console.log(d)
+    // })
+    // 
+    var audio = Motion.audio('audio.mp3').on('success', function(){
+      document.addEventListener('touchend', (e)=>{
+        this.play()
+      }, false)
+      // this.play();
+    });
   </script>
 </html>

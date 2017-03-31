@@ -1,45 +1,43 @@
+import ajax from './ajax';
 export default (url) => {
 	return new Promise((resolve, reject) => {
 		let sTime = new Date();
 		let xhr = new XMLHttpRequest();
 		let AudioContext = window.AudioContext || window.webkitAudioContext;
     let context = new AudioContext();
-    let source = context.createBufferSource();
-		xhr.open("GET", url, true);
-		xhr.responseType = 'arraybuffer';
-		xhr.onload = () => {
-			context.decodeAudioData(
-          xhr.response,
+    ajax(url, {
+      dataType : 'arraybuffer'
+    }).then((data) => {
+      context.decodeAudioData(
+          data.data,
           function(buffer) {
             if (!buffer) {
               reject({
-              	url: url,
-              	time : new Date() - sTime,
-          			status : 'error',
-          			context : context
+                url: url,
+                time : new Date() - sTime,
+                status : 'error',
+                context : context
               });
             }else{
-              source.buffer = buffer;
-              source.connect(context.destination);
+              // source.buffer = buffer;
+              // source.connect(context.destination);
               resolve({
-              	url: url,
-              	time : new Date() - sTime,
-          			status : 'success',
-          			source : source,
-          			context : context
+                url: url,
+                time : new Date() - sTime,
+                status : 'success',
+                buffer : buffer,
+                context : context
               });
             }
         }
       );
-		};
-		xhr.onerror = () => {
-			reject({
+    }, (data) => {
+      reject({
         url: url,
         time : new Date() - sTime,
         status : 'error',
         context : context
       });
-		};
-		xhr.send();
+    });
 	});
 };
