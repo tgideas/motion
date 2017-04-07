@@ -4,6 +4,7 @@ import {Loader, loader} from './loader';
 import {Lottery, lottery} from './lottery';
 import {Slider, slider} from './slider';
 import {Audio, audio} from './audio';
+import {Animation, animate} from './animation';
 
 export default {
   Film,film,
@@ -11,5 +12,6 @@ export default {
   Loader,loader,
   Lottery,lottery,
   Slider,slider,
-  Audio,audio
+  Audio,audio,
+  Animation,animate
 };

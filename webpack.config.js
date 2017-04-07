@@ -71,7 +71,8 @@ module.exports = {
             loader: "jshint-loader",
             options: {
               esversion: 6,
-              expr: true
+              expr: true,
+              loopfunc: true
             }
           }
         ]

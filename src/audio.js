@@ -22,6 +22,7 @@ class Audio extends Base{
 		this.trigger('loading');
 		this.pauseAt = 0;
 		this.beginTime = 0;
+		this.loopTimes = 0;
 		loader(url, (data) => {
 		}).on('success', (data) => {
 			this.status = data.status;
@@ -84,12 +85,17 @@ class Audio extends Base{
 			let playing = () => {
 				this.analyser.getByteFrequencyData(dataArray);
 				this.trigger('playing', this.context.currentTime, this.source.buffer.duration, bufferLength, dataArray);
-				if (this.context.currentTime<this.source.buffer.duration) {
+				let loopTime = Math.floor(this.context.currentTime / this.source.buffer.duration);
+				if (this.loopTimes == loopTime) {
 					this.playTimer = requestAnimationFrame(playing);
 				}else{
+					this.loopTimes = loopTime;
 					if (!this.options.loop) {
 						this.status = STATUS.ENDED;
 						this.trigger('end', this.context.currentTime, this.source.buffer.duration, bufferLength, dataArray);
+					}else{
+						this.playTimer = requestAnimationFrame(playing);
+						this.trigger('loop', this.context.currentTime, this.source.buffer.duration, bufferLength, dataArray);
 					}
 				}
 			};
@@ -112,8 +118,16 @@ class Audio extends Base{
 		this.pause();
 		this.status = STATUS.STOPED;
 		this.pauseAt = 0;
+		this.loopTimes = 0;
 		this.trigger('stop');
 		return this;
+	}
+
+	get volume(){
+		return this.gainNode.gain.value;
+	}
+	set volume(volume){
+		return this.setVolume(volume);
 	}
 
 	setVolume(value){

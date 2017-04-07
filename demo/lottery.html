@@ -6,14 +6,19 @@
 <meta name="viewport" content="width=640,user-scalable=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<style>
+  #a{position: absolute;width: 100px;height: 100px; left: 20px;
+    bottom: 60px; background: #f00}
+</style>
     <title></title>
   </head>
   <body>
   <div id="lottery"></div>
-  <canvas></canvas>
+  <canvas width="640" height="300"></canvas>
   asdf
+  <div id="a">ddd</div>
   </body>
-  <script src="../dist/motion.js" charset="utf-8"></script>
+  <script src="../dist/motion.js?r=3" charset="utf-8"></script>
   <script type="text/javascript">
     // var a = Motion.lottery({
     //   background:"http://ossweb-img.qq.com/images/flash/lottery/circle/g.png",
@@ -34,8 +39,8 @@
     // 
     
 
-    // var canvas = document.querySelector('canvas');
-    // var context = canvas.getContext('2d');
+    var canvas = document.querySelector('canvas');
+    var context = canvas.getContext('2d');
     // Motion.loader('video.mp4', function(d){
     //   console.log(d)
     // }).on('success', function(d){
@@ -58,6 +63,14 @@
         this.play()
       }, false)
       // this.play();
+    }).on('playing', function(c,t,l,d){
+      context.clearRect(0,0,canvas.width, canvas.height);
+      context.fillStyle="#f00";
+      for (var i = 0; i < l; i++) {
+        context.fillRect(i*20, 0, 15, d[i]);
+      }
+    }).on('loop', function(){
+      console.log('loop');
     });
   </script>
 </html>
