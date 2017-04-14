@@ -1,4 +1,14 @@
+/**
+ * keyframe整理
+ * 
+ * @type {Object}
+ */
 const Keyframe = {
+	/**
+	 * 补全offset。对于部分没有填写offset
+	 * @param  {[type]} keyframes [description]
+	 * @return {[type]}           [description]
+	 */
 	clearSpaceOffset(keyframes){
 		let len = keyframes.length;
 		if (keyframes[len - 1].offset === undefined) {
@@ -20,8 +30,13 @@ const Keyframe = {
 			}
 		}
 	},
+	/**
+	 * 多种参数格式兼容，讲对象转换成数组的keyframe形势
+	 * @param  {[type]} options [description]
+	 * @return {[type]}         [description]
+	 */
 	format(options){
-		var keyframes = [];
+		let keyframes = [];
 		if (Array.isArray(options)) {
 			keyframes = options;
 		}else if (Object.keys(options).length) { //is object
@@ -52,17 +67,18 @@ const Keyframe = {
 			});
 		}
 		if (keyframes.length) {
-
+			//补全所有keyframe的offset
 			Keyframe.clearSpaceOffset(keyframes);
 
 			let normalize = [keyframes[0]];
 			let curOffset = normalize[0].offset;
 			keyframes.forEach((item) => {
-				if (item.offset === curOffset) {
+				if (item.offset === curOffset) { //需要合并相同offset的值
 					for(let k in item){
 						normalize[normalize.length - 1][k] = item[k];
 					}
 				}else{
+					curOffset = item.offset;
 					normalize.push(item);
 				}
 			});

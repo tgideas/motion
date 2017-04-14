@@ -9,6 +9,30 @@
 <style>
   #a{position: absolute;width: 100px;height: 100px; left: 20px;
     bottom: 60px; background: #f00}
+ #test{
+  animation:animations 2s linear infinite;
+  width: 100px;
+  height: 100px;
+  background: gray;
+  position: absolute;
+  left: 0;
+  top: 50px;
+}
+#test2{
+   width: 100px;
+  height: 100px;
+  background: gray;
+  position: absolute;
+  left: 0;
+  top: 150px;
+}
+@keyframes animations{
+  0%{left:0;}
+  25%{left:100px}
+  50%{left:150px}
+  75%{left:250px}
+  100%{left:400px}
+}
 </style>
     <title></title>
   </head>
@@ -17,8 +41,11 @@
   <canvas width="640" height="300"></canvas>
   asdf
   <div id="a">ddd</div>
+
+  <div id="test"></div>
+  <div id="test2"></div>
   </body>
-  <script src="../dist/motion.js?r=3" charset="utf-8"></script>
+  <script src="../dist/motion.js?r=6" charset="utf-8"></script>
   <script type="text/javascript">
     // var a = Motion.lottery({
     //   background:"http://ossweb-img.qq.com/images/flash/lottery/circle/g.png",
@@ -58,19 +85,40 @@
     //   console.log(d)
     // })
     // 
-    var audio = Motion.audio('audio.mp3').on('success', function(){
-      document.addEventListener('touchend', (e)=>{
-        this.play()
-      }, false)
-      // this.play();
-    }).on('playing', function(c,t,l,d){
-      context.clearRect(0,0,canvas.width, canvas.height);
-      context.fillStyle="#f00";
-      for (var i = 0; i < l; i++) {
-        context.fillRect(i*20, 0, 15, d[i]);
-      }
-    }).on('loop', function(){
-      console.log('loop');
-    });
+    // 
+    // 
+    // var audio = Motion.audio('audio.mp3').on('success', function(){
+    //   document.addEventListener('touchend', (e)=>{
+    //     this.play()
+    //   }, false)
+    //   // this.play();
+    // }).on('playing', function(c,t,l,d){
+    //   context.clearRect(0,0,canvas.width, canvas.height);
+    //   context.fillStyle="#f00";
+    //   for (var i = 0; i < l; i++) {
+    //     context.fillRect(i*20, 0, 15, d[i]);
+    //   }
+    // }).on('loop', function(){
+    //   console.log('loop');
+    // });
+    // 
+      var ani = Motion.animate(document.querySelector('#test2'), [{
+          'left':'0px',
+          'offset' : 0
+        },{
+          'left':'600px',
+          'offset':.25
+        },{
+          'left':'400px',
+          'offset':.5
+        },{
+          'left':'200px',
+          'offset':.75
+        },{
+          'left':'800px',
+          'offset':1
+        }
+      ],{easing:'ease-in', duration:1000, delay:1000,endDelay:1000, fill:'both', iterations:2, direction:'reverse'});
+      ani.play();
   </script>
 </html>
