@@ -1,191 +1,118 @@
-import EASE from './ease';
-import cubic from './cubic';
-
-let linear = (x) => { return x; };
-let step = (count, pos) => {
-  return (x) => {
-    if (x >= 1) {
-      return 1;
-    }
-    let stepSize = 1 / count;
-    x += pos * stepSize;
-    return x - x % stepSize;
-  };
-};
-
-const PRESETS = {
-  'linear': linear,
-  'ease': cubic(0.25, 0.1, 0.25, 1),
-  'ease-in': cubic(0.42, 0, 1, 1),
-  'ease-out': cubic(0, 0, 0.58, 1),
-  'ease-in-out': cubic(0.42, 0, 0.58, 1),
-  'step-start': step(1, 1),
-  'step-middle': step(1, 0.5),
-  'step-end': step(1, 0)
-};
-
-const numberString = '\\s*(-?\\d+\\.?\\d*|-?\\.\\d+)\\s*';
-const cubicBezierRe = new RegExp('cubic-bezier\\(' + numberString + ',' + numberString + ',' + numberString + ',' + numberString + '\\)');
-const stepRe = /steps\(\s*(\d+)\s*,\s*(start|middle|end)\s*\)/;
+import Cursor from './cursor';
 
 const DEFAULTS = {
-  begin: 0,
-  change: 1,
-  easing: 'linear',
-  duration: 500,
-  direction: 'normal',
-  from:0, //执行区间起点
-  to:1, //执行区间终点
-  calc: function () {},
-  end: function () {},
-  delay: 0,
-  endDelay: 0,
-  fill: "none",
-  // iterationStart: 0,
-  iterations: 1//Infinity
+	begin:0,
+	change:1,
+	easing: 'linear',
+	duration: 1000,
+	direction: 'normal',
+	delay:0,
+	endDelay:0, 
+	fill:'both',
+	iterations:1,
+	iterationStart:0,
+	calc: function(){},
+	end: function(){}
 };
 
-export default class Tween{
-  constructor(options){
-    this.options = Object.assign({}, DEFAULTS, options);
-    //曲线函数
-    this.easing = EASE[this.options.easing] || PRESETS[this.options.easing];
-    //当前进度
-    this._process = this.options.from;
-    this.count = 0;
-    this.status = 'idle';
-    this.playTimer = null;
-    this.direction = this.options.direction;
-    if (!this.easing) {
-      let cubicData = cubicBezierRe.exec(this.options.easing), stepData = stepRe.exec(this.options.easing);
-      if (cubicData) {
-        this.easing = cubic.apply(this, cubicData.slice(1).map(Number));
-      }else if (stepData) {
-        this.easing = step(Number(stepData[1]), {'start': 1, 'middle': 0.5, 'end': 0}[stepData[2]]);
-      }else{
-        this.easing = linear;
-      }
-    }
-  }
+let privateObj = new WeakMap();
+export default class Tween extends Cursor{
+	constructor(options){
+		let opts = Object.assign({}, DEFAULTS, options);
+		super(opts);
 
-  val(percent){
-    let delta = this.easing(percent);
-    return this.options.begin + this.options.change * delta;
-  }
+		this.options = opts;
 
-  pend(cb, delay){
-      this.status = 'pending';
-      let st = null;
-      let pendStep = (timestamp) => {
-        if (st === null) st = timestamp;
-        if (timestamp - st < delay) {
-          this.playTimer = requestAnimationFrame(pendStep);
-        }else{
-          cb();
-        }
-      };
-      this.playTimer = requestAnimationFrame(pendStep);
-  }
+		this.timer = null;
+		this.direction = this.options.direction;
+		this.playState = 'idle';
 
-  play(direction, from, to){
-    direction = direction === undefined ? this.options.direction : direction;
-    from = from === undefined ? this.process : from;
-    to = to === undefined ? this.options.to : to;
-    console.log(from, to)
-    if (direction == 'reverse') {
-      from = 1 - to;
-      to = 1- from;
-    }
-    console.log(from, to)
-    let start = null;
-    let end = null;
+		privateObj.set(this, {
+			_startTimestamp: null,
+			_currentTime: 0, //当前播放的时间
+			_totalTime: this.options.delay + this.options.duration * this.options.iterations + this.options.endDelay //动画整体运算时间
+		});
 
-    /**
-     * 播放
-     * @return {[type]} [description]
-     */
-    let play = () => {
-      this.status = 'running';
-      this.playTimer = requestAnimationFrame(step);
-    };
+	}
+	play(){
+		let start = privateObj.get(this)._startTimestamp;
+		console.log('start', start);
+		let step = (timestamp) => {
+			console.log(start);
+			if (start === null) privateObj.get(this)._startTimestamp = start = timestamp - this.currentTime;
+			this.timer = requestAnimationFrame(step);
+			console.log(timestamp - start);
+			this.currentTime = timestamp - start;
+		};
+		if (!this.timer) { //如果当前状态是空闲的
+			privateObj.get(this)._startTimestamp = start = null;
+			this.currentTime = this.currentTime;
+			this.timer = requestAnimationFrame(step);
+		}
+		return this;
+	}
+	pause(){
+		cancelAnimationFrame(this.timer);
+		this.timer = null;
+		this.playState = 'paused';
+		return this;
+	}
+	finish(){
+		this.currentTime = privateObj.get(this)._totalTime;
+		return this;
+	}
+	cancel(){
+		this.pause();
+		privateObj.get(this)._startTimestamp = null;
+		this.currentTime = 0;
+		this.playState = 'idle';
+		return this;
+	}
+	reverse(){
+		this.currentTime = privateObj.get(this)._totalTime - privateObj.get(this)._currentTime;
+		this.direction = this.direction === 'reverse' ? 'normal' : 'reverse';
+		return this;
+	}
 
-    /**
-     * 播放步骤
-     * @param  {[type]} timestamp [description]
-     * @return {[type]}           [description]
-     */
-    let step = (timestamp) => {
-      if (start === null) {
-        start = timestamp - from * this.options.duration;
-        end = timestamp + to * this.options.duration;
-      }
-      let passedTime;
-      passedTime = timestamp - start;
-        this.process = Math.min(passedTime / this.options.duration, to);
+	get currentTime(){
+		return privateObj.get(this)._currentTime;
+	}
+	set currentTime(time){
+		privateObj.get(this)._currentTime = time;
+		// console.log(time < this.options.delay,time <= privateObj.get(this)._totalTime - this.options.endDelay,time < privateObj.get(this)._totalTime)
+		if (time < this.options.delay) { //尚在等待中
+			if (this.playState != 'pending') {
+				this.process = this.direction === 'reverse' ? 0 : 1;
+			}
+			this.playState = 'pending';
+		}else if(time < privateObj.get(this)._totalTime - this.options.endDelay){ //动画在运行中
+			this.playState = 'running';
+			if (this.direction === 'reverse') {
+				time = privateObj.get(this)._totalTime - (this.options.endDelay - this.options.delay) - time;
+			}
+			this.process = (time - this.options.delay) % this.options.duration / this.options.duration;
+			// console.log(this.process);
+		}else if(time < privateObj.get(this)._totalTime){
+			if (this.playState != 'pending') {
+				this.process = this.direction === 'reverse' ? 0 : 1;
+			}
+			this.playState = 'pending';
+		}else{
+			if (this.playState != 'finished') {
+				this.process = this.direction === 'reverse' ? 0 : 1;
+			}
+			this.options.end.call(this);
+			this.pause();
+			this.playState = 'finished';
+		}
+	}
 
-        if (this.process !== to) {
-          this.playTimer = requestAnimationFrame(step);
-        }else{
-          this.count++;
-          if (this.count >= this.options.iterations) {
-            this.finish();
-          }else{
-            start = null;
-            end = null;
-            this.process = 0;
-            play(direction);
-          }
-        }
-    };
-
-    if (this.status === 'idle') { //如果当前资源状态为空闲
-      this.pend(play, this.options.delay);
-    }else if(this.status === 'running' && this.direction != direction){
-      this.direction = direction;
-      cancelAnimationFrame(this.playTimer);
-      play(this.direction);
-    }else if(this.status !== 'running'){ //如果当前不是运行状态
-      play(direction);
-    }
-    return this;
-  }
-  pause(){
-    cancelAnimationFrame(this.playTimer);
-    this.playTimer = null;
-    this.status = 'paused';
-    return this;
-  }
-  finish(){
-    cancelAnimationFrame(this.playTimer);
-    this.process = this.options.to;
-    if (this.process == 1) {
-      this.pend(() => {
-        this.status = 'finished';
-        let val = this.val(this._process);
-        this.options.end(val);
-      }, this.options.endDelay);
-    }
-  }
-  cancel(){
-    cancelAnimationFrame(this.playTimer);
-    this.process = this.options.from;
-    this.status = 'idle';
-    this.count = 0;
-  }
-  reverse(){
-    this.play('reverse');
-  }
-
-  set process(process){
-    let _process = Math.max(Math.min(process, 1), 0);
-    if (_process != this._process) {
-      this._process = Math.max(Math.min(process, 1), 0);
-      let val = this.val(this._process);
-      this.options.calc(val);
-    }
-  }
-
-  get process(){
-    return this._process;
-  }
+	get process(){
+		return this.currentTime % this.options.duration / this.options.duration;
+	}
+	set process(process){
+		process = Math.max(Math.min(process, 1), 0);
+		let value = this.getValue(process + this.options.iterationStart);
+		this.options.calc.call(this, value, process, this.currentTime);
+	}
 }

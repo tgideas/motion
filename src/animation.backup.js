@@ -3,8 +3,10 @@
 	import Timing from './util/animation/timing';
 	import Tween from './util/animation/tween';
 
+	import Tween2 from './util/animation/tween2';
+
 	class Animation extends Base{
-		constructor(dom, keyframes={}, timing={}) {
+		constructor(dom, keyframes, timing) {
 			super();
 			if (typeof timing === 'number') {
 				timing = {
@@ -15,9 +17,9 @@
 			this.keyframes = Keyframe.format(keyframes);
 			this._currentTime = null;
 			this._playTimer = null;
+			this._startTime = null;
 
-			dom.animate = null;
-			console.log(dom.animate);
+			this.status = 'idle';
 			if (dom.animate) { // if support web animate
 				this.animation = dom.animate(this.keyframes, this.timing);
 				this.animation.cancel();
@@ -28,17 +30,17 @@
 				let from = null;
 				let fromvalue = null;
 				let tweenOption = Object.assign({}, this.timing);
-				let animateObj = this;
-				tweenOption.calc = function(v, p, t) {
+				tweenOption.calc = (i) => {
+					this.trigger('playing', i);
 					let index = 0;
-					dom.style.cssText = animateObj.currentScopeTween.template.replace(/#num#/g, (item) => {
-						let curvalue = this.pointerValue(p, {
-							value : animateObj.currentScopeTween.fromvalue[index],
-							offset : animateObj.currentScopeTween.from
-						}, {
-							value : animateObj.currentScopeTween.tovalue[index],
-							offset : animateObj.currentScopeTween.to
-						});
+					dom.style.cssText = this.currentScopeTween.template.replace(/#num#/g, (item) => {
+						let tovalue = this.currentScopeTween.tovalue[index];
+						let fromvalue = this.currentScopeTween.fromvalue[index];
+						let easefrom = this.currentScopeTween.tween.easing(this.currentScopeTween.from);
+						let easeto = this.currentScopeTween.tween.easing(this.currentScopeTween.to);
+						let changevalue = (tovalue - fromvalue) / (easeto - easefrom);
+						let diffvalue = fromvalue - changevalue * this.currentScopeTween.tween.easing(this.currentScopeTween.from);
+						let curvalue = changevalue * i + diffvalue;
 						index++;
 						return curvalue;
 					});
@@ -92,19 +94,19 @@
 					}
 				};
 				//时间轴上的动画
-				this.animation = new Tween({
+				this.tween = new Tween({
 					duration: this.timing.duration,
 					iterations : this.timing.iterations,
 					delay:this.timing.delay,
 					endDelay:this.timing.endDelay,
-					direction:this.timing.direction,
-					calc : function(v, p, t) { //时间轴
-						animateObj.currentScopeTween  = getScopeTween(p);
-						animateObj.currentScopeTween.tween.currentTime = t;
-						animateObj.trigger('running', v, p, t);
+					calc : (i) => { //时间轴
+						// console.log(1-i);
+						this.currentScopeTween  = getScopeTween(i);
+						this.currentScopeTween.tween.process = i;
 					},
-					end : function(){
-						animateObj.trigger('finish', i);
+					end : ()=>{
+						console.log
+						this.trigger('finish', i);
 					}
 				});
 			}
@@ -112,43 +114,64 @@
 		}
 
 		play(){
-			this.animation.play();
+			if (this.animation) {
+				this.animation.play();
+			}else{
+				this.tween.play();
+			}
 			return this;
 		}
 		pause(){
-			this.animation.pause();
+			if (this.animation) {
+				this.animation.pause();
+			}else{
+				this.tween.pause();
+			}
 			return this;
 		}
 		finish(){
-			this.animation.finish();
+			if (this.animation) {
+				this.animation.finish();
+			}else{
+				this.tween.finish();
+			}
 			return this;
 		}
 		cancel(){
-			this.animation.cancel();
-			this.trigger('cancel', this);
+			if (this.animation) {
+				this.animation.cancel();
+			}
 			return this;
 		}
 		reverse(){
-			this.animation.reverse();
-			if (this.scopeTween) {
-				for (var i = 0; i < this.scopeTween.length; i++) {
-					this.scopeTween[i].tween.reverse();
-				}
+			if (this.animation) {
+				this.animation.reverse();
+			}else{
+				this.tween.reverse();
 			}
 			return this;
 		}
 
+		test(...args){
+			let tw = new Tween2(...args);
+			return tw;
+		}
+
 		get currentTime(){
-			this._currentTime = this.animation.currentTime;
+			if (this.animation) {
+				this._currentTime = this.animation.currentTime;
+			}else{
+				this._currentTime = this.tween.currentTime;
+			}
 			return this._currentTime;
 		}
 		set currentTime(time){
 			this._currentTime = time;
-			this.animation.currentTime = this._currentTime;
-		}
-
-		get playState(){
-			return this.animation.playState;
+			if (this.animation) {
+				this.animation.currentTime = this._currentTime;
+			}else{
+				this.tween.process = time;
+			}
 		}
 	}
 	export default {

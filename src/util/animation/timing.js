@@ -2,7 +2,7 @@
 const DEFAULTS = {
 	delay : 0,
 	direction : 'normal', //normal reverse alternate alternate-reverse
-	duration : 0,
+	duration : 1000,
 	easing : 'linear', //linear, ease, ease-in, ease-out, and ease-in-out
 	endDelay : 0,
 	fill : 'none', //none forwards backwards both

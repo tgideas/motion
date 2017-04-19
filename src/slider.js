@@ -1,8 +1,13 @@
-import Base from './core/base';
+import Tab from './tab';
 
-class Slider extends Base{
-  constructor(...args) {
-    super(...args);
+
+const DEFAULTS = {
+	target: 'body',
+	direction: 'x'
+};
+class Slider extends Tab{
+  constructor(target, options) {
+    super(target, options);
   }
   start(){}
   stop(){}
