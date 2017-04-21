@@ -61,6 +61,9 @@ export default class Cursor{
   }
 
   pointerValue(process, from, to){
+    if (process > 1) {
+      process = process - 1;
+    }
     let fromvalue = from.value;
     let tovalue = to.value;
     let fromease = this.easing(from.offset);

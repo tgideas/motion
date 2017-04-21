@@ -36,12 +36,9 @@ export default class Tween extends Cursor{
 	}
 	play(){
 		let start = privateObj.get(this)._startTimestamp;
-		console.log('start', start);
 		let step = (timestamp) => {
-			console.log(start);
 			if (start === null) privateObj.get(this)._startTimestamp = start = timestamp - this.currentTime;
 			this.timer = requestAnimationFrame(step);
-			console.log(timestamp - start);
 			this.currentTime = timestamp - start;
 		};
 		if (!this.timer) { //如果当前状态是空闲的

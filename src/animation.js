@@ -17,7 +17,6 @@
 			this._playTimer = null;
 
 			dom.animate = null;
-			console.log(dom.animate);
 			if (dom.animate) { // if support web animate
 				this.animation = dom.animate(this.keyframes, this.timing);
 				this.animation.cancel();
@@ -31,6 +30,7 @@
 				let animateObj = this;
 				tweenOption.calc = function(v, p, t) {
 					let index = 0;
+					p += tweenOption.iterationStart;
 					dom.style.cssText = animateObj.currentScopeTween.template.replace(/#num#/g, (item) => {
 						let curvalue = this.pointerValue(p, {
 							value : animateObj.currentScopeTween.fromvalue[index],
@@ -95,6 +95,7 @@
 				this.animation = new Tween({
 					duration: this.timing.duration,
 					iterations : this.timing.iterations,
+					iterationStart : this.timing.iterationStart,
 					delay:this.timing.delay,
 					endDelay:this.timing.endDelay,
 					direction:this.timing.direction,
@@ -108,7 +109,7 @@
 					}
 				});
 			}
-
+			this.currentTime = 0;
 		}
 
 		play(){
@@ -149,6 +150,10 @@
 
 		get playState(){
 			return this.animation.playState;
+		}
+
+		get direction(){
+			return this.animation.direction;
 		}
 	}
 	export default {
